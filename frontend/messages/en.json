@@ -429,5 +429,9 @@
     "stayText": "Most visits take 3 to 8 days, depending on your treatment. Once we have reviewed your case, we tell you what to expect.",
     "citiesTitle": "Antalya or Istanbul",
     "citiesText": "Implants, veneers and smile design are offered in both cities — choose the one that suits your trip."
+  },
+  "consultationPage": {
+    "title": "Free consultation",
+    "lead": "Your first consultation is free. Tell us what you need — in Persian, English, German or Turkish — and our team will contact you."
   }
 }

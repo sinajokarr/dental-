@@ -429,5 +429,9 @@
     "stayText": "Ziyaretlerin çoğu, tedaviye bağlı olarak 3 ila 8 gün sürer. Durumunuzu inceledikten sonra yaklaşık süreyi size bildiririz.",
     "citiesTitle": "Antalya veya İstanbul",
     "citiesText": "İmplant, porselen lamina ve gülüş tasarımı iki şehirde de sunulur; seyahatinize en uygun şehri seçin."
+  },
+  "consultationPage": {
+    "title": "Ücretsiz danışmanlık",
+    "lead": "İlk danışmanlığınız ücretsizdir. İhtiyacınızı Farsça, İngilizce, Almanca veya Türkçe anlatın; ekibimiz sizinle iletişime geçsin."
   }
 }
