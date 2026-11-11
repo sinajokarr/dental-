@@ -24,7 +24,7 @@
 | A04 | PostgreSQL | A03 | `infrastructure/compose.dev.yml` | PostgreSQL 18 در Docker؛ migrate موفق | `manage.py migrate` | S | ⬜ |
 | A05 | Env | A02–A04 | `.env.example` · settings | نبود env الزامی، برنامه را با پیام روشن متوقف می‌کند | اجرای بدون env | S | ⬜ |
 | A06 | Localization | A02 | `src/i18n/*` · `src/proxy.ts` · `messages/*` | ۴ زبان، pathnames، `lang` و `dir`، ریدایرکت `/`، کلید گم‌شده یعنی شکست build | Playwright با هدر Accept-Language · build با کلید ناقص | M | ⬜ |
-| A07 | Design Tokens | A02 | `styles/globals.css` | `@theme` مطابق DESIGN_SYSTEM؛ grep برای کلاس‌های فیزیکی (`ml-`، `pl-`، `left-`) | grep در اسکریپت test | S | ⬜ |
+| A07 | Design Tokens | A02 | `src/app/globals.css` | `@theme` مطابق DESIGN_SYSTEM؛ grep برای کلاس‌های فیزیکی (`ml-`، `pl-`، `left-`) | grep در اسکریپت test | S | ⬜ |
 | A08 | زیرساخت تست | A02 · A03 | `tests/` · `playwright.config.ts` · scripts | یک تست نمونه در هر لایه سبز است | `node --test` · Playwright · `manage.py test` | M | ⬜ |
 
 ## Phase B — Design System

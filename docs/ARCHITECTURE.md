@@ -84,7 +84,7 @@ jokar-dental/
 │   │   │   └── three/hero-tooth/
 │   │   ├── i18n/            # routing.ts (pathnames) · request.ts · navigation.ts
 │   │   ├── lib/             # whatsapp.ts · validate-lead.ts · countries.ts · reveal.ts · motion.ts · content-flags.ts
-│   │   ├── styles/globals.css   # Tailwind @theme = توکن‌های DESIGN_SYSTEM
+│   │   ├── app/globals.css      # Tailwind @theme = توکن‌های DESIGN_SYSTEM (مسیر پیش‌فرض create-next-app)
 │   │   └── proxy.ts         # تشخیص زبان next-intl (در Next 16 جایگزین middleware.ts)
 │   ├── messages/            # fa.json · en.json · de.json · tr.json
 │   ├── public/              # fonts/ · models/ · images/
