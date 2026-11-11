@@ -79,6 +79,34 @@
           "text": "Tedaviniz seçtiğiniz şehirde JOKAR DENTAL'de gerçekleşir."
         }
       ]
+    },
+    "faq": {
+      "eyebrow": "Sorular",
+      "title": "Sık sorulan sorular",
+      "more": "Başka bir sorunuz mu var?",
+      "whatsapp": "WhatsApp'tan sorun",
+      "items": [
+        {
+          "q": "İlk danışmanlık gerçekten ücretsiz mi?",
+          "a": "Evet. İlk danışmanlığınız ücretsizdir."
+        },
+        {
+          "q": "Hangi şehirlerde tedavi yapıyorsunuz?",
+          "a": "Antalya ve İstanbul'da. Diş implantı, porselen lamina ve gülüş tasarımı her iki şehirde de sunulur."
+        },
+        {
+          "q": "Otel ve havalimanı transferinde yardımcı oluyor musunuz?",
+          "a": "Evet. Uluslararası hastalar için otel konaklaması ve havalimanı transferini koordine ediyoruz."
+        },
+        {
+          "q": "Tercüman olacak mı?",
+          "a": "Evet. Uluslararası hastalar için tercüman mevcuttur."
+        },
+        {
+          "q": "Nasıl başlarım?",
+          "a": "Bu sayfadaki danışmanlık formunu gönderin veya bize WhatsApp'tan yazın. Ekibimiz size geri dönecektir."
+        }
+      ]
     }
   },
   "nav": {

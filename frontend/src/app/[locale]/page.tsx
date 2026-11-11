@@ -1,3 +1,4 @@
+import { Faq } from "@/components/sections/Faq";
 import { Hero } from "@/components/sections/Hero";
 import { Journey } from "@/components/sections/Journey";
 import { Treatments } from "@/components/sections/Treatments";
@@ -13,6 +14,7 @@ export default function HomePage() {
       <Treatments />
       <WhyJokar />
       <Journey />
+      <Faq />
     </>
   );
 }

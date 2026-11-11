@@ -79,6 +79,34 @@
           "text": "Ihre Behandlung findet bei JOKAR DENTAL in der Stadt Ihrer Wahl statt."
         }
       ]
+    },
+    "faq": {
+      "eyebrow": "Fragen",
+      "title": "Häufige Fragen",
+      "more": "Noch eine Frage?",
+      "whatsapp": "Fragen Sie uns per WhatsApp",
+      "items": [
+        {
+          "q": "Ist die Erstberatung wirklich kostenlos?",
+          "a": "Ja. Ihre Erstberatung ist kostenlos."
+        },
+        {
+          "q": "In welchen Städten behandeln Sie?",
+          "a": "In Antalya und Istanbul. Zahnimplantate, Veneers und Smile Design bieten wir in beiden Städten an."
+        },
+        {
+          "q": "Helfen Sie bei Hotel und Flughafentransfer?",
+          "a": "Ja. Für internationale Patienten koordinieren wir Hotelunterkunft und Flughafentransfer."
+        },
+        {
+          "q": "Gibt es einen Dolmetscher?",
+          "a": "Ja. Für internationale Patienten steht ein Dolmetscher zur Verfügung."
+        },
+        {
+          "q": "Wie fange ich an?",
+          "a": "Senden Sie das Beratungsformular auf dieser Seite oder schreiben Sie uns per WhatsApp. Unser Team meldet sich bei Ihnen."
+        }
+      ]
     }
   },
   "nav": {
