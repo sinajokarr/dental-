@@ -51,6 +51,34 @@
           "text": "Ask your questions and follow up directly with our team."
         }
       ]
+    },
+    "journey": {
+      "eyebrow": "International patients",
+      "title": "From your first message to your treatment in Türkiye",
+      "lead": "A clear path for patients travelling from abroad, with coordination at every step.",
+      "cta": "Start with a free consultation",
+      "steps": [
+        {
+          "title": "Request your free consultation",
+          "text": "Send the form or message us on WhatsApp."
+        },
+        {
+          "title": "Talk with our team",
+          "text": "We go through your request together, with interpreter support."
+        },
+        {
+          "title": "Receive your treatment package",
+          "text": "Your package brings your treatment and travel arrangements together."
+        },
+        {
+          "title": "Travel with coordination",
+          "text": "Your hotel and airport transfer are coordinated for you."
+        },
+        {
+          "title": "Treatment in Antalya or Istanbul",
+          "text": "Your treatment takes place at JOKAR DENTAL in the city you choose."
+        }
+      ]
     }
   },
   "nav": {

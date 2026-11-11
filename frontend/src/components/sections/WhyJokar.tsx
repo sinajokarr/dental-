@@ -22,7 +22,7 @@ export async function WhyJokar() {
           <ol className="divide-y divide-sky-200">
             {items.map((item, i) => (
               <li key={item.title} data-reveal="" style={{ "--i": i } as CSSProperties} className="grid grid-cols-[auto_1fr] gap-x-6 py-7 first:pt-0">
-                <span aria-hidden="true" className="font-display text-h2 font-light leading-none text-sky-400">0{i + 1}</span>
+                <span aria-hidden="true" className="font-display text-h2 font-light leading-none text-slate-500">0{i + 1}</span>
                 <div>
                   <h3 className="text-h3 font-semibold">{item.title}</h3>
                   <p className="mt-2 text-slate-600">{item.text}</p>

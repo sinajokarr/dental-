@@ -51,6 +51,34 @@
           "text": "Sorularınızı doğrudan ekibimize sorun."
         }
       ]
+    },
+    "journey": {
+      "eyebrow": "Uluslararası hastalar",
+      "title": "İlk mesajınızdan Türkiye'deki tedavinize",
+      "lead": "Yurt dışından gelen hastalar için her adımda koordinasyonla net bir süreç.",
+      "cta": "Ücretsiz danışmanlıkla başlayın",
+      "steps": [
+        {
+          "title": "Ücretsiz danışmanlık talep edin",
+          "text": "Formu gönderin veya bize WhatsApp'tan yazın."
+        },
+        {
+          "title": "Ekibimizle görüşün",
+          "text": "Talebinizi tercüman desteğiyle birlikte değerlendiriyoruz."
+        },
+        {
+          "title": "Tedavi paketinizi alın",
+          "text": "Paketiniz tedavinizi ve seyahat düzenlemelerinizi bir araya getirir."
+        },
+        {
+          "title": "Koordineli seyahat",
+          "text": "Otel ve havalimanı transferiniz sizin için koordine edilir."
+        },
+        {
+          "title": "Antalya veya İstanbul'da tedavi",
+          "text": "Tedaviniz seçtiğiniz şehirde JOKAR DENTAL'de gerçekleşir."
+        }
+      ]
     }
   },
   "nav": {

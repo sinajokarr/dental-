@@ -1,4 +1,5 @@
 import { Hero } from "@/components/sections/Hero";
+import { Journey } from "@/components/sections/Journey";
 import { Treatments } from "@/components/sections/Treatments";
 import { TrustStrip } from "@/components/sections/TrustStrip";
 import { WhyJokar } from "@/components/sections/WhyJokar";
@@ -11,6 +12,7 @@ export default function HomePage() {
       <TrustStrip />
       <Treatments />
       <WhyJokar />
+      <Journey />
     </>
   );
 }
