@@ -63,8 +63,25 @@ Prerequisites: Node.js 24+, Python 3.13, Docker.
 
 | Suite | Command | Covers |
 |---|---|---|
-| Frontend unit (`node:test`) | `cd frontend && npm test` | env fail-fast, translation parity, design tokens, RTL guard |
-| End-to-end + accessibility (Playwright, Chromium) | `cd frontend && npm run test:e2e` | locale redirects, `lang`/`dir` per locale, axe (no serious/critical), 404 |
-| Backend (Django) | `backend/.venv/bin/python backend/manage.py test` | env fail-fast, PostgreSQL 18, admin path |
+| Frontend unit (`node:test`) | `cd frontend && npm test` | env, translation parity, claims guard, tokens, RTL guard, tooth model, scan timing, form validation |
+| End-to-end + accessibility (Playwright) | `cd frontend && npm run test:e2e` | every page in 4 languages, form (against a contract mock of the lead API), motion, 3D, SEO, performance budgets, axe on every page type; a cross-browser smoke also runs in Firefox, WebKit, iPhone and Android |
+| Backend (Django) | `backend/.venv/bin/python backend/manage.py test` | lead API, validation, idempotency, throttle, admin, Telegram outbox, security |
+| Production stack | `ADMIN_PATH=… sh infrastructure/smoke.sh https://<domain>` | pages, 404, API hidden, admin, security headers |
 
-First end-to-end run: `cd frontend && npx playwright install chromium`. The backend suite needs the dev database (Setup step 2).
+First end-to-end run: `cd frontend && npx playwright install chromium firefox webkit`. The backend suite needs the dev database (Setup step 2).
+
+## Production
+
+One server with Docker; Caddy terminates HTTPS automatically (D-034). Only Caddy publishes ports; the lead API stays on the internal network (D-033).
+
+1. Point the domain's DNS (A/AAAA) to the server; open ports 80 and 443.
+2. Copy `.env.production.example` to `.env.production` and fill it (long random secrets; keep `DJANGO_ADMIN_2FA=true`).
+3. Start: `docker compose -f infrastructure/compose.prod.yml --env-file .env.production up -d --build --wait`
+4. First staff account: `docker compose -f infrastructure/compose.prod.yml --env-file .env.production exec backend python manage.py createsuperuser`, then add a TOTP device for it in the admin before 2FA is required at sign-in.
+5. Check: `ADMIN_PATH=<DJANGO_ADMIN_PATH> sh infrastructure/smoke.sh https://<domain>`
+6. Updates: `git pull`, then step 3 again.
+
+Backups: the `backup` service writes a daily `pg_dump` to `infrastructure/backups/` (14 days kept) — copy them off the server. Restore drill (run monthly):
+`docker compose … exec backup sh -c 'createdb restore_drill && pg_restore --no-owner -d restore_drill /backups/<file>.dump && psql -d restore_drill -c "select count(*) from leads_lead"; dropdb restore_drill'`
+
+Telegram notifications start once `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID` are set; check with `… exec backend python manage.py send_test_notification`.
