@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale } from "next-intl/server";
 import { preload } from "react-dom";
+import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { RevealObserver } from "@/components/motion/RevealObserver";
 import { routing } from "@/i18n/routing";
@@ -30,6 +31,7 @@ export default async function LocaleLayout({ children }: LayoutProps<"/[locale]"
           <main id="main" tabIndex={-1} className="outline-none">
             {children}
           </main>
+          <SiteFooter />
           <RevealObserver />
         </NextIntlClientProvider>
       </body>

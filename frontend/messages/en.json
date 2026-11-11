@@ -107,6 +107,22 @@
           "a": "Send the consultation form on this page or message us on WhatsApp. Our team will get back to you."
         }
       ]
+    },
+    "consultation": {
+      "eyebrow": "Free consultation",
+      "title": "Begin with a free consultation",
+      "lead": "Tell us a little about what you need. Our team will contact you through the channel you prefer.",
+      "nextTitle": "What happens next",
+      "next": [
+        "We receive your request.",
+        "Our team contacts you to understand your needs.",
+        "We plan your free consultation together."
+      ],
+      "chat": "Prefer to chat?"
+    },
+    "finale": {
+      "title": "Your new smile starts with one conversation",
+      "lead": "Free initial consultation · Antalya & Istanbul"
     }
   },
   "nav": {
@@ -126,7 +142,8 @@
     "skip": "Skip to content",
     "language": "Language",
     "main": "Main",
-    "whatsapp": "Chat on WhatsApp"
+    "whatsapp": "Chat on WhatsApp",
+    "whatsappShort": "WhatsApp"
   },
   "whatsapp": {
     "general": "Hello JOKAR DENTAL, I'd like to request a free consultation.",
@@ -135,5 +152,16 @@
     "smile_design": "Hello JOKAR DENTAL, I'd like a free consultation about smile design.",
     "international": "Hello JOKAR DENTAL, I live abroad and I'd like a free consultation.",
     "after_form": "Hello JOKAR DENTAL, I've just submitted a consultation request ({reference})."
+  },
+  "footer": {
+    "tagline": "Dental implants, veneers and smile design in Antalya & Istanbul.",
+    "treatments": "Treatments",
+    "patients": "Patients",
+    "legal": "Legal",
+    "contact": "Contact",
+    "languages": "Languages",
+    "privacy": "Privacy",
+    "kvkk": "KVKK notice",
+    "legalNotice": "Legal notice"
   }
 }

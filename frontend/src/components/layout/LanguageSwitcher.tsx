@@ -2,10 +2,8 @@
 
 import { useLocale } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
+import { LOCALE_NAMES as NAMES } from "@/i18n/locale-names";
 import { routing } from "@/i18n/routing";
-
-// Native language names, never flags (D-021). Each entry links to the same page in that language.
-const NAMES = { fa: "فارسی", en: "English", de: "Deutsch", tr: "Türkçe" } as const;
 
 export function LanguageSwitcher({ label }: { label: string }) {
   const locale = useLocale();

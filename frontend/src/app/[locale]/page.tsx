@@ -1,4 +1,6 @@
+import { Consultation } from "@/components/sections/Consultation";
 import { Faq } from "@/components/sections/Faq";
+import { Finale } from "@/components/sections/Finale";
 import { Hero } from "@/components/sections/Hero";
 import { Journey } from "@/components/sections/Journey";
 import { Treatments } from "@/components/sections/Treatments";
@@ -15,6 +17,8 @@ export default function HomePage() {
       <WhyJokar />
       <Journey />
       <Faq />
+      <Consultation />
+      <Finale />
     </>
   );
 }

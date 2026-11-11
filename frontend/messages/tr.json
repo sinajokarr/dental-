@@ -107,6 +107,22 @@
           "a": "Bu sayfadaki danışmanlık formunu gönderin veya bize WhatsApp'tan yazın. Ekibimiz size geri dönecektir."
         }
       ]
+    },
+    "consultation": {
+      "eyebrow": "Ücretsiz danışmanlık",
+      "title": "Ücretsiz bir danışmanlıkla başlayın",
+      "lead": "Bize ihtiyacınızı kısaca anlatın. Ekibimiz tercih ettiğiniz kanaldan sizinle iletişime geçecektir.",
+      "nextTitle": "Sonraki adımlar",
+      "next": [
+        "Talebinizi alırız.",
+        "Ekibimiz ihtiyaçlarınızı anlamak için sizinle iletişime geçer.",
+        "Ücretsiz danışmanlığınızı birlikte planlarız."
+      ],
+      "chat": "Yazışmayı mı tercih edersiniz?"
+    },
+    "finale": {
+      "title": "Yeni gülüşünüz tek bir konuşmayla başlar",
+      "lead": "Ücretsiz ilk danışmanlık · Antalya ve İstanbul"
     }
   },
   "nav": {
@@ -126,7 +142,8 @@
     "skip": "İçeriğe geç",
     "language": "Dil",
     "main": "Ana menü",
-    "whatsapp": "WhatsApp'tan yazın"
+    "whatsapp": "WhatsApp'tan yazın",
+    "whatsappShort": "WhatsApp"
   },
   "whatsapp": {
     "general": "Merhaba JOKAR DENTAL, ücretsiz danışmanlık almak istiyorum.",
@@ -135,5 +152,16 @@
     "smile_design": "Merhaba JOKAR DENTAL, gülüş tasarımı hakkında ücretsiz danışmanlık almak istiyorum.",
     "international": "Merhaba JOKAR DENTAL, yurt dışında yaşıyorum ve ücretsiz danışmanlık almak istiyorum.",
     "after_form": "Merhaba JOKAR DENTAL, az önce bir danışmanlık talebi gönderdim ({reference})."
+  },
+  "footer": {
+    "tagline": "Antalya ve İstanbul'da diş implantı, porselen lamina ve gülüş tasarımı.",
+    "treatments": "Tedaviler",
+    "patients": "Hastalar",
+    "legal": "Yasal",
+    "contact": "İletişim",
+    "languages": "Diller",
+    "privacy": "Gizlilik",
+    "kvkk": "KVKK aydınlatma metni",
+    "legalNotice": "Yasal bilgiler"
   }
 }

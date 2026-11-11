@@ -107,6 +107,22 @@
           "a": "Senden Sie das Beratungsformular auf dieser Seite oder schreiben Sie uns per WhatsApp. Unser Team meldet sich bei Ihnen."
         }
       ]
+    },
+    "consultation": {
+      "eyebrow": "Kostenlose Beratung",
+      "title": "Beginnen Sie mit einer kostenlosen Beratung",
+      "lead": "Erzählen Sie uns kurz, was Sie brauchen. Unser Team kontaktiert Sie auf dem Weg, den Sie bevorzugen.",
+      "nextTitle": "So geht es weiter",
+      "next": [
+        "Wir erhalten Ihre Anfrage.",
+        "Unser Team meldet sich, um Ihre Wünsche zu verstehen.",
+        "Gemeinsam planen wir Ihre kostenlose Beratung."
+      ],
+      "chat": "Lieber direkt schreiben?"
+    },
+    "finale": {
+      "title": "Ihr neues Lächeln beginnt mit einem Gespräch",
+      "lead": "Kostenlose Erstberatung · Antalya & Istanbul"
     }
   },
   "nav": {
@@ -126,7 +142,8 @@
     "skip": "Zum Inhalt springen",
     "language": "Sprache",
     "main": "Hauptmenü",
-    "whatsapp": "Per WhatsApp schreiben"
+    "whatsapp": "Per WhatsApp schreiben",
+    "whatsappShort": "WhatsApp"
   },
   "whatsapp": {
     "general": "Hallo JOKAR DENTAL, ich möchte eine kostenlose Beratung anfragen.",
@@ -135,5 +152,16 @@
     "smile_design": "Hallo JOKAR DENTAL, ich möchte eine kostenlose Beratung zum Smile Design.",
     "international": "Hallo JOKAR DENTAL, ich lebe im Ausland und möchte eine kostenlose Beratung.",
     "after_form": "Hallo JOKAR DENTAL, ich habe gerade eine Beratungsanfrage gesendet ({reference})."
+  },
+  "footer": {
+    "tagline": "Zahnimplantate, Veneers und Smile Design in Antalya & Istanbul.",
+    "treatments": "Behandlungen",
+    "patients": "Patienten",
+    "legal": "Rechtliches",
+    "contact": "Kontakt",
+    "languages": "Sprachen",
+    "privacy": "Datenschutz",
+    "kvkk": "KVKK-Hinweis",
+    "legalNotice": "Impressum"
   }
 }
