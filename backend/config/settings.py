@@ -39,6 +39,11 @@ ALLOWED_HOSTS = [host.strip() for host in env("DJANGO_ALLOWED_HOSTS").split(",")
 ADMIN_PATH = env("DJANGO_ADMIN_PATH").strip("/")
 INTERNAL_API_TOKEN = env("INTERNAL_API_TOKEN")  # shared secret: Next.js Server Action → lead API (D-033)
 
+# Telegram lead notifications (optional until the bot exists, Q5): without both, leads stay "pending".
+TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
+TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
+ADMIN_BASE_URL = os.environ.get("ADMIN_BASE_URL", "http://localhost:8000")  # for the "Open in admin" link
+
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",

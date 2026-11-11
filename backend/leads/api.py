@@ -15,6 +15,7 @@ from rest_framework.throttling import SimpleRateThrottle
 from rest_framework.views import APIView
 
 from .models import Lead
+from .notifications import notify_in_background
 
 UTM_KEYS = ("source", "medium", "campaign", "term", "content")
 
@@ -136,6 +137,7 @@ class LeadCreateView(APIView):
                     return replay
         else:
             raise IntegrityError("could not allocate a unique reference")
+        transaction.on_commit(lambda: notify_in_background(lead.pk))  # Telegram never delays the patient
         return Response({"reference": lead.reference, "created": True}, status=201)
 
     def handle_exception(self, exc):

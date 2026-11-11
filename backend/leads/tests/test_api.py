@@ -88,3 +88,12 @@ class LeadApiTests(APITestCase):
 
     def test_health_reports_the_database(self):
         self.assertEqual(self.client.get("/api/v1/health/").json(), {"status": "ok", "db": "ok"})
+
+
+@override_settings(INTERNAL_API_TOKEN=TOKEN)
+class LeadNotificationHookTests(APITestCase):
+    def test_new_lead_schedules_exactly_one_notification_after_commit(self):
+        cache.clear()
+        with self.captureOnCommitCallbacks(execute=False) as callbacks:
+            self.client.post("/api/v1/leads/", payload(), format="json", HTTP_AUTHORIZATION=f"Bearer {TOKEN}", HTTP_X_CLIENT_IP="203.0.113.50")
+        self.assertEqual(len(callbacks), 1)
