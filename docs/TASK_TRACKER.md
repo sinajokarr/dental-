@@ -31,14 +31,14 @@
 
 | ID | Task | پیش‌نیاز | فایل‌ها | خروجی و معیار پذیرش | تست | اندازه | وضعیت |
 |---|---|---|---|---|---|---|---|
-| B01 | Typography | A06 · A07 | `public/fonts` · `globals.css` · `[locale]/layout.tsx` | فونت‌ها و type scale؛ preload مخصوص هر زبان؛ fallback با `size-adjust` | Network: صفحه fa فونت display لاتین دانلود نکند · اسکرین‌شات حروف İ، ß و ğ · CLS برابر ۰ | M | ⬜ |
-| B02 | رنگ و کنتراست | A07 | `globals.css` · `tests/unit/contrast.test.ts` | توکن‌های معنایی | Unit test کنتراست همه جفت‌های متن و پس‌زمینه | S | ⬜ |
-| B03 | Glass | B02 | `ui/GlassPanel.tsx` | ۴ recipe، Porcelain Edge و fallbackها | اسکرین‌شات + شبیه‌سازی مرورگر بدون backdrop-filter | M | ⬜ |
-| B04 | Navigation | B03 · A06 | `layout/Nav*` · `LanguageSwitcher.tsx` | نسخه دسکتاپ و موبایل، dropdown، switcher که به صفحه معادل می‌رود، skip link | Playwright با keyboard + axe | L | ⬜ |
-| B05 | Buttons | B02 | `ui/Button.tsx` | Primary، WhatsApp، Tertiary و Inverted با همه states و magnetic | axe + اسکرین‌شات states | S | ⬜ |
-| B06 | Layout | A07 | `ui/Section*` · `lib/content-flags.ts` | responsive در عرض‌های 360 تا 1440؛ RTL | اسکرین‌شات fa و en | S | ⬜ |
-| B07 | Motion system | A07 | `lib/reveal.ts` · `lib/motion.ts` | `useReveal`، noscript، `dirSign`، GSAP lazy، reduced-motion | Playwright با RM و بدون JS · bundle analyzer (GSAP نباید در bundle اولیه باشد) | M | ⬜ |
-| B08 | Gallery + QA راست‌به‌چپ | B01–B07 | `app/[locale]/dev/gallery` (فقط dev) | همه کامپوننت‌ها در ۴ زبان | اسکرین‌شات → **Gate G1** | S | ⬜ |
+| B01 | Typography | A06 · A07 | `public/fonts` · `globals.css` · `[locale]/layout.tsx` | فونت‌ها و type scale؛ preload مخصوص هر زبان؛ fallback با `size-adjust` | Network: صفحه fa فونت display لاتین دانلود نکند · اسکرین‌شات حروف İ، ß و ğ · CLS برابر ۰ | M | ✅ `f808652` |
+| B02 | رنگ و کنتراست | A07 | `globals.css` · `tests/unit/contrast.test.ts` | توکن‌های معنایی | Unit test کنتراست همه جفت‌های متن و پس‌زمینه | S | ✅ `a7cbf05` |
+| B03 | Glass | B02 | `ui/GlassPanel.tsx` | ۴ recipe، Porcelain Edge و fallbackها | اسکرین‌شات + شبیه‌سازی مرورگر بدون backdrop-filter | M | ✅ `ad61a56` |
+| B04 | Navigation | B03 · A06 | `layout/Nav*` · `LanguageSwitcher.tsx` | نسخه دسکتاپ و موبایل، dropdown، switcher که به صفحه معادل می‌رود، skip link | Playwright با keyboard + axe | L | ✅ `f38a547` |
+| B05 | Buttons | B02 | `ui/Button.tsx` | Primary، WhatsApp، Tertiary و Inverted با همه states و magnetic | axe + اسکرین‌شات states | S | ✅ `9fcc3d0` |
+| B06 | Layout | A07 | `ui/Section*` · `lib/content-flags.ts` | responsive در عرض‌های 360 تا 1440؛ RTL | اسکرین‌شات fa و en | S | ✅ `c8e8897` |
+| B07 | Motion system | A07 | `lib/reveal.ts` · `lib/motion.ts` | `useReveal`، noscript، `dirSign`، GSAP lazy، reduced-motion | Playwright با RM و بدون JS · bundle analyzer (GSAP نباید در bundle اولیه باشد) | M | ✅ `50ec205` |
+| B08 | Gallery + QA راست‌به‌چپ | B01–B07 | `app/[locale]/dev/gallery` (فقط dev) | همه کامپوننت‌ها در ۴ زبان | اسکرین‌شات → **Gate G1** | S | ⏭ ادغام در G3 (ruling) |
 
 ## Phase C — Homepage
 
