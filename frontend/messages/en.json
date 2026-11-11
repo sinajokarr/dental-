@@ -1,6 +1,11 @@
 {
   "home": {
-    "placeholder": "JOKAR DENTAL — website under construction"
+    "hero": {
+      "eyebrow": "Antalya · Istanbul",
+      "title": "Your <em>signature</em> smile, crafted in Antalya & Istanbul",
+      "subtitle": "Dental implants, veneers and smile design — with a free initial consultation and full support for international patients.",
+      "cta": "Request a free consultation"
+    }
   },
   "nav": {
     "home": "JOKAR DENTAL — home",

@@ -1,6 +1,11 @@
 {
   "home": {
-    "placeholder": "JOKAR DENTAL — Web sitesi yapım aşamasında"
+    "hero": {
+      "eyebrow": "Antalya · İstanbul",
+      "title": "<em>Size özel</em> bir gülüş — Antalya ve İstanbul'da",
+      "subtitle": "Diş implantı, porselen lamina ve gülüş tasarımı — ücretsiz ilk danışmanlık ve uluslararası hastalar için tam destekle.",
+      "cta": "Ücretsiz danışmanlık talep edin"
+    }
   },
   "nav": {
     "home": "JOKAR DENTAL — ana sayfa",

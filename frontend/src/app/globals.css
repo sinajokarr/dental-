@@ -276,3 +276,35 @@ body {
     clip-path: inset(0 0 100% 0);
   }
 }
+
+/* Hero entrance (AN-04/05): words settle with opacity kept at 1 (LCP-safe, D-023); the rest rises in. */
+@keyframes settle {
+  from {
+    translate: 0 0.3em;
+    filter: blur(6px);
+  }
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    translate: 0 1rem;
+  }
+}
+.hero-word {
+  display: inline-block;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero-word {
+    animation: settle 0.8s var(--ease-out) both;
+    animation-delay: calc(var(--i, 0) * 60ms);
+  }
+  .hero-rise {
+    animation: rise 0.7s var(--ease-out) both;
+    animation-delay: var(--d, 0ms);
+  }
+}
+/* Emphasis: Cormorant italic in Latin scripts; Persian has no italic — colour instead (DESIGN_SYSTEM §2). */
+:lang(fa) em {
+  font-style: normal;
+  color: var(--color-blue-700);
+}

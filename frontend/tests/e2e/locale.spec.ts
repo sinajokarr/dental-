@@ -1,5 +1,5 @@
-import AxeBuilder from "@axe-core/playwright";
 import { expect, test } from "@playwright/test";
+import { expectNoSeriousA11yViolations } from "./a11y";
 
 const redirects: [acceptLanguage: string, target: string][] = [
   ["de-AT,de;q=0.9", "/de"],
@@ -29,8 +29,7 @@ for (const [locale, dir] of directions) {
     await page.goto(`/${locale}`);
     await expect(page.locator("html")).toHaveAttribute("lang", locale);
     await expect(page.locator("html")).toHaveAttribute("dir", dir);
-    const { violations } = await new AxeBuilder({ page }).analyze();
-    expect(violations.filter((v) => v.impact === "serious" || v.impact === "critical").map((v) => v.id)).toEqual([]);
+    await expectNoSeriousA11yViolations(page);
   });
 }
 

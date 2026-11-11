@@ -1,6 +1,11 @@
 {
   "home": {
-    "placeholder": "JOKAR DENTAL — Website im Aufbau"
+    "hero": {
+      "eyebrow": "Antalya · Istanbul",
+      "title": "Ihr <em>unverwechselbares</em> Lächeln – gestaltet in Antalya & Istanbul",
+      "subtitle": "Zahnimplantate, Veneers und Smile Design – mit kostenloser Erstberatung und umfassender Unterstützung für internationale Patienten.",
+      "cta": "Kostenlose Beratung anfragen"
+    }
   },
   "nav": {
     "home": "JOKAR DENTAL — Startseite",

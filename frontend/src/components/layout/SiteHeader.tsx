@@ -66,9 +66,11 @@ export async function SiteHeader() {
           >
             <WhatsAppIcon className="size-6" />
           </a>
-          <Link href="/free-consultation" className={`hidden lg:inline-flex ${buttonClass("primary", "sm")}`}>
-            {t("cta")}
-          </Link>
+          <div className="hidden lg:block">
+            <Link href="/free-consultation" className={buttonClass("primary", "sm")}>
+              {t("cta")}
+            </Link>
+          </div>
           <MobileMenu
             labels={{ menu: t("menu"), close: t("close"), cta: t("cta"), whatsapp: t("whatsapp") }}
             links={[...treatments.map(({ href, title }) => ({ href, title })), { href: "/international-patients", title: t("international") }]}
