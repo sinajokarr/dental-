@@ -24,6 +24,33 @@
       "implants": "A titanium post placed in the jawbone replaces the missing root and supports a new crown — a fixed solution for one or more missing teeth.",
       "veneers": "Thin, custom-made shells bonded to the front surface of the teeth to refine their shape, colour and proportions.",
       "smileDesign": "A planned approach to your smile as a whole — tooth shape, colour and balance with your face — before any treatment begins."
+    },
+    "why": {
+      "eyebrow": "Why JOKAR DENTAL",
+      "title": "Care that is planned around you",
+      "link": "How it works for international patients",
+      "items": [
+        {
+          "title": "Implants, veneers and smile design in both cities",
+          "text": "All three treatments are offered in Antalya and in Istanbul."
+        },
+        {
+          "title": "Your trip, coordinated",
+          "text": "We help arrange your hotel and airport transfer, and an interpreter is available for international patients."
+        },
+        {
+          "title": "A free first step",
+          "text": "Your initial consultation is free of charge."
+        },
+        {
+          "title": "Treatment packages",
+          "text": "Packages that bring your treatment and travel arrangements together."
+        },
+        {
+          "title": "Direct contact on WhatsApp",
+          "text": "Ask your questions and follow up directly with our team."
+        }
+      ]
     }
   },
   "nav": {

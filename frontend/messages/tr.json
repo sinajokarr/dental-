@@ -24,6 +24,33 @@
       "implants": "Çene kemiğine yerleştirilen titanyum bir vida, eksik kökün yerini alır ve yeni bir kuronu taşır — bir veya birden fazla eksik diş için sabit bir çözüm.",
       "veneers": "Dişlerin şeklini, rengini ve oranlarını düzenlemek için ön yüzeylerine yapıştırılan, kişiye özel ince kaplamalar.",
       "smileDesign": "Tedavi başlamadan önce gülüşünüzün bir bütün olarak planlanması — diş şekli, rengi ve yüzünüzle uyumu."
+    },
+    "why": {
+      "eyebrow": "Neden JOKAR DENTAL",
+      "title": "Size göre planlanan bir bakım",
+      "link": "Uluslararası hastalar için süreç",
+      "items": [
+        {
+          "title": "Her iki şehirde implant, lamina ve gülüş tasarımı",
+          "text": "Üç tedavinin tamamı hem Antalya'da hem İstanbul'da sunulur."
+        },
+        {
+          "title": "Seyahatiniz koordineli",
+          "text": "Otel ve havalimanı transferinde yardımcı oluyoruz; uluslararası hastalar için tercüman mevcuttur."
+        },
+        {
+          "title": "Ücretsiz ilk adım",
+          "text": "İlk danışmanlığınız ücretsizdir."
+        },
+        {
+          "title": "Tedavi paketleri",
+          "text": "Tedavinizi ve seyahat düzenlemelerinizi bir araya getiren paketler."
+        },
+        {
+          "title": "WhatsApp'tan doğrudan iletişim",
+          "text": "Sorularınızı doğrudan ekibimize sorun."
+        }
+      ]
     }
   },
   "nav": {

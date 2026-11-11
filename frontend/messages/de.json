@@ -24,6 +24,33 @@
       "implants": "Ein Titanstift im Kieferknochen ersetzt die fehlende Zahnwurzel und trägt eine neue Krone – eine feste Lösung für einen oder mehrere fehlende Zähne.",
       "veneers": "Dünne, individuell gefertigte Schalen, die auf die Vorderseite der Zähne geklebt werden, um Form, Farbe und Proportionen zu verfeinern.",
       "smileDesign": "Eine geplante Gestaltung Ihres Lächelns als Ganzes – Zahnform, Farbe und Harmonie mit Ihrem Gesicht – bevor eine Behandlung beginnt."
+    },
+    "why": {
+      "eyebrow": "Warum JOKAR DENTAL",
+      "title": "Versorgung, die um Sie herum geplant wird",
+      "link": "So läuft es für internationale Patienten",
+      "items": [
+        {
+          "title": "Implantate, Veneers und Smile Design in beiden Städten",
+          "text": "Alle drei Behandlungen bieten wir in Antalya und in Istanbul an."
+        },
+        {
+          "title": "Ihre Reise, koordiniert",
+          "text": "Wir helfen bei Hotel und Flughafentransfer; für internationale Patienten steht ein Dolmetscher zur Verfügung."
+        },
+        {
+          "title": "Ein kostenloser erster Schritt",
+          "text": "Ihre Erstberatung ist kostenlos."
+        },
+        {
+          "title": "Behandlungspakete",
+          "text": "Pakete, die Ihre Behandlung und die Reiseorganisation verbinden."
+        },
+        {
+          "title": "Direkter Kontakt per WhatsApp",
+          "text": "Stellen Sie Ihre Fragen direkt unserem Team."
+        }
+      ]
     }
   },
   "nav": {
