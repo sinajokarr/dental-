@@ -5,6 +5,7 @@ For local development they are read from the repository-root .env; real environm
 """
 
 import os
+from datetime import timedelta
 from pathlib import Path
 
 from django.core.exceptions import ImproperlyConfigured
@@ -37,6 +38,10 @@ SECRET_KEY = env("DJANGO_SECRET_KEY")
 DEBUG = env("DJANGO_DEBUG", "false").lower() == "true"
 ALLOWED_HOSTS = [host.strip() for host in env("DJANGO_ALLOWED_HOSTS").split(",") if host.strip()]
 ADMIN_PATH = env("DJANGO_ADMIN_PATH").strip("/")
+if ADMIN_PATH in ("", "admin"):
+    raise ImproperlyConfigured("DJANGO_ADMIN_PATH must be a non-default, non-empty path (D-044)")
+# Staff sign in with a TOTP device (django-otp). Default ON; set DJANGO_ADMIN_2FA=false only for local development.
+ADMIN_REQUIRE_2FA = os.environ.get("DJANGO_ADMIN_2FA", "true").lower() != "false"
 INTERNAL_API_TOKEN = env("INTERNAL_API_TOKEN")  # shared secret: Next.js Server Action → lead API (D-033)
 
 # Telegram lead notifications (optional until the bot exists, Q5): without both, leads stay "pending".
@@ -51,6 +56,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django_otp",
+    "django_otp.plugins.otp_totp",
+    "django_otp.plugins.otp_static",
+    "axes",
     "rest_framework",
     "leads",
 ]
@@ -61,8 +70,10 @@ MIDDLEWARE = [
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django_otp.middleware.OTPMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "axes.middleware.AxesMiddleware",  # must stay last
 ]
 
 ROOT_URLCONF = "config.urls"
@@ -101,6 +112,27 @@ AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
 ]
+
+# Brute-force protection (django-axes): 5 failures per username + IP → locked for 30 minutes.
+AUTHENTICATION_BACKENDS = ["axes.backends.AxesStandaloneBackend", "django.contrib.auth.backends.ModelBackend"]
+AXES_FAILURE_LIMIT = 5
+AXES_COOLOFF_TIME = timedelta(minutes=30)
+AXES_LOCKOUT_PARAMETERS = [["username", "ip_address"]]
+AXES_RESET_ON_SUCCESS = True
+AXES_IPWARE_PROXY_COUNT = 1  # behind Caddy: the client IP is the first X-Forwarded-For entry
+AXES_IPWARE_META_PRECEDENCE_ORDER = ["HTTP_X_FORWARDED_FOR", "REMOTE_ADDR"]
+
+SESSION_COOKIE_AGE = 8 * 3600  # staff sessions end after a working day
+X_FRAME_OPTIONS = "DENY"
+CSRF_TRUSTED_ORIGINS = [o.strip() for o in os.environ.get("DJANGO_CSRF_TRUSTED_ORIGINS", "").split(",") if o.strip()]
+if not DEBUG:
+    SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+    SECURE_SSL_REDIRECT = True
+    SECURE_REDIRECT_EXEMPT = [r"^api/"]  # the internal API is reached over the private network (D-033)
+    SESSION_COOKIE_SECURE = CSRF_COOKIE_SECURE = True
+    SECURE_HSTS_SECONDS = 31_536_000
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_PRELOAD = True
 
 LANGUAGE_CODE = "en-us"
 TIME_ZONE = "Europe/Istanbul"

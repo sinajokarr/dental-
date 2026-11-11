@@ -42,6 +42,14 @@ Prerequisites: Node.js 24+, Python 3.13, Docker.
    backend/.venv/bin/python backend/manage.py createcachetable   # rate-limit cache (no Redis)
    ```
 
+   Staff accounts: `backend/.venv/bin/python backend/manage.py createsuperuser`; roles are the groups **Clinic Admin** and **Coordinator**.
+   Outside local development the admin requires two-factor sign-in (`DJANGO_ADMIN_2FA=true`): issue a one-time code with
+   `manage.py addstatictoken <username>`, sign in, then add a TOTP device under *Admin › TOTP devices* and scan its QR code.
+   Five failed sign-ins lock the username + IP for 30 minutes.
+
+   Telegram lead notifications (optional until the bot exists): set `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID`, check with
+   `manage.py send_test_notification`; retries run with `manage.py deliver_pending_notifications` (every minute in production).
+
 4. **Frontend**:
 
    ```bash
