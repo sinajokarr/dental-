@@ -59,14 +59,14 @@
 
 | ID | Task | پیش‌نیاز | فایل‌ها | خروجی و معیار پذیرش | تست | اندازه | وضعیت |
 |---|---|---|---|---|---|---|---|
-| D01 | Database Schema | A04 | migrations | ERD نهایی و ایندکس‌ها | migration روی PostgreSQL | S | ⬜ |
-| D02 | Lead Models | D01 | `leads/models.py` | Lead، LeadActivity، تولید reference یکتا | Django tests | S | ⬜ |
-| D03 | Lead API | D02 | `leads/api.py` · `config/urls.py` | `POST /leads/` و `/health/` طبق API_SPEC | `APITestCase` برای همه کدهای وضعیت | M | ⬜ |
-| D04 | Validation | D03 | `leads/api.py` | phonenumbers، enumها، رضایت، ایمیل شرطی، idempotency و throttle | ماتریس جدولی + تست هم‌زمانی | M | ⬜ |
-| D05 | Django Admin | D02 | `leads/admin.py` | ستون‌ها، فیلترها، جست‌وجو، actions، یادداشت‌ها، تماس سریع و ثبت activity | تست‌های admin client | M | ⬜ |
-| D06 | Telegram | D03 | `leads/notifications.py` · commands · worker | outbox، retry، تصاحب اتمیک، redaction توکن | تست با mock؛ **تست واقعی NOT RUN تا Q5** | M | 🔒 Q5 (فقط تست واقعی) |
-| D07 | Permissions و امنیت | D05 | settings · admin | گروه‌ها، 2FA، axes، مسیر Admin، کوکی‌ها؛ `check --deploy` تمیز | tests + ورود دستی | M | ⬜ |
-| D08 | مجموعه تست API و Admin | D03–D07 | `leads/tests/` | همه تست‌ها سبز | `manage.py test` | S | ⬜ |
+| D01 | Database Schema | A04 | migrations | ERD نهایی و ایندکس‌ها | migration روی PostgreSQL | S | ✅ `4f7590f` |
+| D02 | Lead Models | D01 | `leads/models.py` | Lead، LeadActivity، تولید reference یکتا | Django tests | S | ✅ `4f7590f` |
+| D03 | Lead API | D02 | `leads/api.py` · `config/urls.py` | `POST /leads/` و `/health/` طبق API_SPEC | `APITestCase` برای همه کدهای وضعیت | M | ✅ `e5e625e` |
+| D04 | Validation | D03 | `leads/api.py` | phonenumbers، enumها، رضایت، ایمیل شرطی، idempotency و throttle | ماتریس جدولی + تست هم‌زمانی | M | ✅ `e5e625e` |
+| D05 | Django Admin | D02 | `leads/admin.py` | ستون‌ها، فیلترها، جست‌وجو، actions، یادداشت‌ها، تماس سریع و ثبت activity | تست‌های admin client | M | ✅ `469ff05` |
+| D06 | Telegram | D03 | `leads/notifications.py` · commands · worker | outbox، retry، تصاحب اتمیک، redaction توکن | تست با mock؛ **تست واقعی NOT RUN تا Q5** | M | ✅ `85dc434` (تست واقعی NOT RUN — منتظر Q5) |
+| D07 | Permissions و امنیت | D05 | settings · admin | گروه‌ها، 2FA، axes، مسیر Admin، کوکی‌ها؛ `check --deploy` تمیز | tests + ورود دستی | M | ✅ `583a6e3` |
+| D08 | مجموعه تست API و Admin | D03–D07 | `leads/tests/` | همه تست‌ها سبز | `manage.py test` | S | ✅ `583a6e3` |
 
 ## Phase E — Conversion
 
