@@ -33,6 +33,36 @@ test("hero tooth stays inside the 3D budget (3D_HERO_MASTER_PLAN §11)", () => {
   assert.ok(wire <= 150 * 1024, `${Math.round(wire / 1024)} KB compressed > 150 KB`);
 });
 
+test("hero tooth v2 carries enough detail for the anatomy (D-064)", () => {
+  assert.ok(tooth.indices.length / 3 >= 18_000, `${tooth.indices.length / 3} triangles < 18k`);
+});
+
+// Vertices in normalized model space: every axis spans [-1, 1] over the bounding box (x mesiodistal,
+// y occlusal ↑, z buccolingual).
+const vertices = Array.from({ length: tooth.positions.length / 3 }, (_, v) =>
+  [0, 1, 2].map((a) => tooth.positions[v * 3 + a] / 32767),
+);
+const band = (lo: number, hi: number) => vertices.filter(([, y]) => y >= lo && y < hi);
+const extent = (vs: number[][], axis: number) => Math.max(...vs.map((v) => Math.abs(v[axis])));
+
+test("anatomy: two separate roots in the apical third", () => {
+  const apical = band(-0.85, -0.6);
+  assert.ok(apical.some(([x]) => x < -0.15) && apical.some(([x]) => x > 0.15), "a root on each side");
+  assert.ok(apical.every(([x]) => Math.abs(x) > 0.1), "no tissue between the roots");
+});
+
+test("anatomy: the crown narrows to a cervical neck", () => {
+  const crownWidth = extent(band(0.45, 0.6), 0); // height of contour
+  const neckWidth = extent(band(0.1, 0.18), 0); // cemento-enamel junction
+  assert.ok(neckWidth < crownWidth * 0.85, `neck ${neckWidth.toFixed(2)} vs crown ${crownWidth.toFixed(2)}`);
+});
+
+test("anatomy: cusps rise above a central fossa", () => {
+  const top = Math.max(...vertices.map(([, y]) => y));
+  const centre = Math.max(...vertices.filter(([x, , z]) => Math.abs(x) < 0.1 && Math.abs(z) < 0.1).map(([, y]) => y));
+  assert.ok(top - centre > 0.06, `fossa depth ${(top - centre).toFixed(3)}`);
+});
+
 test("hero tooth is a tall, upright molar with valid indices", () => {
   const [w, h, d] = [0, 1, 2].map((i) => tooth.max[i] - tooth.min[i]);
   assert.ok(h > w && h > d, `height ${h.toFixed(2)} should exceed width ${w.toFixed(2)} and depth ${d.toFixed(2)}`);
