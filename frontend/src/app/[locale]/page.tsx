@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getLocale, getTranslations } from "next-intl/server";
 import { LeadForm } from "@/components/forms/LeadForm";
+import { Cities } from "@/components/sections/Cities";
 import { Consultation } from "@/components/sections/Consultation";
 import { Faq } from "@/components/sections/Faq";
 import { Finale } from "@/components/sections/Finale";
@@ -42,6 +43,7 @@ export default function HomePage() {
       <TrustStrip />
       <Treatments />
       <WhyJokar />
+      <Cities />
       <Journey />
       <Faq />
       <Consultation form={<LeadForm />} />

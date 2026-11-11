@@ -598,5 +598,17 @@
   },
   "meta": {
     "homeTitle": "JOKAR DENTAL — Antalya ve İstanbul'da diş implantı, porselen lamina ve gülüş tasarımı"
+  },
+  "cities": {
+    "eyebrow": "İki şehir",
+    "treatments": "İmplant, porselen lamina ve gülüş tasarımı",
+    "antalya": {
+      "name": "Antalya",
+      "alt": "Antalya'nın tarihi limanı; eski şehrin altında tekneler"
+    },
+    "istanbul": {
+      "name": "İstanbul",
+      "alt": "Akşam saatlerinde Boğaz'ın üzerinde camileriyle İstanbul silueti"
+    }
   }
 }

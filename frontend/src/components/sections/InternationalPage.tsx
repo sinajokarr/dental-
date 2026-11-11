@@ -6,6 +6,7 @@ import { Section, SectionHeader } from "@/components/ui/Section";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { Link } from "@/i18n/navigation";
 import { waLink } from "@/lib/whatsapp";
+import { Cities } from "./Cities";
 import { Consultation } from "./Consultation";
 import { Faq } from "./Faq";
 import { Journey } from "./Journey";
@@ -91,20 +92,16 @@ export async function InternationalPage() {
 
       <Journey />
 
-      <Section tone="ice" labelledBy="stay-title">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">
-          <div data-reveal="">
-            <h2 id="stay-title" className="font-display text-h2 font-light text-balance">
-              {t("stayTitle")}
-            </h2>
-            <p className="mt-5 text-lead text-slate-600">{t("stayText")}</p>
-          </div>
-          <div data-reveal="" style={{ "--i": 1 } as CSSProperties}>
-            <h2 className="font-display text-h2 font-light text-balance">{t("citiesTitle")}</h2>
-            <p className="mt-5 text-lead text-slate-600">{t("citiesText")}</p>
-          </div>
+      <Section labelledBy="stay-title">
+        <div data-reveal="" className="max-w-3xl">
+          <h2 id="stay-title" className="font-display text-h2 font-light text-balance">
+            {t("stayTitle")}
+          </h2>
+          <p className="mt-5 text-lead text-slate-600">{t("stayText")}</p>
         </div>
       </Section>
+
+      <Cities />
 
       <Faq items={faq} whatsappContext="international" />
       <Consultation form={<LeadForm />} whatsappContext="international" />

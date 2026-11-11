@@ -598,5 +598,17 @@
   },
   "meta": {
     "homeTitle": "JOKAR DENTAL — Dental implants, veneers and smile design in Antalya & Istanbul"
+  },
+  "cities": {
+    "eyebrow": "Two cities",
+    "treatments": "Implants, veneers and smile design",
+    "antalya": {
+      "name": "Antalya",
+      "alt": "The old harbour of Antalya, with boats below the old town"
+    },
+    "istanbul": {
+      "name": "Istanbul",
+      "alt": "Istanbul's skyline with mosques above the Bosphorus at dusk"
+    }
   }
 }

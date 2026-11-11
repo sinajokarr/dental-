@@ -478,6 +478,22 @@ body {
   }
 }
 
+/* City photos settle from a slight zoom as their card scrolls in (D-063); still with reduced motion. */
+@keyframes city-settle {
+  from {
+    scale: 1.12;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .city-photo {
+      animation: city-settle linear both;
+      animation-timeline: --city;
+      animation-range: entry 0% cover 55%;
+    }
+  }
+}
+
 /* Hero entrance (AN-04/05): words settle with opacity kept at 1 (LCP-safe, D-023); the rest rises in. */
 @keyframes settle {
   from {

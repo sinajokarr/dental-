@@ -598,5 +598,17 @@
   },
   "meta": {
     "homeTitle": "JOKAR DENTAL — Zahnimplantate, Veneers und Smile Design in Antalya & Istanbul"
+  },
+  "cities": {
+    "eyebrow": "Zwei Städte",
+    "treatments": "Implantate, Veneers und Smile Design",
+    "antalya": {
+      "name": "Antalya",
+      "alt": "Der alte Hafen von Antalya mit Booten unterhalb der Altstadt"
+    },
+    "istanbul": {
+      "name": "Istanbul",
+      "alt": "Istanbuls Skyline mit Moscheen über dem Bosporus in der Abenddämmerung"
+    }
   }
 }

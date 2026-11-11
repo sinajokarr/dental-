@@ -14,7 +14,7 @@
 | Telegram | Q5 bot token | Mocked tests; real smoke test NOT RUN | — |
 | Deployment (H07) | domain + host (Q6) | Production stack built and smoke-tested locally | Real deploy |
 | Devices / screen readers | physical devices | Playwright WebKit/Firefox/mobile emulation; manual SR NOT RUN | Manual pass |
-| Photos | stock selection | None in the build (brand visuals only) | Licensed photos |
+| Photos | ~~stock selection~~ done (D-072) | Two licensed city photos (Antalya, Istanbul) | Real clinic photos when available |
 | About page | ~~Q10~~ answered (D-062) | Our copy from verified facts, published | — |
 
 ## Tasks
