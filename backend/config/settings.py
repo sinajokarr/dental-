@@ -37,6 +37,7 @@ SECRET_KEY = env("DJANGO_SECRET_KEY")
 DEBUG = env("DJANGO_DEBUG", "false").lower() == "true"
 ALLOWED_HOSTS = [host.strip() for host in env("DJANGO_ALLOWED_HOSTS").split(",") if host.strip()]
 ADMIN_PATH = env("DJANGO_ADMIN_PATH").strip("/")
+INTERNAL_API_TOKEN = env("INTERNAL_API_TOKEN")  # shared secret: Next.js Server Action → lead API (D-033)
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -105,3 +106,15 @@ STATIC_URL = "/django-static/"  # avoids any clash with Next.js /_next/static (A
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# Database-backed cache: enough for the lead throttle, no Redis (D-032). Create with: manage.py createcachetable
+CACHES = {"default": {"BACKEND": "django.core.cache.backends.db.DatabaseCache", "LOCATION": "cache"}}
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [],
+    "DEFAULT_PERMISSION_CLASSES": [],
+    "UNAUTHENTICATED_USER": None,
+    "DEFAULT_RENDERER_CLASSES": ["rest_framework.renderers.JSONRenderer"],
+    "DEFAULT_PARSER_CLASSES": ["rest_framework.parsers.JSONParser"],
+    "DEFAULT_THROTTLE_RATES": {"lead_hour": "10/hour", "lead_day": "30/day"},  # D-047: CGNAT-tolerant
+}

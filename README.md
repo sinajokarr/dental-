@@ -39,6 +39,7 @@ Prerequisites: Node.js 24+, Python 3.13, Docker.
    python3 -m venv backend/.venv
    backend/.venv/bin/pip install -r backend/requirements.txt
    backend/.venv/bin/python backend/manage.py migrate
+   backend/.venv/bin/python backend/manage.py createcachetable   # rate-limit cache (no Redis)
    ```
 
 4. **Frontend**:
