@@ -44,16 +44,16 @@
 
 | ID | Task | پیش‌نیاز | فایل‌ها | خروجی و معیار پذیرش | تست | اندازه | وضعیت |
 |---|---|---|---|---|---|---|---|
-| C01 | Hero (HTML) | B | `sections/Hero.tsx` | متن و CTA سمت سرور، AN-04 تا AN-06، کادر poster | Lighthouse ×5 (LCP Lab ≤ 2.5s) · Playwright بدون JS · viewport 390×844 | M | ⬜ |
-| C02 | مدل و صحنه سه‌بعدی | C01 · **DP1** | `three/hero-tooth/*` · `public/models` · `public/images/hero` | خرید مدل؛ Blender (نصب یا آرتیست)؛ GLB ≤ 150KB؛ متریال دو Tier؛ Lightformer؛ pipeline ساخت poster؛ renderهای برند؛ **DP2** | `gltf-transform inspect` · `renderer.info` · visual diff بین poster و فریم اول | L | 🔒 DP1 |
-| C03 | ورود سینمایی و تعامل | C02 | همان | Tierها، lazy-load، `compileAsync`، AN-07 تا AN-09، حرکت خودکار ≤ 5s، fallback برای context loss | طبق 3D plan §۱۲ روی دستگاه واقعی → **Gate G3** | L | ⬜ |
-| C04 | Trust + Treatments | B · C02 | `sections/TrustStrip.tsx` · `Treatments.tsx` | فقط ادعاهای تأییدشده؛ هر کارت یک لینک | axe · keyboard · اسکرین‌شات | M | ⬜ |
-| C05 | Why Jokar | B | `sections/WhyJokar.tsx` | هر ادعا به Brief قابل ردیابی است | بازبینی محتوا | S | ⬜ |
-| C06 | مسیر International | B07 | `sections/Journey.tsx` | Navy، ۵ مرحله، AN-16 و AN-17 | Performance trace · RM · RTL | M | ⬜ |
-| C07 | FAQ | B | `sections/Faq.tsx` | `<details name>`؛ فقط سؤالاتی که پاسخ تأییدشده دارند | keyboard · axe | S | ⬜ |
-| C08 | پوسته بخش مشاوره | B | `sections/Consultation.tsx` | چیدمان + «What happens next» + WhatsApp | اسکرین‌شات | S | ⬜ |
-| C09 | Finale + Footer + Sticky | B04 · B05 | `sections/Finale.tsx` · `layout/Footer.tsx` · `StickyCta.tsx` | Sticky کنار فرم یا هنگام باز بودن کیبورد پنهان می‌شود؛ WCAG 2.4.11 | Playwright موبایل | M | ⬜ |
-| C10 | سکشن‌های مخفی | B06 | `sections/Team.tsx` · `Technology.tsx` · `Stories.tsx` | flag خاموش یعنی هیچ DOM | اسکرین‌شات با flag روشن و خاموش | S | ⬜ |
+| C01 | Hero (HTML) | B | `sections/Hero.tsx` | متن و CTA سمت سرور، AN-04 تا AN-06، کادر poster | Lighthouse ×5 (LCP Lab ≤ 2.5s) · Playwright بدون JS · viewport 390×844 | M | ✅ `2b3ba01` |
+| C02 | مدل و صحنه سه‌بعدی | C01 · **DP1** | `three/hero-tooth/*` · `public/models` · `public/images/hero` | خرید مدل؛ Blender (نصب یا آرتیست)؛ GLB ≤ 150KB؛ متریال دو Tier؛ Lightformer؛ pipeline ساخت poster؛ renderهای برند؛ **DP2** | `gltf-transform inspect` · `renderer.info` · visual diff بین poster و فریم اول | L | ✅ `6701a91` |
+| C03 | ورود سینمایی و تعامل | C02 | همان | Tierها، lazy-load، `compileAsync`، AN-07 تا AN-09، حرکت خودکار ≤ 5s، fallback برای context loss | طبق 3D plan §۱۲ روی دستگاه واقعی → **Gate G3** | L | ✅ `e07bb73` |
+| C04 | Trust + Treatments | B · C02 | `sections/TrustStrip.tsx` · `Treatments.tsx` | فقط ادعاهای تأییدشده؛ هر کارت یک لینک | axe · keyboard · اسکرین‌شات | M | ✅ `9052b54` |
+| C05 | Why Jokar | B | `sections/WhyJokar.tsx` | هر ادعا به Brief قابل ردیابی است | بازبینی محتوا | S | ✅ `c92788e` |
+| C06 | مسیر International | B07 | `sections/Journey.tsx` | Navy، ۵ مرحله، AN-16 و AN-17 | Performance trace · RM · RTL | M | ✅ `4e78ffa` |
+| C07 | FAQ | B | `sections/Faq.tsx` | `<details name>`؛ فقط سؤالاتی که پاسخ تأییدشده دارند | keyboard · axe | S | ✅ `c402e6f` |
+| C08 | پوسته بخش مشاوره | B | `sections/Consultation.tsx` | چیدمان + «What happens next» + WhatsApp | اسکرین‌شات | S | ✅ `83041bb` |
+| C09 | Finale + Footer + Sticky | B04 · B05 | `sections/Finale.tsx` · `layout/Footer.tsx` · `StickyCta.tsx` | Sticky کنار فرم یا هنگام باز بودن کیبورد پنهان می‌شود؛ WCAG 2.4.11 | Playwright موبایل | M | ✅ `83041bb` |
+| C10 | سکشن‌های مخفی | B06 | `sections/Team.tsx` · `Technology.tsx` · `Stories.tsx` | flag خاموش یعنی هیچ DOM | اسکرین‌شات با flag روشن و خاموش | S | ⏭ منتظر محتوا (Q2/Q3/Q4) |
 
 ## Phase D — Backend
 
