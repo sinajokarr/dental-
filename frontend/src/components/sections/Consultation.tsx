@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import { buttonClass } from "@/components/ui/button";
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
-import { waLink } from "@/lib/whatsapp";
+import { formatPhone, telLink, waLink } from "@/lib/whatsapp";
 
 // HOMEPAGE_UX_SPEC S10 — target of every in-page "free consultation" CTA. The form slots in as `form`.
 export async function Consultation({ form, whatsappContext = "general" }: { form?: ReactNode; whatsappContext?: "general" | "implants" | "veneers" | "smile_design" | "international" }) {
@@ -30,10 +30,18 @@ export async function Consultation({ form, whatsappContext = "general" }: { form
             ))}
           </ol>
           <p className="mt-10 text-slate-600">{t("chat")}</p>
-          <a href={whatsapp} target="_blank" rel="noopener" className={`mt-3 ${buttonClass("whatsapp", "md")}`}>
-            <WhatsAppIcon className="size-5 text-[#128C4A]" />
-            {nav("whatsapp")}
-          </a>
+          <div className="mt-3 flex flex-wrap items-center gap-x-6 gap-y-3">
+            <a href={whatsapp} target="_blank" rel="noopener" className={buttonClass("whatsapp", "md")}>
+              <WhatsAppIcon className="size-5 text-[#128C4A]" />
+              {nav("whatsapp")}
+            </a>
+            <p className="text-slate-600">
+              {t("call")}{" "}
+              <a href={telLink()} className="inline-flex min-h-11 items-center font-semibold text-blue-700 underline-offset-4 hover:underline">
+                <bdi dir="ltr">{formatPhone()}</bdi>
+              </a>
+            </p>
+          </div>
         </div>
         {form}
       </div>

@@ -11,9 +11,9 @@
       "items": [
         "Ücretsiz ilk danışmanlık",
         "Antalya ve İstanbul",
-        "Otel ve havalimanı transferi",
-        "Tercüman desteği",
-        "Tedavi paketleri"
+        "Kendi dilinizde",
+        "Seyahat öncesi online değerlendirme",
+        "Otel, transfer ve tercüman"
       ]
     },
     "treatments": {
@@ -31,24 +31,28 @@
       "link": "Uluslararası hastalar için süreç",
       "items": [
         {
-          "title": "Her iki şehirde implant, lamina ve gülüş tasarımı",
-          "text": "Üç tedavinin tamamı hem Antalya'da hem İstanbul'da sunulur."
+          "title": "Üç tedavi de iki şehirde",
+          "text": "İmplant, porselen lamina ve gülüş tasarımı hem Antalya'da hem İstanbul'da sunulur."
         },
         {
-          "title": "Seyahatiniz koordineli",
-          "text": "Otel ve havalimanı transferinde yardımcı oluyoruz; uluslararası hastalar için tercüman mevcuttur."
+          "title": "Sizin dilinizi konuşuyoruz",
+          "text": "Bizimle Farsça, İngilizce, Almanca veya Türkçe görüşün; WhatsApp'tan ya da telefonla."
         },
         {
-          "title": "Ücretsiz ilk adım",
-          "text": "İlk danışmanlığınız ücretsizdir."
+          "title": "Seyahat öncesi değerlendirme",
+          "text": "Fotoğraflarınızı veya röntgenlerinizi WhatsApp'tan gönderin; seyahatinizi planlamadan önce online olarak inceleyelim."
+        },
+        {
+          "title": "Seyahatiniz, koordineli",
+          "text": "Otel, havalimanı transferi ve tercüman sizinle birlikte planlanır. Ziyaretlerin çoğu, tedaviye bağlı olarak 3 ila 8 gün sürer."
+        },
+        {
+          "title": "Tedavi sonrası takip",
+          "text": "Tedaviniz bittikten sonra da sizinle iletişimde kalırız. Tedavilerimiz garantilidir; garanti koşulları tedaviye göre değişir ve danışmanlıkta açıklanır."
         },
         {
           "title": "Tedavi paketleri",
           "text": "Tedavinizi ve seyahat düzenlemelerinizi bir araya getiren paketler."
-        },
-        {
-          "title": "WhatsApp'tan doğrudan iletişim",
-          "text": "Sorularınızı doğrudan ekibimize sorun."
         }
       ]
     },
@@ -60,11 +64,11 @@
       "steps": [
         {
           "title": "Ücretsiz danışmanlık talep edin",
-          "text": "Formu gönderin veya bize WhatsApp'tan yazın."
+          "text": "Formu gönderin veya bize WhatsApp'tan kendi dilinizde yazın."
         },
         {
-          "title": "Ekibimizle görüşün",
-          "text": "Talebinizi tercüman desteğiyle birlikte değerlendiriyoruz."
+          "title": "Online değerlendirme",
+          "text": "Fotoğraflarınızı veya röntgenlerinizi WhatsApp'tan gönderin; inceleyip seçeneklerinizi sizinle konuşalım."
         },
         {
           "title": "Tedavi paketinizi alın",
@@ -72,11 +76,11 @@
         },
         {
           "title": "Koordineli seyahat",
-          "text": "Otel ve havalimanı transferiniz sizin için koordine edilir."
+          "text": "Otel, havalimanı transferi ve tercüman sizin için ayarlanır. Ziyaretlerin çoğu, tedaviye bağlı olarak 3 ila 8 gün sürer."
         },
         {
-          "title": "Antalya veya İstanbul'da tedavi",
-          "text": "Tedaviniz seçtiğiniz şehirde JOKAR DENTAL'de gerçekleşir."
+          "title": "Tedavi ve takip",
+          "text": "Tedaviniz Antalya veya İstanbul'daki JOKAR DENTAL'de yapılır; sonrasında da sizi takip ederiz."
         }
       ]
     },
@@ -95,12 +99,28 @@
           "a": "Antalya ve İstanbul'da. Diş implantı, porselen lamina ve gülüş tasarımı her iki şehirde de sunulur."
         },
         {
+          "q": "Hangi dilleri konuşuyorsunuz?",
+          "a": "Her hastayla kendi dilinde konuşuyoruz. Bize Farsça, İngilizce, Almanca veya Türkçe ulaşabilirsiniz."
+        },
+        {
+          "q": "Seyahatten önce durumumu değerlendirebilir misiniz?",
+          "a": "Evet. Fotoğraflarınızı veya röntgenlerinizi WhatsApp'tan gönderin; seyahatinizi planlamadan önce online olarak inceleyelim. Kesin tedavi planını diş hekimi yüz yüze muayenede onaylar."
+        },
+        {
+          "q": "Ne kadar kalmam gerekir?",
+          "a": "Ziyaretlerin çoğu, tedaviye bağlı olarak 3 ila 8 gün sürer. Durumunuzu inceledikten sonra yaklaşık süreyi size bildiririz."
+        },
+        {
           "q": "Otel ve havalimanı transferinde yardımcı oluyor musunuz?",
           "a": "Evet. Uluslararası hastalar için otel konaklaması ve havalimanı transferini koordine ediyoruz."
         },
         {
           "q": "Tercüman olacak mı?",
           "a": "Evet. Uluslararası hastalar için tercüman mevcuttur."
+        },
+        {
+          "q": "Tedavi sonrası takip ve garanti var mı?",
+          "a": "Evet. Tedaviden sonra sizi takip ederiz ve tedavilerimiz garantilidir. Garanti koşulları tedaviye göre değişir ve danışmanlıkta açıklanır."
         },
         {
           "q": "Nasıl başlarım?",
@@ -118,7 +138,8 @@
         "Ekibimiz ihtiyaçlarınızı anlamak için sizinle iletişime geçer.",
         "Ücretsiz danışmanlığınızı birlikte planlarız."
       ],
-      "chat": "Yazışmayı mı tercih edersiniz?"
+      "chat": "Yazışmayı mı tercih edersiniz?",
+      "call": "Ya da bizi arayın"
     },
     "finale": {
       "title": "Yeni gülüşünüz tek bir konuşmayla başlar",

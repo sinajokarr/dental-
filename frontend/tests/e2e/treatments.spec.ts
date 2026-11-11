@@ -8,9 +8,9 @@ test("trust strip lists only the five verified facts", async ({ page }) => {
   await expect(items).toHaveText([
     "Free initial consultation",
     "Antalya & Istanbul",
-    "Hotel & airport transfer",
-    "Interpreter support",
-    "Treatment packages",
+    "In your language",
+    "Online assessment before you travel",
+    "Hotel, transfer & interpreter",
   ]);
 });
 

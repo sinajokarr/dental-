@@ -11,9 +11,9 @@
       "items": [
         "Free initial consultation",
         "Antalya & Istanbul",
-        "Hotel & airport transfer",
-        "Interpreter support",
-        "Treatment packages"
+        "In your language",
+        "Online assessment before you travel",
+        "Hotel, transfer & interpreter"
       ]
     },
     "treatments": {
@@ -31,24 +31,28 @@
       "link": "How it works for international patients",
       "items": [
         {
-          "title": "Implants, veneers and smile design in both cities",
-          "text": "All three treatments are offered in Antalya and in Istanbul."
+          "title": "All three treatments, in both cities",
+          "text": "Implants, veneers and smile design are offered in Antalya and in Istanbul."
+        },
+        {
+          "title": "We speak your language",
+          "text": "Talk with us in Persian, English, German or Turkish — on WhatsApp or by phone."
+        },
+        {
+          "title": "Assessment before you travel",
+          "text": "Send photos or X-rays on WhatsApp and we review them online before you plan your trip."
         },
         {
           "title": "Your trip, coordinated",
-          "text": "We help arrange your hotel and airport transfer, and an interpreter is available for international patients."
+          "text": "Hotel, airport transfer and an interpreter, arranged with you. Most visits take 3 to 8 days, depending on your treatment."
         },
         {
-          "title": "A free first step",
-          "text": "Your initial consultation is free of charge."
+          "title": "Follow-up after treatment",
+          "text": "We stay in touch after your treatment. A guarantee applies; its terms depend on the treatment and are explained in your consultation."
         },
         {
           "title": "Treatment packages",
           "text": "Packages that bring your treatment and travel arrangements together."
-        },
-        {
-          "title": "Direct contact on WhatsApp",
-          "text": "Ask your questions and follow up directly with our team."
         }
       ]
     },
@@ -60,11 +64,11 @@
       "steps": [
         {
           "title": "Request your free consultation",
-          "text": "Send the form or message us on WhatsApp."
+          "text": "Send the form or message us on WhatsApp — in your language."
         },
         {
-          "title": "Talk with our team",
-          "text": "We go through your request together, with interpreter support."
+          "title": "Online assessment",
+          "text": "Send photos or X-rays on WhatsApp; we review them and talk you through your options."
         },
         {
           "title": "Receive your treatment package",
@@ -72,11 +76,11 @@
         },
         {
           "title": "Travel with coordination",
-          "text": "Your hotel and airport transfer are coordinated for you."
+          "text": "Hotel, airport transfer and interpreter are arranged for you. Most visits take 3 to 8 days, depending on your treatment."
         },
         {
-          "title": "Treatment in Antalya or Istanbul",
-          "text": "Your treatment takes place at JOKAR DENTAL in the city you choose."
+          "title": "Treatment and follow-up",
+          "text": "Your treatment takes place at JOKAR DENTAL in Antalya or Istanbul — and we follow up afterwards."
         }
       ]
     },
@@ -95,12 +99,28 @@
           "a": "In Antalya and Istanbul. Dental implants, veneers and smile design are offered in both cities."
         },
         {
+          "q": "Which languages do you speak?",
+          "a": "We talk with every patient in their own language. You can reach us in Persian, English, German or Turkish."
+        },
+        {
+          "q": "Can you assess my case before I travel?",
+          "a": "Yes. Send photos or X-rays on WhatsApp and we review them online before you plan your trip. The dentist confirms your treatment plan in person."
+        },
+        {
+          "q": "How long will I need to stay?",
+          "a": "Most visits take 3 to 8 days, depending on your treatment. We tell you what to expect once we have reviewed your case."
+        },
+        {
           "q": "Do you help with the hotel and airport transfer?",
           "a": "Yes. We coordinate hotel accommodation and airport transfers for international patients."
         },
         {
           "q": "Will there be an interpreter?",
           "a": "Yes. An interpreter is available for international patients."
+        },
+        {
+          "q": "Do you follow up after treatment, and is there a guarantee?",
+          "a": "Yes. We follow up after your treatment, and a guarantee applies. Its terms depend on the treatment and are explained in your consultation."
         },
         {
           "q": "How do I start?",
@@ -118,7 +138,8 @@
         "Our team contacts you to understand your needs.",
         "We plan your free consultation together."
       ],
-      "chat": "Prefer to chat?"
+      "chat": "Prefer to chat?",
+      "call": "Or call us"
     },
     "finale": {
       "title": "Your new smile starts with one conversation",

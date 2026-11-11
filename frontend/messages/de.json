@@ -11,9 +11,9 @@
       "items": [
         "Kostenlose Erstberatung",
         "Antalya & Istanbul",
-        "Hotel & Flughafentransfer",
-        "Dolmetscher-Unterstützung",
-        "Behandlungspakete"
+        "In Ihrer Sprache",
+        "Online-Einschätzung vor der Reise",
+        "Hotel, Transfer & Dolmetscher"
       ]
     },
     "treatments": {
@@ -31,24 +31,28 @@
       "link": "So läuft es für internationale Patienten",
       "items": [
         {
-          "title": "Implantate, Veneers und Smile Design in beiden Städten",
-          "text": "Alle drei Behandlungen bieten wir in Antalya und in Istanbul an."
+          "title": "Alle drei Behandlungen in beiden Städten",
+          "text": "Implantate, Veneers und Smile Design bieten wir in Antalya und in Istanbul an."
+        },
+        {
+          "title": "Wir sprechen Ihre Sprache",
+          "text": "Sprechen Sie mit uns auf Persisch, Englisch, Deutsch oder Türkisch – per WhatsApp oder telefonisch."
+        },
+        {
+          "title": "Einschätzung vor der Reise",
+          "text": "Senden Sie Fotos oder Röntgenbilder per WhatsApp – wir sehen sie uns online an, bevor Sie Ihre Reise planen."
         },
         {
           "title": "Ihre Reise, koordiniert",
-          "text": "Wir helfen bei Hotel und Flughafentransfer; für internationale Patienten steht ein Dolmetscher zur Verfügung."
+          "text": "Hotel, Flughafentransfer und Dolmetscher – mit Ihnen abgestimmt. Die meisten Aufenthalte dauern je nach Behandlung 3 bis 8 Tage."
         },
         {
-          "title": "Ein kostenloser erster Schritt",
-          "text": "Ihre Erstberatung ist kostenlos."
+          "title": "Nachsorge nach der Behandlung",
+          "text": "Wir bleiben auch nach Ihrer Behandlung in Kontakt. Es gibt eine Garantie; ihre Bedingungen hängen von der Behandlung ab und werden Ihnen in der Beratung erklärt."
         },
         {
           "title": "Behandlungspakete",
-          "text": "Pakete, die Ihre Behandlung und die Reiseorganisation verbinden."
-        },
-        {
-          "title": "Direkter Kontakt per WhatsApp",
-          "text": "Stellen Sie Ihre Fragen direkt unserem Team."
+          "text": "Pakete, die Ihre Behandlung und Ihre Reiseorganisation verbinden."
         }
       ]
     },
@@ -60,11 +64,11 @@
       "steps": [
         {
           "title": "Kostenlose Beratung anfragen",
-          "text": "Senden Sie das Formular oder schreiben Sie uns per WhatsApp."
+          "text": "Senden Sie das Formular oder schreiben Sie uns per WhatsApp – in Ihrer Sprache."
         },
         {
-          "title": "Gespräch mit unserem Team",
-          "text": "Wir besprechen Ihre Anfrage gemeinsam – mit Unterstützung eines Dolmetschers."
+          "title": "Online-Einschätzung",
+          "text": "Senden Sie Fotos oder Röntgenbilder per WhatsApp; wir sehen sie uns an und besprechen Ihre Möglichkeiten mit Ihnen."
         },
         {
           "title": "Ihr Behandlungspaket",
@@ -72,11 +76,11 @@
         },
         {
           "title": "Reisen mit Koordination",
-          "text": "Hotel und Flughafentransfer werden für Sie koordiniert."
+          "text": "Hotel, Flughafentransfer und Dolmetscher werden für Sie organisiert. Die meisten Aufenthalte dauern je nach Behandlung 3 bis 8 Tage."
         },
         {
-          "title": "Behandlung in Antalya oder Istanbul",
-          "text": "Ihre Behandlung findet bei JOKAR DENTAL in der Stadt Ihrer Wahl statt."
+          "title": "Behandlung und Nachsorge",
+          "text": "Ihre Behandlung findet bei JOKAR DENTAL in Antalya oder Istanbul statt – und wir begleiten Sie auch danach."
         }
       ]
     },
@@ -95,12 +99,28 @@
           "a": "In Antalya und Istanbul. Zahnimplantate, Veneers und Smile Design bieten wir in beiden Städten an."
         },
         {
+          "q": "Welche Sprachen sprechen Sie?",
+          "a": "Wir sprechen mit jedem Patienten in seiner Sprache. Sie erreichen uns auf Persisch, Englisch, Deutsch oder Türkisch."
+        },
+        {
+          "q": "Können Sie meinen Fall vor der Reise einschätzen?",
+          "a": "Ja. Senden Sie uns Fotos oder Röntgenbilder per WhatsApp – wir sehen sie uns online an, bevor Sie Ihre Reise planen. Den Behandlungsplan bestätigt der Zahnarzt bei der Untersuchung vor Ort."
+        },
+        {
+          "q": "Wie lange muss ich bleiben?",
+          "a": "Die meisten Aufenthalte dauern je nach Behandlung 3 bis 8 Tage. Sobald wir Ihren Fall angesehen haben, sagen wir Ihnen, womit Sie rechnen können."
+        },
+        {
           "q": "Helfen Sie bei Hotel und Flughafentransfer?",
           "a": "Ja. Für internationale Patienten koordinieren wir Hotelunterkunft und Flughafentransfer."
         },
         {
           "q": "Gibt es einen Dolmetscher?",
           "a": "Ja. Für internationale Patienten steht ein Dolmetscher zur Verfügung."
+        },
+        {
+          "q": "Gibt es eine Nachsorge und eine Garantie?",
+          "a": "Ja. Wir begleiten Sie nach der Behandlung, und es gibt eine Garantie. Ihre Bedingungen hängen von der Behandlung ab und werden Ihnen in der Beratung erklärt."
         },
         {
           "q": "Wie fange ich an?",
@@ -118,7 +138,8 @@
         "Unser Team meldet sich, um Ihre Wünsche zu verstehen.",
         "Gemeinsam planen wir Ihre kostenlose Beratung."
       ],
-      "chat": "Lieber direkt schreiben?"
+      "chat": "Lieber direkt schreiben?",
+      "call": "Oder rufen Sie uns an"
     },
     "finale": {
       "title": "Ihr neues Lächeln beginnt mit einem Gespräch",

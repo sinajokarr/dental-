@@ -8,11 +8,18 @@ test("consultation section (#consultation) explains the next three steps and off
   await expect(section.getByRole("link", { name: "Chat on WhatsApp" })).toBeVisible();
 });
 
-test("footer: WhatsApp number isolated LTR, legal and language links on every locale", async ({ page }) => {
+test("consultation section also offers a phone call to the same number", async ({ page }) => {
+  await page.goto("/de");
+  const call = page.locator("section#consultation").getByRole("link", { name: "+90 542 713 01 32" });
+  await expect(call).toHaveAttribute("href", "tel:+905427130132");
+});
+
+test("footer: WhatsApp and a call link with the number isolated LTR, legal and language links on every locale", async ({ page }) => {
   await page.goto("/fa");
   const footer = page.getByRole("contentinfo");
-  const number = footer.locator("bdi[dir=ltr]");
-  await expect(number).toHaveText("+90 542 713 01 32");
+  await expect(footer.getByRole("link", { name: "+90 542 713 01 32" })).toHaveAttribute("href", "tel:+905427130132");
+  await expect(footer.locator("a[href^='tel:'] bdi[dir=ltr]")).toHaveText("+90 542 713 01 32");
+  expect(await footer.getByRole("link", { name: "واتس‌اپ" }).getAttribute("href")).toMatch(/^https:\/\/wa\.me\/905427130132/);
   await expect(footer.getByRole("link", { name: "حریم خصوصی" })).toHaveAttribute("href", "/fa/privacy");
   await expect(footer.getByRole("link", { name: "Deutsch" })).toHaveAttribute("href", "/de");
 });
