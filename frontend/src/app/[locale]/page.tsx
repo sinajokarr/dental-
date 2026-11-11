@@ -1,3 +1,4 @@
+import { LeadForm } from "@/components/forms/LeadForm";
 import { Consultation } from "@/components/sections/Consultation";
 import { Faq } from "@/components/sections/Faq";
 import { Finale } from "@/components/sections/Finale";
@@ -17,7 +18,7 @@ export default function HomePage() {
       <WhyJokar />
       <Journey />
       <Faq />
-      <Consultation />
+      <Consultation form={<LeadForm />} />
       <Finale />
     </>
   );

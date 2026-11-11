@@ -184,5 +184,65 @@
     "privacy": "Gizlilik",
     "kvkk": "KVKK aydınlatma metni",
     "legalNotice": "Yasal bilgiler"
+  },
+  "form": {
+    "title": "Ücretsiz danışmanlık talep edin",
+    "required": "Zorunlu",
+    "fullName": "Ad soyad",
+    "country": "Yaşadığınız ülke",
+    "choose": "Seçin…",
+    "phone": "Telefon numarası",
+    "phoneCode": "Ülke kodu",
+    "treatment": "İlgilendiğiniz tedavi",
+    "treatments": {
+      "implants": "Diş implantı",
+      "veneers": "Porselen lamina",
+      "smile_design": "Gülüş tasarımı",
+      "not_sure": "Henüz emin değilim"
+    },
+    "consent": "JOKAR DENTAL'in bilgilerimi talebimi yanıtlamak amacıyla <privacy>aydınlatma metninde</privacy> açıklandığı şekilde işlemesini kabul ediyorum.",
+    "optional": "Tercihler ve mesaj (isteğe bağlı)",
+    "contact": "Size nasıl ulaşalım?",
+    "contacts": {
+      "whatsapp": "WhatsApp",
+      "phone": "Telefon",
+      "email": "E-posta"
+    },
+    "email": "E-posta",
+    "city": "Tercih ettiğiniz şehir",
+    "cities": {
+      "no_preference": "Fark etmez",
+      "antalya": "Antalya",
+      "istanbul": "İstanbul"
+    },
+    "language": "Tercih ettiğiniz dil",
+    "message": "Mesaj",
+    "messageHint": "Tıbbi ayrıntıları danışmanlık görüşmesinde birlikte ele alırız.",
+    "submit": "Talebi gönder",
+    "sending": "Talebiniz gönderiliyor…",
+    "replyNote": "WhatsApp'tan ya da seçtiğiniz yolla yanıt veririz.",
+    "summary": "Lütfen {count, plural, one {# alanı} other {# alanı}} kontrol edin:",
+    "retry": "Tekrar deneyin",
+    "orWhatsapp": "Ya da bize WhatsApp'tan yazın",
+    "errors": {
+      "required": "Lütfen bu alanı doldurun.",
+      "too_short": "Bu değer çok kısa.",
+      "too_long": "Bu değer çok uzun.",
+      "invalid_choice": "Lütfen seçeneklerden birini seçin.",
+      "invalid_phone": "Lütfen geçerli bir telefon numarası girin.",
+      "invalid_email": "Lütfen geçerli bir e-posta adresi girin.",
+      "email_required": "E-postayla yanıt verebilmemiz için lütfen e-posta adresinizi girin.",
+      "consent_required": "Talebinizi yanıtlayabilmemiz için lütfen onay verin.",
+      "rate_limited": "Çok fazla talep gönderildi. Lütfen birkaç dakika sonra tekrar deneyin veya bize WhatsApp'tan yazın.",
+      "server_error": "Bizim tarafımızda bir sorun oluştu. Bilgileriniz duruyor; lütfen tekrar deneyin.",
+      "network_error": "Sunucumuza ulaşılamadı. Bilgileriniz duruyor; lütfen tekrar deneyin."
+    },
+    "success": {
+      "title": "Talebiniz alındı",
+      "reference": "Takip kodunuz",
+      "next": "Ekibimiz seçtiğiniz yolla en kısa sürede sizinle iletişime geçecek. Sorularınız için takip kodunuzu saklayın.",
+      "whatsapp": "Takip kodunu WhatsApp'tan gönderin"
+    },
+    "consentShort": "Onay"
   }
 }

@@ -15,7 +15,7 @@ export async function Consultation({ form, whatsappContext = "general" }: { form
   return (
     <Section id="consultation" labelledBy="consultation-title" className="overflow-hidden">
       <div aria-hidden="true" className="absolute -bottom-40 start-1/4 -z-0 size-[40rem] rounded-full bg-sky-100 blur-3xl" />
-      <div className={`relative grid gap-12 ${form ? "lg:grid-cols-[0.9fr_1.1fr] lg:gap-20" : ""}`}>
+      <div className={`relative grid grid-cols-1 gap-12 ${form ? "lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-20" : ""}`}>
         <div>
           <SectionHeader id="consultation-title" eyebrow={t("eyebrow")} title={t("title")} lead={t("lead")} />
           <h3 className="mt-10 text-h3 font-semibold">{t("nextTitle")}</h3>

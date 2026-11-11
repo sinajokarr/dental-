@@ -184,5 +184,65 @@
     "privacy": "Datenschutz",
     "kvkk": "KVKK-Hinweis",
     "legalNotice": "Impressum"
+  },
+  "form": {
+    "title": "Kostenlose Beratung anfragen",
+    "required": "Pflichtfeld",
+    "fullName": "Vollständiger Name",
+    "country": "Wohnsitzland",
+    "choose": "Bitte wählen…",
+    "phone": "Telefonnummer",
+    "phoneCode": "Ländervorwahl",
+    "treatment": "Gewünschte Behandlung",
+    "treatments": {
+      "implants": "Zahnimplantate",
+      "veneers": "Veneers",
+      "smile_design": "Smile Design",
+      "not_sure": "Noch unsicher"
+    },
+    "consent": "Ich bin einverstanden, dass JOKAR DENTAL meine Angaben zur Beantwortung meiner Anfrage verarbeitet, wie in den <privacy>Datenschutzhinweisen</privacy> beschrieben.",
+    "optional": "Präferenzen und Nachricht (optional)",
+    "contact": "Wie sollen wir Sie kontaktieren?",
+    "contacts": {
+      "whatsapp": "WhatsApp",
+      "phone": "Anruf",
+      "email": "E-Mail"
+    },
+    "email": "E-Mail",
+    "city": "Bevorzugte Stadt",
+    "cities": {
+      "no_preference": "Egal",
+      "antalya": "Antalya",
+      "istanbul": "Istanbul"
+    },
+    "language": "Bevorzugte Sprache",
+    "message": "Nachricht",
+    "messageHint": "Medizinische Details besprechen wir gemeinsam in Ihrer Beratung.",
+    "submit": "Anfrage senden",
+    "sending": "Ihre Anfrage wird gesendet…",
+    "replyNote": "Wir antworten per WhatsApp oder auf dem Weg, den Sie wählen.",
+    "summary": "Bitte prüfen Sie {count, plural, one {# Feld} other {# Felder}}:",
+    "retry": "Erneut versuchen",
+    "orWhatsapp": "Oder schreiben Sie uns per WhatsApp",
+    "errors": {
+      "required": "Bitte füllen Sie dieses Feld aus.",
+      "too_short": "Diese Angabe ist zu kurz.",
+      "too_long": "Diese Angabe ist zu lang.",
+      "invalid_choice": "Bitte wählen Sie eine der Optionen.",
+      "invalid_phone": "Bitte geben Sie eine gültige Telefonnummer ein.",
+      "invalid_email": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+      "email_required": "Bitte geben Sie Ihre E-Mail-Adresse ein, damit wir per E-Mail antworten können.",
+      "consent_required": "Bitte stimmen Sie zu, damit wir Ihre Anfrage beantworten können.",
+      "rate_limited": "Zu viele Anfragen. Bitte versuchen Sie es in einigen Minuten erneut oder schreiben Sie uns per WhatsApp.",
+      "server_error": "Bei uns ist ein Fehler aufgetreten. Ihre Angaben sind noch da – bitte versuchen Sie es erneut.",
+      "network_error": "Unser Server war nicht erreichbar. Ihre Angaben sind noch da – bitte versuchen Sie es erneut."
+    },
+    "success": {
+      "title": "Ihre Anfrage ist eingegangen",
+      "reference": "Ihre Referenznummer",
+      "next": "Unser Team meldet sich bald auf dem von Ihnen gewählten Weg. Bewahren Sie Ihre Referenznummer für Rückfragen auf.",
+      "whatsapp": "Referenznummer per WhatsApp senden"
+    },
+    "consentShort": "Einwilligung"
   }
 }

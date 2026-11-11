@@ -184,5 +184,65 @@
     "privacy": "Privacy",
     "kvkk": "KVKK notice",
     "legalNotice": "Legal notice"
+  },
+  "form": {
+    "title": "Request your free consultation",
+    "required": "Required",
+    "fullName": "Full name",
+    "country": "Country of residence",
+    "choose": "Select…",
+    "phone": "Phone number",
+    "phoneCode": "Country code",
+    "treatment": "Treatment you are interested in",
+    "treatments": {
+      "implants": "Dental implants",
+      "veneers": "Veneers",
+      "smile_design": "Smile design",
+      "not_sure": "Not sure yet"
+    },
+    "consent": "I agree that JOKAR DENTAL processes my details to answer my request, as described in the <privacy>privacy notice</privacy>.",
+    "optional": "Preferences and message (optional)",
+    "contact": "How should we contact you?",
+    "contacts": {
+      "whatsapp": "WhatsApp",
+      "phone": "Phone call",
+      "email": "Email"
+    },
+    "email": "Email",
+    "city": "Preferred city",
+    "cities": {
+      "no_preference": "No preference",
+      "antalya": "Antalya",
+      "istanbul": "Istanbul"
+    },
+    "language": "Preferred language",
+    "message": "Message",
+    "messageHint": "We go through medical details together in your consultation.",
+    "submit": "Send request",
+    "sending": "Sending your request…",
+    "replyNote": "We reply on WhatsApp or the way you choose.",
+    "summary": "Please check {count, plural, one {# field} other {# fields}}:",
+    "retry": "Try again",
+    "orWhatsapp": "Or message us on WhatsApp",
+    "errors": {
+      "required": "Please fill in this field.",
+      "too_short": "This is too short.",
+      "too_long": "This is too long.",
+      "invalid_choice": "Please choose one of the options.",
+      "invalid_phone": "Please enter a valid phone number.",
+      "invalid_email": "Please enter a valid email address.",
+      "email_required": "Please enter your email so we can reply by email.",
+      "consent_required": "Please agree so we can answer your request.",
+      "rate_limited": "Too many requests. Please try again in a few minutes or message us on WhatsApp.",
+      "server_error": "Something went wrong on our side. Your details are still here — please try again.",
+      "network_error": "We could not reach our server. Your details are still here — please try again."
+    },
+    "success": {
+      "title": "Your request has been received",
+      "reference": "Your reference",
+      "next": "Our team will contact you soon in the way you chose. Keep your reference for any questions.",
+      "whatsapp": "Send your reference on WhatsApp"
+    },
+    "consentShort": "Consent"
   }
 }
