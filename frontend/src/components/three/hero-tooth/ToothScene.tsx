@@ -1,7 +1,7 @@
 "use client";
 
-import { Canvas, useThree } from "@react-three/fiber";
-import { use, useEffect, useMemo } from "react";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { use, useEffect, useMemo, useRef } from "react";
 import {
   BackSide,
   BoxGeometry,
@@ -9,7 +9,9 @@ import {
   BufferGeometry,
   Color,
   DataTexture,
+  DirectionalLight,
   DoubleSide,
+  Group,
   LinearFilter,
   Mesh,
   MeshBasicMaterial,
@@ -17,12 +19,17 @@ import {
   NeutralToneMapping,
   PlaneGeometry,
   PMREMGenerator,
+  RectAreaLight,
   RGBAFormat,
   Scene,
   SRGBColorSpace,
   UnsignedByteType,
 } from "three";
+import { RectAreaLightUniformsLib } from "three/examples/jsm/lights/RectAreaLightUniformsLib.js";
+import { loadGsap } from "@/lib/motion";
 import { decodeTooth } from "./toothFormat";
+
+RectAreaLightUniformsLib.init(); // the entrance light sweep is a RectAreaLight
 
 export type Tier = 1 | 2; // 2 = desktop (transmission), 1 = mobile/tablet (no extra render pass) — 3D_HERO_MASTER_PLAN §8
 
@@ -146,17 +153,130 @@ function radialTexture(stretch = 1): DataTexture {
   return texture;
 }
 
-function Tooth({ tier, onFirstFrame }: { tier: Tier; onFirstFrame?: () => void }) {
+type Props = { tier: Tier; still?: boolean; onFirstFrame?: () => void; onContextLost?: () => void };
+
+function Tooth({ tier, still, onFirstFrame, onContextLost }: Props) {
   const geometry = use(loadGeometry());
-  useEffect(() => {
-    // Two frames after mount the tooth is on screen (frameloop="demand" renders once after mounting).
-    const id = requestAnimationFrame(() => requestAnimationFrame(() => onFirstFrame?.()));
-    return () => cancelAnimationFrame(id);
-  }, [onFirstFrame]);
   const material = useMemo(() => toothMaterial(tier), [tier]);
   const glow = useMemo(() => radialTexture(), []);
   const caustic = useMemo(() => radialTexture(), []);
   const [hx, hy, hz] = geometry.userData.halfSize as number[];
+  const { gl, scene, camera, invalidate } = useThree();
+  const group = useRef<Group>(null);
+  const rim = useRef<DirectionalLight>(null);
+  const sweep = useRef<RectAreaLight>(null);
+  // Everything that moves, in one plain object: GSAP tweens it, useFrame applies it, invalidate() renders it.
+  const motion = useMemo(
+    () => ({ z: 7.0, rim: 0, sweepX: -3.2, sweepI: 0, float: 0, tiltX: 0, tiltY: 0, drag: 0, exitY: 0, exitYaw: 0, exitScale: 1 }),
+    [still],
+  );
+
+  useFrame((state) => {
+    const g = group.current, bob = Math.sin(motion.float * Math.PI);
+    if (!g || !rim.current || !sweep.current) return;
+    state.camera.position.z = motion.z;
+    g.position.y = 0.05 * bob + motion.exitY;
+    g.rotation.set(POSE.pitch + motion.tiltX, POSE.yaw + motion.tiltY + motion.drag + 0.17 * bob + motion.exitYaw, 0);
+    g.scale.setScalar(motion.exitScale);
+    rim.current.intensity = 2.4 * motion.rim;
+    sweep.current.intensity = motion.sweepI;
+    sweep.current.position.x = motion.sweepX;
+    sweep.current.lookAt(0, 0, 0);
+  });
+
+  useEffect(() => {
+    const canvas = gl.domElement;
+    const lost = (event: Event) => {
+      event.preventDefault();
+      onContextLost?.();
+    };
+    canvas.addEventListener("webglcontextlost", lost);
+    let cleanup = () => {};
+    let cancelled = false;
+
+    // Compile shaders off the main thread before showing anything (no first-frame jank).
+    gl.compileAsync(scene, camera).then(async () => {
+      if (cancelled) return;
+      invalidate();
+      requestAnimationFrame(() => onFirstFrame?.());
+      if (still) return;
+
+      const { gsap, ScrollTrigger } = await loadGsap();
+      if (cancelled) return;
+      const tick = () => invalidate();
+      // Entrance after the 0.5 s cross-fade: dolly, rim light, light sweep, one gentle float, rest.
+      // Automatic motion ends ≈ 4.6 s after reveal (WCAG 2.2.2); afterwards only the user moves it.
+      const entrance = gsap
+        .timeline({ delay: 0.4, onUpdate: tick })
+        .to(motion, { z: 6.0, duration: 1.8, ease: "power2.inOut" }, 0)
+        .to(motion, { rim: 1, duration: 0.6, ease: "power1.out" }, 0)
+        .fromTo(motion, { sweepX: -3.2 }, { sweepX: 3.2, duration: 1.4, ease: "power1.inOut" }, 0.2)
+        .to(motion, { sweepI: 14, duration: 0.7, ease: "sine.in", yoyo: true, repeat: 1 }, 0.2)
+        .to(motion, { float: 1, duration: 2.4, ease: "sine.inOut" }, 1.8);
+
+      const section = canvas.closest("section");
+      const tiltX = gsap.quickTo(motion, "tiltX", { duration: 0.6, ease: "power3", onUpdate: tick });
+      const tiltY = gsap.quickTo(motion, "tiltY", { duration: 0.6, ease: "power3", onUpdate: tick });
+      const tilt = (event: PointerEvent) => {
+        if (event.pointerType !== "mouse" || !section) return;
+        const box = section.getBoundingClientRect();
+        tiltY(((event.clientX - box.left) / box.width - 0.5) * 0.42); // ±12°
+        tiltX(((event.clientY - box.top) / box.height - 0.5) * 0.28); // ±8°
+      };
+      const untilt = () => (tiltX(0), tiltY(0));
+
+      // Drag to rotate (mouse or horizontal touch; vertical touch keeps scrolling via touch-action: pan-y).
+      let dragging = false, lastX = 0, springBack: gsap.core.Tween | undefined;
+      const down = (event: PointerEvent) => {
+        dragging = true;
+        lastX = event.clientX;
+        springBack?.kill();
+        canvas.setPointerCapture(event.pointerId);
+      };
+      const move = (event: PointerEvent) => {
+        if (!dragging) return;
+        motion.drag += (event.clientX - lastX) * 0.008;
+        lastX = event.clientX;
+        tick();
+      };
+      const up = () => {
+        if (!dragging) return;
+        dragging = false;
+        springBack = gsap.to(motion, { drag: 0, duration: 1.2, delay: 1.5, ease: "power3.out", onUpdate: tick });
+      };
+
+      section?.addEventListener("pointermove", tilt);
+      section?.addEventListener("pointerleave", untilt);
+      canvas.addEventListener("pointerdown", down);
+      canvas.addEventListener("pointermove", move);
+      canvas.addEventListener("pointerup", up);
+      canvas.addEventListener("pointercancel", up);
+
+      // Scroll exit (AN-09): the tooth rises, turns and shrinks while the hero scrolls away.
+      const exit = gsap.timeline({ onUpdate: tick }).to(motion, { exitY: 0.5, exitYaw: 0.42, exitScale: 0.94, ease: "none" });
+      const trigger = ScrollTrigger.create({ trigger: section, start: "top top", end: "bottom top", scrub: 0.6, animation: exit });
+
+      cleanup = () => {
+        entrance.kill();
+        springBack?.kill();
+        trigger.kill();
+        exit.kill();
+        section?.removeEventListener("pointermove", tilt);
+        section?.removeEventListener("pointerleave", untilt);
+        canvas.removeEventListener("pointerdown", down);
+        canvas.removeEventListener("pointermove", move);
+        canvas.removeEventListener("pointerup", up);
+        canvas.removeEventListener("pointercancel", up);
+      };
+    });
+
+    return () => {
+      cancelled = true;
+      cleanup();
+      canvas.removeEventListener("webglcontextlost", lost);
+    };
+  }, [gl, scene, camera, invalidate, motion, still, onFirstFrame, onContextLost]);
+
   return (
     <>
       <mesh position={[0, 0.1, -2.2]} scale={7}>
@@ -167,19 +287,21 @@ function Tooth({ tier, onFirstFrame }: { tier: Tier; onFirstFrame?: () => void }
         <planeGeometry />
         <meshBasicMaterial map={caustic} color="#7fd3f4" transparent opacity={0.32} toneMapped={false} depthWrite={false} />
       </mesh>
-      <group rotation={[POSE.pitch, POSE.yaw, 0]}>
+      <directionalLight ref={rim} position={[0, 2, -4]} color="#7fd3f4" />
+      <rectAreaLight ref={sweep} width={1.2} height={4} position={[-3.2, 1.2, 3]} />
+      <group ref={group} rotation={[POSE.pitch, POSE.yaw, 0]}>
         <mesh geometry={geometry} material={material} scale={[hx, hy, hz]} />
       </group>
     </>
   );
 }
 
-export default function ToothScene({ tier, onFirstFrame }: { tier: Tier; onFirstFrame?: () => void }) {
+export default function ToothScene({ tier, still, onFirstFrame, onContextLost }: Props) {
   return (
     <Canvas
       dpr={[1, tier === 2 ? 2 : 1.5]}
-      frameloop="demand"
-      camera={{ fov: 28, position: [0, 0.15, 6.4] }}
+      frameloop="demand" // renders only when something moves (3D_HERO_MASTER_PLAN §7)
+      camera={{ fov: 28, position: [0, 0.15, 7.0] }}
       gl={{ antialias: true, alpha: false, powerPreference: "high-performance" }}
       onCreated={({ gl }) => {
         gl.setClearColor(BACKGROUND, 1);
@@ -188,9 +310,8 @@ export default function ToothScene({ tier, onFirstFrame }: { tier: Tier; onFirst
       aria-hidden="true"
     >
       <Studio />
-      <directionalLight position={[0, 2, -4]} intensity={2.4} color="#7fd3f4" />
       <directionalLight position={[-3, 4, 4]} intensity={0.6} />
-      <Tooth tier={tier} onFirstFrame={onFirstFrame} />
+      <Tooth tier={tier} still={still} onFirstFrame={onFirstFrame} onContextLost={onContextLost} />
     </Canvas>
   );
 }
