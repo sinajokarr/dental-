@@ -255,13 +255,13 @@ body {
   display: inline-block;
 }
 @media (prefers-reduced-motion: no-preference) {
-  [data-motion] [data-reveal]:not([data-reveal="words"], [data-reveal="clip"]) {
+  [data-motion] [data-reveal]:not([data-reveal="words"], [data-reveal="clip"], [data-reveal="draw"]) {
     transition:
       opacity 0.8s var(--ease-out),
       translate 0.8s var(--ease-out);
     transition-delay: calc(var(--i, 0) * 70ms);
   }
-  [data-motion] [data-reveal]:not([data-reveal="words"], [data-reveal="clip"], [data-revealed]) {
+  [data-motion] [data-reveal]:not([data-reveal="words"], [data-reveal="clip"], [data-reveal="draw"], [data-revealed]) {
     opacity: 0;
     translate: 0 1.5rem;
   }
@@ -277,6 +277,57 @@ body {
   }
   [data-motion] [data-reveal="clip"]:not([data-revealed]) {
     clip-path: inset(0 0 100% 0);
+  }
+}
+
+/* Treatment drawings (D-063): each line draws itself with its chapter's scroll (a view timeline) and the art
+   drifts against the text; without scroll-driven animations the lines draw once on reveal. Reduced motion and
+   no JS show the finished drawing. */
+@keyframes draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+}
+@keyframes guide-in {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes drift {
+  from {
+    translate: 0 2.5rem;
+  }
+  to {
+    translate: 0 -2.5rem;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    [data-draw] [pathLength] {
+      stroke-dasharray: 1;
+      animation: draw linear both;
+      animation-timeline: --chapter;
+      animation-range: entry calc(10% + var(--d, 0) * 1.5%) cover calc(34% + var(--d, 0) * 1%);
+    }
+    [data-draw] [data-guide] {
+      animation: guide-in linear both;
+      animation-timeline: --chapter;
+      animation-range: entry 40% cover 30%;
+    }
+    .chapter-art {
+      animation: drift linear both;
+      animation-timeline: --chapter;
+    }
+  }
+  @supports not (animation-timeline: view()) {
+    [data-motion] [data-draw] [pathLength] {
+      stroke-dasharray: 1;
+      transition: stroke-dashoffset 1.4s var(--ease-out);
+      transition-delay: calc(var(--d, 0) * 70ms);
+    }
+    [data-motion] [data-draw]:not([data-revealed]) [pathLength] {
+      stroke-dashoffset: 1;
+    }
   }
 }
 
