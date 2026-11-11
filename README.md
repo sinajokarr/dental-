@@ -40,3 +40,12 @@ Prerequisites: Node.js 24+, Python 3.13, Docker.
    backend/.venv/bin/pip install -r backend/requirements.txt
    backend/.venv/bin/python backend/manage.py migrate
    ```
+
+4. **Frontend**:
+
+   ```bash
+   cd frontend && npm install && npm run dev
+   ```
+
+   http://localhost:3000 redirects to `/fa`, `/en`, `/de` or `/tr` from the browser language (fallback `/en`).
+   Translations live in `frontend/messages/<locale>.json`; a key missing in any locale fails the build.

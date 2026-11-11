@@ -1,6 +1,7 @@
 import { existsSync } from "node:fs";
 import { resolve } from "node:path";
 import type { NextConfig } from "next";
+import createNextIntlPlugin from "next-intl/plugin";
 
 // Local development reads the single repository-root .env; real environment variables win (Docker/CI).
 const rootEnv = resolve(process.cwd(), "..", ".env");
@@ -26,4 +27,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+export default createNextIntlPlugin()(nextConfig); // reads src/i18n/request.ts
