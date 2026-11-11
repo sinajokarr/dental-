@@ -26,3 +26,17 @@ Prerequisites: Node.js 24+, Python 3.13, Docker.
    ```
 
    Real environment variables always override `.env`. A missing required variable stops the app with an error naming it.
+
+2. **Database** — PostgreSQL 18 in Docker, on host port 5433 (localhost only):
+
+   ```bash
+   docker compose -f infrastructure/compose.dev.yml --env-file .env up -d --wait
+   ```
+
+3. **Backend**:
+
+   ```bash
+   python3 -m venv backend/.venv
+   backend/.venv/bin/pip install -r backend/requirements.txt
+   backend/.venv/bin/python backend/manage.py migrate
+   ```
