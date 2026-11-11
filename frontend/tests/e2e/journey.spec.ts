@@ -1,5 +1,7 @@
 import { expect, test } from "@playwright/test";
 
+test.use({ reducedMotion: "no-preference" }); // exercises motion and the WebGL hero
+
 test("international journey: navy section with five ordered steps and an international WhatsApp message", async ({ page }) => {
   await page.goto("/de");
   const section = page.locator("section[aria-labelledby=journey-title]");

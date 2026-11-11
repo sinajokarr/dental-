@@ -8,7 +8,9 @@ export default defineConfig({
   // assertions so the suite stays deterministic under load (it flaked at 4 workers / 5 s).
   workers: 2,
   expect: { timeout: 10_000 },
-  use: { baseURL: `http://localhost:${PORT}` },
+  // Default reduced motion: no WebGL hero in tests that do not need it (less CPU, deterministic).
+  // Motion-specific files opt back in with test.use({ reducedMotion: "no-preference" }).
+  use: { baseURL: `http://localhost:${PORT}`, reducedMotion: "reduce" },
   // WebKit and Firefox join in phase H (device/browser matrix).
   projects: [{ name: "chromium", use: { ...devices["Desktop Chrome"] } }],
   webServer: {

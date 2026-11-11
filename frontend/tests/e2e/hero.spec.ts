@@ -1,5 +1,7 @@
 import { expect, test } from "@playwright/test";
 
+test.use({ reducedMotion: "no-preference" }); // exercises motion and the WebGL hero
+
 test("hero heading and both CTAs are visible without scrolling on a 390×844 phone", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/en");

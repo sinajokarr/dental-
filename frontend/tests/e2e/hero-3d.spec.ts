@@ -1,5 +1,7 @@
 import { expect, test } from "@playwright/test";
 
+test.use({ reducedMotion: "no-preference" }); // exercises motion and the WebGL hero
+
 test("poster shows at once; on a capable desktop the 3D canvas then fades in", async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto("/en");

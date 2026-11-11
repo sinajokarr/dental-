@@ -1,5 +1,7 @@
 import { expect, test } from "@playwright/test";
 
+test.use({ reducedMotion: "no-preference" }); // exercises motion and the WebGL hero
+
 test("trust strip lists only the five verified facts", async ({ page }) => {
   await page.goto("/en");
   const items = page.getByRole("list", { name: "At a glance" }).getByRole("listitem");
