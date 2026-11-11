@@ -244,5 +244,153 @@
       "whatsapp": "Takip kodunu WhatsApp'tan gönderin"
     },
     "consentShort": "Onay"
+  },
+  "treatmentPage": {
+    "eyebrow": "Antalya · İstanbul",
+    "breadcrumb": "Sayfa yolu",
+    "home": "Ana sayfa",
+    "what": "Nedir?",
+    "who": "Kimler için uygundur?",
+    "how": "Süreç nasıl işler?",
+    "intlEyebrow": "Uluslararası hastalar",
+    "intlTitle": "Yurt dışından mı geliyorsunuz?",
+    "intlText": "Otel, havalimanı transferi ve tercümanı biz koordine ederiz; seyahatten önce fotoğraflarınızı veya röntgenlerinizi online değerlendirme için gönderebilirsiniz."
+  },
+  "treatments": {
+    "implants": {
+      "title": "Diş implantı",
+      "lead": "Eksik dişler için sabit bir çözüm: titanyum implant kökün yerini alır ve yeni bir kronu taşır.",
+      "what": [
+        "Diş implantı, dişin eksik olduğu bölgede çene kemiğine yerleştirilen küçük bir titanyum vidadır.",
+        "Kemikle kaynaştıktan sonra, diğer dişlerinize uyumlu olarak hazırlanan bir kronu — birden fazla eksik dişte ise bir köprüyü — taşır."
+      ],
+      "who": [
+        "Bir veya birden fazla dişiniz eksik.",
+        "Hareketli protez yerine sabit bir çözüm tercih ediyorsunuz.",
+        "Genel sağlığınız ve çene kemiğiniz implanta uygun — bunu diş hekimi danışmanlıkta değerlendirir."
+      ],
+      "how": [
+        {
+          "title": "Danışmanlık ve muayene",
+          "text": "Dişlerinizi, sağlık durumunuzu ve röntgenlerinizi inceler, seçeneklerinizi anlatırız."
+        },
+        {
+          "title": "İmplantın yerleştirilmesi",
+          "text": "İmplant genellikle lokal anestezi altında çene kemiğine yerleştirilir."
+        },
+        {
+          "title": "İyileşme",
+          "text": "İmplant kemikle kaynaşır. Bunun ne kadar süreceği durumunuza bağlıdır; diş hekiminiz önceden bilgi verir."
+        },
+        {
+          "title": "Yeni kronunuz",
+          "text": "Size özel hazırlanan kron implantın üzerine sabitlenir."
+        }
+      ],
+      "faq": [
+        {
+          "q": "İmplantın bana uygun olup olmadığını nasıl anlarım?",
+          "a": "Diş hekimi danışmanlıkta genel sağlığınızı ve çene kemiğinizi değerlendirir. Öncesinde fotoğraflarınızı veya röntgenlerinizi online değerlendirme için WhatsApp'tan gönderebilirsiniz."
+        },
+        {
+          "q": "İmplant tedavisini Antalya'da ve İstanbul'da yaptırabilir miyim?",
+          "a": "Evet. Diş implantı her iki şehirde de sunulur."
+        },
+        {
+          "q": "Kaç ziyaret gerekir?",
+          "a": "Bu, iyileşmenin sizin durumunuzda ne kadar süreceği dahil tedavi planınıza bağlıdır. Danışmanlıkta açıklarız; ziyaretlerin çoğu 3 ila 8 gün sürer."
+        }
+      ]
+    },
+    "veneers": {
+      "title": "Porselen lamina",
+      "lead": "Dişlerinizin ön yüzü için ince, kişiye özel kaplamalar — şekil, renk ve oranları düzenlemek için.",
+      "what": [
+        "Porselen laminalar, her diş için ölçüye göre hazırlanan ve dişin ön yüzeyine yapıştırılan ince kaplamalardır.",
+        "Dişin görünümünü — şeklini, rengini, boyunu veya uzunluğunu — değiştirir; dişin kendisi yerinde kalır."
+      ],
+      "who": [
+        "Ön dişlerinizde renk değişikliği, kırık, aşınma veya düzensizlik var.",
+        "Gülüşünüzün şeklini veya oranlarını değiştirmek istiyorsunuz.",
+        "Dişleriniz ve diş etleriniz sağlıklı — diş hekimi önce bunu kontrol eder."
+      ],
+      "how": [
+        {
+          "title": "Danışmanlık ve gülüş planlaması",
+          "text": "İstediğiniz sonucu konuşur, her laminanın şeklini ve tonunu planlarız."
+        },
+        {
+          "title": "Dişlerin hazırlanması",
+          "text": "Planınıza göre, laminaların doğal oturması için ince bir mine tabakası şekillendirilebilir."
+        },
+        {
+          "title": "Laminaların hazırlanması",
+          "text": "Her lamina kendi dişine uygun olarak hazırlanır."
+        },
+        {
+          "title": "Yapıştırma",
+          "text": "Laminalar dişlerinize yapıştırılır; uyum ve kapanış kontrol edilir."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Lamina dişlerimin rengini değiştirir mi?",
+          "a": "Laminaların kendi tonu vardır; bu ton danışmanlıkta sizinle birlikte seçilir. Yapıştırıldıkları dişlerin ön yüzünü kaplar."
+        },
+        {
+          "q": "Dişlerimin hazırlanması gerekir mi?",
+          "a": "Genellikle önce ince bir mine tabakası şekillendirilir; ancak bu, dişlerinize ve planınıza bağlıdır. Sizin için neyin geçerli olduğunu diş hekimi açıklar."
+        },
+        {
+          "q": "Laminayı nerede yaptırabilirim?",
+          "a": "Antalya'da veya İstanbul'da — porselen lamina her iki şehirde de sunulur."
+        }
+      ]
+    },
+    "smileDesign": {
+      "title": "Gülüş tasarımı",
+      "lead": "Herhangi bir tedavi başlamadan önce gülüşünüzün bütün olarak planlanması — diş şekli, rengi ve yüzünüzle uyumu.",
+      "what": [
+        "Gülüş tasarımı bir planlama yöntemidir: dişlerinizin şekli, boyutu, rengi ve oranları yüzünüz ve dudaklarınızla birlikte planlanır.",
+        "Plan, istediğiniz gülüşe hangi tedavilerin — örneğin porselen lamina veya implant — götüreceğini gösterir."
+      ],
+      "who": [
+        "Gülüşünüzde birkaç şeyi değiştirmek istiyorsunuz.",
+        "Karar vermeden önce net bir plan görmek istiyorsunuz.",
+        "Porselen lamina, implant veya ikisinin birlikte uygulanmasını düşünüyorsunuz."
+      ],
+      "how": [
+        {
+          "title": "Danışmanlık",
+          "text": "Neyi değiştirmek istediğinizi anlatırsınız. Gülüşünüzün fotoğrafları yardımcı olur; WhatsApp'tan gönderebilirsiniz."
+        },
+        {
+          "title": "Planlama",
+          "text": "Diş hekiminiz dişlerinizin şeklini, oranlarını ve tonunu yüzünüze göre planlar."
+        },
+        {
+          "title": "Tedavi planınız",
+          "text": "Planın içerdiği tedavileri açıklarız; böylece tüm bilgilerle karar verebilirsiniz."
+        },
+        {
+          "title": "Tedavi",
+          "text": "Tedaviniz plana göre, Antalya'da veya İstanbul'da yapılır."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Gülüş tasarımı başlı başına bir tedavi mi?",
+          "a": "Gülüş tasarımı planlamadır. Ardından plan, onu hayata geçirecek porselen lamina veya implant gibi tedavileri belirler."
+        },
+        {
+          "q": "Fotoğraflarla başlayabilir miyim?",
+          "a": "Evet. Seyahat öncesi online değerlendirme için gülüşünüzün fotoğraflarını WhatsApp'tan gönderin."
+        },
+        {
+          "q": "Gülüş tasarımı nerede sunuluyor?",
+          "a": "İki şehrimizde de: Antalya ve İstanbul."
+        }
+      ]
+    }
   }
 }

@@ -2,11 +2,13 @@ import { getTranslations } from "next-intl/server";
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { waLink } from "@/lib/whatsapp";
 
-// Only questions with confirmed answers; stay length, cost and guarantees wait for clinic data (Q11).
-export async function Faq() {
+type Context = "general" | "implants" | "veneers" | "smile_design" | "international";
+
+// Only questions with confirmed answers (Claims Policy). The homepage set by default; pages pass their own.
+export async function Faq({ items, whatsappContext = "general" }: { items?: { q: string; a: string }[]; whatsappContext?: Context } = {}) {
   const t = await getTranslations("home.faq");
-  const items = t.raw("items") as { q: string; a: string }[];
-  const whatsapp = waLink((await getTranslations("whatsapp"))("general"));
+  const questions = items ?? (t.raw("items") as { q: string; a: string }[]);
+  const whatsapp = waLink((await getTranslations("whatsapp"))(whatsappContext));
 
   return (
     <Section tone="ice" labelledBy="faq-title">
@@ -19,7 +21,7 @@ export async function Faq() {
           </a>
         </div>
         <div className="divide-y divide-sky-200 border-y border-sky-200">
-          {items.map((item) => (
+          {questions.map((item) => (
             <details key={item.q} name="faq" className="faq group">
               <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-6 py-6 text-h3 font-semibold focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-700 [&::-webkit-details-marker]:hidden">
                 {item.q}

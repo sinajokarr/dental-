@@ -244,5 +244,153 @@
       "whatsapp": "Referenznummer per WhatsApp senden"
     },
     "consentShort": "Einwilligung"
+  },
+  "treatmentPage": {
+    "eyebrow": "Antalya · Istanbul",
+    "breadcrumb": "Brotkrümelnavigation",
+    "home": "Startseite",
+    "what": "Was ist das?",
+    "who": "Für wen?",
+    "how": "So läuft es ab",
+    "intlEyebrow": "Internationale Patienten",
+    "intlTitle": "Sie kommen aus dem Ausland?",
+    "intlText": "Wir koordinieren Hotel, Flughafentransfer und Dolmetscher – und vor der Reise können Sie Fotos oder Röntgenbilder für eine Online-Einschätzung senden."
+  },
+  "treatments": {
+    "implants": {
+      "title": "Zahnimplantate",
+      "lead": "Fester Ersatz für fehlende Zähne: Ein Titanimplantat übernimmt die Rolle der Wurzel und trägt eine neue Krone.",
+      "what": [
+        "Ein Zahnimplantat ist ein kleiner Titanstift, der dort in den Kieferknochen gesetzt wird, wo ein Zahn fehlt.",
+        "Sobald es mit dem Knochen verwachsen ist, trägt es eine Krone – oder bei mehreren fehlenden Zähnen eine Brücke –, passend zu Ihren übrigen Zähnen gefertigt."
+      ],
+      "who": [
+        "Ihnen fehlen ein oder mehrere Zähne.",
+        "Sie bevorzugen eine feste Lösung statt einer herausnehmbaren Prothese.",
+        "Ihre allgemeine Gesundheit und Ihr Kieferknochen erlauben ein Implantat – das prüft der Zahnarzt in Ihrer Beratung."
+      ],
+      "how": [
+        {
+          "title": "Beratung und Untersuchung",
+          "text": "Wir sehen uns Ihre Zähne, Ihre Gesundheit und Ihre Röntgenbilder an und erklären Ihnen Ihre Möglichkeiten."
+        },
+        {
+          "title": "Setzen des Implantats",
+          "text": "Das Implantat wird in den Kieferknochen gesetzt, in der Regel unter örtlicher Betäubung."
+        },
+        {
+          "title": "Einheilung",
+          "text": "Das Implantat verwächst mit dem Knochen. Wie lange das dauert, hängt von Ihrem Fall ab; Ihr Zahnarzt sagt es Ihnen vorher."
+        },
+        {
+          "title": "Ihre neue Krone",
+          "text": "Eine für Sie gefertigte Krone wird auf dem Implantat befestigt."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Woran erkenne ich, ob Implantate für mich infrage kommen?",
+          "a": "Der Zahnarzt beurteilt in Ihrer Beratung Ihre Gesundheit und Ihren Kieferknochen. Vorab können Sie Fotos oder Röntgenbilder per WhatsApp für eine Online-Einschätzung senden."
+        },
+        {
+          "q": "Kann ich Implantate in Antalya und in Istanbul bekommen?",
+          "a": "Ja. Zahnimplantate bieten wir in beiden Städten an."
+        },
+        {
+          "q": "Wie viele Besuche brauche ich?",
+          "a": "Das hängt von Ihrem Behandlungsplan ab, auch davon, wie lange die Einheilung in Ihrem Fall dauert. Wir erklären es in Ihrer Beratung; die meisten Aufenthalte dauern 3 bis 8 Tage."
+        }
+      ]
+    },
+    "veneers": {
+      "title": "Veneers",
+      "lead": "Dünne, individuell gefertigte Schalen für die Vorderseite Ihrer Zähne – für Form, Farbe und Proportionen.",
+      "what": [
+        "Veneers sind dünne Schalen, die für jeden Zahn nach Maß gefertigt und auf seiner Vorderseite befestigt werden.",
+        "Sie verändern das Aussehen eines Zahns – Form, Farbe, Größe oder Länge –, während der Zahn selbst erhalten bleibt."
+      ],
+      "who": [
+        "Ihre Frontzähne sind verfärbt, abgebrochen, abgenutzt oder ungleichmäßig.",
+        "Sie möchten die Form oder die Proportionen Ihres Lächelns verändern.",
+        "Ihre Zähne und Ihr Zahnfleisch sind gesund – das prüft der Zahnarzt zuerst."
+      ],
+      "how": [
+        {
+          "title": "Beratung und Planung",
+          "text": "Wir sprechen über das gewünschte Ergebnis und planen Form und Farbton jedes Veneers."
+        },
+        {
+          "title": "Vorbereitung der Zähne",
+          "text": "Je nach Plan wird eine dünne Schicht Zahnschmelz geformt, damit die Veneers natürlich sitzen."
+        },
+        {
+          "title": "Herstellung",
+          "text": "Jedes Veneer wird passend für seinen Zahn gefertigt."
+        },
+        {
+          "title": "Befestigung",
+          "text": "Die Veneers werden auf Ihren Zähnen befestigt und auf Passform und Biss geprüft."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Verändern Veneers die Farbe meiner Zähne?",
+          "a": "Veneers haben einen eigenen Farbton, den wir in der Beratung mit Ihnen auswählen. Sie bedecken die Vorderseite der Zähne, auf denen sie befestigt werden."
+        },
+        {
+          "q": "Müssen meine Zähne vorbereitet werden?",
+          "a": "Oft wird zuerst eine dünne Schicht Zahnschmelz geformt; ob das nötig ist, richtet sich nach Ihren Zähnen und Ihrem Plan. Der Zahnarzt erklärt Ihnen, was für Sie gilt."
+        },
+        {
+          "q": "Wo kann ich Veneers bekommen?",
+          "a": "In Antalya oder Istanbul – Veneers bieten wir in beiden Städten an."
+        }
+      ]
+    },
+    "smileDesign": {
+      "title": "Smile Design",
+      "lead": "Ihr Lächeln als Ganzes geplant – Zahnform, Farbe und Harmonie mit Ihrem Gesicht –, bevor eine Behandlung beginnt.",
+      "what": [
+        "Smile Design ist eine Art der Planung: Form, Größe, Farbe und Proportionen Ihrer Zähne werden zusammen mit Ihrem Gesicht und Ihren Lippen geplant.",
+        "Der Plan zeigt, welche Behandlungen – zum Beispiel Veneers oder Implantate – Sie zu dem Lächeln führen, das Sie sich wünschen."
+      ],
+      "who": [
+        "Sie möchten mehrere Dinge an Ihrem Lächeln verändern.",
+        "Sie möchten einen klaren Plan, bevor Sie sich entscheiden.",
+        "Sie denken über Veneers, Implantate oder eine Kombination nach."
+      ],
+      "how": [
+        {
+          "title": "Beratung",
+          "text": "Sie erzählen uns, was Sie verändern möchten. Fotos Ihres Lächelns helfen – Sie können sie per WhatsApp senden."
+        },
+        {
+          "title": "Planung",
+          "text": "Ihr Zahnarzt plant Form, Proportionen und Farbton Ihrer Zähne im Verhältnis zu Ihrem Gesicht."
+        },
+        {
+          "title": "Ihr Behandlungsplan",
+          "text": "Wir erklären die Behandlungen, die der Plan umfasst, damit Sie mit allen Informationen entscheiden können."
+        },
+        {
+          "title": "Behandlung",
+          "text": "Ihre Behandlung folgt dem Plan – in Antalya oder Istanbul."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Ist Smile Design eine eigene Behandlung?",
+          "a": "Smile Design ist die Planung. Der Plan nennt dann die Behandlungen, etwa Veneers oder Implantate, mit denen er umgesetzt wird."
+        },
+        {
+          "q": "Kann ich mit Fotos beginnen?",
+          "a": "Ja. Senden Sie Fotos Ihres Lächelns per WhatsApp für eine Online-Einschätzung vor der Reise."
+        },
+        {
+          "q": "Wo wird Smile Design angeboten?",
+          "a": "In unseren beiden Städten, Antalya und Istanbul."
+        }
+      ]
+    }
   }
 }

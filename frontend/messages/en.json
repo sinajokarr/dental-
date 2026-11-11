@@ -244,5 +244,153 @@
       "whatsapp": "Send your reference on WhatsApp"
     },
     "consentShort": "Consent"
+  },
+  "treatmentPage": {
+    "eyebrow": "Antalya · Istanbul",
+    "breadcrumb": "Breadcrumb",
+    "home": "Home",
+    "what": "What it is",
+    "who": "Who it is for",
+    "how": "How it works",
+    "intlEyebrow": "International patients",
+    "intlTitle": "Coming from abroad?",
+    "intlText": "We coordinate your hotel, airport transfer and interpreter — and you can send photos or X-rays for an online assessment before you travel."
+  },
+  "treatments": {
+    "implants": {
+      "title": "Dental implants",
+      "lead": "A fixed replacement for missing teeth: a titanium implant takes the place of the root and carries a new crown.",
+      "what": [
+        "A dental implant is a small titanium post that is placed in the jawbone where a tooth is missing.",
+        "Once it has bonded with the bone, it carries a crown — or, for several missing teeth, a bridge — made to match your other teeth."
+      ],
+      "who": [
+        "You are missing one or more teeth.",
+        "You would prefer a fixed solution to a removable denture.",
+        "Your general health and jawbone allow an implant — the dentist checks this in your consultation."
+      ],
+      "how": [
+        {
+          "title": "Consultation and examination",
+          "text": "We look at your teeth, your health and your X-rays, and explain your options."
+        },
+        {
+          "title": "Placing the implant",
+          "text": "The implant is placed in the jawbone, usually under local anaesthesia."
+        },
+        {
+          "title": "Healing",
+          "text": "The implant bonds with the bone. How long this takes depends on your case; your dentist tells you in advance."
+        },
+        {
+          "title": "Your new crown",
+          "text": "A crown made for you is fixed on the implant."
+        }
+      ],
+      "faq": [
+        {
+          "q": "How do I know whether implants are right for me?",
+          "a": "The dentist assesses your health and your jawbone in your consultation. You can send photos or X-rays on WhatsApp beforehand for an online assessment."
+        },
+        {
+          "q": "Can I have implant treatment in Antalya and in Istanbul?",
+          "a": "Yes. Dental implants are offered in both cities."
+        },
+        {
+          "q": "How many visits will I need?",
+          "a": "That depends on your treatment plan, including how long healing takes in your case. We explain it in your consultation; most visits take 3 to 8 days."
+        }
+      ]
+    },
+    "veneers": {
+      "title": "Dental veneers",
+      "lead": "Thin, custom-made shells for the front of your teeth — to refine their shape, colour and proportions.",
+      "what": [
+        "Veneers are thin shells made to measure for each tooth and bonded to its front surface.",
+        "They change how a tooth looks — its shape, colour, size or length — while the tooth itself stays in place."
+      ],
+      "who": [
+        "Your front teeth are discoloured, chipped, worn or uneven.",
+        "You want to change the shape or proportions of your smile.",
+        "Your teeth and gums are healthy — the dentist checks this first."
+      ],
+      "how": [
+        {
+          "title": "Consultation and smile planning",
+          "text": "We talk about the result you would like and plan the shape and shade of each veneer."
+        },
+        {
+          "title": "Preparing the teeth",
+          "text": "Depending on your plan, a thin layer of enamel may be shaped so the veneers sit naturally."
+        },
+        {
+          "title": "Making your veneers",
+          "text": "Each veneer is made to fit its tooth."
+        },
+        {
+          "title": "Bonding",
+          "text": "The veneers are bonded to your teeth and checked for fit and bite."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Do veneers change the colour of my teeth?",
+          "a": "Veneers have their own shade, chosen with you in your consultation. They cover the front of the teeth they are bonded to."
+        },
+        {
+          "q": "Will my teeth need to be prepared?",
+          "a": "Often a thin layer of enamel is shaped first, but this depends on your teeth and your plan. The dentist explains what applies to you."
+        },
+        {
+          "q": "Where can I have veneers?",
+          "a": "In Antalya or Istanbul — veneers are offered in both cities."
+        }
+      ]
+    },
+    "smileDesign": {
+      "title": "Smile design",
+      "lead": "Your smile planned as a whole — tooth shape, colour and balance with your face — before any treatment begins.",
+      "what": [
+        "Smile design is a way of planning: the shape, size, colour and proportions of your teeth are planned together with your face and lips.",
+        "The plan shows which treatments — for example veneers or implants — bring you to the smile you want."
+      ],
+      "who": [
+        "You would like to change several things about your smile.",
+        "You want a clear plan before you decide on treatment.",
+        "You are considering veneers, implants or a combination."
+      ],
+      "how": [
+        {
+          "title": "Consultation",
+          "text": "You tell us what you would like to change. Photos of your smile help — you can send them on WhatsApp."
+        },
+        {
+          "title": "Planning",
+          "text": "Your dentist plans the shape, proportions and shade of your teeth in relation to your face."
+        },
+        {
+          "title": "Your treatment plan",
+          "text": "We explain the treatments the plan includes, so you can decide with all the information."
+        },
+        {
+          "title": "Treatment",
+          "text": "Your treatment follows the plan, in Antalya or Istanbul."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Is smile design a treatment on its own?",
+          "a": "Smile design is the planning. The plan then names the treatments, such as veneers or implants, that carry it out."
+        },
+        {
+          "q": "Can I start with photos?",
+          "a": "Yes. Send photos of your smile on WhatsApp for an online assessment before you travel."
+        },
+        {
+          "q": "Where is smile design offered?",
+          "a": "In both of our cities, Antalya and Istanbul."
+        }
+      ]
+    }
   }
 }

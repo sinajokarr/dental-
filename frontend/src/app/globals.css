@@ -351,6 +351,19 @@ body {
   }
 }
 
+/* Treatment page heroes draw their drawing once on load (≈2.8 s, well under the 5 s auto-motion limit). */
+@media (prefers-reduced-motion: no-preference) {
+  [data-draw-load] [pathLength] {
+    stroke-dasharray: 1;
+    animation: draw 1.3s var(--ease-out) both;
+    animation-delay: calc(300ms + var(--d, 0) * 70ms);
+  }
+  [data-draw-load] [data-guide] {
+    animation: guide-in 0.8s var(--ease-out) both;
+    animation-delay: 900ms;
+  }
+}
+
 /* Navy panels, journey and finale (D-063): scroll-driven and compositor-friendly (clip-path, translate,
    opacity). Without scroll-driven animations, with reduced motion or without JS: the finished state. */
 @keyframes panel-open {
