@@ -86,3 +86,4 @@ Backups: the `backup` service writes a daily `pg_dump` to `infrastructure/backup
 `docker compose … exec backup sh -c 'createdb restore_drill && pg_restore --no-owner -d restore_drill /backups/<file>.dump && psql -d restore_drill -c "select count(*) from leads_lead"; dropdb restore_drill'`
 
 Telegram notifications start once `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID` are set; check with `… exec backend python manage.py send_test_notification`.
+# dental-
