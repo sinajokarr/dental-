@@ -82,13 +82,13 @@
 
 | ID | Task | پیش‌نیاز | فایل‌ها | خروجی و معیار پذیرش | تست | اندازه | وضعیت |
 |---|---|---|---|---|---|---|---|
-| E01 | رابط فرم | C08 · B | `forms/ConsultationForm.tsx` · `lib/validate-lead.ts` · `lib/countries.ts` | فیلدها، حالت‌ها، دسترس‌پذیری، کد تلفن خودکار، honeypot | Playwright برای همه حالت‌ها + axe | L | ⬜ |
-| E02 | WhatsApp CTA | A06 | `lib/whatsapp.ts` · messages | ۶ context در ۴ زبان؛ همه محل‌های دکمه | `node:test` برای URL + بررسی href در Playwright | S | ⬜ |
-| E03 | اتصال فرم به API | E01 · D04 | `forms/actions.ts` | Server Action، نگاشت خطاها، timeout، retry با idempotency، کار بدون JS | E2E روی stack محلی در ۴ زبان | M | ⬜ |
-| E04 | Consent | E01 · Q8 | فرم · settings | متن حقوقی، `consent_version` و لینک‌ها | API + E2E | S | 🔒 Q8 (متن نهایی) |
+| E01 | رابط فرم | C08 · B | `forms/ConsultationForm.tsx` · `forms/LeadForm.tsx` · `lib/validate-lead.ts` · `lib/countries.ts` | فیلدها، حالت‌ها، دسترس‌پذیری، کد تلفن خودکار، honeypot، کار بدون JS | Playwright ۱۳ تست + axe | L | ✅ `4b0b2d6` |
+| E02 | WhatsApp CTA | A06 | `lib/whatsapp.ts` · messages | ۶ context در ۴ زبان؛ همه محل‌های دکمه | `node:test` + Playwright در ۴ زبان | S | ✅ `3d977ba` |
+| E03 | اتصال فرم به API | E01 · D04 | `forms/actions.ts` · `lib/lead-response.ts` | Server Action، نگاشت خطاها، timeout ۸ ثانیه، retry با idempotency، کار بدون JS | unit + e2e (mock قراردادی) + یک اجرای واقعی با Django (`JD-XAC89M`) | M | ✅ `4b0b2d6` |
+| E04 | Consent | E01 · Q8 | فرم | چک‌باکس رضایت با لینک Privacy، `consent_version=draft-1` | e2e | S | 🟡 پیش‌نویس — متن حقوقی نهایی قبل از Launch (D-062) |
 | E05 | Conversion events | — | — | — | — | — | ⏸ فاز I |
 | E06 | Tracking QA | — | — | — | — | — | ⏸ فاز I |
-| E07 | QA پایداری فرم | E03 · D06 | tests | سناریوهای قطع Telegram، قطع API و شبکه کند | E2E + integration | S | ⬜ |
+| E07 | QA پایداری فرم | E03 · D06 | `tests/e2e/form-resilience.spec.ts` · `leads/tests/test_api.py` | timeout، خطای 500، قطع اتصال، قطع Telegram — بدون Lead تکراری یا گمشده | e2e ۳ تست + Django | S | ✅ |
 
 ## Phase F — Multilingual
 

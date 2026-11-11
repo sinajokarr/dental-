@@ -97,3 +97,25 @@ class LeadNotificationHookTests(APITestCase):
         with self.captureOnCommitCallbacks(execute=False) as callbacks:
             self.client.post("/api/v1/leads/", payload(), format="json", HTTP_AUTHORIZATION=f"Bearer {TOKEN}", HTTP_X_CLIENT_IP="203.0.113.50")
         self.assertEqual(len(callbacks), 1)
+
+
+@override_settings(INTERNAL_API_TOKEN=TOKEN, TELEGRAM_BOT_TOKEN="test-bot", TELEGRAM_CHAT_ID="-100")
+class TelegramOutageTests(APITestCase):
+    """E07: Telegram being down never costs a lead — the patient gets a reference, the notification is queued."""
+
+    def test_telegram_outage_never_loses_a_lead(self):
+        from unittest.mock import patch
+
+        from leads.notifications import TelegramError, deliver
+
+        cache.clear()
+        with (
+            patch("leads.api.notify_in_background", side_effect=deliver),  # run the send inline, not in a thread
+            patch("leads.notifications.send", side_effect=TelegramError("network error (URLError)")),
+            self.captureOnCommitCallbacks(execute=True),
+        ):
+            response = self.client.post("/api/v1/leads/", payload(), format="json", HTTP_AUTHORIZATION=f"Bearer {TOKEN}", HTTP_X_CLIENT_IP="203.0.113.60")
+        self.assertEqual(response.status_code, 201)
+        lead = Lead.objects.get(reference=response.json()["reference"])
+        self.assertEqual((lead.notification_status, lead.notification_attempts), (Lead.Notification.FAILED, 1))
+        self.assertIsNotNone(lead.notification_next_at)  # the worker retries it

@@ -23,7 +23,12 @@ createServer(async (req, res) => {
   requests.push({ body, clientIp: req.headers["x-client-ip"] ?? null });
 
   const name = String(body.full_name);
-  if (name.startsWith("Slow Server")) await new Promise((resolve) => setTimeout(resolve, 9000)); // > the 8 s timeout
+  if (name.startsWith("Connection Drop")) return req.socket.destroy(); // the API process is gone mid-request
+  // First request only: stored after the client's 8 s timeout — the retry must find it, not create a twin.
+  if (name.startsWith("Slow Server") && !failedOnce.has(name)) {
+    failedOnce.add(name);
+    await new Promise((resolve) => setTimeout(resolve, 9000));
+  }
   if (leads.has(body.submission_id)) return send(200, { reference: leads.get(body.submission_id), created: false });
   if (name.startsWith("Rate Limited")) return send(429, { error: "rate_limited", retry_after: 1800 });
   if (name.startsWith("Invalid Phone")) return send(400, { errors: { phone: ["invalid_phone"] } });
