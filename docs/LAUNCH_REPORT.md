@@ -29,7 +29,7 @@
 |---|---|
 | تست واحد Frontend (`node:test`) | **49/49** |
 | Django | **38/38** |
-| E2E (Chromium، کل مجموعه) | **159 passed** |
+| E2E (Chromium، کل مجموعه) | **160 passed** (۱ skipped: تست مخصوص گوشی) |
 | E2E روی همه موتورها (Chromium + Firefox + WebKit + iPhone 13 + Pixel 7) | **178 passed** (۳ اجرای کامل پشت‌سرهم؛ در یک اجرای قبلی، تست فرم Firefox یک بار زیر بار شکست خورد و در ۳ اجرای کامل و ۱۲ اجرای جداگانه تکرار نشد) |
 | E2E روی stack محلی Production (Caddy → Next → Django → PostgreSQL) | **144 passed** |
 | Smoke روی Production (`infrastructure/smoke.sh`) | **18/18** |
