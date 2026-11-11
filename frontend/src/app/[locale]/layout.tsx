@@ -20,7 +20,8 @@ export function generateStaticParams() {
 export default async function LocaleLayout({ children }: LayoutProps<"/[locale]">) {
   const locale = await getLocale();
   // Only the fonts this locale renders above the fold (D-049): Persian never downloads the Latin faces, and vice versa.
-  const fonts = locale === "fa" ? ["vazirmatn"] : ["cormorant-garamond", "manrope"];
+  // The italic is in the hero headline; with font-display: optional (D-071) an unpreloaded face would miss its turn.
+  const fonts = locale === "fa" ? ["vazirmatn"] : ["cormorant-garamond", "cormorant-garamond-italic", "manrope"];
   for (const font of fonts) preload(`/fonts/${font}.woff2`, { as: "font", type: "font/woff2", crossOrigin: "anonymous" });
   return (
     <html lang={locale} dir={locale === "fa" ? "rtl" : "ltr"}>

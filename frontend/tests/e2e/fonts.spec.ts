@@ -24,3 +24,10 @@ for (const locale of ["en", "de", "tr"]) {
     expect(fonts.some((font) => font.includes("vazirmatn"))).toBe(false);
   });
 }
+
+test("Latin locales preload the hero's italic face too, so font-display: optional keeps it (D-071)", async ({ request }) => {
+  for (const locale of ["en", "de", "tr"]) {
+    const link = (await request.get(`/${locale}`)).headers()["link"] ?? "";
+    expect(link, locale).toContain("/fonts/cormorant-garamond-italic.woff2");
+  }
+});
