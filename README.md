@@ -17,4 +17,12 @@ docs/            Design & architecture documents
 
 ## Setup
 
-Setup and test commands are added here as Phase A (Foundation) lands.
+Prerequisites: Node.js 24+, Python 3.13, Docker.
+
+1. **Environment** — one `.env` at the repository root serves the frontend, the backend and the dev database:
+
+   ```bash
+   cp .env.example .env   # then replace every change-me value
+   ```
+
+   Real environment variables always override `.env`. A missing required variable stops the app with an error naming it.
