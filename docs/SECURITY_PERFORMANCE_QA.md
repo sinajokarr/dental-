@@ -99,7 +99,7 @@
 
 ```text
 default-src 'self';
-script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval';
+script-src 'self' 'unsafe-inline';
 style-src 'self' 'unsafe-inline';
 img-src 'self' data: blob:;
 font-src 'self';
@@ -108,7 +108,20 @@ frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none';
 ```
 
 - **`'unsafe-inline'` در script:** Next.js در صفحات استاتیک اسکریپت‌های inline برای hydration دارد. CSP مبتنی بر nonce صفحات را به رندر پویا مجبور می‌کند و TTFB را بدتر می‌کند. این یک مصالحه آگاهانه است و در H04 دوباره ارزیابی می‌شود.
-- **`'wasm-unsafe-eval'`:** decoder فرمت Meshopt از WebAssembly استفاده می‌کند.
+- **`'wasm-unsafe-eval'` حذف شد (H04):** مدل دندان با فرمت باینری اختصاصی و بدون decoder WebAssembly بارگذاری می‌شود (D-061).
+
+### نتیجه بازبینی امنیت (H04، 2026-11-11، روی stack محلی Production)
+
+| مورد | نتیجه |
+|---|---|
+| هدرها (Caddy) | HSTS (یک سال، includeSubDomains، preload)، CSP بالا، `X-Frame-Options: DENY`، `nosniff`، `Referrer-Policy`، `Permissions-Policy`؛ هدر `Server` حذف است — `infrastructure/smoke.sh` |
+| سازگاری CSP | Hero سه‌بعدی، GSAP، نقاشی‌ها، فرم و صفحه ورود Admin بدون هیچ خطای CSP در console |
+| API داخلی | `/api/*` از بیرون 404 است؛ Server Action از شبکه داخلی Docker و با Bearer token صدا می‌زند |
+| Rate limit | IP واقعی بازدیدکننده به Django می‌رسد (کلید throttle با IP کلاینت، نه IP کانتینر frontend یا Caddy) |
+| Django | `check --deploy --fail-level WARNING` داخل کانتینر: بدون هشدار؛ 2FA اجباری، django-axes، مسیر Admin غیرپیش‌فرض |
+| وابستگی‌ها | `npm audit --omit=dev`: ۰ آسیب‌پذیری؛ ۷ مورد moderate فقط در ابزار توسعه (ESLint) و خارج از محصول؛ `pip-audit` روی `requirements.txt`: بدون آسیب‌پذیری شناخته‌شده |
+| Secrets | `.env` در هیچ image وجود ندارد (`.dockerignore`)؛ در repo فقط قالب‌ها (`.env.example`، `.env.production.example`) |
+| باقی‌مانده | `'unsafe-inline'` در script-src (D-050)؛ تست نفوذ مستقل، اسکن روی دامنه واقعی و ثبت در HSTS preload list: **NOT RUN** (دامنه نداریم) |
 
 ### چک‌لیست Django
 
