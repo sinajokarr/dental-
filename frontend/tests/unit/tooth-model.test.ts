@@ -70,8 +70,10 @@ test("hero tooth is a tall, upright molar with valid indices", () => {
   assert.ok(tooth.indices.every((i) => i < vertices));
 });
 
-test("poster (Tier 0 / pre-3D frame) exists as a 1000×1000 PNG", () => {
-  const png = readFileSync(new URL("../../public/images/hero/tooth-poster.png", import.meta.url));
-  assert.equal(png.toString("latin1", 1, 4), "PNG");
-  assert.deepEqual([png.readUInt32BE(16), png.readUInt32BE(20)], [1000, 1000]);
-});
+for (const poster of ["tooth-scan", "tooth-poster"]) {
+  test(`poster ${poster} (scan start / finished tooth, D-065) exists as a 1000×1000 PNG`, () => {
+    const png = readFileSync(new URL(`../../public/images/hero/${poster}.png`, import.meta.url));
+    assert.equal(png.toString("latin1", 1, 4), "PNG");
+    assert.deepEqual([png.readUInt32BE(16), png.readUInt32BE(20)], [1000, 1000]);
+  });
+}

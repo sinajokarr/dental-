@@ -1,7 +1,7 @@
 "use client";
 
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { use, useEffect, useMemo, useRef } from "react";
+import { use, useEffect, useEffectEvent, useMemo, useRef } from "react";
 import {
   BackSide,
   BoxGeometry,
@@ -19,9 +19,11 @@ import {
   NeutralToneMapping,
   PlaneGeometry,
   PMREMGenerator,
+  Points,
   RectAreaLight,
   RGBAFormat,
   Scene,
+  ShaderMaterial,
   SRGBColorSpace,
   UnsignedByteType,
 } from "three";
@@ -29,12 +31,29 @@ import { RectAreaLightUniformsLib } from "three/examples/jsm/lights/RectAreaLigh
 import { loadGsap } from "@/lib/motion";
 import { decodeTooth } from "./toothFormat";
 
-RectAreaLightUniformsLib.init(); // the entrance light sweep is a RectAreaLight
+RectAreaLightUniformsLib.init(); // the polish glint is a RectAreaLight sweep
 
 export type Tier = 1 | 2; // 2 = desktop (transmission), 1 = mobile/tablet (no extra render pass) — 3D_HERO_MASTER_PLAN §8
+export type Still = "scan" | "final"; // poster capture states (scripts/render-poster.mjs, D-065)
 
 const BACKGROUND = "#f8fcff"; // = hero bg (ice-50); transmission cannot see the DOM, so the canvas paints it
-export const POSE = { pitch: 0.14, yaw: -0.44 } as const;
+export const POSE = { pitch: 0.3, yaw: -0.5 } as const;
+// The digital-scan entrance (D-063): a plane travels down the tooth in model space (y ∈ [-1, 1]). Above it the
+// tooth is porcelain; below it, still scan data — a point cloud.
+const SCAN_TOP = 1.12;
+const SCAN_BOTTOM = -1.12;
+const START = { scan: SCAN_TOP, points: 1, glow: 1, rim: 0, z: 6.6, spin: 0.38 } as const;
+const FINAL = { scan: SCAN_BOTTOM, points: 0, glow: 0, rim: 1, z: 6.0, spin: 0 } as const;
+
+const smoothstep = (a: number, b: number, x: number) => {
+  const t = Math.min(Math.max((x - a) / (b - a), 0), 1);
+  return t * t * (3 - 2 * t);
+};
+/** Cemento-enamel junction height — mirrors cej() in scripts/build-tooth.mjs. */
+const cej = (x: number, z: number) => {
+  const r2 = x * x + z * z;
+  return 0.1 + (r2 > 1e-6 ? 0.035 * ((x * x - z * z) / r2) : 0);
+};
 
 let geometryPromise: Promise<BufferGeometry> | undefined;
 function loadGeometry(): Promise<BufferGeometry> {
@@ -46,9 +65,13 @@ function loadGeometry(): Promise<BufferGeometry> {
       geometry.setAttribute("position", new BufferAttribute(tooth.positions, 3, true));
       geometry.setAttribute("normal", new BufferAttribute(tooth.normals, 3, true));
       geometry.setIndex(new BufferAttribute(tooth.indices, 1));
-      // uv.y: 0 at the root apices … 1 at the cusps — drives the porcelain-crown → ice-root gradient.
-      const uv = new Float32Array((tooth.positions.length / 3) * 2);
-      for (let v = 0; v < uv.length / 2; v++) uv[v * 2 + 1] = (tooth.positions[v * 3 + 1] / 32767 + 1) / 2;
+      // uv.y = enamel: 1 on the crown … 0 on the roots, split along the curved cemento-enamel junction.
+      const count = tooth.positions.length / 3, uv = new Float32Array(count * 2);
+      const world = (v: number, a: number) => tooth.min[a] + ((tooth.positions[v * 3 + a] / 32767 + 1) / 2) * (tooth.max[a] - tooth.min[a]);
+      for (let v = 0; v < count; v++) {
+        const x = world(v, 0), y = world(v, 1), z = world(v, 2);
+        uv[v * 2 + 1] = smoothstep(-0.035, 0.035, y - cej(x, z));
+      }
       geometry.setAttribute("uv", new BufferAttribute(uv, 2));
       geometry.userData.halfSize = [0, 1, 2].map((a) => (tooth.max[a] - tooth.min[a]) / 2);
       return geometry;
@@ -56,13 +79,8 @@ function loadGeometry(): Promise<BufferGeometry> {
   return geometryPromise;
 }
 
-const smoothstep = (a: number, b: number, x: number) => {
-  const t = Math.min(Math.max((x - a) / (b - a), 0), 1);
-  return t * t * (3 - 2 * t);
-};
-
-/** 1×64 vertical gradient: per texel [r, g, b, a] in 0–255. */
-function gradient(texel: (y: number) => [number, number, number, number], srgb = false): DataTexture {
+/** 1×64 gradient along uv.y (roots → crown): per texel [r, g, b, a] in 0–255. */
+function gradient(texel: (enamel: number) => [number, number, number, number], srgb = false): DataTexture {
   const data = new Uint8Array(64 * 4);
   for (let i = 0; i < 64; i++) data.set(texel(i / 63), i * 4);
   const texture = new DataTexture(data, 1, 64, RGBAFormat, UnsignedByteType);
@@ -72,61 +90,123 @@ function gradient(texel: (y: number) => [number, number, number, number], srgb =
   return texture;
 }
 
+type ScanUniforms = { uScan: { value: number }; uScanGlow: { value: number }; uScanColor: { value: Color } };
+
+/** Porcelain crown, ice roots — with the scan plane injected: discard below it, a blue laser band at it. */
 function toothMaterial(tier: Tier): MeshPhysicalMaterial {
-  // Cemento-enamel junction sits at ~62% of the height: crown above, roots below.
-  const root = (y: number) => 1 - smoothstep(0.46, 0.64, y);
-  // R = transmission (roots → ice glass), G = roughness (crown 0.22 → roots 0.38).
-  const surface = gradient((y) => [255 * root(y), 255 * (0.22 + 0.16 * root(y)), 0, 255]);
+  const scan: ScanUniforms = { uScan: { value: SCAN_TOP }, uScanGlow: { value: 1 }, uScanColor: { value: new Color("#1f8fd6") } };
+  // R = transmission (ice roots only), G = roughness (glossy crown 0.26 → satin roots 0.16 under the glass).
+  const surface = gradient((e) => [255 * 0.94 * (1 - e), 255 * (0.16 + 0.1 * e), 0, 255]);
   const common = {
-    color: new Color("#f7fbfe"),
+    color: new Color("#ffffff"),
     roughness: 1,
     roughnessMap: surface,
     clearcoat: 1,
-    clearcoatRoughness: 0.06,
-    sheen: 0.35,
-    sheenColor: new Color("#bdeaff"),
-    sheenRoughness: 0.5,
+    clearcoatRoughness: 0.04,
+    sheen: 0.3,
+    sheenColor: new Color("#dff4ff"),
+    sheenRoughness: 0.45,
+    specularIntensity: 1,
   };
-  if (tier === 2) {
-    return new MeshPhysicalMaterial({
-      ...common,
-      transmission: 1,
-      transmissionMap: surface,
-      thickness: 0.9,
-      ior: 1.5,
-      attenuationColor: new Color("#bdeaff"),
-      attenuationDistance: 0.9,
-      iridescence: 0.08,
-    });
-  }
-  // Tier 1: imitate the icy roots with a colour gradient instead of a transmission pass.
-  const tint = gradient((y) => {
-    const t = root(y);
-    return [255 - 34 * t, 255 - 11 * t, 255, 255]; // white → #DDF4FF
-  }, true);
-  return new MeshPhysicalMaterial({ ...common, map: tint });
+  const material =
+    tier === 2
+      ? new MeshPhysicalMaterial({
+          ...common,
+          transmission: 1,
+          transmissionMap: surface,
+          thickness: 0.7,
+          ior: 1.5,
+          attenuationColor: new Color("#a9defa"),
+          attenuationDistance: 0.85,
+        })
+      : // Tier 1: no transmission pass — the roots get an ice-blue tint instead.
+        new MeshPhysicalMaterial({ ...common, map: gradient((e) => [255 - 46 * (1 - e), 255 - 16 * (1 - e), 255, 255], true) });
+
+  material.onBeforeCompile = (shader) => {
+    Object.assign(shader.uniforms, scan);
+    shader.vertexShader = shader.vertexShader
+      .replace("#include <common>", "#include <common>\nvarying float vScanY;")
+      .replace("#include <begin_vertex>", "#include <begin_vertex>\nvScanY = position.y;");
+    shader.fragmentShader = shader.fragmentShader
+      .replace("#include <common>", "#include <common>\nvarying float vScanY;\nuniform float uScan;\nuniform float uScanGlow;\nuniform vec3 uScanColor;")
+      .replace("#include <clipping_planes_fragment>", "#include <clipping_planes_fragment>\nif (vScanY < uScan) discard;")
+      .replace(
+        "#include <color_fragment>",
+        "#include <color_fragment>\nfloat scanBand = uScanGlow * (1.0 - smoothstep(0.0, 0.06, vScanY - uScan));\ndiffuseColor.rgb = mix(diffuseColor.rgb, uScanColor, scanBand);",
+      )
+      .replace("#include <emissivemap_fragment>", "#include <emissivemap_fragment>\ntotalEmissiveRadiance += uScanColor * scanBand * 1.4;");
+  };
+  material.customProgramCacheKey = () => `tooth-scan-${tier}`;
+  material.userData.scan = scan; // driven per frame through the mesh ref
+  return material;
 }
 
-/** Studio light built in-scene and prefiltered once — no HDRI download (D-025). */
+/** The scan data: every vertex as a point, visible below the scan plane, flaring just under it. */
+function cloudMaterial(): ShaderMaterial {
+  return new ShaderMaterial({
+    transparent: true,
+    depthWrite: false,
+    uniforms: {
+      uScan: { value: SCAN_TOP },
+      uOpacity: { value: 1 },
+      uSize: { value: 15 },
+      uColor: { value: new Color("#0c5798") },
+    },
+    vertexShader: /* glsl */ `
+      uniform float uScan;
+      uniform float uOpacity;
+      uniform float uSize;
+      varying float vAlpha;
+      float hash(float n) { return fract(sin(n) * 43758.5453); }
+      void main() {
+        float id = float(gl_VertexID);
+        float h = hash(id * 12.9898);
+        // Marching-cubes vertices sit on a grid; a small jitter makes the cloud read as scan data.
+        vec3 p = position + (vec3(hash(id * 3.1), hash(id * 5.7), hash(id * 7.3)) - 0.5) * 0.016;
+        vec4 mv = modelViewMatrix * vec4(p, 1.0);
+        gl_Position = projectionMatrix * mv;
+        float pending = step(position.y, uScan);
+        float flare = 1.0 - smoothstep(0.0, 0.16, uScan - position.y);
+        float depth = smoothstep(-7.5, -5.8, mv.z); // the far side of the tooth fades
+        float kept = step(0.28, h); // a sparser, irregular cloud
+        vAlpha = kept * pending * uOpacity * (0.25 + 0.75 * depth) * (0.3 + 0.7 * h) * (1.0 + 1.6 * flare);
+        gl_PointSize = uSize * (0.6 + 0.9 * h) * (1.0 + 0.7 * flare) / -mv.z;
+      }`,
+    fragmentShader: /* glsl */ `
+      uniform vec3 uColor;
+      varying float vAlpha;
+      void main() {
+        vec2 c = gl_PointCoord - 0.5;
+        float r2 = dot(c, c);
+        if (r2 > 0.25 || vAlpha <= 0.0) discard;
+        gl_FragColor = vec4(uColor, min(vAlpha, 1.0) * (1.0 - 4.0 * r2));
+        #include <tonemapping_fragment>
+        #include <colorspace_fragment>
+      }`,
+  });
+}
+
+/** Studio light built in-scene and prefiltered once — no HDRI download (D-025). Mid-grey walls and bright
+ *  softboxes: the clearcoat shows crisp, long highlights, the body keeps its form. */
 function Studio() {
   const gl = useThree((state) => state.gl);
   const environment = useMemo(() => {
     const room = new Scene();
-    // Bright, cool walls keep the porcelain white; emissive panels draw the highlights.
-    room.add(new Mesh(new BoxGeometry(14, 14, 14), new MeshBasicMaterial({ color: "#c3cdd7", side: BackSide })));
+    room.add(new Mesh(new BoxGeometry(14, 14, 14), new MeshBasicMaterial({ color: "#8f9cab", side: BackSide })));
     const panel = (w: number, h: number, color: string, power: number, p: [number, number, number], r: [number, number, number]) => {
       const mesh = new Mesh(new PlaneGeometry(w, h), new MeshBasicMaterial({ color: new Color(color).multiplyScalar(power), side: DoubleSide }));
       mesh.position.set(...p);
       mesh.rotation.set(...r);
       room.add(mesh);
     };
-    panel(6, 3, "#ffffff", 3.2, [0, 5.5, 1.5], [Math.PI / 2, 0, 0]); // key softbox overhead
-    panel(1.3, 9, "#ffffff", 2.4, [-5.5, 0.5, 2], [0, Math.PI / 2, 0]); // strip, start side
-    panel(1, 8, "#ffffff", 1.6, [5.5, 0, 0.5], [0, -Math.PI / 2, 0]); // strip, end side
-    panel(7, 2.2, "#7fd3f4", 3, [0, 1, -5.5], [0, 0, 0]); // ice-blue rim from behind
-    panel(9, 5, "#ddf4ff", 1.2, [0, -5.5, 0], [-Math.PI / 2, 0, 0]); // floor bounce
+    panel(7, 3.5, "#ffffff", 4.2, [0, 5.5, 1.2], [Math.PI / 2, 0, 0]); // key softbox overhead
+    panel(1.4, 10, "#ffffff", 3.4, [-5.5, 0.5, 2], [0, Math.PI / 2, 0]); // strip, start side
+    panel(1.1, 9, "#ffffff", 2.4, [5.5, 0, 1], [0, -Math.PI / 2, 0]); // strip, end side
+    panel(8, 2.4, "#7fd3f4", 3.4, [0, 1.2, -5.5], [0, 0, 0]); // ice-blue rim from behind
+    panel(4, 3, "#ffffff", 1.6, [0, 0.4, 5.5], [0, Math.PI, 0]); // soft front fill
+    panel(10, 6, "#ddf4ff", 1.1, [0, -5.5, 0], [-Math.PI / 2, 0, 0]); // floor bounce
     const pmrem = new PMREMGenerator(gl);
-    const texture = pmrem.fromScene(room, 0.04).texture;
+    const texture = pmrem.fromScene(room, 0.03).texture;
     pmrem.dispose();
     room.traverse((object) => {
       if (object instanceof Mesh) {
@@ -140,12 +220,12 @@ function Studio() {
   return <primitive object={environment} attach="environment" />;
 }
 
-function radialTexture(stretch = 1): DataTexture {
+function radialTexture(): DataTexture {
   const size = 64, data = new Uint8Array(size * size * 4);
   for (let y = 0; y < size; y++)
     for (let x = 0; x < size; x++) {
-      const dx = (x / (size - 1)) * 2 - 1, dy = ((y / (size - 1)) * 2 - 1) * stretch;
-      data.set([255, 255, 255, 255 * (1 - smoothstep(0, 1, Math.hypot(dx, dy)))], (y * size + x) * 4);
+      const dx = (x / (size - 1)) * 2 - 1, dy = (y / (size - 1)) * 2 - 1;
+      data.set([255, 255, 255, 255 * (1 - smoothstep(0, 1, Math.hypot(dx, dy))) ** 1.6], (y * size + x) * 4);
     }
   const texture = new DataTexture(data, size, size, RGBAFormat, UnsignedByteType);
   texture.magFilter = texture.minFilter = LinearFilter;
@@ -153,42 +233,78 @@ function radialTexture(stretch = 1): DataTexture {
   return texture;
 }
 
-type Props = { tier: Tier; still?: boolean; onFirstFrame?: () => void; onContextLost?: () => void };
+type Props = {
+  tier: Tier;
+  still?: Still;
+  onFirstFrame?: () => void;
+  onSettled?: () => void;
+  onContextLost?: () => void;
+};
 
-function Tooth({ tier, still, onFirstFrame, onContextLost }: Props) {
+function Tooth({ tier, still, onFirstFrame, onSettled, onContextLost }: Props) {
   const geometry = use(loadGeometry());
   const material = useMemo(() => toothMaterial(tier), [tier]);
-  const glow = useMemo(() => radialTexture(), []);
-  const caustic = useMemo(() => radialTexture(), []);
+  const cloud = useMemo(() => cloudMaterial(), []);
+  const halo = useMemo(() => radialTexture(), []);
   const [hx, hy, hz] = geometry.userData.halfSize as number[];
   const { gl, scene, camera, invalidate } = useThree();
   const group = useRef<Group>(null);
+  const tooth = useRef<Mesh>(null);
+  const points = useRef<Points>(null);
   const rim = useRef<DirectionalLight>(null);
   const sweep = useRef<RectAreaLight>(null);
   // Everything that moves, in one plain object: GSAP tweens it, useFrame applies it, invalidate() renders it.
   const motion = useMemo(
-    () => ({ z: 7.0, rim: 0, sweepX: -3.2, sweepI: 0, float: 0, tiltX: 0, tiltY: 0, drag: 0, exitY: 0, exitYaw: 0, exitScale: 1 }),
-    [],
+    () => ({
+      ...(still === "final" ? FINAL : START),
+      sweepX: -3.2,
+      sweepI: 0,
+      float: 0,
+      tiltX: 0,
+      tiltY: 0,
+      drag: 0,
+      exitY: 0,
+      exitYaw: 0,
+      exitPitch: 0,
+      exitScale: 1,
+    }),
+    [still],
   );
 
   useFrame((state) => {
     const g = group.current, bob = Math.sin(motion.float * Math.PI);
-    if (!g || !rim.current || !sweep.current) return;
+    if (!g || !tooth.current || !points.current || !rim.current || !sweep.current) return;
     state.camera.position.z = motion.z;
     g.position.y = 0.05 * bob + motion.exitY;
-    g.rotation.set(POSE.pitch + motion.tiltX, POSE.yaw + motion.tiltY + motion.drag + 0.17 * bob + motion.exitYaw, 0);
+    g.rotation.set(
+      POSE.pitch + motion.tiltX + motion.exitPitch,
+      POSE.yaw + motion.spin + motion.tiltY + motion.drag + 0.15 * bob + motion.exitYaw,
+      0,
+    );
     g.scale.setScalar(motion.exitScale);
-    rim.current.intensity = 2.4 * motion.rim;
+    const scan = (tooth.current.material as MeshPhysicalMaterial).userData.scan as ScanUniforms;
+    const cloudUniforms = (points.current.material as ShaderMaterial).uniforms;
+    scan.uScan.value = cloudUniforms.uScan.value = motion.scan;
+    scan.uScanGlow.value = motion.glow;
+    cloudUniforms.uOpacity.value = motion.points;
+    cloudUniforms.uSize.value = 15 * state.gl.getPixelRatio();
+    points.current.visible = motion.points > 0.001;
+    rim.current.intensity = 2.6 * motion.rim;
     sweep.current.intensity = motion.sweepI;
     sweep.current.position.x = motion.sweepX;
     sweep.current.lookAt(0, 0, 0);
   });
 
+  // The parent's callbacks may change identity on every render; as effect events they never restart the scene.
+  const firstFrame = useEffectEvent(() => onFirstFrame?.());
+  const settled = useEffectEvent(() => onSettled?.());
+  const contextLost = useEffectEvent(() => onContextLost?.());
+
   useEffect(() => {
     const canvas = gl.domElement;
     const lost = (event: Event) => {
       event.preventDefault();
-      onContextLost?.();
+      contextLost();
     };
     canvas.addEventListener("webglcontextlost", lost);
     let cleanup = () => {};
@@ -198,21 +314,26 @@ function Tooth({ tier, still, onFirstFrame, onContextLost }: Props) {
     gl.compileAsync(scene, camera).then(async () => {
       if (cancelled) return;
       invalidate();
-      requestAnimationFrame(() => onFirstFrame?.());
+      requestAnimationFrame(() => firstFrame());
       if (still) return;
 
       const { gsap, ScrollTrigger } = await loadGsap();
       if (cancelled) return;
       const tick = () => invalidate();
-      // Entrance after the 0.5 s cross-fade: dolly, rim light, light sweep, one gentle float, rest.
-      // Automatic motion ends ≈ 4.6 s after reveal (WCAG 2.2.2); afterwards only the user moves it.
+      // Entrance after the 0.5 s cross-fade from the scan poster: the scan plane mills the point cloud into
+      // porcelain, the camera eases in, the rim light and a polish glint arrive, one float, rest.
+      // Automatic motion ends ≈ 4.85 s after reveal (WCAG 2.2.2, D-041); afterwards only the user moves it.
       const entrance = gsap
-        .timeline({ delay: 0.4, onUpdate: tick })
-        .to(motion, { z: 6.0, duration: 1.8, ease: "power2.inOut" }, 0)
-        .to(motion, { rim: 1, duration: 0.6, ease: "power1.out" }, 0)
-        .fromTo(motion, { sweepX: -3.2 }, { sweepX: 3.2, duration: 1.4, ease: "power1.inOut" }, 0.2)
-        .to(motion, { sweepI: 14, duration: 0.7, ease: "sine.in", yoyo: true, repeat: 1 }, 0.2)
-        .to(motion, { float: 1, duration: 2.4, ease: "sine.inOut" }, 1.8);
+        .timeline({ delay: 0.35, onUpdate: tick, onComplete: () => settled() })
+        .to(motion, { scan: SCAN_BOTTOM, duration: 2.3, ease: "power1.inOut" }, 0)
+        .to(motion, { z: FINAL.z, duration: 2.6, ease: "power2.inOut" }, 0)
+        .to(motion, { spin: 0, duration: 2.8, ease: "power2.out" }, 0)
+        .to(motion, { points: 0, duration: 0.6, ease: "power1.out" }, 1.9)
+        .to(motion, { glow: 0, duration: 0.4 }, 2.1)
+        .to(motion, { rim: 1, duration: 0.8, ease: "power1.out" }, 2.0)
+        .fromTo(motion, { sweepX: -3.2 }, { sweepX: 3.2, duration: 1.2, ease: "power1.inOut" }, 2.3)
+        .to(motion, { sweepI: 12, duration: 0.6, ease: "sine.in", yoyo: true, repeat: 1 }, 2.3)
+        .to(motion, { float: 1, duration: 1.6, ease: "sine.inOut" }, 2.9);
 
       const section = canvas.closest("section");
       const tiltX = gsap.quickTo(motion, "tiltX", { duration: 0.6, ease: "power3", onUpdate: tick });
@@ -252,8 +373,11 @@ function Tooth({ tier, still, onFirstFrame, onContextLost }: Props) {
       canvas.addEventListener("pointerup", up);
       canvas.addEventListener("pointercancel", up);
 
-      // Scroll exit (AN-09): the tooth rises, turns and shrinks while the hero scrolls away.
-      const exit = gsap.timeline({ onUpdate: tick }).to(motion, { exitY: 0.5, exitYaw: 0.42, exitScale: 0.94, ease: "none" });
+      // Scroll (AN-09): while the hero scrolls away the tooth turns its occlusal surface to the visitor,
+      // rises and recedes.
+      const exit = gsap
+        .timeline({ onUpdate: tick })
+        .to(motion, { exitY: 0.45, exitYaw: 0.9, exitPitch: 0.42, exitScale: 0.9, ease: "none" });
       const trigger = ScrollTrigger.create({ trigger: section, start: "top top", end: "bottom top", scrub: 0.6, animation: exit });
 
       cleanup = () => {
@@ -275,33 +399,37 @@ function Tooth({ tier, still, onFirstFrame, onContextLost }: Props) {
       cleanup();
       canvas.removeEventListener("webglcontextlost", lost);
     };
-  }, [gl, scene, camera, invalidate, motion, still, onFirstFrame, onContextLost]);
+  }, [gl, scene, camera, invalidate, motion, still]);
 
   return (
     <>
-      <mesh position={[0, 0.1, -2.2]} scale={7}>
+      <mesh position={[0, 0.15, -2.4]} scale={7.5}>
         <planeGeometry />
-        <meshBasicMaterial map={glow} color="#bdeaff" transparent opacity={0.85} toneMapped={false} depthWrite={false} />
+        <meshBasicMaterial map={halo} color="#ddf4ff" transparent opacity={0.9} toneMapped={false} depthWrite={false} />
       </mesh>
-      <mesh position={[0, -1.62, 0.2]} rotation={[-Math.PI / 2, 0, 0]} scale={[2.8, 1.2, 1]}>
+      {/* Soft contact shadow: grounds the floating tooth. */}
+      <mesh position={[0, -1.72, 0.1]} rotation={[-Math.PI / 2, 0, 0]} scale={[2.6, 1.3, 1]}>
         <planeGeometry />
-        <meshBasicMaterial map={caustic} color="#7fd3f4" transparent opacity={0.32} toneMapped={false} depthWrite={false} />
+        <meshBasicMaterial map={halo} color="#103c68" transparent opacity={0.16} toneMapped={false} depthWrite={false} />
       </mesh>
+      <directionalLight position={[-3, 5, 4]} intensity={1.1} />
+      <directionalLight position={[4, 1, 3]} intensity={0.35} color="#ddf4ff" />
       <directionalLight ref={rim} position={[0, 2, -4]} color="#7fd3f4" />
       <rectAreaLight ref={sweep} width={1.2} height={4} position={[-3.2, 1.2, 3]} />
-      <group ref={group} rotation={[POSE.pitch, POSE.yaw, 0]}>
-        <mesh geometry={geometry} material={material} scale={[hx, hy, hz]} />
+      <group ref={group} rotation={[POSE.pitch, POSE.yaw + motion.spin, 0]}>
+        <mesh ref={tooth} geometry={geometry} material={material} scale={[hx, hy, hz]} />
+        <points ref={points} geometry={geometry} material={cloud} scale={[hx, hy, hz]} />
       </group>
     </>
   );
 }
 
-export default function ToothScene({ tier, still, onFirstFrame, onContextLost }: Props) {
+export default function ToothScene({ tier, still, onFirstFrame, onSettled, onContextLost }: Props) {
   return (
     <Canvas
       dpr={[1, tier === 2 ? 2 : 1.5]}
       frameloop="demand" // renders only when something moves (3D_HERO_MASTER_PLAN §7)
-      camera={{ fov: 28, position: [0, 0.15, 7.0] }}
+      camera={{ fov: 28, position: [0, 0.15, still === "final" ? FINAL.z : START.z] }}
       gl={{ antialias: true, alpha: false, powerPreference: "high-performance" }}
       onCreated={({ gl }) => {
         gl.setClearColor(BACKGROUND, 1);
@@ -310,8 +438,7 @@ export default function ToothScene({ tier, still, onFirstFrame, onContextLost }:
       aria-hidden="true"
     >
       <Studio />
-      <directionalLight position={[-3, 4, 4]} intensity={0.6} />
-      <Tooth tier={tier} still={still} onFirstFrame={onFirstFrame} onContextLost={onContextLost} />
+      <Tooth tier={tier} still={still} onFirstFrame={onFirstFrame} onSettled={onSettled} onContextLost={onContextLost} />
     </Canvas>
   );
 }

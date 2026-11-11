@@ -19,17 +19,12 @@ const smoothstep = (a, b, x) => {
   const t = clamp((x - a) / (b - a), 0, 1);
   return t * t * (3 - 2 * t);
 };
-const mix = (a, b, t) => a + (b - a) * t;
 
 // Signed distance primitives and smooth booleans (after Inigo Quilez).
 const smin = (a, b, k) => {
   const h = Math.max(k - Math.abs(a - b), 0) / k;
   return Math.min(a, b) - h * h * k * 0.25;
 };
-function roundBox(x, y, z, bx, by, bz, r) {
-  const qx = Math.abs(x) - bx + r, qy = Math.abs(y) - by + r, qz = Math.abs(z) - bz + r;
-  return Math.hypot(Math.max(qx, 0), Math.max(qy, 0), Math.max(qz, 0)) + Math.min(Math.max(qx, qy, qz), 0) - r;
-}
 function ellipsoid(x, y, z, rx, ry, rz) {
   const k0 = Math.hypot(x / rx, y / ry, z / rz);
   const k1 = Math.hypot(x / (rx * rx), y / (ry * ry), z / (rz * rz));
