@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import { Fragment, type CSSProperties, type ReactNode } from "react";
 
 type Tone = "light" | "ice" | "navy";
 
@@ -50,9 +50,11 @@ export function SectionHeader({
       {eyebrow && <p className={`eyebrow mb-4 ${dark ? "text-sky-400" : "text-blue-700"}`}>{eyebrow}</p>}
       <h2 id={id} data-reveal="words" className="font-display text-h2 font-light text-balance">
         {title.split(" ").map((word, i) => (
-          <span key={i} className="reveal-word">
-            <span style={{ "--i": i } as React.CSSProperties}>{word}</span>{" "}
-          </span>
+          <Fragment key={i}>
+            <span className="reveal-word">
+              <span style={{ "--i": i } as CSSProperties}>{word}</span>
+            </span>{" "}
+          </Fragment>
         ))}
       </h2>
       {lead && (

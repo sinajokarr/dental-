@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getLocale } from "next-intl/server";
 import { preload } from "react-dom";
+import { RevealObserver } from "@/components/motion/RevealObserver";
 import { routing } from "@/i18n/routing";
 import "../globals.css";
 
@@ -20,7 +21,10 @@ export default async function LocaleLayout({ children }: LayoutProps<"/[locale]"
   for (const font of fonts) preload(`/fonts/${font}.woff2`, { as: "font", type: "font/woff2", crossOrigin: "anonymous" });
   return (
     <html lang={locale} dir={locale === "fa" ? "rtl" : "ltr"}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <RevealObserver />
+      </body>
     </html>
   );
 }
