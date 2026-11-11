@@ -1,5 +1,32 @@
 {
   "home": {
     "placeholder": "JOKAR DENTAL — Website im Aufbau"
+  },
+  "nav": {
+    "home": "JOKAR DENTAL — Startseite",
+    "treatments": "Behandlungen",
+    "implants": "Zahnimplantate",
+    "veneers": "Veneers",
+    "smileDesign": "Smile Design",
+    "implantsHint": "Fester Ersatz für fehlende Zähne.",
+    "veneersHint": "Dünne Schalen, die auf die Vorderseite der Zähne geklebt werden.",
+    "smileDesignHint": "Die Planung von Form, Farbe und Harmonie Ihres Lächelns.",
+    "international": "Internationale Patienten",
+    "about": "Über uns",
+    "cta": "Kostenlose Beratung",
+    "menu": "Menü",
+    "close": "Menü schließen",
+    "skip": "Zum Inhalt springen",
+    "language": "Sprache",
+    "main": "Hauptmenü",
+    "whatsapp": "Per WhatsApp schreiben"
+  },
+  "whatsapp": {
+    "general": "Hallo JOKAR DENTAL, ich möchte eine kostenlose Beratung anfragen.",
+    "implants": "Hallo JOKAR DENTAL, ich möchte eine kostenlose Beratung zu Zahnimplantaten.",
+    "veneers": "Hallo JOKAR DENTAL, ich möchte eine kostenlose Beratung zu Veneers.",
+    "smile_design": "Hallo JOKAR DENTAL, ich möchte eine kostenlose Beratung zum Smile Design.",
+    "international": "Hallo JOKAR DENTAL, ich lebe im Ausland und möchte eine kostenlose Beratung.",
+    "after_form": "Hallo JOKAR DENTAL, ich habe gerade eine Beratungsanfrage gesendet ({reference})."
   }
 }

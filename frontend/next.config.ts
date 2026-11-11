@@ -7,7 +7,7 @@ import createNextIntlPlugin from "next-intl/plugin";
 const rootEnv = resolve(process.cwd(), "..", ".env");
 if (existsSync(rootEnv)) process.loadEnvFile(rootEnv);
 
-for (const name of ["NEXT_PUBLIC_SITE_URL"]) {
+for (const name of ["NEXT_PUBLIC_SITE_URL", "NEXT_PUBLIC_WHATSAPP_NUMBER"]) {
   if (!process.env[name]) throw new Error(`Missing required environment variable: ${name} (see .env.example)`);
 }
 

@@ -1,5 +1,32 @@
 {
   "home": {
     "placeholder": "JOKAR DENTAL — Web sitesi yapım aşamasında"
+  },
+  "nav": {
+    "home": "JOKAR DENTAL — ana sayfa",
+    "treatments": "Tedaviler",
+    "implants": "Diş İmplantı",
+    "veneers": "Porselen Lamina",
+    "smileDesign": "Gülüş Tasarımı",
+    "implantsHint": "Eksik dişler için sabit bir çözüm.",
+    "veneersHint": "Dişlerin ön yüzeyine yapıştırılan ince kaplamalar.",
+    "smileDesignHint": "Gülüşünüzün şekli, rengi ve uyumunun planlanması.",
+    "international": "Uluslararası Hastalar",
+    "about": "Hakkımızda",
+    "cta": "Ücretsiz Danışmanlık",
+    "menu": "Menü",
+    "close": "Menüyü kapat",
+    "skip": "İçeriğe geç",
+    "language": "Dil",
+    "main": "Ana menü",
+    "whatsapp": "WhatsApp'tan yazın"
+  },
+  "whatsapp": {
+    "general": "Merhaba JOKAR DENTAL, ücretsiz danışmanlık almak istiyorum.",
+    "implants": "Merhaba JOKAR DENTAL, diş implantı hakkında ücretsiz danışmanlık almak istiyorum.",
+    "veneers": "Merhaba JOKAR DENTAL, porselen lamina hakkında ücretsiz danışmanlık almak istiyorum.",
+    "smile_design": "Merhaba JOKAR DENTAL, gülüş tasarımı hakkında ücretsiz danışmanlık almak istiyorum.",
+    "international": "Merhaba JOKAR DENTAL, yurt dışında yaşıyorum ve ücretsiz danışmanlık almak istiyorum.",
+    "after_form": "Merhaba JOKAR DENTAL, az önce bir danışmanlık talebi gönderdim ({reference})."
   }
 }

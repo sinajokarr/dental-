@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import { NextIntlClientProvider } from "next-intl";
 import { getLocale } from "next-intl/server";
 import { preload } from "react-dom";
+import { SiteHeader } from "@/components/layout/SiteHeader";
 import { RevealObserver } from "@/components/motion/RevealObserver";
 import { routing } from "@/i18n/routing";
 import "../globals.css";
@@ -22,8 +24,14 @@ export default async function LocaleLayout({ children }: LayoutProps<"/[locale]"
   return (
     <html lang={locale} dir={locale === "fa" ? "rtl" : "ltr"}>
       <body>
-        {children}
-        <RevealObserver />
+        {/* Locale for client components; messages={null}: client components get their text as props, so no translations ship to the browser. */}
+        <NextIntlClientProvider messages={null}>
+          <SiteHeader />
+          <main id="main" tabIndex={-1} className="outline-none">
+            {children}
+          </main>
+          <RevealObserver />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

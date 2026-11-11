@@ -1,5 +1,32 @@
 {
   "home": {
     "placeholder": "JOKAR DENTAL — website under construction"
+  },
+  "nav": {
+    "home": "JOKAR DENTAL — home",
+    "treatments": "Treatments",
+    "implants": "Dental Implants",
+    "veneers": "Dental Veneers",
+    "smileDesign": "Smile Design",
+    "implantsHint": "A fixed replacement for missing teeth.",
+    "veneersHint": "Thin shells bonded to the front of the teeth.",
+    "smileDesignHint": "Planning the shape, colour and balance of your smile.",
+    "international": "International Patients",
+    "about": "About",
+    "cta": "Free Consultation",
+    "menu": "Menu",
+    "close": "Close menu",
+    "skip": "Skip to content",
+    "language": "Language",
+    "main": "Main",
+    "whatsapp": "Chat on WhatsApp"
+  },
+  "whatsapp": {
+    "general": "Hello JOKAR DENTAL, I'd like to request a free consultation.",
+    "implants": "Hello JOKAR DENTAL, I'd like a free consultation about dental implants.",
+    "veneers": "Hello JOKAR DENTAL, I'd like a free consultation about dental veneers.",
+    "smile_design": "Hello JOKAR DENTAL, I'd like a free consultation about smile design.",
+    "international": "Hello JOKAR DENTAL, I live abroad and I'd like a free consultation.",
+    "after_form": "Hello JOKAR DENTAL, I've just submitted a consultation request ({reference})."
   }
 }

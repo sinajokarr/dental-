@@ -144,6 +144,16 @@ html:lang(fa) {
   }
 }
 
+html {
+  scroll-padding-top: 5rem; /* anchors and focused elements never hide under the fixed header (WCAG 2.4.11) */
+  @media (prefers-reduced-motion: no-preference) {
+    scroll-behavior: smooth;
+  }
+  &:has(dialog[open]) {
+    overflow: hidden;
+  }
+}
+
 body {
   background: var(--color-white);
   color: var(--color-navy-900);
