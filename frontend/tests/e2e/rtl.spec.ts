@@ -22,9 +22,10 @@ test("English keeps the default direction for arrows and the journey run", async
   expect(await arrow.evaluate((el) => getComputedStyle(el).scale)).toBe("none");
 });
 
-for (const locale of ["fa", "en", "de", "tr"]) {
-  test(`/${locale} on a 360 px phone: every control sits inside the screen`, async ({ page }) => {
-    await page.setViewportSize({ width: 360, height: 780 });
+for (const [locale, width] of [["fa", 360], ["en", 360], ["de", 360], ["tr", 360], ["fa", 320], ["de", 320]] as const) {
+  // 320 px is WCAG 1.4.10 reflow (400 % zoom of a 1280 px window).
+  test(`/${locale} on a ${width} px phone: every control sits inside the screen`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 780 });
     await page.goto(`/${locale}`);
     const outside = await page.evaluate(() =>
       [...document.querySelectorAll("main :is(a, button, input, select, textarea, summary, h1, h2, h3)")]

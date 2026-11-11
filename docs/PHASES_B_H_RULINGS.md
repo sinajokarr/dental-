@@ -88,3 +88,12 @@
 - Final: minor (deferred): backups are plain pg_dump files containing patient data — on the real server restrict permissions and encrypt off-site copies.
 - Final: minor (deferred): font-display: optional shows the fallback fonts on a slow first visit (trade-off for CLS 0, D-071).
 - Final: minor (deferred): 7 moderate npm audit findings in dev-only tooling (ESLint), not shipped.
+
+## After the final review (client: «پروژه را تمام کن، به‌جز چهار مورد»)
+
+- Fixed: `NEXT_PUBLIC_SITE_URL` must be an absolute http(s) origin (fail fast, unit test); admin address without the trailing slash redirects (308); backups created owner-only (umask 077); ESLint ignores test output; `@types/node` 24.
+- Added: two licensed city photos (D-072) on the homepage and the International page; licence guard test.
+- Added: log rotation for every production service; rollback steps in the README; 320 px reflow cases.
+- Ruling: Lighthouse via `npx lighthouse` was blocked by the permission system (it downloads and runs a new package) — not worked around; the same metrics are covered by `performance.spec` and axe; PageSpeed Insights on the real domain after launch — cost if wrong: no Lighthouse score in the report.
+- Ruling: doctors, patient stories and technology sections stay unbuilt until their content exists (YAGNI; Task 16 ruling stands) — cost if wrong: about one to two hours each once the content arrives.
+- Note: one Firefox form-smoke failure in one of four full e2e runs under parallel load; not reproduced in three full runs and twelve isolated repeats; failure details were not captured.

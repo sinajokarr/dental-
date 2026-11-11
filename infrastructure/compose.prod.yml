@@ -3,7 +3,15 @@
 # Variables: .env.production.example. The lead API is never published: only Caddy has ports (D-033).
 name: jokar-dental
 
+# Container logs rotate by size (5 × 10 MB per service), so a busy month never fills the disk.
+x-logging: &logging
+  driver: json-file
+  options:
+    max-size: "10m"
+    max-file: "5"
+
 x-backend: &backend
+  logging: *logging
   build: ../backend
   env_file: ${PROD_ENV_FILE:-../.env.production}
   environment:
@@ -17,6 +25,7 @@ x-backend: &backend
 
 services:
   db:
+    logging: *logging
     image: postgres:18
     environment:
       POSTGRES_DB: ${POSTGRES_DB:?}
@@ -53,6 +62,7 @@ services:
         condition: service_healthy
 
   frontend:
+    logging: *logging
     build:
       context: ../frontend
       args:
@@ -67,6 +77,7 @@ services:
     restart: unless-stopped
 
   caddy:
+    logging: *logging
     image: caddy:2-alpine
     ports:
       - "${HTTP_PORT:-80}:80"

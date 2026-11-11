@@ -10,6 +10,7 @@
 - سه صفحه درمان، بیماران بین‌المللی، مشاوره رایگان، درباره ما، پیش‌نویس صفحات حقوقی و ۴۰۴، همه در **۴ زبان**
 - فرم مشاوره متصل به Django Admin، با و بدون JavaScript
 - SEO چندزبانه
+- عکس‌های لایسنس‌دار آنتالیا و استانبول (Unsplash) فقط برای نمایش شهرها (D-072)
 
 **Deployment روی سرور واقعی انجام نشده (NOT RUN)**، چون دامنه و سرور هنوز تهیه نشده‌اند.
 
@@ -26,11 +27,11 @@
 
 | مجموعه | نتیجه |
 |---|---|
-| تست واحد Frontend (`node:test`) | **47/47** |
+| تست واحد Frontend (`node:test`) | **49/49** |
 | Django | **38/38** |
-| E2E (Chromium، کل مجموعه) | **154 passed** |
-| E2E روی همه موتورها (Chromium + Firefox + WebKit + iPhone 13 + Pixel 7) | **173 passed** |
-| E2E روی stack محلی Production (Caddy → Next → Django → PostgreSQL) | **139 passed** |
+| E2E (Chromium، کل مجموعه) | **159 passed** |
+| E2E روی همه موتورها (Chromium + Firefox + WebKit + iPhone 13 + Pixel 7) | **178 passed** (۳ اجرای کامل پشت‌سرهم؛ در یک اجرای قبلی، تست فرم Firefox یک بار زیر بار شکست خورد و در ۳ اجرای کامل و ۱۲ اجرای جداگانه تکرار نشد) |
+| E2E روی stack محلی Production (Caddy → Next → Django → PostgreSQL) | **144 passed** |
 | Smoke روی Production (`infrastructure/smoke.sh`) | **18/18** |
 | دسترس‌پذیری (axe) | ۱۱ نوع صفحه × فارسی و انگلیسی: بدون خطای serious/critical |
 
@@ -38,14 +39,14 @@
 
 | معیار | بودجه | نتیجه |
 |---|---|---|
-| JS اولیه | ≤ 170KB gzip | **166KB** |
+| JS اولیه | ≤ 170KB gzip | **167KB** |
 | CSS | ≤ 35KB | **10KB** |
 | فونت‌ها (هر زبان) | ≤ 120KB | فارسی **72KB** · لاتین **102KB** |
-| LCP (موبایل کند: 1.6Mbps، 150ms، CPU ×4) | ≤ 2.5s | **0.87–1.12s** |
+| LCP (موبایل کند: 1.6Mbps، 150ms، CPU ×4) | ≤ 2.5s | **0.78–1.12s** |
 | CLS | ≤ 0.1 (هدف ۰) | **0.000** (حتی وقتی فونت دیر برسد) |
 | تصویر Hero | ≤ 120KB | **7KB** |
 
-Lighthouse، WebPageTest و داده واقعی کاربران (CrUX) به دامنه نیاز دارند: **NOT RUN**.
+Lighthouse: **NOT RUN** (اجرای `npx lighthouse` با سیستم مجوز متوقف شد)؛ پس از Launch، PageSpeed Insights روی دامنه امتیاز رسمی را می‌دهد. WebPageTest و داده واقعی کاربران (CrUX) هم به دامنه نیاز دارند.
 
 ## ۵. امنیت
 
@@ -59,7 +60,8 @@ Lighthouse، WebPageTest و داده واقعی کاربران (CrUX) به دا�
 ## ۶. زیرساخت
 
 - Docker Compose شامل PostgreSQL 18، Django (gunicorn)، worker اعلان Telegram، Next.js standalone، Caddy (HTTPS خودکار) و backup روزانه با نگهداری ۱۴ روز.
-- تمرین بازگردانی backup انجام شد: dump، بازگردانی در دیتابیس تازه و پیدا شدن Lead تست.
+- تمرین بازگردانی backup انجام شد: dump، بازگردانی در دیتابیس تازه و پیدا شدن Lead تست؛ فایل‌های backup فقط برای مالک قابل خواندن‌اند.
+- چرخش لاگ همه سرویس‌ها (۵ × 10MB)؛ آدرس Admin بدون «/» به آدرس درست هدایت می‌شود.
 - یک Lead واقعی از مسیر کامل HTTPS ثبت و در دیتابیس Production تأیید شد.
 
 ## ۷. موارد باز غیرمانع

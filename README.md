@@ -80,6 +80,7 @@ One server with Docker; Caddy terminates HTTPS automatically (D-034). Only Caddy
 4. First staff account: `docker compose -f infrastructure/compose.prod.yml --env-file .env.production exec backend python manage.py createsuperuser`, then add a TOTP device for it in the admin before 2FA is required at sign-in.
 5. Check: `ADMIN_PATH=<DJANGO_ADMIN_PATH> sh infrastructure/smoke.sh https://<domain>`
 6. Updates: `git pull`, then step 3 again.
+7. Rollback: `git checkout <previous commit or tag>`, then step 3. Migrations only add things in this project; if a release ever changes data, restore the backup taken before it (below).
 
 Backups: the `backup` service writes a daily `pg_dump` to `infrastructure/backups/` (14 days kept) — copy them off the server. Restore drill (run monthly):
 `docker compose … exec backup sh -c 'createdb restore_drill && pg_restore --no-owner -d restore_drill /backups/<file>.dump && psql -d restore_drill -c "select count(*) from leads_lead"; dropdb restore_drill'`
