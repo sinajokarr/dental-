@@ -5,6 +5,25 @@
       "title": "Ihr <em>unverwechselbares</em> Lächeln – gestaltet in Antalya & Istanbul",
       "subtitle": "Zahnimplantate, Veneers und Smile Design – mit kostenloser Erstberatung und umfassender Unterstützung für internationale Patienten.",
       "cta": "Kostenlose Beratung anfragen"
+    },
+    "trust": {
+      "label": "Auf einen Blick",
+      "items": [
+        "Kostenlose Erstberatung",
+        "Antalya & Istanbul",
+        "Hotel & Flughafentransfer",
+        "Dolmetscher-Unterstützung",
+        "Behandlungspakete"
+      ]
+    },
+    "treatments": {
+      "eyebrow": "Unsere Behandlungen",
+      "title": "Behandlungen rund um Ihr Lächeln",
+      "lead": "Jede Behandlung beginnt mit einer kostenlosen Erstberatung, damit Sie Ihre Möglichkeiten kennen, bevor Sie sich entscheiden.",
+      "more": "Mehr erfahren",
+      "implants": "Ein Titanstift im Kieferknochen ersetzt die fehlende Zahnwurzel und trägt eine neue Krone – eine feste Lösung für einen oder mehrere fehlende Zähne.",
+      "veneers": "Dünne, individuell gefertigte Schalen, die auf die Vorderseite der Zähne geklebt werden, um Form, Farbe und Proportionen zu verfeinern.",
+      "smileDesign": "Eine geplante Gestaltung Ihres Lächelns als Ganzes – Zahnform, Farbe und Harmonie mit Ihrem Gesicht – bevor eine Behandlung beginnt."
     }
   },
   "nav": {

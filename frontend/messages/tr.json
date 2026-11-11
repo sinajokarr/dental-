@@ -5,6 +5,25 @@
       "title": "<em>Size özel</em> bir gülüş — Antalya ve İstanbul'da",
       "subtitle": "Diş implantı, porselen lamina ve gülüş tasarımı — ücretsiz ilk danışmanlık ve uluslararası hastalar için tam destekle.",
       "cta": "Ücretsiz danışmanlık talep edin"
+    },
+    "trust": {
+      "label": "Bir bakışta",
+      "items": [
+        "Ücretsiz ilk danışmanlık",
+        "Antalya ve İstanbul",
+        "Otel ve havalimanı transferi",
+        "Tercüman desteği",
+        "Tedavi paketleri"
+      ]
+    },
+    "treatments": {
+      "eyebrow": "Öne çıkan tedaviler",
+      "title": "Gülüşünüze odaklanan tedaviler",
+      "lead": "Her tedavi, karar vermeden önce seçeneklerinizi öğrenmeniz için ücretsiz bir ilk danışmanlıkla başlar.",
+      "more": "Daha fazla bilgi",
+      "implants": "Çene kemiğine yerleştirilen titanyum bir vida, eksik kökün yerini alır ve yeni bir kuronu taşır — bir veya birden fazla eksik diş için sabit bir çözüm.",
+      "veneers": "Dişlerin şeklini, rengini ve oranlarını düzenlemek için ön yüzeylerine yapıştırılan, kişiye özel ince kaplamalar.",
+      "smileDesign": "Tedavi başlamadan önce gülüşünüzün bir bütün olarak planlanması — diş şekli, rengi ve yüzünüzle uyumu."
     }
   },
   "nav": {

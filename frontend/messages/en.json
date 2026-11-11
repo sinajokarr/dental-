@@ -5,6 +5,25 @@
       "title": "Your <em>signature</em> smile, crafted in Antalya & Istanbul",
       "subtitle": "Dental implants, veneers and smile design — with a free initial consultation and full support for international patients.",
       "cta": "Request a free consultation"
+    },
+    "trust": {
+      "label": "At a glance",
+      "items": [
+        "Free initial consultation",
+        "Antalya & Istanbul",
+        "Hotel & airport transfer",
+        "Interpreter support",
+        "Treatment packages"
+      ]
+    },
+    "treatments": {
+      "eyebrow": "Signature treatments",
+      "title": "Treatments focused on your smile",
+      "lead": "Every treatment starts with a free initial consultation, so you understand your options before you decide.",
+      "more": "Learn more",
+      "implants": "A titanium post placed in the jawbone replaces the missing root and supports a new crown — a fixed solution for one or more missing teeth.",
+      "veneers": "Thin, custom-made shells bonded to the front surface of the teeth to refine their shape, colour and proportions.",
+      "smileDesign": "A planned approach to your smile as a whole — tooth shape, colour and balance with your face — before any treatment begins."
     }
   },
   "nav": {

@@ -168,7 +168,7 @@ function Tooth({ tier, still, onFirstFrame, onContextLost }: Props) {
   // Everything that moves, in one plain object: GSAP tweens it, useFrame applies it, invalidate() renders it.
   const motion = useMemo(
     () => ({ z: 7.0, rim: 0, sweepX: -3.2, sweepI: 0, float: 0, tiltX: 0, tiltY: 0, drag: 0, exitY: 0, exitYaw: 0, exitScale: 1 }),
-    [still],
+    [],
   );
 
   useFrame((state) => {
