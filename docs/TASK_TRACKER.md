@@ -55,6 +55,16 @@
 | C09 | Finale + Footer + Sticky | B04 · B05 | `sections/Finale.tsx` · `layout/Footer.tsx` · `StickyCta.tsx` | Sticky کنار فرم یا هنگام باز بودن کیبورد پنهان می‌شود؛ WCAG 2.4.11 | Playwright موبایل | M | ✅ `83041bb` |
 | C10 | سکشن‌های مخفی | B06 | `sections/Team.tsx` · `Technology.tsx` · `Stories.tsx` | flag خاموش یعنی هیچ DOM | اسکرین‌شات با flag روشن و خاموش | S | ⏭ منتظر محتوا (Q2/Q3/Q4) |
 
+## Phase C2 — Motion & 3D v2 (بازخورد کارفرما، D-063 تا D-065)
+
+| ID | Task | پیش‌نیاز | فایل‌ها | خروجی و معیار پذیرش | تست | اندازه | وضعیت |
+|---|---|---|---|---|---|---|---|
+| C11 | دندان v2 | C02 | `scripts/build-tooth.mjs` · `tooth.bin` | مولر آناتومیک (۵ cusp، شیار، گردن، دو ریشه)، ≤ 30k مثلث، ≤ 150KB | unit: جزئیات، آناتومی، بودجه | M | ✅ `c93d6fe` |
+| C12 | صحنه v2 + ورود «اسکن دیجیتال» | C11 | `ToothScene.tsx` · `HeroTooth.tsx` · `entrance.ts` · posterها | ابر نقاط ← پرسلن ≤ 5s، چرخش با اسکرول، poster اسکن/نهایی | unit: زمان‌بندی؛ e2e: settle، بدون تکرار، poster، بدون WebGL | L | ✅ `f9ac904` |
+| C13 | فصل‌های درمان | B07 | `Treatments.tsx` · `TreatmentDrawing.tsx` | نقاشی خطی که با اسکرول کشیده می‌شود؛ بدون شماره ساختگی | e2e: draw، reduced motion، لینک‌ها، axe | M | ✅ `9293530` |
+| C14 | مسیر سینمایی و پنل‌های navy | C06 | `Journey.tsx` · `Finale.tsx` · `WhyJokar.tsx` · `button.ts` | پنل باز می‌شود، خط با سر درخشان، مراحل به‌ترتیب روشن، glint | e2e: پنل، خط، reduced motion | M | ✅ `da0363a` |
+| C15 | پاسخ‌های کارفرما در متن‌ها | D-062 | `messages/*` · `TrustStrip` · `Consultation` · `SiteFooter` · `whatsapp.ts` | زبان، ارزیابی آنلاین، ۳–۸ روز، پیگیری/ضمانت، لینک تماس | unit + e2e (FAQ ۹، tel) | M | ✅ `ec6c377` |
+
 ## Phase D — Backend
 
 | ID | Task | پیش‌نیاز | فایل‌ها | خروجی و معیار پذیرش | تست | اندازه | وضعیت |
