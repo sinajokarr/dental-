@@ -34,7 +34,7 @@ test("the consultation form sends a request and shows the reference", async ({ p
   await form.locator("[name=treatment]").nth(1).check({ force: true });
   await form.locator("[name=consent]").check();
   await form.getByRole("button", { name: "Send request" }).click();
-  await expect(page.locator("[data-lead-success] [data-reference]")).toHaveText(/^JD-E2E\d{3}$/);
+  await expect(page.locator("[data-lead-success] [data-reference]")).toHaveText(/^JD-[0-9A-Z]{6}$/); // mock or real API
 });
 
 test("the language switcher keeps the page", async ({ page }) => {
