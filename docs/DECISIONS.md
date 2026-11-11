@@ -61,3 +61,4 @@
 | D-057 | 2026-11-11 | پالت، radius و سایه‌های پیش‌فرض Tailwind غیرفعال شدند؛ utilityها نام‌های primitive دارند (بدون alias معنایی) | فقط رنگ‌های برند قابل استفاده‌اند؛ یک API به‌جای دو API | CTO (A07) |
 | D-058 | 2026-11-11 | Playwright فعلاً فقط Chromium (WebKit و Firefox در فاز H)؛ پورت تست E2E ‏3100 | حجم دانلود؛ نبود تداخل با dev server | CTO (A08) |
 | D-059 | 2026-11-11 | همه دستورات نصب و build با بررسی TLS فعال اجرا می‌شوند (`env -u NODE_TLS_REJECT_UNAUTHORIZED`) | بررسی TLS ‏Node روی سیستم توسعه به‌صورت سراسری خاموش است | CTO (A01–A08) |
+| D-060 | 2026-11-11 | فونت‌ها: Cormorant Garamond فقط وزن ثابت 300 (+ italic 300)، Manrope variable 400–700، Vazirmatn variable 200–600؛ subset به woff2 با `scripts/build-fonts.py`؛ fallbackهای هم‌اندازه (Georgia، Arial، Tahoma) | بودجه 120KB: لاتین 70KB (+30KB italic)، فارسی 72KB؛ CLS صفر هنگام تعویض فونت | CTO (B01) |

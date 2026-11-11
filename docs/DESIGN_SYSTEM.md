@@ -71,7 +71,7 @@ red-700      #B42318    green-700 #0E7A5A    (وضعیت فرم)
 
 | نقش | en / de / tr | fa |
 |---|---|---|
-| Display (H1، H2) | **Cormorant Garamond** 300/400 + Italic 300 | **Vazirmatn** 200/300 |
+| Display (H1، H2) | **Cormorant Garamond** 300 + Italic 300 (D-060) | **Vazirmatn** 200/300 |
 | UI و Body (H3 به پایین، متن، دکمه) | **Manrope** variable 200–800 | **Vazirmatn** variable 100–900 |
 
 پوشش کاراکترها: Cormorant Garamond و Manrope زیرمجموعه `latin-ext` دارند (شامل ğ ş ı İ ö ü ç ß). Vazirmatn زیرمجموعه‌های `arabic` و `latin-ext` دارد. این‌ها از METADATA مخزن Google Fonts بررسی شد. تست نمایش واقعی در فاز B01 انجام می‌شود.
@@ -83,7 +83,7 @@ red-700      #B42318    green-700 #0E7A5A    (وضعیت فرم)
 | Token | لاتین | فارسی |
 |---|---|---|
 | `display` (H1 Hero) | Cormorant 300 · `clamp(2.75rem, 1.6rem + 4.8vw, 6.5rem)` (44→104px) · lh 1.02 · tracking −0.015em | Vazirmatn 300 · `clamp(2.25rem, 1.4rem + 3.6vw, 4.75rem)` (36→76px) · lh 1.35 |
-| `h2` | Cormorant 400 · `clamp(2rem, 1.4rem + 2.6vw, 3.5rem)` · lh 1.1 | Vazirmatn 300 · `clamp(1.625rem, 1.2rem + 1.8vw, 2.75rem)` · lh 1.45 |
+| `h2` | Cormorant 300 · `clamp(2rem, 1.4rem + 2.6vw, 3.5rem)` · lh 1.1 | Vazirmatn 300 · `clamp(1.625rem, 1.2rem + 1.8vw, 2.75rem)` · lh 1.45 |
 | `h3` | Manrope 600 · `clamp(1.25rem, 1.1rem + .6vw, 1.5rem)` · lh 1.3 | Vazirmatn 600 · همان اندازه · lh 1.6 |
 | `lead` | Manrope 400 · `clamp(1.125rem, 1rem + .4vw, 1.3125rem)` · lh 1.6 | Vazirmatn 400 · همان اندازه · lh 1.9 |
 | `body` | Manrope 400 · 16→17px · lh 1.65 | Vazirmatn 400 · 17→18px · lh 1.9 |
