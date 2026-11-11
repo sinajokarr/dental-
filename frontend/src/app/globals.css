@@ -6,26 +6,26 @@
   src: url("/fonts/cormorant-garamond.woff2") format("woff2");
   font-weight: 300;
   font-style: normal;
-  font-display: swap;
+  font-display: optional; /* a late font never moves the page (CLS 0 on slow phones; preloaded, so normally in time) */
 }
 @font-face {
   font-family: "Cormorant Garamond";
   src: url("/fonts/cormorant-garamond-italic.woff2") format("woff2");
   font-weight: 300;
   font-style: italic;
-  font-display: swap;
+  font-display: optional; /* a late font never moves the page (CLS 0 on slow phones; preloaded, so normally in time) */
 }
 @font-face {
   font-family: "Manrope";
   src: url("/fonts/manrope.woff2") format("woff2");
   font-weight: 400 700;
-  font-display: swap;
+  font-display: optional; /* a late font never moves the page (CLS 0 on slow phones; preloaded, so normally in time) */
 }
 @font-face {
   font-family: "Vazirmatn";
   src: url("/fonts/vazirmatn.woff2") format("woff2");
   font-weight: 200 600;
-  font-display: swap;
+  font-display: optional; /* a late font never moves the page (CLS 0 on slow phones; preloaded, so normally in time) */
 }
 /* Metric-matched fallbacks (computed by scripts/build-fonts.py) keep the font swap free of layout shift. */
 @font-face {

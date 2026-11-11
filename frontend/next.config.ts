@@ -17,6 +17,12 @@ const nextConfig: NextConfig = {
   // Next 16 defaults; both become mandatory in the next major release.
   cacheComponents: true,
   partialPrefetching: true,
+  // Turbopack's persistent caches served stale CSS (dev twice; a build kept font-display: swap after the source
+  // changed) — correctness over warm starts (D-071).
+  experimental: {
+    turbopackFileSystemCacheForDev: false,
+    turbopackFileSystemCacheForBuild: false,
+  },
   turbopack: {
     rules: {
       "*.css": {

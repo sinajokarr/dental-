@@ -63,3 +63,29 @@ test("lab vitals on a throttled phone: LCP ≤ 2.5 s, CLS ≈ 0, hero image ≤ 
   expect(poster).toBeLessThanOrEqual(120 * KB);
   await context.close();
 });
+
+for (const locale of ["fa", "en"]) {
+  test(`/${locale}: fonts that arrive late never move the page (CLS 0 on a phone)`, async ({ browser }) => {
+    const context = await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true });
+    const page = await context.newPage();
+    // Slow font delivery, as on a weak mobile network: the text is painted before the web fonts arrive.
+    await page.route("**/fonts/*.woff2", async (route) => {
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+      await route.continue();
+    });
+    await page.goto(`/${locale}`, { waitUntil: "load" });
+    await page.waitForTimeout(1000);
+    const cls = await page.evaluate(
+      () =>
+        new Promise<number>((resolve) => {
+          let total = 0;
+          new PerformanceObserver((list) =>
+            (list.getEntries() as (PerformanceEntry & { value: number; hadRecentInput: boolean })[]).forEach((e) => !e.hadRecentInput && (total += e.value)),
+          ).observe({ type: "layout-shift", buffered: true });
+          setTimeout(() => resolve(total), 200);
+        }),
+    );
+    expect(cls).toBeLessThan(0.01);
+    await context.close();
+  });
+}
