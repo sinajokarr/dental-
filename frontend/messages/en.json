@@ -392,5 +392,42 @@
         }
       ]
     }
+  },
+  "international": {
+    "eyebrow": "International patients",
+    "title": "Your treatment in Türkiye, coordinated from the first message",
+    "lead": "Tell us what you need in your language. We help you plan your treatment, your trip and your stay in Antalya or Istanbul.",
+    "servicesEyebrow": "Coordination",
+    "servicesTitle": "What we take care of",
+    "services": [
+      {
+        "title": "Online assessment",
+        "text": "Send photos or X-rays on WhatsApp before you travel, so your visit is planned around your case."
+      },
+      {
+        "title": "Hotel",
+        "text": "We help you arrange your hotel for the length of your visit."
+      },
+      {
+        "title": "Airport transfer",
+        "text": "Your airport transfer is coordinated for you."
+      },
+      {
+        "title": "Interpreter",
+        "text": "An interpreter is available, so you can follow every step of your treatment."
+      },
+      {
+        "title": "Treatment packages",
+        "text": "Packages bring your treatment and travel arrangements together."
+      },
+      {
+        "title": "Follow-up",
+        "text": "We stay in touch after your treatment. A guarantee applies; its terms depend on the treatment."
+      }
+    ],
+    "stayTitle": "Planning your stay",
+    "stayText": "Most visits take 3 to 8 days, depending on your treatment. Once we have reviewed your case, we tell you what to expect.",
+    "citiesTitle": "Antalya or Istanbul",
+    "citiesText": "Implants, veneers and smile design are offered in both cities — choose the one that suits your trip."
   }
 }

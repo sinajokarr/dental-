@@ -392,5 +392,42 @@
         }
       ]
     }
+  },
+  "international": {
+    "eyebrow": "Internationale Patienten",
+    "title": "Ihre Behandlung in der Türkei, koordiniert ab der ersten Nachricht",
+    "lead": "Sagen Sie uns in Ihrer Sprache, was Sie brauchen. Wir helfen Ihnen, Behandlung, Reise und Aufenthalt in Antalya oder Istanbul zu planen.",
+    "servicesEyebrow": "Koordination",
+    "servicesTitle": "Darum kümmern wir uns",
+    "services": [
+      {
+        "title": "Online-Einschätzung",
+        "text": "Senden Sie vor der Reise Fotos oder Röntgenbilder per WhatsApp – so wird Ihr Besuch auf Ihren Fall abgestimmt."
+      },
+      {
+        "title": "Hotel",
+        "text": "Wir helfen Ihnen, Ihr Hotel für die Dauer Ihres Aufenthalts zu organisieren."
+      },
+      {
+        "title": "Flughafentransfer",
+        "text": "Ihr Flughafentransfer wird für Sie koordiniert."
+      },
+      {
+        "title": "Dolmetscher",
+        "text": "Ein Dolmetscher steht zur Verfügung, damit Sie jeden Schritt Ihrer Behandlung verstehen."
+      },
+      {
+        "title": "Behandlungspakete",
+        "text": "Pakete, die Ihre Behandlung und Ihre Reiseorganisation verbinden."
+      },
+      {
+        "title": "Nachsorge",
+        "text": "Wir bleiben auch nach Ihrer Behandlung in Kontakt. Es gibt eine Garantie; ihre Bedingungen hängen von der Behandlung ab."
+      }
+    ],
+    "stayTitle": "Ihren Aufenthalt planen",
+    "stayText": "Die meisten Aufenthalte dauern je nach Behandlung 3 bis 8 Tage. Sobald wir Ihren Fall angesehen haben, sagen wir Ihnen, womit Sie rechnen können.",
+    "citiesTitle": "Antalya oder Istanbul",
+    "citiesText": "Implantate, Veneers und Smile Design bieten wir in beiden Städten an – wählen Sie die Stadt, die zu Ihrer Reise passt."
   }
 }

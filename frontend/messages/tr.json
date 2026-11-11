@@ -392,5 +392,42 @@
         }
       ]
     }
+  },
+  "international": {
+    "eyebrow": "Uluslararası hastalar",
+    "title": "Türkiye'deki tedaviniz, ilk mesajdan itibaren koordineli",
+    "lead": "İhtiyacınızı kendi dilinizde anlatın. Tedavinizi, seyahatinizi ve Antalya ya da İstanbul'daki konaklamanızı planlamanıza yardımcı olalım.",
+    "servicesEyebrow": "Koordinasyon",
+    "servicesTitle": "Sizin için üstlendiklerimiz",
+    "services": [
+      {
+        "title": "Online değerlendirme",
+        "text": "Seyahatten önce fotoğraflarınızı veya röntgenlerinizi WhatsApp'tan gönderin; ziyaretiniz durumunuza göre planlansın."
+      },
+      {
+        "title": "Otel",
+        "text": "Ziyaretiniz süresince otelinizi ayarlamanıza yardımcı oluruz."
+      },
+      {
+        "title": "Havalimanı transferi",
+        "text": "Havalimanı transferiniz sizin için koordine edilir."
+      },
+      {
+        "title": "Tercüman",
+        "text": "Tedavinizin her adımını takip edebilmeniz için tercüman hazırdır."
+      },
+      {
+        "title": "Tedavi paketleri",
+        "text": "Tedavinizi ve seyahat düzenlemelerinizi bir araya getiren paketler."
+      },
+      {
+        "title": "Takip",
+        "text": "Tedavinizden sonra da sizinle iletişimde kalırız. Tedavilerimiz garantilidir; garanti koşulları tedaviye göre değişir."
+      }
+    ],
+    "stayTitle": "Konaklamanızı planlayın",
+    "stayText": "Ziyaretlerin çoğu, tedaviye bağlı olarak 3 ila 8 gün sürer. Durumunuzu inceledikten sonra yaklaşık süreyi size bildiririz.",
+    "citiesTitle": "Antalya veya İstanbul",
+    "citiesText": "İmplant, porselen lamina ve gülüş tasarımı iki şehirde de sunulur; seyahatinize en uygun şehri seçin."
   }
 }

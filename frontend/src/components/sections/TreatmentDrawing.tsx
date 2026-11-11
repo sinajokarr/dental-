@@ -22,7 +22,12 @@ const smileTeeth: [number, number, number, number, boolean?][] = [
   [226.5, 17, 122, 190, true],
 ];
 
-const drawings: Record<"implants" | "veneers" | "smileDesign", Line[]> = {
+const pin = (x: number, y: number) => [
+  { d: `M${x} ${y}c-7-9-12-15-12-21a12 12 0 1 1 24 0c0 6-5 12-12 21Z` },
+  { d: `M${x - 4} ${y - 21}a4 4 0 1 0 8 0a4 4 0 1 0-8 0` },
+];
+
+const drawings: Record<"implants" | "veneers" | "smileDesign" | "travel", Line[]> = {
   implants: [
     { d: "M160 16V306", guide: true },
     // Crown, with its occlusal ridge and seating margin
@@ -57,6 +62,16 @@ const drawings: Record<"implants" | "veneers" | "smileDesign", Line[]> = {
     ...[85, 102, 126, 160, 194, 218, 235].map((x) => ({ d: `M${x} 99V109`, accent: true })),
     ...smileTeeth.map(([cx, w, top, bottom, pointed]) => ({ d: frontTooth(cx, w, top, bottom, pointed) })),
     { d: "M62 176C110 236 210 236 258 176", accent: true },
+  ],
+  travel: [
+    // A globe, the visitor's starting point and two routes to Istanbul (north) and Antalya (south).
+    { d: "M60 160a100 100 0 1 0 200 0a100 100 0 1 0-200 0" },
+    { d: "M160 60c-42 30-42 170 0 200M160 60c42 30 42 170 0 200M66 124h188M66 196h188", guide: true },
+    { d: "M80 212a4 4 0 1 0 8 0a4 4 0 1 0-8 0", accent: true },
+    { d: "M86 208C106 150 156 118 206 128", accent: true },
+    { d: "M88 214C124 196 172 182 222 186", accent: true },
+    ...pin(206, 128),
+    ...pin(222, 186),
   ],
 };
 
