@@ -30,7 +30,8 @@ for (const locale of ["fa", "en", "de", "tr"]) {
       [...document.querySelectorAll("main :is(a, button, input, select, textarea, summary, h1, h2, h3)")]
         .filter((el) => !el.closest("[aria-hidden=true]") && (el as HTMLElement).offsetParent !== null)
         .map((el) => ({ el, box: el.getBoundingClientRect() }))
-        .filter(({ box }) => box.width > 0 && (box.left < -1 || box.right > innerWidth + 1))
+        // Outside the screen, or text spilling out of its own box (a long word that does not wrap).
+        .filter(({ el, box }) => box.width > 0 && (box.left < -1 || box.right > innerWidth + 1 || (/^H[1-3]$/.test(el.tagName) && el.scrollWidth > el.clientWidth + 1)))
         .map(({ el, box }) => `${el.tagName.toLowerCase()}[${el.getAttribute("name") ?? el.textContent?.trim().slice(0, 24)}] ${Math.round(box.left)}–${Math.round(box.right)}`),
     );
     expect(outside).toEqual([]);

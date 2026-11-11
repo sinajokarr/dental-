@@ -157,6 +157,15 @@ html {
   }
 }
 
+/* Long compound words (German "unverwechselbares", Turkish suffixes) hyphenate instead of overflowing a phone,
+   whatever font is showing (html[lang] picks the dictionary). */
+h1,
+h2,
+h3 {
+  hyphens: auto;
+  overflow-wrap: break-word;
+}
+
 body {
   background: var(--color-white);
   color: var(--color-navy-900);

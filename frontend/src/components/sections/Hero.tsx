@@ -32,7 +32,7 @@ export async function Hero({ visual }: { visual?: ReactNode }) {
   return (
     <section aria-labelledby="hero-title" className="relative isolate overflow-hidden bg-ice-50 pt-24 pb-14 lg:flex lg:min-h-svh lg:items-center lg:pt-28">
       <PointerGlow />
-      <div className="mx-auto grid w-full max-w-7xl items-center gap-6 px-6 lg:grid-cols-[1.1fr_0.9fr] lg:gap-10 lg:px-12">
+      <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-6 px-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-10 lg:px-12">
         <div className="relative order-1 h-56 sm:h-72 lg:order-2 lg:aspect-square lg:h-auto">
           <div aria-hidden="true" className="absolute inset-[8%] -z-10 rounded-full bg-[radial-gradient(closest-side,rgb(189_234_255/0.9),rgb(221_244_255/0.5)_55%,transparent)] blur-2xl" />
           {visual}
