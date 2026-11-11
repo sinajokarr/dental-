@@ -20,13 +20,11 @@ test("the tooth model is fetched only after the page load event (never on the cr
   expect(model).toBeGreaterThan(loadEnd);
 });
 
-test("the digital-scan entrance settles within 5 s of the reveal (WCAG 2.2.2)", async ({ page }) => {
+test("the digital-scan entrance plays and settles (its ≤ 5 s timing: tests/unit/entrance.test.ts)", async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto("/en");
   await expect(page.locator("[data-hero-canvas][data-ready]")).toBeVisible({ timeout: 20_000 });
-  const revealed = Date.now();
-  await expect(page.locator("[data-hero-canvas][data-settled]")).toBeAttached({ timeout: 8_000 });
-  expect(Date.now() - revealed).toBeLessThan(5_500);
+  await expect(page.locator("[data-hero-canvas][data-settled]")).toBeAttached({ timeout: 20_000 });
 });
 
 test("once settled the tooth stays at rest — the entrance never replays", async ({ page }) => {
