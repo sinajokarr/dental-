@@ -12,18 +12,32 @@ test("international journey: navy section with five ordered steps and an interna
   await expect(section.getByRole("link", { name: "Mit einer kostenlosen Beratung beginnen" })).toHaveAttribute("href", "#consultation");
 });
 
-test("with reduced motion the journey line is fully drawn and every step is active", async ({ page }) => {
+const opacity = (el: import("@playwright/test").Locator) => el.evaluate((node) => Number(getComputedStyle(node).opacity));
+
+test("with reduced motion the journey line is fully drawn and every step is lit", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/fa");
-  for (const line of await page.locator("[data-journey-line]").all()) await expect(line).toHaveCSS("transform", "none");
-  await expect(page.locator("[data-journey-step]:not([data-pending])")).toHaveCount(5);
+  for (const line of await page.locator("[data-journey-line]").all()) await expect(line).toHaveCSS("translate", "none");
+  for (const step of await page.locator("[data-journey-step]").all()) expect(await opacity(step)).toBe(1);
 });
 
-test("the line draws as the steps scroll into view", async ({ page }) => {
+test("the line runs and the steps light up in turn as the journey scrolls by", async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto("/en");
-  const list = page.locator("section[aria-labelledby=journey-title] ol");
-  await list.scrollIntoViewIfNeeded();
-  await page.mouse.wheel(0, 900);
-  await expect(page.locator("[data-journey-step][data-pending]")).toHaveCount(0, { timeout: 5000 });
+  const last = page.locator("[data-journey-step]").last();
+  expect(await opacity(last)).toBeLessThan(0.6); // not reached yet
+  await page.locator("section[aria-labelledby=journey-title] ol").evaluate((el) => el.scrollIntoView({ block: "start" }));
+  await expect.poll(() => opacity(last)).toBe(1);
+});
+
+test("the navy panel opens from an inset card to full bleed", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/en");
+  const section = page.locator("section[aria-labelledby=journey-title]");
+  const clip = () => section.evaluate((el) => getComputedStyle(el).clipPath);
+  await section.evaluate((el) => window.scrollTo({ top: el.getBoundingClientRect().top + scrollY - innerHeight + 60, behavior: "instant" }));
+  await expect.poll(clip).toMatch(/inset\(.*round/);
+  await section.evaluate((el) => el.scrollIntoView({ block: "start", behavior: "instant" }));
+  // Full bleed: every inset (and the corner radius) is zero, however the browser serializes it.
+  await expect.poll(async () => (await clip()).match(/-?[\d.]+/g)?.every((n) => Number(n) === 0) ?? true).toBe(true);
 });

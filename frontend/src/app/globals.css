@@ -234,6 +234,26 @@ body {
     background: var(--color-navy-800);
   }
 }
+/* Porcelain glint (D-063): one band of light crosses a solid button on hover. */
+@utility glint {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(105deg, transparent 35%, var(--glint, rgb(255 255 255 / 0.4)) 50%, transparent 65%);
+    translate: -110% 0;
+  }
+  @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    &:hover::after {
+      translate: 110% 0;
+      transition: translate 0.8s var(--ease-out);
+    }
+  }
+}
 /* Signature 1px gradient edge for solid cards (glass-card already includes it). */
 @utility porcelain-edge {
   --edge-fill: var(--color-white);
@@ -327,6 +347,111 @@ body {
     }
     [data-motion] [data-draw]:not([data-revealed]) [pathLength] {
       stroke-dashoffset: 1;
+    }
+  }
+}
+
+/* Navy panels, journey and finale (D-063): scroll-driven and compositor-friendly (clip-path, translate,
+   opacity). Without scroll-driven animations, with reduced motion or without JS: the finished state. */
+@keyframes panel-open {
+  from {
+    clip-path: inset(0 3.5% round var(--radius-lg));
+  }
+  to {
+    clip-path: inset(0 0 round 0);
+  }
+}
+@keyframes run-x {
+  from {
+    translate: calc(var(--run, -1) * 100%) 0;
+  }
+}
+@keyframes run-y {
+  from {
+    translate: 0 -100%;
+  }
+}
+@keyframes head-glow {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  6%,
+  92% {
+    opacity: 1;
+  }
+}
+@keyframes step-on {
+  from {
+    opacity: 0.38;
+  }
+}
+@keyframes marker-on {
+  from {
+    background-color: var(--color-navy-900);
+    box-shadow: none;
+  }
+}
+@keyframes sweep {
+  from {
+    translate: -30% 0;
+    opacity: 1;
+  }
+  to {
+    translate: 30% 0;
+    opacity: 1;
+  }
+}
+.journey-head {
+  opacity: 0;
+}
+.journey-run-x:dir(rtl) {
+  --run: 1;
+}
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .panel-open {
+      animation: panel-open linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 70%;
+    }
+    .journey-run-x,
+    .journey-run-x .journey-head {
+      animation: run-x linear both;
+      animation-timeline: --journey;
+      animation-range: cover 14% cover 58%;
+    }
+    .journey-run-y,
+    .journey-run-y .journey-head {
+      animation: run-y linear both;
+      animation-timeline: --journey;
+      animation-range: cover 8% cover 64%;
+    }
+    .journey-run-x .journey-head,
+    .journey-run-y .journey-head {
+      animation-name: head-glow;
+    }
+    /* Phones: each step lights as it rises into view; desktop: as the head passes its marker. */
+    .journey-step,
+    .journey-marker {
+      animation: step-on linear both;
+      animation-timeline: view();
+      animation-range: cover 16% cover 30%;
+    }
+    .journey-marker {
+      animation-name: marker-on;
+    }
+    @media (width >= 64rem) {
+      .journey-step,
+      .journey-marker {
+        animation-timeline: --journey;
+        animation-range: cover calc(12% + var(--i) * 11%) cover calc(16% + var(--i) * 11%);
+      }
+    }
+    .finale-sweep {
+      animation: sweep linear both;
+      animation-timeline: --finale;
+      animation-range: entry 30% exit 30%;
     }
   }
 }
