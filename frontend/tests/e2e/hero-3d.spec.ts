@@ -1,16 +1,18 @@
 import { expect, test } from "@playwright/test";
 
 test.use({ reducedMotion: "no-preference" }); // exercises motion and the WebGL hero
+// One WebGL page at a time and a smaller desktop canvas: CPU-rendered WebGL is the slowest thing in the suite.
+test.describe.configure({ mode: "serial" });
 
 test("poster shows at once; on a capable desktop the 3D canvas then fades in", async ({ page }) => {
-  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.setViewportSize({ width: 1100, height: 760 });
   await page.goto("/en");
   await expect(page.locator("[data-hero-poster]")).toBeVisible();
   await expect(page.locator("[data-hero-canvas][data-ready]")).toBeVisible({ timeout: 20_000 });
 });
 
 test("the tooth model is fetched only after the page load event (never on the critical path)", async ({ page }) => {
-  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.setViewportSize({ width: 1100, height: 760 });
   await page.goto("/en");
   await expect(page.locator("[data-hero-canvas][data-ready]")).toBeVisible({ timeout: 20_000 });
   const [model, loadEnd] = await page.evaluate(() => [
@@ -21,14 +23,14 @@ test("the tooth model is fetched only after the page load event (never on the cr
 });
 
 test("the digital-scan entrance plays and settles (its ≤ 5 s timing: tests/unit/entrance.test.ts)", async ({ page }) => {
-  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.setViewportSize({ width: 1100, height: 760 });
   await page.goto("/en");
   await expect(page.locator("[data-hero-canvas][data-ready]")).toBeVisible({ timeout: 20_000 });
   await expect(page.locator("[data-hero-canvas][data-settled]")).toBeAttached({ timeout: 20_000 });
 });
 
 test("once settled the tooth stays at rest — the entrance never replays", async ({ page }) => {
-  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.setViewportSize({ width: 1100, height: 760 });
   await page.goto("/en");
   const settled = page.locator("[data-hero-canvas][data-settled]");
   await expect(settled).toBeAttached({ timeout: 20_000 });
@@ -72,7 +74,7 @@ test("without WebGL the poster stays and no canvas is created", async ({ playwri
 });
 
 test("the 3D area never blocks vertical scrolling", async ({ page }) => {
-  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.setViewportSize({ width: 1100, height: 760 });
   await page.goto("/en");
   await page.addStyleTag({ content: "main::after { content: ''; display: block; height: 200vh; }" }); // guarantee room to scroll
   const area = page.locator("[data-hero-canvas]");

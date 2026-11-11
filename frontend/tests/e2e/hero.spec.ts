@@ -1,6 +1,8 @@
 import { expect, test } from "@playwright/test";
+import { withoutHero3d } from "./no-hero-3d";
 
-test.use({ reducedMotion: "no-preference" }); // exercises motion and the WebGL hero
+test.use({ reducedMotion: "no-preference" }); // exercises motion
+test.beforeEach(({ page }) => withoutHero3d(page)); // …but not the WebGL hero (hero-3d.spec.ts)
 
 test("hero heading and both CTAs are visible without scrolling on a 390×844 phone", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
