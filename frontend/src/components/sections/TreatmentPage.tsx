@@ -1,10 +1,12 @@
-import { getTranslations } from "next-intl/server";
+import type { Metadata } from "next";
+import { getLocale, getTranslations } from "next-intl/server";
 import type { CSSProperties } from "react";
 import { LeadForm } from "@/components/forms/LeadForm";
 import { buttonClass } from "@/components/ui/button";
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { Link } from "@/i18n/navigation";
+import { pageMetadata } from "@/lib/seo";
 import { waLink } from "@/lib/whatsapp";
 import { Consultation } from "./Consultation";
 import { Faq } from "./Faq";
@@ -16,6 +18,12 @@ import { TreatmentDrawing } from "./TreatmentDrawing";
 // results beyond the confirmed facts (Claims Policy).
 type Treatment = "implants" | "veneers" | "smileDesign";
 const CONTEXT = { implants: "implants", veneers: "veneers", smileDesign: "smile_design" } as const;
+const HREF = { implants: "/dental-implants", veneers: "/dental-veneers", smileDesign: "/smile-design" } as const;
+
+export async function treatmentMetadata(treatment: Treatment): Promise<Metadata> {
+  const t = await getTranslations("treatments");
+  return pageMetadata(await getLocale(), HREF[treatment], t(`${treatment}.title`), t(`${treatment}.lead`));
+}
 
 export async function TreatmentPage({ treatment }: { treatment: Treatment }) {
   const t = await getTranslations("treatments");

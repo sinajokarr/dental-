@@ -1,4 +1,6 @@
-import { getTranslations } from "next-intl/server";
+import type { Metadata } from "next";
+import { getLocale, getTranslations } from "next-intl/server";
+import { pageMetadata } from "@/lib/seo";
 import type { CSSProperties } from "react";
 import { PageIntro } from "@/components/sections/PageIntro";
 import { buttonClass } from "@/components/ui/button";
@@ -37,4 +39,9 @@ export default async function AboutPage() {
       </Section>
     </>
   );
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations();
+  return pageMetadata(await getLocale(), "/about", t("about.title"), t("about.lead"));
 }

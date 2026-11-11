@@ -5,6 +5,7 @@ import { routing } from "./i18n/routing";
 export default createMiddleware(routing);
 
 export const config = {
-  // Every path except Next.js internals and files with an extension (e.g. /favicon.ico).
-  matcher: "/((?!_next|_vercel|.*\\..*).*)",
+  // Every path except Next.js internals, files with an extension (e.g. /icon.svg, /sitemap.xml) and the
+  // extension-less /apple-icon image route.
+  matcher: "/((?!_next|_vercel|apple-icon|.*\\..*).*)",
 };

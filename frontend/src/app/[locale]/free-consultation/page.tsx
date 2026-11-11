@@ -1,4 +1,6 @@
-import { getTranslations } from "next-intl/server";
+import type { Metadata } from "next";
+import { getLocale, getTranslations } from "next-intl/server";
+import { pageMetadata } from "@/lib/seo";
 import { LeadForm } from "@/components/forms/LeadForm";
 import { Consultation } from "@/components/sections/Consultation";
 import { Faq } from "@/components/sections/Faq";
@@ -14,4 +16,9 @@ export default async function FreeConsultationPage() {
       <Faq />
     </>
   );
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations();
+  return pageMetadata(await getLocale(), "/free-consultation", t("consultationPage.title"), t("consultationPage.lead"));
 }

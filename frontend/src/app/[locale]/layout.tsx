@@ -10,7 +10,7 @@ import "../globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL!), // presence enforced in next.config.ts
-  title: "JOKAR DENTAL",
+  title: { template: "%s | JOKAR DENTAL", default: "JOKAR DENTAL" },
 };
 
 export function generateStaticParams() {
