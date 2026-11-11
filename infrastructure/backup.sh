@@ -2,6 +2,7 @@
 # Daily PostgreSQL backup (runs inside the `backup` service of compose.prod.yml).
 # Custom-format dumps restore with: pg_restore --clean --if-exists -d <database> <file>
 set -eu
+umask 077 # dumps hold patient data: readable by the database user only
 while true; do
   pg_dump --format=custom --file="/backups/jokar-$(date +%F).dump"
   # Keep two weeks of daily dumps.

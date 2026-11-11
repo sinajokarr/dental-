@@ -22,6 +22,8 @@
 		root * /srv/django-static
 		file_server
 	}
+	# Staff who type the admin address without the trailing slash reach it instead of the site's 404.
+	redir /{$DJANGO_ADMIN_PATH} /{$DJANGO_ADMIN_PATH}/ 308
 	handle /{$DJANGO_ADMIN_PATH}/* {
 		reverse_proxy backend:8000
 	}
