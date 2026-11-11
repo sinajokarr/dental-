@@ -1,13 +1,12 @@
 "use client";
 
-import { useLocale, useTranslations } from "next-intl";
-import { startTransition, useActionState, useEffect, useRef, useState, type ChangeEvent, type FocusEvent, type FormEvent, type MouseEvent } from "react";
+import { useLocale } from "next-intl";
+import { startTransition, useActionState, useEffect, useRef, useState, type ChangeEvent, type FocusEvent, type FormEvent, type MouseEvent, type ReactNode } from "react";
 import { buttonClass } from "@/components/ui/button";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { LOCALE_NAMES } from "@/i18n/locale-names";
-import { Link } from "@/i18n/navigation";
-import type { ConsultationState } from "@/lib/lead-response";
-import { CITIES, CONTACTS, LANGUAGES, TREATMENTS, readLead, validateLead, type FieldErrors, type LeadField } from "@/lib/validate-lead";
+import type { ConsultationState, FormError } from "@/lib/lead-response";
+import { CITIES, CONTACTS, LANGUAGES, TREATMENTS, readLead, validateLead, type ErrorCode, type FieldErrors, type LeadField } from "@/lib/validate-lead";
 import { waLink } from "@/lib/whatsapp";
 import { submitConsultation } from "./actions";
 
@@ -15,6 +14,17 @@ import { submitConsultation } from "./actions";
 // (Server Action); with JavaScript it validates first, keeps focus where the visitor needs it and protects
 // against double submits.
 export type CountryOption = { code: string; name: string; dial: number };
+
+/** Every word the form shows, translated on the server (LeadForm) so no message formatter ships to the browser. */
+export type FormCopy = {
+  title: string; fullName: string; country: string; choose: string; phone: string; phoneCode: string; treatment: string;
+  treatments: Record<(typeof TREATMENTS)[number], string>; consent: ReactNode; consentShort: string; optional: string;
+  contact: string; contacts: Record<(typeof CONTACTS)[number], string>; email: string; city: string;
+  cities: Record<(typeof CITIES)[number], string>; language: string; message: string; messageHint: string; submit: string;
+  sending: string; replyNote: string; summaries: string[]; retry: string; orWhatsapp: string;
+  errors: Record<ErrorCode | FormError, string>; success: { title: string; reference: string; next: string; whatsapp: string };
+  whatsappGeneral: string; whatsappAfterForm: string; // the latter contains {reference}
+};
 
 const ORDER: LeadField[] = ["full_name", "country", "phone", "treatment", "consent", "preferred_contact", "email", "preferred_city", "preferred_language", "message"];
 const OPTIONAL = new Set<LeadField>(["preferred_contact", "email", "preferred_city", "preferred_language", "message"]);
@@ -30,10 +40,8 @@ const CHOICE =
   "transition-colors has-checked:border-blue-700 has-checked:bg-sky-100 has-checked:text-blue-700 " +
   "has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-blue-700";
 
-export function ConsultationForm({ countries, top, defaultTreatment = "" }: { countries: CountryOption[]; top: CountryOption[]; defaultTreatment?: string }) {
+export function ConsultationForm({ copy, countries, top, defaultTreatment = "" }: { copy: FormCopy; countries: CountryOption[]; top: CountryOption[]; defaultTreatment?: string }) {
   const locale = useLocale();
-  const t = useTranslations("form");
-  const chat = useTranslations("whatsapp");
   const [state, formAction, pending] = useActionState(submitConsultation, { status: "idle" } as ConsultationState);
   const [clientErrors, setClientErrors] = useState<FieldErrors | null>(null);
   const summary = useRef<HTMLDivElement>(null);
@@ -46,7 +54,8 @@ export function ConsultationForm({ countries, top, defaultTreatment = "" }: { co
   useEffect(() => {
     // One idempotency key per visitor, made in the browser (the page is prerendered for everyone), so
     // "Try again" never creates a second lead.
-    if (submission.current) submission.current.value = submissionId.current ||= crypto.randomUUID();
+    // randomUUID needs a secure context (HTTPS, localhost); without it the server makes the key.
+    if (submission.current) submission.current.value = submissionId.current ||= crypto.randomUUID?.() ?? "";
     if (state.status === "success") success.current?.focus();
     else if (state.status === "error") summary.current?.focus();
   }, [state]);
@@ -55,16 +64,16 @@ export function ConsultationForm({ countries, top, defaultTreatment = "" }: { co
     return (
       <div data-lead-success="" className="glass-strong rounded-lg p-6 sm:p-10">
         <h3 ref={success} tabIndex={-1} className="font-display text-h2 font-light text-balance outline-none">
-          {t("success.title")}
+          {copy.success.title}
         </h3>
-        <p className="mt-8 text-small text-slate-600">{t("success.reference")}</p>
+        <p className="mt-8 text-small text-slate-600">{copy.success.reference}</p>
         <p data-reference="" dir="ltr" className="mt-1 text-start text-h3 font-semibold tracking-[0.08em] text-navy-900">
           {state.reference}
         </p>
-        <p className="mt-6 text-slate-600">{t("success.next")}</p>
-        <a href={waLink(chat("after_form", { reference: state.reference }))} target="_blank" rel="noopener" className={`mt-8 ${buttonClass("whatsapp", "md")}`}>
+        <p className="mt-6 text-slate-600">{copy.success.next}</p>
+        <a href={waLink(copy.whatsappAfterForm.replace("{reference}", state.reference))} target="_blank" rel="noopener" className={`mt-8 ${buttonClass("whatsapp", "md")}`}>
           <WhatsAppIcon className="size-5 text-[#128C4A]" />
-          {t("success.whatsapp")}
+          {copy.success.whatsapp}
         </a>
       </div>
     );
@@ -75,8 +84,8 @@ export function ConsultationForm({ countries, top, defaultTreatment = "" }: { co
   const values = state.status === "error" ? state.values : undefined; // React resets the form after an action
   const invalid = ORDER.filter((field) => errors[field]);
   const labels: Record<LeadField, string> = {
-    full_name: t("fullName"), country: t("country"), phone: t("phone"), treatment: t("treatment"), consent: t("consentShort"),
-    preferred_contact: t("contact"), email: t("email"), preferred_city: t("city"), preferred_language: t("language"), message: t("message"),
+    full_name: copy.fullName, country: copy.country, phone: copy.phone, treatment: copy.treatment, consent: copy.consentShort,
+    preferred_contact: copy.contact, email: copy.email, preferred_city: copy.city, preferred_language: copy.language, message: copy.message,
   };
   const aria = (field: LeadField, hint?: string) => ({
     "aria-invalid": errors[field] ? true : undefined,
@@ -87,7 +96,7 @@ export function ConsultationForm({ countries, top, defaultTreatment = "" }: { co
     return (
       code && (
         <p id={`${fieldId(field)}-error`} className="mt-2 text-small font-medium text-red-700">
-          {t(`errors.${code}`)}
+          {copy.errors[code]}
         </p>
       )
     );
@@ -127,7 +136,7 @@ export function ConsultationForm({ countries, top, defaultTreatment = "" }: { co
 
   return (
     <form id="consultation-form" action={formAction} onSubmit={submit} onBlur={recheck} noValidate className="glass-strong relative rounded-lg p-6 sm:p-10">
-      <h3 className="text-h3 font-semibold">{t("title")}</h3>
+      <h3 className="text-h3 font-semibold">{copy.title}</h3>
 
       {(invalid.length > 0 || formError) && (
         <div
@@ -139,27 +148,27 @@ export function ConsultationForm({ countries, top, defaultTreatment = "" }: { co
         >
           {formError ? (
             <>
-              <p className="font-semibold text-red-700">{t(`errors.${formError}`)}</p>
+              <p className="font-semibold text-red-700">{copy.errors[formError]}</p>
               <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-3">
                 {formError !== "rate_limited" && (
                   <button type="submit" className={buttonClass("primary", "sm")}>
-                    {t("retry")}
+                    {copy.retry}
                   </button>
                 )}
-                <a href={waLink(chat("general"))} target="_blank" rel="noopener" className="inline-flex min-h-11 items-center gap-2 font-semibold text-blue-700 underline-offset-4 hover:underline">
+                <a href={waLink(copy.whatsappGeneral)} target="_blank" rel="noopener" className="inline-flex min-h-11 items-center gap-2 font-semibold text-blue-700 underline-offset-4 hover:underline">
                   <WhatsAppIcon className="size-5 text-[#128C4A]" />
-                  {t("orWhatsapp")}
+                  {copy.orWhatsapp}
                 </a>
               </div>
             </>
           ) : (
             <>
-              <p className="font-semibold text-red-700">{t("summary", { count: invalid.length })}</p>
+              <p className="font-semibold text-red-700">{copy.summaries[invalid.length]}</p>
               <ul className="mt-3 grid gap-1">
                 {invalid.map((field) => (
                   <li key={field}>
                     <a href={`#${fieldId(field)}`} onClick={jump(field)} className="text-small text-blue-700 underline underline-offset-4">
-                      {labels[field]}: {t(`errors.${errors[field]!}`)}
+                      {labels[field]}: {copy.errors[errors[field]!]}
                     </a>
                   </li>
                 ))}
@@ -172,7 +181,7 @@ export function ConsultationForm({ countries, top, defaultTreatment = "" }: { co
       <div className="mt-8 grid grid-cols-1 gap-6">
         <div>
           <label htmlFor={fieldId("full_name")} className={LABEL}>
-            {t("fullName")}
+            {copy.fullName}
           </label>
           <input id={fieldId("full_name")} name="full_name" type="text" autoComplete="name" required maxLength={120} defaultValue={values?.full_name} className={CONTROL} {...aria("full_name")} />
           {errorText("full_name")}
@@ -180,11 +189,11 @@ export function ConsultationForm({ countries, top, defaultTreatment = "" }: { co
 
         <div>
           <label htmlFor={fieldId("country")} className={LABEL}>
-            {t("country")}
+            {copy.country}
           </label>
           <select id={fieldId("country")} name="country" autoComplete="country" required defaultValue={values?.country ?? ""} onChange={chooseCountry} className={CONTROL} {...aria("country")}>
             <option value="" disabled>
-              {t("choose")}
+              {copy.choose}
             </option>
             {top.map((country) => (
               <option key={`top-${country.code}`} value={country.code}>
@@ -203,13 +212,13 @@ export function ConsultationForm({ countries, top, defaultTreatment = "" }: { co
 
         <div>
           <label htmlFor={fieldId("phone")} className={LABEL}>
-            {t("phone")}
+            {copy.phone}
           </label>
           <div dir="ltr" className="mt-2 flex gap-2">
             <select
               ref={phoneCode}
               name="phone_code"
-              aria-label={t("phoneCode")}
+              aria-label={copy.phoneCode}
               autoComplete="tel-country-code"
               defaultValue={values?.phone_code ?? ""}
               onChange={() => (phoneCodeChosen.current = true)}
@@ -228,7 +237,7 @@ export function ConsultationForm({ countries, top, defaultTreatment = "" }: { co
         </div>
 
         <fieldset {...aria("treatment")}>
-          <legend className={LABEL}>{t("treatment")}</legend>
+          <legend className={LABEL}>{copy.treatment}</legend>
           <div className="mt-2 grid grid-cols-2 gap-2">
             {TREATMENTS.map((value, i) => (
               <label key={value} className={CHOICE}>
@@ -241,7 +250,7 @@ export function ConsultationForm({ countries, top, defaultTreatment = "" }: { co
                   defaultChecked={(values?.treatment ?? defaultTreatment) === value}
                   className="sr-only"
                 />
-                {t(`treatments.${value}`)}
+                {copy.treatments[value]}
               </label>
             ))}
           </div>
@@ -252,13 +261,7 @@ export function ConsultationForm({ countries, top, defaultTreatment = "" }: { co
           <div className="flex items-start gap-3">
             <input id={fieldId("consent")} name="consent" type="checkbox" required defaultChecked={values?.consent === "on"} className="mt-0.5 size-5 shrink-0 accent-blue-700" {...aria("consent")} />
             <label htmlFor={fieldId("consent")} className="text-small text-slate-600">
-              {t.rich("consent", {
-                privacy: (chunks) => (
-                  <Link href="/privacy" className="font-semibold text-blue-700 underline underline-offset-4">
-                    {chunks}
-                  </Link>
-                ),
-              })}
+              {copy.consent}
             </label>
           </div>
           {errorText("consent")}
@@ -266,19 +269,19 @@ export function ConsultationForm({ countries, top, defaultTreatment = "" }: { co
 
         <details open={invalid.some((field) => OPTIONAL.has(field)) || undefined} className="group border-t border-sky-200 pt-2">
           <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 font-semibold text-blue-700 [&::-webkit-details-marker]:hidden">
-            {t("optional")}
+            {copy.optional}
             <span aria-hidden="true" className="text-h3 font-light transition-transform group-open:rotate-45">
               +
             </span>
           </summary>
           <div className="mt-4 grid gap-6">
             <fieldset>
-              <legend className={LABEL}>{t("contact")}</legend>
+              <legend className={LABEL}>{copy.contact}</legend>
               <div className="mt-2 grid grid-cols-3 gap-2">
                 {CONTACTS.map((value) => (
                   <label key={value} className={CHOICE}>
                     <input type="radio" name="preferred_contact" value={value} defaultChecked={(values?.preferred_contact ?? "whatsapp") === value} className="sr-only" />
-                    {t(`contacts.${value}`)}
+                    {copy.contacts[value]}
                   </label>
                 ))}
               </div>
@@ -286,19 +289,19 @@ export function ConsultationForm({ countries, top, defaultTreatment = "" }: { co
 
             <div>
               <label htmlFor={fieldId("email")} className={LABEL}>
-                {t("email")}
+                {copy.email}
               </label>
               <input id={fieldId("email")} name="email" type="email" autoComplete="email" dir="ltr" defaultValue={values?.email} className={`${CONTROL} text-start`} {...aria("email")} />
               {errorText("email")}
             </div>
 
             <fieldset>
-              <legend className={LABEL}>{t("city")}</legend>
+              <legend className={LABEL}>{copy.city}</legend>
               <div className="mt-2 grid grid-cols-3 gap-2">
                 {CITIES.map((value) => (
                   <label key={value} className={CHOICE}>
                     <input type="radio" name="preferred_city" value={value} defaultChecked={(values?.preferred_city ?? "no_preference") === value} className="sr-only" />
-                    {t(`cities.${value}`)}
+                    {copy.cities[value]}
                   </label>
                 ))}
               </div>
@@ -306,7 +309,7 @@ export function ConsultationForm({ countries, top, defaultTreatment = "" }: { co
 
             <div>
               <label htmlFor={fieldId("preferred_language")} className={LABEL}>
-                {t("language")}
+                {copy.language}
               </label>
               <select id={fieldId("preferred_language")} name="preferred_language" defaultValue={values?.preferred_language ?? locale} className={CONTROL}>
                 {LANGUAGES.map((value) => (
@@ -319,11 +322,11 @@ export function ConsultationForm({ countries, top, defaultTreatment = "" }: { co
 
             <div>
               <label htmlFor={fieldId("message")} className={LABEL}>
-                {t("message")}
+                {copy.message}
               </label>
               <textarea id={fieldId("message")} name="message" rows={4} maxLength={1000} defaultValue={values?.message} className={`${CONTROL} py-3`} {...aria("message", "lead-message-hint")} />
               <p id="lead-message-hint" className="mt-2 text-small text-slate-600">
-                {t("messageHint")}
+                {copy.messageHint}
               </p>
               {errorText("message")}
             </div>
@@ -343,12 +346,12 @@ export function ConsultationForm({ countries, top, defaultTreatment = "" }: { co
       <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
         <button type="submit" aria-busy={pending || undefined} className={`w-full sm:w-auto ${buttonClass("primary", "lg")}`}>
           {pending && <span aria-hidden="true" className="size-4 animate-spin rounded-full border-2 border-white/40 border-t-white" />}
-          {t("submit")}
+          {copy.submit}
         </button>
-        <p className="text-small text-slate-600">{t("replyNote")}</p>
+        <p className="text-small text-slate-600">{copy.replyNote}</p>
       </div>
       <p aria-live="polite" className="sr-only">
-        {pending ? t("sending") : ""}
+        {pending ? copy.sending : ""}
       </p>
     </form>
   );
