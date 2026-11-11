@@ -65,7 +65,7 @@ Prerequisites: Node.js 24+, Python 3.13, Docker.
 |---|---|---|
 | Frontend unit (`node:test`) | `cd frontend && npm test` | env, translation parity, claims guard, tokens, RTL guard, tooth model, scan timing, form validation |
 | End-to-end + accessibility (Playwright) | `cd frontend && npm run test:e2e` | every page in 4 languages, form (against a contract mock of the lead API), motion, 3D, SEO, performance budgets, axe on every page type; a cross-browser smoke also runs in Firefox, WebKit, iPhone and Android |
-| Backend (Django) | `backend/.venv/bin/python backend/manage.py test` | lead API, validation, idempotency, throttle, admin, Telegram outbox, security |
+| Backend (Django) | `cd backend && .venv/bin/python manage.py test` | lead API, validation, idempotency, throttle, admin, Telegram outbox, security |
 | Production stack | `ADMIN_PATH=… sh infrastructure/smoke.sh https://<domain>` | pages, 404, API hidden, admin, security headers |
 
 First end-to-end run: `cd frontend && npx playwright install chromium firefox webkit`. The backend suite needs the dev database (Setup step 2).

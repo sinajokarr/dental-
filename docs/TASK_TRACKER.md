@@ -119,11 +119,11 @@
 
 | ID | Task | پیش‌نیاز | فایل‌ها | خروجی و معیار پذیرش | تست | اندازه | وضعیت |
 |---|---|---|---|---|---|---|---|
-| H01 | تست موبایل | C–G | — | پوشش کامل ماتریس دستگاه‌ها | دستگاه واقعی | M | ⬜ |
-| H02 | دسترس‌پذیری | C–G | — | axe بدون خطای serious یا critical؛ تست دستی و screen reader | `SECURITY_PERFORMANCE_QA.md` §۲ | M | ⬜ |
-| H03 | Performance | C–G | — | رعایت بودجه‌ها؛ CWV در Lab | Lighthouse و WebPageTest | M | ⬜ |
-| H04 | بازبینی امنیت | D · H06 | — | CSP، هدرها، `check --deploy`، audit وابستگی‌ها | ابزارها + بازبینی دستی | M | ⬜ |
-| H05 | E2E | همه | — | کل مجموعه روی staging | Playwright | M | ⬜ |
-| H06 | زیرساخت Production | D · Q6 | `infrastructure/*` | Dockerfileها، Compose، Caddy، backup، پایش | راه‌اندازی staging + **تست بازیابی backup** | L | 🔒 Q6 |
-| H07 | Deployment | H06 · دامنه | — | DNS، TLS، secrets، تست واقعی Telegram | smoke tests | M | 🔒 دامنه |
-| H08 | اعتبارسنجی نهایی | H01–H07 | `QA_CHECKLIST.md` | چک‌لیست ۱۰۰٪ کامل | **Gate G5** | S | ⬜ |
+| H01 | تست موبایل و مرورگرها | C–G | `tests/e2e/cross-browser.spec.ts` | Firefox، WebKit، iPhone 13، Pixel 7 (شبیه‌سازی) | e2e ۵ پروژه | M | ✅ `f072b82` (دستگاه واقعی: NOT RUN) |
+| H02 | دسترس‌پذیری | C–G | `tests/e2e/a11y-pages.spec.ts` | axe روی ۱۱ نوع صفحه × fa/en بدون serious/critical | e2e | M | ✅ `f072b82` (screen reader: NOT RUN) |
+| H03 | Performance | C–G | `tests/e2e/performance.spec.ts` | JS 166KB، CSS 10KB، فونت ≤ 102KB، LCP ≤ 1.12s، CLS 0 | e2e (lab) | M | ✅ `3c12b31` (Lighthouse/field: NOT RUN) |
+| H04 | بازبینی امنیت | D · H06 | `SECURITY_PERFORMANCE_QA.md` | هدرها/CSP، API پنهان، IP واقعی، check --deploy، audit | ابزار + بازبینی | M | ✅ `45f8451` |
+| H05 | E2E | همه | `playwright.prod.config.ts` | کل مجموعه روی stack محلی Production | Playwright: 139 passed | M | ✅ `bc1b4ff` |
+| H06 | زیرساخت Production | D | `infrastructure/*` · Dockerfileها | Compose، Caddy، worker، backup + تمرین بازگردانی، smoke | smoke 18/18 | L | ✅ `67fdf63` (سرور واقعی: Q6) |
+| H07 | Deployment | H06 · دامنه | `LAUNCH_REPORT.md` §۸ | DNS، TLS، secrets، تست واقعی Telegram | smoke | M | 🔒 NOT RUN — دامنه/سرور و بات Telegram با کارفرما |
+| H08 | اعتبارسنجی نهایی | H01–H07 | `LAUNCH_REPORT.md` | گزارش آمادگی و موانع | **Gate G5** | S | 🟡 گزارش آماده — G5 باز تا ۴ کار کارفرما |
