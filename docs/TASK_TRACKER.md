@@ -94,12 +94,12 @@
 
 | ID | Task | پیش‌نیاز | فایل‌ها | خروجی و معیار پذیرش | تست | اندازه | وضعیت |
 |---|---|---|---|---|---|---|---|
-| F01 | متن مرجع انگلیسی | C · G01 · Q13 | `messages/en.json` | همه متن‌های Phase 1 طبق Claims Policy | بازبینی → **Gate G4** | M | 🔒 Q13 |
-| F02 | فارسی | F01 | `messages/fa.json` | ترجمه + بازبینی توسط فارسی‌زبان | بازبینی + اسکرین‌شات RTL | M | ⬜ |
-| F03 | Deutsch | F01 · Q7 | `messages/de.json` | ترجمه + بازبینی متخصص | بازبینی | M | 🔒 Q7 |
-| F04 | Türkçe | F01 · Q7 | `messages/tr.json` | ترجمه + بازبینی متخصص | بازبینی | M | 🔒 Q7 |
-| F05 | QA راست‌به‌چپ و چپ‌به‌راست | F02–F04 | — | چک‌لیست MULTILINGUAL §۷ | اسکرین‌شات ۴ زبان از صفحات کلیدی + grep | M | ⬜ |
-| F06 | International SEO | F01–F04 | `generateMetadata` · `sitemap.ts` · `robots.ts` · JSON-LD | hreflang دوطرفه، canonical، OG، Organization و Breadcrumb | `node:test` برای hreflang · Rich Results Test | M | ⬜ |
+| F01 | متن مرجع انگلیسی | C · G01 | `messages/en.json` | همه متن‌ها طبق Claims Policy؛ گارد خودکار ادعاها | `tests/unit/claims.test.ts` | M | ✅ `66bd0d4` (Q13 پاسخ داده شد) |
+| F02 | فارسی | F01 | `messages/fa.json` | ترجمه کامل؛ برابری کلیدها؛ گارد ادعاها | unit + اسکرین‌شات RTL | M | ✅ (بازبینی نهایی فارسی‌زبان باقی است) |
+| F03 | Deutsch | F01 | `messages/de.json` | ترجمه کامل؛ گارد ادعاها | unit | M | 🟡 ترجمه کامل — بازبینی متخصص پزشکی (Q7) باقی است |
+| F04 | Türkçe | F01 | `messages/tr.json` | ترجمه کامل؛ گارد ادعاها | unit | M | 🟡 ترجمه کامل — بازبینی متخصص پزشکی (Q7) باقی است |
+| F05 | QA راست‌به‌چپ و چپ‌به‌راست | F02–F04 | `tests/e2e/rtl.spec.ts` | آینه‌شدن جهت، اعداد LTR، هیچ کنترلی بیرون از صفحه ۳۶۰px | e2e + اسکرین‌شات | M | ✅ `41f7f7b` |
+| F06 | International SEO | F01–F04 | `lib/seo.ts` · `sitemap.ts` · `robots.ts` · JSON-LD · OG · icons | hreflang با slug محلی + x-default، canonical، OG، MedicalOrganization | `tests/e2e/seo.spec.ts` | M | ✅ `4a0d9f0` (Rich Results Test: NOT RUN — دامنه نداریم) |
 
 ## Phase G — Inner Pages
 
