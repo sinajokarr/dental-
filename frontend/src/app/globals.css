@@ -152,3 +152,80 @@ body {
   line-height: var(--text-body--line-height);
   -webkit-font-smoothing: antialiased;
 }
+
+/* Glass recipes (DESIGN_SYSTEM §5). Max 3 blurred layers per viewport; glass only over something worth blurring.
+   Fallbacks: opaque surfaces when backdrop-filter is unsupported or the user prefers reduced transparency. */
+@utility glass-nav {
+  background: rgb(255 255 255 / 0.62);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  backdrop-filter: blur(18px) saturate(160%);
+  border-bottom: 1px solid rgb(255 255 255 / 0.7);
+  box-shadow: var(--shadow-e1);
+  @media (width < 48rem) {
+    -webkit-backdrop-filter: blur(14px) saturate(160%);
+    backdrop-filter: blur(14px) saturate(160%);
+  }
+  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    background: rgb(248 252 255 / 0.94);
+  }
+  @media (prefers-reduced-transparency: reduce) {
+    background: var(--color-ice-50);
+  }
+}
+@utility glass-card {
+  --edge-fill: rgb(255 255 255 / 0.55);
+  border: 1px solid transparent;
+  background:
+    linear-gradient(var(--edge-fill), var(--edge-fill)) padding-box,
+    linear-gradient(135deg, rgb(255 255 255 / 0.95), rgb(189 234 255 / 0.6) 40%, rgb(255 255 255 / 0.2)) border-box;
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.9), var(--shadow-e2);
+  @media (width < 48rem) {
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+  }
+  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    --edge-fill: rgb(248 252 255 / 0.94);
+  }
+  @media (prefers-reduced-transparency: reduce) {
+    --edge-fill: var(--color-ice-50);
+  }
+}
+@utility glass-strong {
+  background: rgb(248 252 255 / 0.78);
+  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgb(189 234 255 / 0.9);
+  box-shadow: var(--shadow-e3);
+  @media (width < 48rem) {
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+  }
+  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    background: rgb(248 252 255 / 0.96);
+  }
+  @media (prefers-reduced-transparency: reduce) {
+    background: var(--color-ice-50);
+  }
+}
+@utility glass-dark {
+  background: rgb(16 60 104 / 0.45);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgb(127 211 244 / 0.22);
+  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    background: rgb(16 60 104 / 0.94);
+  }
+  @media (prefers-reduced-transparency: reduce) {
+    background: var(--color-navy-800);
+  }
+}
+/* Signature 1px gradient edge for solid cards (glass-card already includes it). */
+@utility porcelain-edge {
+  --edge-fill: var(--color-white);
+  border: 1px solid transparent;
+  background:
+    linear-gradient(var(--edge-fill), var(--edge-fill)) padding-box,
+    linear-gradient(135deg, rgb(255 255 255 / 0.95), rgb(189 234 255 / 0.6) 40%, rgb(255 255 255 / 0.2)) border-box;
+}
