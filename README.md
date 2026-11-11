@@ -49,3 +49,13 @@ Prerequisites: Node.js 24+, Python 3.13, Docker.
 
    http://localhost:3000 redirects to `/fa`, `/en`, `/de` or `/tr` from the browser language (fallback `/en`).
    Translations live in `frontend/messages/<locale>.json`; a key missing in any locale fails the build.
+
+## Tests
+
+| Suite | Command | Covers |
+|---|---|---|
+| Frontend unit (`node:test`) | `cd frontend && npm test` | env fail-fast, translation parity, design tokens, RTL guard |
+| End-to-end + accessibility (Playwright, Chromium) | `cd frontend && npm run test:e2e` | locale redirects, `lang`/`dir` per locale, axe (no serious/critical), 404 |
+| Backend (Django) | `backend/.venv/bin/python backend/manage.py test` | env fail-fast, PostgreSQL 18, admin path |
+
+First end-to-end run: `cd frontend && npx playwright install chromium`. The backend suite needs the dev database (Setup step 2).
