@@ -54,3 +54,10 @@
 | D-050 | 2026-11-11 | CSP با `'unsafe-inline'` برای script (به خاطر SSG) و `'wasm-unsafe-eval'` (برای Meshopt)؛ بازبینی در H04 | nonce صفحات را به رندر پویا مجبور می‌کند | CTO |
 | D-051 | 2026-11-11 | Landing Pageهای تبلیغاتی به فاز I منتقل شدند؛ فاز G به صفحات داخلی اختصاص یافت | D-006 | CTO |
 | D-052 | 2026-11-11 | فرم فقط ۵ فیلد الزامی دارد؛ جزئیات اختیاری در یک `<details>` بسته | Conversion | CTO |
+| D-053 | 2026-11-11 | Cache Components و `partialPrefetching` روشن ماندند (پیش‌فرض create-next-app 16.4) | مستندات Next: در نسخه اصلی بعدی اجباری می‌شوند؛ صفحات ثابت ما همچنان prerender می‌شوند | CTO (A02) |
+| D-054 | 2026-11-11 | next-intl با `next/root-params` (بدون `setRequestLocale` که منسوخ شده)؛ Server Actionها باید locale را صریح بفرستند (فرم E03) | روش رسمی next-intl 4.14 و سازگار با Cache Components | CTO (A06) |
+| D-055 | 2026-11-11 | یک `.env` در ریشه؛ Next با `process.loadEnvFile` داخلی Node و Django با loader کوچک stdlib؛ متغیر واقعی محیط، حتی خالی، اولویت دارد | بدون وابستگی جدید (`@next/env` لازم نشد) | CTO (A05) |
+| D-056 | 2026-11-11 | پورت دیتابیس توسعه **5433** | یک PostgreSQL دیگر و نامرتبط روی پورت 5432 این سیستم فعال است | CTO (A04) |
+| D-057 | 2026-11-11 | پالت، radius و سایه‌های پیش‌فرض Tailwind غیرفعال شدند؛ utilityها نام‌های primitive دارند (بدون alias معنایی) | فقط رنگ‌های برند قابل استفاده‌اند؛ یک API به‌جای دو API | CTO (A07) |
+| D-058 | 2026-11-11 | Playwright فعلاً فقط Chromium (WebKit و Firefox در فاز H)؛ پورت تست E2E ‏3100 | حجم دانلود؛ نبود تداخل با dev server | CTO (A08) |
+| D-059 | 2026-11-11 | همه دستورات نصب و build با بررسی TLS فعال اجرا می‌شوند (`env -u NODE_TLS_REJECT_UNAUTHORIZED`) | بررسی TLS ‏Node روی سیستم توسعه به‌صورت سراسری خاموش است | CTO (A01–A08) |

@@ -12,20 +12,20 @@
 
 **اندازه Task** (نسبی، نه زمان قطعی): S کوچک · M متوسط · L بزرگ
 
-**تنها کار تمام‌شده تا امروز:** طراحی و مستندات. همه اسناد در `docs/` هستند.
+**Phase A (Foundation) تمام شد** (2026-11-11) روی شاخه `phase-a-foundation`: ۸ Task، تست‌ها: واحد ۹/۹ · E2E و axe ۱۰/۱۰ · Django ۴/۴. تصمیم‌های این فاز: D-053 تا D-059.
 
 ## Phase A — Foundation
 
 | ID | Task | پیش‌نیاز | فایل‌ها | خروجی و معیار پذیرش | تست | اندازه | وضعیت |
 |---|---|---|---|---|---|---|---|
-| A01 | Repository | G0 | `.gitignore` · `README.md` · `CLAUDE.md` · `.env.example` | git init انجام شده؛ هیچ secret در repo نیست؛ CLAUDE.md قوانین پروژه را دارد | `git check-ignore .env` | S | ⬜ |
-| A02 | Next.js | A01 | `frontend/*` | Next 16، TS strict، Tailwind 4، ESLint، `output: 'standalone'` | `npm run build` · `tsc --noEmit` · lint | S | ⬜ |
-| A03 | Django | A01 | `backend/config` · `backend/leads` | Django 5.2 LTS + DRF؛ settings از env | `manage.py check` · `manage.py test` | S | ⬜ |
-| A04 | PostgreSQL | A03 | `infrastructure/compose.dev.yml` | PostgreSQL 18 در Docker؛ migrate موفق | `manage.py migrate` | S | ⬜ |
-| A05 | Env | A02–A04 | `.env.example` · settings | نبود env الزامی، برنامه را با پیام روشن متوقف می‌کند | اجرای بدون env | S | ⬜ |
-| A06 | Localization | A02 | `src/i18n/*` · `src/proxy.ts` · `messages/*` | ۴ زبان، pathnames، `lang` و `dir`، ریدایرکت `/`، کلید گم‌شده یعنی شکست build | Playwright با هدر Accept-Language · build با کلید ناقص | M | ⬜ |
-| A07 | Design Tokens | A02 | `src/app/globals.css` | `@theme` مطابق DESIGN_SYSTEM؛ grep برای کلاس‌های فیزیکی (`ml-`، `pl-`، `left-`) | grep در اسکریپت test | S | ⬜ |
-| A08 | زیرساخت تست | A02 · A03 | `tests/` · `playwright.config.ts` · scripts | یک تست نمونه در هر لایه سبز است | `node --test` · Playwright · `manage.py test` | M | ⬜ |
+| A01 | Repository | G0 | `.gitignore` · `README.md` · `CLAUDE.md` · `.env.example` | git init انجام شده؛ هیچ secret در repo نیست؛ CLAUDE.md قوانین پروژه را دارد | `git check-ignore .env` | S | ✅ `48e483f` |
+| A02 | Next.js | A01 | `frontend/*` | Next 16، TS strict، Tailwind 4، ESLint، `output: 'standalone'` | `npm run build` · `tsc --noEmit` · lint | S | ✅ `e9a734a` |
+| A03 | Django | A01 | `backend/config` · `backend/leads` | Django 5.2 LTS + DRF؛ settings از env | `manage.py check` · `manage.py test` | S | ✅ `8dadfb9` |
+| A04 | PostgreSQL | A03 | `infrastructure/compose.dev.yml` | PostgreSQL 18 در Docker؛ migrate موفق | `manage.py migrate` | S | ✅ `5bd4f81` |
+| A05 | Env | A02–A04 | `.env.example` · settings | نبود env الزامی، برنامه را با پیام روشن متوقف می‌کند | اجرای بدون env | S | ✅ `acf72be` |
+| A06 | Localization | A02 | `src/i18n/*` · `src/proxy.ts` · `messages/*` | ۴ زبان، pathnames، `lang` و `dir`، ریدایرکت `/`، کلید گم‌شده یعنی شکست build | Playwright با هدر Accept-Language · build با کلید ناقص | M | ✅ `7a7cf7e` |
+| A07 | Design Tokens | A02 | `src/app/globals.css` | `@theme` مطابق DESIGN_SYSTEM؛ grep برای کلاس‌های فیزیکی (`ml-`، `pl-`، `left-`) | grep در اسکریپت test | S | ✅ `082b078` |
+| A08 | زیرساخت تست | A02 · A03 | `tests/` · `playwright.config.ts` · scripts | یک تست نمونه در هر لایه سبز است | `node --test` · Playwright · `manage.py test` | M | ✅ `f00dc3f` |
 
 ## Phase B — Design System
 
