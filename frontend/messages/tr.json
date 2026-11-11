@@ -433,5 +433,167 @@
   "consultationPage": {
     "title": "Ücretsiz danışmanlık",
     "lead": "İlk danışmanlığınız ücretsizdir. İhtiyacınızı Farsça, İngilizce, Almanca veya Türkçe anlatın; ekibimiz sizinle iletişime geçsin."
+  },
+  "about": {
+    "title": "JOKAR DENTAL hakkında",
+    "lead": "Antalya ve İstanbul'da diş implantı, porselen lamina ve gülüş tasarımı — ilk mesajdan tedavi sonrası takibe kadar size göre planlanan bir bakım.",
+    "sections": [
+      {
+        "title": "Ne yapıyoruz",
+        "text": "Üç tedaviye odaklanıyoruz: diş implantı, porselen lamina ve gülüş tasarımı. Üçü de iki şehrimizde, Antalya ve İstanbul'da sunulur."
+      },
+      {
+        "title": "Nasıl çalışıyoruz",
+        "text": "Her tedavi ücretsiz bir danışmanlıkla başlar. Durumunuzu inceler, seçeneklerinizi anlatır ve tedavinizi sizinle birlikte planlarız; böylece tüm bilgilerle karar verirsiniz."
+      },
+      {
+        "title": "Sizin diliniz, sizin planınız",
+        "text": "Her hastayla kendi dilinde konuşuyoruz; bu web sitesinde Farsça, İngilizce, Almanca ve Türkçe. Seyahatten önce fotoğraflarınızı veya röntgenlerinizi online değerlendirme için gönderebilirsiniz."
+      },
+      {
+        "title": "Seyahatiniz, koordineli",
+        "text": "Yurt dışından gelen hastalar için otel, havalimanı transferi ve tercümanı koordine ederiz. Ziyaretlerin çoğu, tedaviye bağlı olarak 3 ila 8 gün sürer."
+      },
+      {
+        "title": "Tedaviden sonra",
+        "text": "Tedavinizden sonra da sizinle iletişimde kalırız. Tedavilerimiz garantilidir; garanti koşulları tedaviye göre değişir ve danışmanlıkta açıklanır."
+      }
+    ],
+    "cta": "Ücretsiz danışmanlıkla başlayın"
+  },
+  "legal": {
+    "draft": "Taslak — bu metin web sitesi yayına girmeden önce gözden geçirilecektir.",
+    "privacy": {
+      "title": "Gizlilik bildirimi",
+      "sections": [
+        {
+          "title": "Sorumlu",
+          "body": [
+            "Burada açıklanan kişisel verilerden JOKAR DENTAL sorumludur. Bize WhatsApp'tan veya +90 542 713 01 32 numaralı telefondan ulaşabilirsiniz."
+          ]
+        },
+        {
+          "title": "Hangi verileri topluyoruz",
+          "body": [
+            "Danışmanlık formunu gönderdiğinizde: adınız, yaşadığınız ülke, telefon numaranız, ilgilendiğiniz tedavi ve onayınız; eklerseniz e-posta adresiniz, tercih ettiğiniz iletişim yolu, şehir ve dil ile mesajınız.",
+            "Bunlarla birlikte formu gönderdiğiniz sayfayı ve adresindeki kampanya parametrelerini (utm) kaydederiz; böylece bizi nasıl bulduğunuzu biliriz.",
+            "Tekrarlanan otomatik gönderimleri önlemek için IP adresiniz talepleri saymak amacıyla kullanılır ve en fazla 24 saat saklanır. Talebinizle birlikte kaydedilmez.",
+            "Bize WhatsApp'tan yazarsanız görüşme WhatsApp üzerinden yürür ve WhatsApp bunu kendi koşullarına göre işler."
+          ]
+        },
+        {
+          "title": "Neden kullanıyoruz",
+          "body": [
+            "Talebinizi yanıtlamak, seçtiğiniz yolla sizinle iletişime geçmek ve danışmanlığınızı ve tedavinizi planlamak için. Dayanak, bize yazarak istediğiniz zaman geri alabileceğiniz onayınızdır."
+          ]
+        },
+        {
+          "title": "Tıbbi bilgiler",
+          "body": [
+            "Lütfen formdan tıbbi ayrıntı göndermeyin. Bunları danışmanlıkta sizinle birlikte ele alırız."
+          ]
+        },
+        {
+          "title": "Kimler erişir",
+          "body": [
+            "Talebinizi yalnızca onunla ilgilenen klinik çalışanları görür. Telegram üzerinden giden dahili bir bildirim ekibe yeni bir talep geldiğini haber verir; bu bildirim yalnızca takip kodu, dil, ülke, tedavi ve şehir içerir — asla adınızı veya iletişim bilgilerinizi içermez.",
+            "Sistemlerimizi barındıran sağlayıcı verileri bizim adımıza saklar."
+          ]
+        },
+        {
+          "title": "Ne kadar saklıyoruz",
+          "body": [
+            "Talebinizi yanıtlamak ve tedavinizi planlayıp takip etmek için gerektiği sürece. Tedaviye dönüşmeyen talepler en geç 24 ay sonra silinir veya anonim hale getirilir."
+          ]
+        },
+        {
+          "title": "Haklarınız",
+          "body": [
+            "Verilerinize erişim, düzeltme, silme veya kısıtlama talep edebilir ve kullanılmalarına itiraz edebilirsiniz. Bize WhatsApp'tan yazın veya +90 542 713 01 32 numarasını arayın. Ayrıca bir veri koruma otoritesine şikâyette bulunabilirsiniz — Türkiye'de Kişisel Verileri Koruma Kurumu'na (KVKK), AB'de kendi ülkenizin otoritesine."
+          ]
+        },
+        {
+          "title": "Çerezler",
+          "body": [
+            "Dilinizi hatırlayan tek bir işlevsel çerez kullanırız. Analiz veya reklam çerezleri kullanmayız."
+          ]
+        }
+      ]
+    },
+    "kvkk": {
+      "title": "KVKK aydınlatma metni",
+      "sections": [
+        {
+          "title": "Veri sorumlusu",
+          "body": [
+            "JOKAR DENTAL, kişisel verilerinizi 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) kapsamında veri sorumlusu sıfatıyla işler. İletişim: WhatsApp veya telefon +90 542 713 01 32."
+          ]
+        },
+        {
+          "title": "İşleme amaçları",
+          "body": [
+            "Danışmanlık talebinizi yanıtlamak, seçtiğiniz yolla sizinle iletişime geçmek ve danışmanlığınızı ve tedavinizi planlayıp takip etmek."
+          ]
+        },
+        {
+          "title": "İşlenen veriler",
+          "body": [
+            "Kimlik ve iletişim verileri (ad, telefon ve verilmişse e-posta), yaşadığınız ülke, ilgilendiğiniz tedavi, tercihleriniz ve mesajınız, onay kaydınız ile talebinizin sayfa ve kampanya bilgileri."
+          ]
+        },
+        {
+          "title": "Toplama yöntemi ve hukuki sebep",
+          "body": [
+            "Veriler danışmanlık formu ve WhatsApp aracılığıyla elektronik ortamda, açık rızanıza dayanarak (KVKK m. 5) toplanır."
+          ]
+        },
+        {
+          "title": "Aktarım",
+          "body": [
+            "Veriler yalnızca talebinizle ilgilenen klinik çalışanlarıyla ve sistemlerimizi barındıran sağlayıcılarla paylaşılır. Telegram üzerinden gönderilen dahili bildirimler bir talebin yalnızca takip kodunu, dilini, ülkesini, tedavisini ve şehrini içerir — ad veya iletişim bilgisi içermez."
+          ]
+        },
+        {
+          "title": "KVKK m. 11 kapsamındaki haklarınız",
+          "body": [
+            "Verilerinizin işlenip işlenmediğini öğrenme ve bilgi talep etme; işlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme; aktarıldığı üçüncü kişileri bilme; düzeltilmesini, silinmesini veya yok edilmesini isteme; münhasıran otomatik sistemlerle analiz edilmesi sonucu aleyhinize bir sonuca itiraz etme ve kanuna aykırı işleme nedeniyle zarara uğramanız hâlinde zararın giderilmesini talep etme haklarına sahipsiniz. Bize WhatsApp'tan yazın veya +90 542 713 01 32 numarasını arayın."
+          ]
+        }
+      ]
+    },
+    "notice": {
+      "title": "Yasal bilgiler",
+      "sections": [
+        {
+          "title": "Hizmet sağlayıcı",
+          "body": [
+            "JOKAR DENTAL — Antalya ve İstanbul'da diş klinikleri, Türkiye."
+          ]
+        },
+        {
+          "title": "İletişim",
+          "body": [
+            "WhatsApp ve telefon: +90 542 713 01 32"
+          ]
+        },
+        {
+          "title": "Şirket bilgileri",
+          "body": [
+            "Ticari unvan, adres ve sicil bilgileri hukuki inceleme sonrasında buraya eklenecektir."
+          ]
+        },
+        {
+          "title": "Tıbbi bilgiler",
+          "body": [
+            "Bu web sitesindeki tedavi bilgileri geneldir ve danışmanlığın yerini tutmaz. Size hangi tedavinin uygun olduğuna diş hekiminiz karar verir."
+          ]
+        }
+      ]
+    }
+  },
+  "notFound": {
+    "title": "Sayfa bulunamadı",
+    "text": "Aradığınız sayfa mevcut değil veya taşınmış.",
+    "home": "Ana sayfaya dön"
   }
 }

@@ -433,5 +433,167 @@
   "consultationPage": {
     "title": "Kostenlose Beratung",
     "lead": "Ihre Erstberatung ist kostenlos. Sagen Sie uns auf Persisch, Englisch, Deutsch oder Türkisch, was Sie brauchen – unser Team meldet sich bei Ihnen."
+  },
+  "about": {
+    "title": "Über JOKAR DENTAL",
+    "lead": "Zahnimplantate, Veneers und Smile Design in Antalya und Istanbul – eine Betreuung, die sich nach Ihnen richtet, von der ersten Nachricht bis zur Nachsorge.",
+    "sections": [
+      {
+        "title": "Was wir tun",
+        "text": "Wir konzentrieren uns auf drei Behandlungen: Zahnimplantate, Veneers und Smile Design. Alle drei bieten wir in unseren beiden Städten an, Antalya und Istanbul."
+      },
+      {
+        "title": "Wie wir arbeiten",
+        "text": "Jede Behandlung beginnt mit einer kostenlosen Beratung. Wir sehen uns Ihren Fall an, erklären Ihre Möglichkeiten und planen die Behandlung gemeinsam mit Ihnen – damit Sie mit allen Informationen entscheiden."
+      },
+      {
+        "title": "Ihre Sprache, Ihr Plan",
+        "text": "Wir sprechen mit jedem Patienten in seiner Sprache – auf dieser Website auf Persisch, Englisch, Deutsch und Türkisch. Vor der Reise können Sie Fotos oder Röntgenbilder für eine Online-Einschätzung senden."
+      },
+      {
+        "title": "Ihre Reise, koordiniert",
+        "text": "Für Patienten aus dem Ausland koordinieren wir Hotel, Flughafentransfer und Dolmetscher. Die meisten Aufenthalte dauern je nach Behandlung 3 bis 8 Tage."
+      },
+      {
+        "title": "Nach Ihrer Behandlung",
+        "text": "Wir bleiben auch nach der Behandlung in Kontakt. Es gibt eine Garantie; ihre Bedingungen hängen von der Behandlung ab und werden Ihnen in der Beratung erklärt."
+      }
+    ],
+    "cta": "Mit einer kostenlosen Beratung beginnen"
+  },
+  "legal": {
+    "draft": "Entwurf – dieser Text wird vor dem Start der Website geprüft.",
+    "privacy": {
+      "title": "Datenschutzhinweise",
+      "sections": [
+        {
+          "title": "Verantwortlicher",
+          "body": [
+            "Verantwortlich für die hier beschriebenen personenbezogenen Daten ist JOKAR DENTAL. Sie erreichen uns per WhatsApp oder telefonisch unter +90 542 713 01 32."
+          ]
+        },
+        {
+          "title": "Welche Daten wir erheben",
+          "body": [
+            "Wenn Sie das Beratungsformular senden: Name, Wohnsitzland, Telefonnummer, gewünschte Behandlung und Ihre Einwilligung; falls angegeben, E-Mail-Adresse, bevorzugter Kontaktweg, Stadt und Sprache sowie eine Nachricht.",
+            "Dazu speichern wir die Seite, von der Sie das Formular gesendet haben, und eventuelle Kampagnenparameter in ihrer Adresse (utm), damit wir wissen, wie Sie uns gefunden haben.",
+            "Um wiederholte automatisierte Anfragen zu verhindern, wird Ihre IP-Adresse zum Zählen der Anfragen verwendet und höchstens 24 Stunden gespeichert. Sie wird nicht zusammen mit Ihrer Anfrage gespeichert.",
+            "Wenn Sie uns per WhatsApp schreiben, läuft die Unterhaltung über WhatsApp, das sie nach seinen eigenen Bedingungen verarbeitet."
+          ]
+        },
+        {
+          "title": "Wozu wir sie verwenden",
+          "body": [
+            "Um Ihre Anfrage zu beantworten, Sie auf dem gewählten Weg zu kontaktieren und Ihre Beratung und Behandlung zu planen. Grundlage ist Ihre Einwilligung, die Sie jederzeit widerrufen können, indem Sie uns schreiben."
+          ]
+        },
+        {
+          "title": "Medizinische Angaben",
+          "body": [
+            "Bitte senden Sie keine medizinischen Angaben über das Formular. Diese besprechen wir mit Ihnen in der Beratung."
+          ]
+        },
+        {
+          "title": "Wer die Daten erhält",
+          "body": [
+            "Ihre Anfrage sehen nur die Mitarbeitenden der Klinik, die sie bearbeiten. Eine interne Benachrichtigung über Telegram informiert das Team über eine neue Anfrage; sie enthält nur Referenznummer, Sprache, Land, Behandlung und Stadt – niemals Ihren Namen oder Ihre Kontaktdaten.",
+            "Der Anbieter, der unsere Systeme betreibt, speichert die Daten in unserem Auftrag."
+          ]
+        },
+        {
+          "title": "Wie lange wir sie speichern",
+          "body": [
+            "So lange, wie wir sie brauchen, um Ihre Anfrage zu beantworten und Ihre Behandlung zu planen und nachzubetreuen. Anfragen, aus denen keine Behandlung wird, werden spätestens nach 24 Monaten gelöscht oder anonymisiert."
+          ]
+        },
+        {
+          "title": "Ihre Rechte",
+          "body": [
+            "Sie können Auskunft über Ihre Daten, ihre Berichtigung, Löschung oder Einschränkung verlangen und der Verwendung widersprechen. Schreiben Sie uns per WhatsApp oder rufen Sie +90 542 713 01 32 an. Sie können sich außerdem bei einer Datenschutzaufsichtsbehörde beschweren – in der Türkei bei der Datenschutzbehörde (KVKK), in der EU bei der Behörde Ihres Landes."
+          ]
+        },
+        {
+          "title": "Cookies",
+          "body": [
+            "Wir verwenden ein einziges funktionales Cookie, das sich Ihre Sprache merkt. Analyse- oder Werbe-Cookies verwenden wir nicht."
+          ]
+        }
+      ]
+    },
+    "kvkk": {
+      "title": "KVKK-Informationspflicht",
+      "sections": [
+        {
+          "title": "Verantwortlicher",
+          "body": [
+            "JOKAR DENTAL verarbeitet Ihre personenbezogenen Daten als Verantwortlicher nach dem türkischen Datenschutzgesetz Nr. 6698 (KVKK). Kontakt: WhatsApp oder Telefon +90 542 713 01 32."
+          ]
+        },
+        {
+          "title": "Zwecke",
+          "body": [
+            "Beantwortung Ihrer Beratungsanfrage, Kontaktaufnahme auf dem von Ihnen gewählten Weg sowie Planung und Nachbetreuung von Beratung und Behandlung."
+          ]
+        },
+        {
+          "title": "Verarbeitete Daten",
+          "body": [
+            "Identitäts- und Kontaktdaten (Name, Telefon und, falls angegeben, E-Mail), Wohnsitzland, gewünschte Behandlung, Ihre Präferenzen und Nachricht, der Nachweis Ihrer Einwilligung sowie Seiten- und Kampagnenangaben Ihrer Anfrage."
+          ]
+        },
+        {
+          "title": "Erhebung und Rechtsgrundlage",
+          "body": [
+            "Die Daten werden elektronisch über das Beratungsformular und WhatsApp erhoben, auf Grundlage Ihrer ausdrücklichen Einwilligung (Art. 5 KVKK)."
+          ]
+        },
+        {
+          "title": "Übermittlung",
+          "body": [
+            "Die Daten erhalten nur die Mitarbeitenden der Klinik, die Ihre Anfrage bearbeiten, sowie die Anbieter, die unsere Systeme betreiben. Interne Benachrichtigungen über Telegram enthalten nur Referenznummer, Sprache, Land, Behandlung und Stadt einer Anfrage – keinen Namen und keine Kontaktdaten."
+          ]
+        },
+        {
+          "title": "Ihre Rechte nach Art. 11",
+          "body": [
+            "Sie können erfahren, ob Ihre Daten verarbeitet werden, und Auskunft darüber verlangen; den Zweck und die zweckgemäße Verwendung erfahren; die Dritten kennen, an die sie übermittelt werden; Berichtigung, Löschung oder Vernichtung verlangen; einem Ergebnis widersprechen, das ausschließlich durch automatisierte Auswertung zu Ihrem Nachteil entsteht; und Ersatz eines Schadens aus rechtswidriger Verarbeitung verlangen. Schreiben Sie uns per WhatsApp oder rufen Sie +90 542 713 01 32 an."
+          ]
+        }
+      ]
+    },
+    "notice": {
+      "title": "Impressum",
+      "sections": [
+        {
+          "title": "Anbieter",
+          "body": [
+            "JOKAR DENTAL – Zahnkliniken in Antalya und Istanbul, Türkei."
+          ]
+        },
+        {
+          "title": "Kontakt",
+          "body": [
+            "WhatsApp und Telefon: +90 542 713 01 32"
+          ]
+        },
+        {
+          "title": "Angaben zum Unternehmen",
+          "body": [
+            "Firmenname, Anschrift und Registerangaben werden nach der rechtlichen Prüfung hier ergänzt."
+          ]
+        },
+        {
+          "title": "Medizinische Informationen",
+          "body": [
+            "Die Behandlungsinformationen auf dieser Website sind allgemein und ersetzen keine Beratung. Welche Behandlung zu Ihnen passt, entscheidet Ihr Zahnarzt."
+          ]
+        }
+      ]
+    }
+  },
+  "notFound": {
+    "title": "Seite nicht gefunden",
+    "text": "Die gesuchte Seite gibt es nicht oder sie wurde verschoben.",
+    "home": "Zur Startseite"
   }
 }

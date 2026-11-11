@@ -105,15 +105,15 @@
 
 | ID | Task | پیش‌نیاز | فایل‌ها | خروجی و معیار پذیرش | تست | اندازه | وضعیت |
 |---|---|---|---|---|---|---|---|
-| G01 | قالب صفحه خدمت | C | `sections/TreatmentTemplate.tsx` | ساختار SITEMAP §۵ | اسکرین‌شات + axe | M | ⬜ |
-| G02 | Dental Implants | G01 · 🩺 | `dental-implants/page.tsx` | محتوای بازبینی‌شده؛ پیش‌انتخاب خدمت در فرم و WhatsApp | E2E smoke | S | ⬜ |
-| G03 | Dental Veneers | G01 · 🩺 | `dental-veneers/page.tsx` | همان | E2E smoke | S | ⬜ |
-| G04 | Smile Design | G01 · 🩺 | `smile-design/page.tsx` | همان | E2E smoke | S | ⬜ |
-| G05 | International Patients | G01 · C06 · Q11 | `international-patients/page.tsx` | مسیر بیمار، خدمات سفر، FAQ سفر | E2E smoke | M | 🔒 Q11 (جزئیات) |
-| G06 | Free Consultation | E01 | `free-consultation/page.tsx` | فرم + WhatsApp + مراحل بعدی | E2E | S | ⬜ |
-| G07 | About | G01 · Q10 | `about/page.tsx` | مخفی با flag تا رسیدن Q10 | — | S | 🔒 Q10 |
-| G08 | صفحات حقوقی | Q8 · Q12 | `privacy` · `kvkk` · `legal-notice` | متن‌های مشاور حقوقی | بازبینی | S | 🔒 Q8 · Q12 |
-| G09 | 404 و صفحه خطا | B | `not-found.tsx` · `error.tsx` | در ۴ زبان | E2E | S | ⬜ |
+| G01 | قالب صفحه خدمت | C | `sections/TreatmentPage.tsx` | ساختار SITEMAP §۵ | e2e ۱۲ صفحه + axe | M | ✅ `75321b6` |
+| G02 | Dental Implants | G01 · 🩺 | `dental-implants/page.tsx` | متن عمومی بدون ادعای تأییدنشده؛ پیش‌انتخاب خدمت در فرم و WhatsApp | E2E | S | ✅ (بازبینی پزشکی Q7 باقی است) |
+| G03 | Dental Veneers | G01 · 🩺 | `dental-veneers/page.tsx` | همان | E2E | S | ✅ (بازبینی پزشکی Q7 باقی است) |
+| G04 | Smile Design | G01 · 🩺 | `smile-design/page.tsx` | همان | E2E | S | ✅ (بازبینی پزشکی Q7 باقی است) |
+| G05 | International Patients | G01 · C06 | `international-patients/page.tsx` | خدمات هماهنگی، مسیر بیمار، اقامت ۳–۸ روز، FAQ سفر | E2E + axe | M | ✅ `e1e631c` |
+| G06 | Free Consultation | E01 | `free-consultation/page.tsx` | فرم + WhatsApp + تماس + مراحل بعدی + FAQ | E2E + axe | S | ✅ `6073e28` |
+| G07 | About | G01 | `about/page.tsx` | متن ما از واقعیت‌های تأییدشده (D-062) | E2E + axe | S | ✅ |
+| G08 | صفحات حقوقی | — | `privacy` · `kvkk` · `legal-notice` | پیش‌نویس منطبق با رفتار واقعی سیستم، noindex، برچسب پیش‌نویس | E2E | S | 🟡 پیش‌نویس — بازبینی حقوقی قبل از Launch |
+| G09 | 404 و صفحه خطا | B | `[locale]/not-found.tsx` · `[...rest]` · `error.tsx` | در ۴ زبان، status 404 | E2E | S | ✅ |
 
 ## Phase H — Quality & Launch
 

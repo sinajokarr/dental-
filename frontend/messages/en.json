@@ -433,5 +433,167 @@
   "consultationPage": {
     "title": "Free consultation",
     "lead": "Your first consultation is free. Tell us what you need — in Persian, English, German or Turkish — and our team will contact you."
+  },
+  "about": {
+    "title": "About JOKAR DENTAL",
+    "lead": "Dental implants, veneers and smile design in Antalya and Istanbul — care that is planned around you, from your first message to your follow-up.",
+    "sections": [
+      {
+        "title": "What we do",
+        "text": "We focus on three treatments: dental implants, veneers and smile design. All three are offered in both of our cities, Antalya and Istanbul."
+      },
+      {
+        "title": "How we work",
+        "text": "Every treatment starts with a free consultation. We look at your case, explain your options and plan your treatment with you, so you can decide with all the information."
+      },
+      {
+        "title": "Your language, your plan",
+        "text": "We talk with every patient in their own language — on this website in Persian, English, German and Turkish. Before you travel, you can send photos or X-rays for an online assessment."
+      },
+      {
+        "title": "Your trip, coordinated",
+        "text": "For patients from abroad we coordinate the hotel, the airport transfer and an interpreter. Most visits take 3 to 8 days, depending on the treatment."
+      },
+      {
+        "title": "After your treatment",
+        "text": "We stay in touch after your treatment. A guarantee applies; its terms depend on the treatment and are explained in your consultation."
+      }
+    ],
+    "cta": "Start with a free consultation"
+  },
+  "legal": {
+    "draft": "Draft — this text will be reviewed before the website launches.",
+    "privacy": {
+      "title": "Privacy notice",
+      "sections": [
+        {
+          "title": "Who is responsible",
+          "body": [
+            "JOKAR DENTAL is responsible for the personal data described here. You can reach us on WhatsApp or by phone at +90 542 713 01 32."
+          ]
+        },
+        {
+          "title": "What we collect",
+          "body": [
+            "When you send the consultation form: your name, country of residence, phone number, the treatment you are interested in and your consent; if you add them, your email address, preferred contact method, city and language, and a message.",
+            "With it we store the page you sent the form from and any campaign parameters in its address (utm), so we know how you found us.",
+            "To stop repeated automated submissions, your IP address is used to count requests and is kept for at most 24 hours. It is not stored with your request.",
+            "If you write to us on WhatsApp, the conversation is handled through WhatsApp, which processes it under its own terms."
+          ]
+        },
+        {
+          "title": "Why we use it",
+          "body": [
+            "To answer your request, contact you in the way you chose, and plan your consultation and treatment. The basis is your consent, which you can withdraw at any time by writing to us."
+          ]
+        },
+        {
+          "title": "Medical details",
+          "body": [
+            "Please do not send medical details through the form. We go through them with you in your consultation."
+          ]
+        },
+        {
+          "title": "Who receives it",
+          "body": [
+            "Your request is seen only by the clinic staff who handle it. An internal notification through Telegram tells the team that a new request has arrived; it contains only the reference, language, country, treatment and city — never your name or contact details.",
+            "The provider that hosts our systems stores the data on our behalf."
+          ]
+        },
+        {
+          "title": "How long we keep it",
+          "body": [
+            "As long as we need it to answer your request and to plan and follow up your treatment. Requests that do not lead to treatment are deleted or anonymised after at most 24 months."
+          ]
+        },
+        {
+          "title": "Your rights",
+          "body": [
+            "You can ask for access to your data, its correction, deletion or restriction, and object to its use. Write to us on WhatsApp or call +90 542 713 01 32. You can also complain to a data protection authority — in Türkiye the Personal Data Protection Authority (KVKK), in the EU the authority of your country."
+          ]
+        },
+        {
+          "title": "Cookies",
+          "body": [
+            "We use one functional cookie that remembers your language. We do not use analytics or advertising cookies."
+          ]
+        }
+      ]
+    },
+    "kvkk": {
+      "title": "KVKK information notice",
+      "sections": [
+        {
+          "title": "Data controller",
+          "body": [
+            "JOKAR DENTAL processes your personal data as data controller under the Turkish Personal Data Protection Law No. 6698 (KVKK). Contact: WhatsApp or phone +90 542 713 01 32."
+          ]
+        },
+        {
+          "title": "Purposes",
+          "body": [
+            "To answer your consultation request, to contact you in the way you chose, and to plan and follow up your consultation and treatment."
+          ]
+        },
+        {
+          "title": "Data processed",
+          "body": [
+            "Identity and contact data (name, phone and, if given, email), country of residence, the treatment you are interested in, your preferences and message, the record of your consent, and the page and campaign information of your request."
+          ]
+        },
+        {
+          "title": "Method and legal basis",
+          "body": [
+            "The data is collected electronically through the consultation form and WhatsApp, on the basis of your explicit consent (KVKK Article 5)."
+          ]
+        },
+        {
+          "title": "Transfers",
+          "body": [
+            "Data is shared only with the clinic staff handling your request and with the providers that host our systems. Internal notifications sent through Telegram contain only the reference, language, country, treatment and city of a request — no name or contact details."
+          ]
+        },
+        {
+          "title": "Your rights under Article 11",
+          "body": [
+            "You may learn whether your data is processed and request information about it; learn the purpose and whether it is used accordingly; know the third parties it is transferred to; request correction, deletion or destruction; object to a result against you that arises solely from automated analysis; and claim compensation for damage caused by unlawful processing. Write to us on WhatsApp or call +90 542 713 01 32."
+          ]
+        }
+      ]
+    },
+    "notice": {
+      "title": "Legal notice",
+      "sections": [
+        {
+          "title": "Provider",
+          "body": [
+            "JOKAR DENTAL — dental clinics in Antalya and Istanbul, Türkiye."
+          ]
+        },
+        {
+          "title": "Contact",
+          "body": [
+            "WhatsApp and phone: +90 542 713 01 32"
+          ]
+        },
+        {
+          "title": "Company details",
+          "body": [
+            "The registered company name, address and registration details will be added here after legal review."
+          ]
+        },
+        {
+          "title": "Medical information",
+          "body": [
+            "The treatment information on this website is general and does not replace a consultation. Your dentist decides which treatment suits you."
+          ]
+        }
+      ]
+    }
+  },
+  "notFound": {
+    "title": "Page not found",
+    "text": "The page you are looking for does not exist or has moved.",
+    "home": "Back to the homepage"
   }
 }
