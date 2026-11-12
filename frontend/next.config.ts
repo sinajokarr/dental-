@@ -18,6 +18,8 @@ if (!/^https?:\/\/[^/\s]+\/?$/.test(process.env.NEXT_PUBLIC_SITE_URL!)) {
 const nextConfig: NextConfig = {
   output: "standalone", // self-contained server for the Docker image (ARCHITECTURE.md §7)
   poweredByHeader: false,
+  // Photographs (hero, cities): AVIF first, WebP as fallback; 60 is the lighter quality used by the hero photograph (D-078).
+  images: { formats: ["image/avif", "image/webp"], qualities: [60, 75] },
   // Next 16 defaults; both become mandatory in the next major release.
   cacheComponents: true,
   partialPrefetching: true,

@@ -46,6 +46,7 @@
 | B13 | View Transitions: نقاشی درمان بین صفحه‌ها (D-075) | C13 | `Treatments.tsx` · `TreatmentPage.tsx` · `RevealObserver.tsx` · `globals.css` · `[locale]/layout.tsx` · `tests/e2e/treatments.spec.ts` | نقاشی نرم به صفحه درمان می‌رود و دوباره کشیده نمی‌شود؛ reduced motion بدون انیمیشن | e2e (اول شکست خورد، بعد پاس شد) + فریم‌های انتقال | S | ✅ commit `B13` |
 | HS01 | Hero «Signature Smile» (D-076) | C12 | `sections/hero-smile/*` · `page.tsx` · `tests/e2e/hero-smile.spec.ts` · `tests/unit/hero-smile.test.ts` · `performance.spec.ts` | SVG+CSS جای دندان سه‌بعدی؛ ≤ ۵ ثانیه؛ reduced motion و بدون JS = تصویر نهایی؛ چیدمان یکسان | unit 57/57 · e2e 181 · mutation check · ۲۹۷ box · LCP 0.72s | M | ✅ commit `HS01` (بدون push) |
 | SV01 | سه انیمیشن بخش خدمات اصلی (D-077) | C13 | `sections/service-art/*` · `Treatments.tsx` · `tests/e2e/service-art.spec.ts` · `treatments.spec.ts` | هر درمان یک روایت ≈ ۲٫۵ ثانیه؛ مستقل؛ یک‌بار؛ تصویر نهایی ثابت؛ چیدمان یکسان | e2e 187 · mutation check · ۴۷۷ box · ریتم فریم | L | ✅ commit `SV01` (بدون push) |
+| V5-A1 | Hero: لبخند واقعی انسان (D-078) | HS01 | `sections/hero-photo/*` · `public/images/hero/smile-square.jpg` · `page.tsx` · `next.config.ts` · `hero-photo.spec.ts` · `performance.spec.ts` · `ASSET_LICENSES.md` | عکس editorial یک‌منبعه، AVIF، ≤ 120KB، reveal ≈ ۱٫۶ ثانیه، RTL آینه‌ای | e2e · LCP 0.73–0.75s · ۶۰KB | M | ✅ commit `V5-A1` (بدون push) |
 
 ## Phase C — Homepage
 

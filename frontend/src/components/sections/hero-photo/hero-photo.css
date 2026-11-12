@@ -1,0 +1,35 @@
+/* Hero photograph (D-078). Plain CSS (the project's Turbopack rule sends every *.css through Tailwind); names are
+   prefixed hero-photo / hp-. The base rules are the finished picture. White studio background + multiply = the
+   page's ivory shows through; a soft elliptical mask dissolves the cropped skin into the page.
+   Reveal: one slow settle (opacity, scale, a short drift), ~1.6 s, then rest (D-041). */
+.hero-photo img {
+  object-fit: cover;
+  object-position: 30% 45%;
+  mix-blend-mode: multiply;
+  -webkit-mask-image: radial-gradient(ellipse 62% 49% at 38% 47%, #000 52%, transparent 100%);
+  mask-image: radial-gradient(ellipse 62% 49% at 38% 47%, #000 52%, transparent 100%);
+}
+@media (width < 64rem) {
+  /* The phone slot is a wide band: the square photograph is cropped to its middle (the smile), the mask follows. */
+  .hero-photo img {
+    object-position: 30% 48%;
+    -webkit-mask-image: radial-gradient(ellipse 66% 72% at 38% 50%, #000 50%, transparent 100%);
+    mask-image: radial-gradient(ellipse 66% 72% at 38% 50%, #000 50%, transparent 100%);
+  }
+}
+/* The profile looks towards the headline: in Persian the layout is mirrored, so the photograph is too. */
+[dir="rtl"] .hero-photo img {
+  transform: scaleX(-1); /* on the image itself: a transformed wrapper would isolate it from the page and break multiply */
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero-photo img {
+    animation: hp-reveal 1.6s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+  }
+}
+@keyframes hp-reveal {
+  from {
+    opacity: 0;
+    scale: 1.06; /* individual transform properties: they compose with the RTL flip above */
+    translate: 0 10px;
+  }
+}
