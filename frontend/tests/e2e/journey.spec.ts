@@ -1,8 +1,6 @@
 import { expect, test } from "@playwright/test";
-import { withoutHero3d } from "./no-hero-3d";
 
 test.use({ reducedMotion: "no-preference" }); // exercises motion
-test.beforeEach(({ page }) => withoutHero3d(page)); // …but not the WebGL hero (hero-3d.spec.ts)
 
 test("international journey: navy section with five ordered steps and an international WhatsApp message", async ({ page }) => {
   await page.goto("/de");

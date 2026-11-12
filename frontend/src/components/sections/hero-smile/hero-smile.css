@@ -1,0 +1,129 @@
+/* Hero smile entrance (D-076) — plain CSS, not a CSS module: the project's Turbopack rule runs every *.css through
+   Tailwind and rejects module syntax. Every name is prefixed hero-smile / hs-.
+   Entrance: ≈ 4.2 s on desktop, ≈ 3.2 s on phones, then rest (WCAG 2.2.2, D-041).
+   The base rules below ARE the finished state — that is what no-JS, reduced motion and print see.
+   Motion exists only inside the no-preference block, and animates opacity, transform and stroke-dashoffset only.
+   Timeline (desktop): disc 0–0.7 s · light enters 0.35 s · line drawn 0.7–2.4 s · teeth rise 2.1–3.2 s ·
+   pearl sheen 3.0–4.3 s · glow settles 3.2–4.1 s. */
+.hero-smile {
+  --k: 1; /* duration scale: phones play the same story faster */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --draw: cubic-bezier(0.5, 0, 0.2, 1);
+}
+@media (width < 64rem) {
+  .hero-smile {
+    --k: 0.75;
+  }
+}
+/* Below 40rem the two outermost teeth (the premolars) step aside: six teeth, canine to canine — the same smile, simpler. */
+@media (width < 40rem) {
+  .hero-smile [data-hs-outer] {
+    display: none;
+  }
+}
+
+.hero-smile [data-hs="line"],
+.hero-smile [data-hs="glow"] path {
+  stroke-dasharray: 1;
+}
+.hero-smile [data-hs="glow"] {
+  opacity: 0.6;
+}
+.hero-smile [data-hs="dot"] {
+  opacity: 0; /* the travelling light exists only while the line is being drawn */
+}
+.hero-smile [data-hs="dot"] path {
+  stroke-dasharray: 0.0001 2; /* one round-capped point; dashoffset moves it along the curve */
+}
+.hero-smile [data-hs="sweep"],
+.hero-smile [data-hs="hover-sweep"] {
+  transform: translateX(-150px);
+}
+[dir="rtl"] .hero-smile svg {
+  transform: scaleX(-1); /* the art is symmetric: Persian is drawn from its own start side */
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-smile [data-hs="disc"] {
+    animation: hs-fade calc(0.7s * var(--k)) ease-out both;
+  }
+  .hero-smile [data-hs="line"],
+  .hero-smile [data-hs="glow"] path {
+    animation: hs-draw calc(1.7s * var(--k)) var(--draw) calc(0.7s * var(--k)) both;
+  }
+  .hero-smile [data-hs="dot"] {
+    animation: hs-dot-life calc(2.2s * var(--k)) linear calc(0.35s * var(--k)) both;
+  }
+  .hero-smile [data-hs="dot"] path {
+    animation: hs-travel calc(1.7s * var(--k)) var(--draw) calc(0.7s * var(--k)) both;
+  }
+  .hero-smile [data-hs="tooth"] {
+    animation: hs-rise calc(0.8s * var(--k)) var(--ease) calc((2.1s + var(--i) * 0.08s) * var(--k)) both;
+  }
+  .hero-smile [data-hs="sweep"] {
+    animation: hs-sweep calc(1.3s * var(--k)) cubic-bezier(0.45, 0, 0.2, 1) calc(3s * var(--k)) both;
+  }
+  .hero-smile [data-hs="glow"] {
+    animation: hs-settle calc(0.9s * var(--k)) ease-in-out calc(3.2s * var(--k)) both;
+  }
+}
+
+/* A fine pointer can call the sheen again — the same glint the solid buttons use (D-063). No touch, no JS. */
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .hero-smile:hover [data-hs="hover-sweep"] {
+    transform: translateX(700px);
+    transition: transform 1.1s cubic-bezier(0.45, 0, 0.2, 1);
+  }
+}
+
+@keyframes hs-fade {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes hs-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+}
+@keyframes hs-travel {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -1;
+  }
+}
+@keyframes hs-dot-life {
+  0% {
+    opacity: 0;
+  }
+  16% {
+    opacity: 1;
+  }
+  93% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes hs-rise {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+}
+@keyframes hs-sweep {
+  from {
+    transform: translateX(-150px);
+  }
+  to {
+    transform: translateX(700px);
+  }
+}
+@keyframes hs-settle {
+  from {
+    opacity: 1;
+  }
+}

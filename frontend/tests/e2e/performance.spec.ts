@@ -32,17 +32,16 @@ for (const locale of ["fa", "en"]) {
   });
 }
 
-test("lab vitals on a throttled phone: LCP ≤ 2.5 s, CLS ≈ 0, hero image ≤ 120 KB", async ({ browser }) => {
+test("lab vitals on a throttled phone: LCP ≤ 2.5 s, CLS ≈ 0, the hero visual costs no image or 3D request", async ({ browser }) => {
   const context = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 3, isMobile: true, hasTouch: true });
   const page = await context.newPage();
   const cdp = await context.newCDPSession(page);
   await cdp.send("Network.enable");
   await cdp.send("Network.emulateNetworkConditions", { offline: false, latency: 150, downloadThroughput: (1.6 * 1024 * 1024) / 8, uploadThroughput: (750 * 1024) / 8 });
   await cdp.send("Emulation.setCPUThrottlingRate", { rate: 4 });
-  let poster = 0;
-  page.on("response", async (response) => {
-    if (response.url().includes("tooth-scan") || response.url().includes("tooth-poster")) poster = Math.max(poster, (await response.body()).length);
-  });
+  // The hero smile is inline SVG (D-076): nothing from /images/hero or /models may be requested for it.
+  const heroAssets: string[] = [];
+  page.on("request", (request) => /\/(images\/hero|models)\/|tooth/.test(request.url()) && heroAssets.push(request.url()));
   await page.goto("/en", { waitUntil: "load" });
   await page.waitForTimeout(3000);
   const { lcp, cls } = await page.evaluate(
@@ -56,11 +55,10 @@ test("lab vitals on a throttled phone: LCP ≤ 2.5 s, CLS ≈ 0, hero image ≤ 
         setTimeout(() => resolve({ lcp, cls }), 200);
       }),
   );
-  console.log(`throttled phone: LCP ${(lcp / 1000).toFixed(2)} s · CLS ${cls.toFixed(3)} · hero image ${(poster / KB).toFixed(0)} KB`);
+  console.log(`throttled phone: LCP ${(lcp / 1000).toFixed(2)} s · CLS ${cls.toFixed(3)} · hero asset requests ${heroAssets.length}`);
   expect(lcp).toBeLessThanOrEqual(2500);
   expect(cls).toBeLessThan(0.01);
-  expect(poster).toBeGreaterThan(0);
-  expect(poster).toBeLessThanOrEqual(120 * KB);
+  expect(heroAssets).toEqual([]);
   await context.close();
 });
 

@@ -44,6 +44,7 @@
 | B11 | پالت پررنگ‌تر (بازخورد کارفرما) | B09 | `globals.css` · `Hero.tsx` · `PointerGlow.tsx` · `ToothScene.tsx` · posterهای Hero · `opengraph-image.tsx` | سطح‌های بژ یک پله پررنگ‌تر، کنتراست AA حفظ شد (D-074) | unit · e2e · مقایسه ۵۵۲۶ المان | S | ✅ commit `B11` |
 | B12 | منوی زبان دقیقاً زیر دکمه‌اش باز شود (بازخورد کارفرما) | B10 | `layout/LanguageSwitcher.tsx` · `tests/e2e/navigation.spec.ts` | لبه منو با لبه دکمه هم‌تراز و درست زیر آن، در LTR و RTL | e2e (اول شکست خورد، بعد پاس شد) | S | ✅ commit `B12` |
 | B13 | View Transitions: نقاشی درمان بین صفحه‌ها (D-075) | C13 | `Treatments.tsx` · `TreatmentPage.tsx` · `RevealObserver.tsx` · `globals.css` · `[locale]/layout.tsx` · `tests/e2e/treatments.spec.ts` | نقاشی نرم به صفحه درمان می‌رود و دوباره کشیده نمی‌شود؛ reduced motion بدون انیمیشن | e2e (اول شکست خورد، بعد پاس شد) + فریم‌های انتقال | S | ✅ commit `B13` |
+| HS01 | Hero «Signature Smile» (D-076) | C12 | `sections/hero-smile/*` · `page.tsx` · `tests/e2e/hero-smile.spec.ts` · `tests/unit/hero-smile.test.ts` · `performance.spec.ts` | SVG+CSS جای دندان سه‌بعدی؛ ≤ ۵ ثانیه؛ reduced motion و بدون JS = تصویر نهایی؛ چیدمان یکسان | unit 57/57 · e2e 181 · mutation check · ۲۹۷ box · LCP 0.72s | M | ✅ commit `HS01` (بدون push) |
 
 ## Phase C — Homepage
 
