@@ -28,21 +28,22 @@ test("contrast() matches known WCAG values", () => {
 });
 
 // [foreground, backgrounds, minimum] — DESIGN_SYSTEM.md §1 (text 4.5:1, UI boundaries 3:1).
-const LIGHT = ["white", "ice-50", "ice-100", "sky-100"];
-const NAVY = ["navy-900", "navy-800"];
+const LIGHT = ["white", "ivory", "ice-50", "ice-100", "sky-100"];
+const DARK = ["band", "navy-800", "navy-900"]; // dark bands and dark glass
 const PAIRS: [string, string[], number][] = [
   ["navy-900", LIGHT, 4.5],
   ["navy-800", LIGHT, 4.5],
   ["slate-600", LIGHT, 4.5],
   ["blue-700", LIGHT, 4.5],
+  ["muted-blue", ["white", "ivory", "ice-50"], 4.5], // Persian emphasis: never on the deeper beiges
   ["red-700", LIGHT, 4.5],
   ["green-700", LIGHT, 4.5],
-  ["white", ["blue-700", "navy-800", "navy-900"], 4.5],
-  ["slate-500", ["white", "ice-50", "ice-100"], 3],
-  ["white", NAVY, 4.5],
-  ["dark-muted", NAVY, 4.5],
-  ["sky-400", NAVY, 4.5],
-  ["dark-error", NAVY, 4.5],
+  ["white", ["blue-700", "band", "navy-800", "navy-900"], 4.5],
+  ["slate-500", ["white", "ivory", "ice-50", "ice-100"], 3],
+  ["white", DARK, 4.5],
+  ["dark-muted", DARK, 4.5],
+  ["sky-400", DARK, 4.5],
+  ["dark-error", DARK, 4.5],
 ];
 
 test("every DESIGN_SYSTEM text/background pair meets WCAG AA", () => {

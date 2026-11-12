@@ -19,7 +19,7 @@ export async function SiteFooter() {
 
   return (
     <>
-      <footer className="bg-navy-900 text-white">
+      <footer className="bg-band text-white">
         <div className="mx-auto max-w-7xl border-t border-white/10 px-6 py-16 lg:px-12">
           <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.4fr_repeat(4,1fr)]">
             <div>

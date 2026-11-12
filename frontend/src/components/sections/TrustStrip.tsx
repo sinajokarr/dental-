@@ -14,7 +14,7 @@ export async function TrustStrip() {
   const t = await getTranslations("home.trust");
   const items = t.raw("items") as string[];
   return (
-    <div className="border-y border-sky-200/70 bg-white">
+    <div className="border-y border-sky-200/70 bg-ivory">
       <ul aria-label={t("label")} className="mx-auto grid max-w-7xl grid-cols-2 gap-x-6 gap-y-5 px-6 py-8 sm:grid-cols-3 lg:grid-cols-5 lg:px-12">
         {items.map((item, i) => (
           <li key={item} data-reveal="" style={{ "--i": i } as CSSProperties} className="flex items-center gap-3 text-small font-medium text-navy-800">

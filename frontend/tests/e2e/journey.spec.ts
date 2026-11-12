@@ -5,7 +5,7 @@ test.use({ reducedMotion: "no-preference" }); // exercises motion
 test("international journey: navy section with five ordered steps and an international WhatsApp message", async ({ page }) => {
   await page.goto("/de");
   const section = page.locator("section[aria-labelledby=journey-title]");
-  await expect(section).toHaveCSS("background-color", "rgb(38, 50, 66)");
+  await expect(section).toHaveCSS("background-color", "rgb(60, 76, 102)");
   await expect(section.locator("ol > li")).toHaveCount(5);
   const wa = await section.getByRole("link", { name: "Per WhatsApp schreiben" }).getAttribute("href");
   expect(decodeURIComponent(wa!)).toContain("ich lebe im Ausland");

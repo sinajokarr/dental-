@@ -3,9 +3,9 @@ import { Fragment, type CSSProperties, type ReactNode } from "react";
 type Tone = "light" | "ice" | "navy";
 
 const tones: Record<Tone, string> = {
-  light: "bg-white text-navy-900",
+  light: "bg-ivory text-navy-900",
   ice: "bg-ice-50 text-navy-900",
-  navy: "bg-navy-900 text-white",
+  navy: "bg-band text-white",
 };
 
 // Page section with the shared rhythm (py-section) and container (max 1280px, 24/48px gutters).

@@ -2,7 +2,7 @@
 
 > نسخه: 1.1 · تاریخ: 2026-11-11 · وضعیت: **پیش‌نویس نهایی؛ قفل در فاز B**
 > Concept منتخب: **Arctic Porcelain**. ساختار، رنگ و Glass از Concept A (Glacier) می‌آید؛ Hero و تایپوگرافی از Concept B (Porcelain). جزئیات در `CREATIVE_DIRECTION.md`.
-> **پالت رنگ (D-073، پررنگ‌تر در D-074، 2026-11-12):** همه رنگ‌های برند از دو رنگ ساخته می‌شوند: **Beige Agate** `#CBBAA8` (اصلی) و **Blue Gentian** `#3B4D65` (ثانویه). tint یعنی ترکیب با سفید و shade یعنی ترکیب با سیاه. نام tokenها عوض نشده است: `ice-*` و `sky-*` حالا طیف بژ هستند و `navy-*`، `blue-700` و `slate-*` طیف Gentian. رنگ‌های قدیمی در سندهای قبلی (CREATIVE_DIRECTION، HOMEPAGE_UX_SPEC، 3D_HERO_MASTER_PLAN) دیگر معتبر نیستند.
+> **پالت رنگ (D-079، 2026-11-13) «Warm Ivory × Soft Beige × Muted Blue»:** مرجع: **Beige Agate** `#CCBBA9` و **Blue Gentian** `#3C4C66`. روشن‌تر و ملایم‌تر از D-073/D-074: پس‌زمینه ivory، سطح‌های بژ لطیف، و بخش‌های تیره (International، Finale، فوتر) به‌جای سرمه‌ای تقریباً سیاه، همان Blue Gentian هستند. نام tokenها ثابت است؛ tokenهای جدید `ivory`، `band` و `muted-blue`. رنگ‌های قدیمی CREATIVE_DIRECTION، HOMEPAGE_UX_SPEC و 3D_HERO_MASTER_PLAN دیگر معتبر نیستند.
 
 ## ۰. روح طراحی
 
@@ -22,10 +22,12 @@
 ### Primitive Tokens
 
 ```text
-white        #FFFFFF    ice-50   #F3EEEA (بژ 24٪)    ice-100  #EFEAE5 (بژ 30٪)
-sky-100      #EBE5DE (بژ 38٪)    sky-200  #E0D6CB (بژ 60٪)    sky-400  #CBBAA8 (Beige Agate)
-navy-900     #263242 (Gentian، shade 35٪)    navy-800 #2F3E51 (shade 20٪)    blue-700 #3B4D65 (Blue Gentian)
-slate-600    #536277 (Gentian، tint 12٪؛ متن کم‌رنگ)      slate-500 #727F90 (tint 28٪؛ کادر فیلد)
+white        #FFFFFF    ivory    #FCFBF9 (پس‌زمینه اصلی)    ice-50   #F7F4F0 (پس‌زمینه ثانویه)
+ice-100      #F1ECE5    sky-100  #ECE4DA (برجسته و hover)    sky-200  #E5D9CE (Soft Beige: مرز)
+sky-400      #CCBBA9 (Beige Agate)
+navy-900     #273447 (متن اصلی)    navy-800 #2F3D54 (hover و glass تیره)    blue-700 #3C4C66 (Blue Gentian)
+band         #3C4C66 (بخش‌های تیره)    muted-blue #5B6D87 (تأکید فارسی؛ فقط روی white، ivory و ice-50)
+slate-600    #586679 (متن ثانویه)    slate-500 #77859A (کادر فیلد)
 red-700      #B42318    green-700 #0D7254    (وضعیت فرم)
 ```
 
@@ -33,33 +35,33 @@ red-700      #B42318    green-700 #0D7254    (وضعیت فرم)
 
 | Token | مقدار | کنتراست (بدترین سطح روشن) | کاربرد |
 |---|---|---|---|
-| `bg.page` | `#FFFFFF` | — | پس‌زمینه صفحه |
-| `bg.section-alt` | `#F3EEEA` | — | سکشن‌های متناوب |
-| `bg.raised` | `#EFEAE5` | — | کارت‌های غیرشیشه‌ای |
-| `bg.highlight` | `#EBE5DE` | — | پس‌زمینه برجسته و Chip |
-| `text.primary` | `#263242` | 10.38 ✅ | عنوان و متن اصلی |
-| `text.secondary` | `#2F3E51` | 8.71 ✅ | متن ثانویه |
-| `text.muted` | `#536277` | 4.97 ✅ | توضیح، helper text و caption |
-| `text.link` / `action.primary` | `#3B4D65` | 6.90 ✅ | لینک و CTA |
-| `border.subtle` | `#E0D6CB` | تزئینی | مرز کارت (هرگز به‌عنوان تنها مرز input) |
-| `border.input` | `#727F90` | 3.41 ✅ (حداقل 3:1، WCAG 1.4.11) | کادر input، select و checkbox |
-| `decor.glow` | `#CBBAA8` | ❌ هرگز برای متن (1.89) | glow، خط و آیکون تزئینی |
+| `bg.page` | `#FCFBF9` | — | پس‌زمینه صفحه (کارت‌ها و فیلدها سفید `#FFFFFF`) |
+| `bg.section-alt` | `#F7F4F0` | — | سکشن‌های متناوب |
+| `bg.raised` | `#F1ECE5` | — | کارت‌های غیرشیشه‌ای |
+| `bg.highlight` | `#ECE4DA` | — | پس‌زمینه برجسته و Chip |
+| `text.primary` | `#273447` | 10.00 ✅ | عنوان و متن اصلی |
+| `text.secondary` | `#2F3D54` | 8.70 ✅ | متن ثانویه |
+| `text.muted` | `#586679` | 4.64 ✅ | توضیح، helper text و caption |
+| `text.link` / `action.primary` | `#3C4C66` | 6.90 ✅ | لینک و CTA |
+| `border.subtle` | `#E5D9CE` | تزئینی | مرز کارت (هرگز به‌عنوان تنها مرز input) |
+| `border.input` | `#77859A` | 3.19 ✅ (حداقل 3:1، WCAG 1.4.11) | کادر input، select و checkbox |
+| `decor.glow` | `#CCBBA9` | ❌ هرگز برای متن (1.81) | glow، خط و آیکون تزئینی |
 | `state.error` | `#B42318` | 5.26 ✅ | خطای فرم |
-| `state.success` | `#0D7254` | 4.73 ✅ | موفقیت فرم |
+| `state.success` | `#0D7254` | 4.69 ✅ | موفقیت فرم |
 
-### Semantic Tokens — سکشن Navy (International و Finale)
+### Semantic Tokens — بخش‌های تیره (International، Finale، فوتر)
 
-| Token | مقدار | کنتراست روی `#263242` / `#2F3E51` |
+| Token | مقدار | کنتراست روی `#3C4C66` (band) / `#2F3D54` |
 |---|---|---|
-| `dark.bg` | `#263242` | — |
-| `dark.text.primary` | `#FFFFFF` | 12.98 / 10.89 ✅ |
-| `dark.text.muted` | `#DBCFC2` | 8.48 / 7.11 ✅ |
-| `dark.accent` | `#CBBAA8` | 6.88 / 5.77 ✅ (روی navy، برای متن هم مجاز است) |
-| `dark.error` | `#FF8A80` | 5.69 / 4.77 ✅ |
+| `dark.bg` | `#3C4C66` (band) | — |
+| `dark.text.primary` | `#FFFFFF` | 8.69 / 10.96 ✅ |
+| `dark.text.muted` | `#E5D9CE` | 6.27 / 7.90 ✅ |
+| `dark.accent` | `#CCBBA9` | 4.65 / 5.87 ✅ (برای متن هم مجاز است) |
+| `dark.error` | `#FFA49B` | 4.56 / 5.76 ✅ |
 
 ### نسبت رنگ در صفحه
 
-- هدف D-073: حدود ۶۵٪ بژ و طیف‌های آن (به‌همراه سطح‌های سفید) و حدود ۳۵٪ Gentian (متن، CTA، آیکون و سکشن‌های تیره). اندازه‌گیری پس از D-074 روی صفحه اصلی: ۶۵٪ / ۳۵٪ از سطح‌های رنگی.
+- هدف D-073: حدود ۶۵٪ بژ و طیف‌های آن (به‌همراه سطح‌های سفید) و حدود ۳۵٪ Gentian (متن، CTA، آیکون و سکشن‌های تیره). اندازه‌گیری پس از D-079 روی صفحه اصلی (فارسی و انگلیسی): ۶۵ تا ۶۷٪ بژ / ۳۳ تا ۳۵٪ Gentian از سطح‌های رنگی.
 - Navy فقط در **دو ناحیه** استفاده می‌شود:
   1. سکشن International Patients
   2. Finale، یعنی Final CTA و Footer که به هم پیوسته‌اند.
