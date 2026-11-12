@@ -32,19 +32,19 @@ for (const locale of ["fa", "en"]) {
   });
 }
 
-test("lab vitals on a throttled phone: LCP ≤ 2.5 s, CLS ≈ 0, the hero photograph is one request ≤ 120 KB, no 3D", async ({ browser }) => {
+test("lab vitals on a throttled phone: LCP ≤ 2.5 s, CLS ≈ 0, the hero portrait is one request ≤ 120 KB, no 3D", async ({ browser }) => {
   const context = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 3, isMobile: true, hasTouch: true });
   const page = await context.newPage();
   const cdp = await context.newCDPSession(page);
   await cdp.send("Network.enable");
   await cdp.send("Network.emulateNetworkConditions", { offline: false, latency: 150, downloadThroughput: (1.6 * 1024 * 1024) / 8, uploadThroughput: (750 * 1024) / 8 });
   await cdp.send("Emulation.setCPUThrottlingRate", { rate: 4 });
-  // The hero photograph (D-078): one request for one source, and no 3D asset.
+  // The hero portrait (D-080): one request for one source, and no 3D asset.
   let photo = 0;
   const heroAssets: string[] = [];
   page.on("request", (request) => /models\/|tooth/.test(request.url()) && heroAssets.push(request.url()));
   page.on("response", async (response) => {
-    if (response.url().includes("smile-")) photo = Math.max(photo, (await response.body()).length);
+    if (response.url().includes("portrait")) photo = Math.max(photo, (await response.body()).length);
   });
   await page.goto("/en", { waitUntil: "load" });
   await page.waitForTimeout(3000);
@@ -59,7 +59,7 @@ test("lab vitals on a throttled phone: LCP ≤ 2.5 s, CLS ≈ 0, the hero photog
         setTimeout(() => resolve({ lcp, cls }), 200);
       }),
   );
-  console.log(`throttled phone: LCP ${(lcp / 1000).toFixed(2)} s · CLS ${cls.toFixed(3)} · hero photo ${(photo / KB).toFixed(0)} KB · other hero assets ${heroAssets.length}`);
+  console.log(`throttled phone: LCP ${(lcp / 1000).toFixed(2)} s · CLS ${cls.toFixed(3)} · hero portrait ${(photo / KB).toFixed(0)} KB · other hero assets ${heroAssets.length}`);
   expect(lcp).toBeLessThanOrEqual(2500);
   expect(cls).toBeLessThan(0.01);
   expect(photo).toBeGreaterThan(0);

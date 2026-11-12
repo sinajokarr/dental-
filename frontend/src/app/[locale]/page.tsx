@@ -10,7 +10,7 @@ import { Journey } from "@/components/sections/Journey";
 import { Treatments } from "@/components/sections/Treatments";
 import { TrustStrip } from "@/components/sections/TrustStrip";
 import { WhyJokar } from "@/components/sections/WhyJokar";
-import { HeroPhoto } from "@/components/sections/hero-photo/HeroPhoto";
+import { HeroPortrait } from "@/components/sections/hero-portrait/HeroPortrait";
 import { routing } from "@/i18n/routing";
 import { pageMetadata } from "@/lib/seo";
 
@@ -39,7 +39,7 @@ export default function HomePage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ORGANIZATION }} />
-      <Hero visual={<HeroPhoto />} />
+      <Hero visual={<HeroPortrait />} />
       <TrustStrip />
       <Treatments />
       <WhyJokar />
