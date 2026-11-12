@@ -34,6 +34,11 @@ test("language menu opens on the same side as its button, in LTR and RTL", async
     const side = (box: { x: number; width: number }) => box.x + box.width / 2 > middle;
     expect(side(m!), `${locale}: menu and button on the same side`).toBe(side(b!));
     expect(m!.x >= 0 && m!.x + m!.width <= 1440, `${locale}: menu inside the viewport`).toBe(true);
+    // …and directly under the button: end edges aligned, top just below it.
+    const endGap = locale === "fa" ? m!.x - b!.x : m!.x + m!.width - (b!.x + b!.width);
+    expect(Math.abs(endGap), `${locale}: menu end edge under the button's end edge`).toBeLessThan(2);
+    expect(m!.y - (b!.y + b!.height), `${locale}: menu just below the button`).toBeGreaterThanOrEqual(0);
+    expect(m!.y - (b!.y + b!.height), `${locale}: menu just below the button`).toBeLessThan(16);
     await page.keyboard.press("Escape");
   }
 });

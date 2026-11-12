@@ -42,6 +42,7 @@
 | B09 | پالت Beige Agate / Blue Gentian — فقط رنگ (D-073) | B02 | `globals.css` · rgbهای دستی در ۷ کامپوننت · `ToothScene.tsx` · posterهای Hero · `icon.svg` · `apple-icon.tsx` · `opengraph-image.tsx` | همه رنگ‌ها از `#CBBAA8` و `#3B4D65` ساخته می‌شوند؛ نام tokenها ثابت؛ چیدمان، تایپوگرافی و انیمیشن بدون تغییر | unit (token و کنتراست) · مقایسه جای ۵۵۲۶ المان قبل و بعد · e2e | M | ✅ commit `B09` (روی branch `palette-beige-agate-gentian`، push نشده) |
 | B10 | منوی زبان کنار دکمه‌اش باز شود (باگ) | B04 | `layout/LanguageSwitcher.tsx` · `tests/e2e/navigation.spec.ts` | استایل پیش‌فرض popover مرورگر (`inset: 0`) منو را به لبه start می‌چسباند (دسکتاپ: گوشه بالا چپ)؛ `start-auto` اضافه شد | e2e در LTR و RTL (اول شکست خورد، بعد پاس شد) | S | ✅ commit `B10` |
 | B11 | پالت پررنگ‌تر (بازخورد کارفرما) | B09 | `globals.css` · `Hero.tsx` · `PointerGlow.tsx` · `ToothScene.tsx` · posterهای Hero · `opengraph-image.tsx` | سطح‌های بژ یک پله پررنگ‌تر، کنتراست AA حفظ شد (D-074) | unit · e2e · مقایسه ۵۵۲۶ المان | S | ✅ commit `B11` |
+| B12 | منوی زبان دقیقاً زیر دکمه‌اش باز شود (بازخورد کارفرما) | B10 | `layout/LanguageSwitcher.tsx` · `tests/e2e/navigation.spec.ts` | لبه منو با لبه دکمه هم‌تراز و درست زیر آن، در LTR و RTL | e2e (اول شکست خورد، بعد پاس شد) | S | ✅ commit `B12` |
 
 ## Phase C — Homepage
 

@@ -27,6 +27,19 @@ export function LanguageSwitcher({ label }: { label: string }) {
         id="language-menu"
         popover="auto"
         aria-label={label}
+        // The popover lives in the top layer, so it cannot be positioned by its parent: place it under the button
+        // when it opens (the header is fixed, so it stays there). The classes below are the fallback position.
+        onBeforeToggle={(event) => {
+          const menu = event.currentTarget;
+          const button = menu.previousElementSibling;
+          if (event.newState !== "open" || !button) return;
+          const box = button.getBoundingClientRect();
+          const width = document.documentElement.clientWidth;
+          const end = getComputedStyle(menu).direction === "rtl" ? box.left : width - box.right;
+          // ponytail: the menu is ~180px wide (hidden menus cannot be measured); keep it inside narrow screens.
+          menu.style.insetInlineEnd = `${Math.max(8, Math.min(end, width - 188))}px`;
+          menu.style.top = `${box.bottom + 8}px`;
+        }}
         // start-auto: the browser's popover style sets `inset: 0`, which pinned the menu to the start edge.
         className="glass-strong fixed start-auto end-6 top-20 m-0 rounded-md p-2 lg:end-12"
       >
