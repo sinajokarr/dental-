@@ -23,9 +23,9 @@ Google Ads، مارکتینگ و Tracking تبلیغاتی **خارج از مح�
 - نام برند: **JOKAR DENTAL**
 - لوگوی رسمی هنوز وجود ندارد. Typography Logo فقط در حد Concept در `CREATIVE_DIRECTION.md` پیشنهاد می‌شود.
 - جهت طراحی: **Arctic Luxury × Futuristic Dental Technology × Medical Trust**
-- پالت رنگ (D-073، 2026-11-12):
-  - اصلی، Beige Agate `#CBBAA8`، و طیف روشن آن: `#F8F5F3` `#F5F2EE` `#F1EDE8` `#E8E0D8`، به‌همراه سفید `#FFFFFF`
-  - ثانویه، Blue Gentian `#3B4D65`، و طیف تیره و میانی آن: `#263242` `#2F3E51` `#58687C` `#7A8696`
+- پالت رنگ (D-073 و D-074، 2026-11-12):
+  - اصلی، Beige Agate `#CBBAA8`، و طیف روشن آن: `#F3EEEA` `#EFEAE5` `#EBE5DE` `#E0D6CB`، به‌همراه سفید `#FFFFFF`
+  - ثانویه، Blue Gentian `#3B4D65`، و طیف تیره و میانی آن: `#263242` `#2F3E51` `#536277` `#727F90`
 
 ## ۳. شعبه‌ها و خدمات
 

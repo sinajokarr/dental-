@@ -31,7 +31,7 @@ export function PointerGlow() {
     <div
       ref={ref}
       aria-hidden="true"
-      className="pointer-events-none absolute inset-0 -z-10 opacity-0 transition-opacity duration-700 [background:radial-gradient(520px_circle_at_var(--gx)_var(--gy),rgb(203_186_168/0.37),transparent_65%)]"
+      className="pointer-events-none absolute inset-0 -z-10 opacity-0 transition-opacity duration-700 [background:radial-gradient(520px_circle_at_var(--gx)_var(--gy),rgb(203_186_168/0.45),transparent_65%)]"
     />
   );
 }

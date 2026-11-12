@@ -37,7 +37,7 @@ RectAreaLightUniformsLib.init(); // the polish glint is a RectAreaLight sweep
 export type Tier = 1 | 2; // 2 = desktop (transmission), 1 = mobile/tablet (no extra render pass) — 3D_HERO_MASTER_PLAN §8
 export type Still = "scan" | "final"; // poster capture states (scripts/render-poster.mjs, D-065)
 
-const BACKGROUND = "#f8f5f3"; // = hero bg (ice-50); transmission cannot see the DOM, so the canvas paints it
+const BACKGROUND = "#f3eeea"; // = hero bg (ice-50); transmission cannot see the DOM, so the canvas paints it
 export const POSE = { pitch: 0.3, yaw: -0.5 } as const;
 
 const smoothstep = (a: number, b: number, x: number) => {
@@ -99,7 +99,7 @@ function toothMaterial(tier: Tier): MeshPhysicalMaterial {
     clearcoat: 1,
     clearcoatRoughness: 0.04,
     sheen: 0.3,
-    sheenColor: new Color("#f5f2ee"),
+    sheenColor: new Color("#efeae5"),
     sheenRoughness: 0.45,
     specularIntensity: 1,
   };
@@ -111,11 +111,11 @@ function toothMaterial(tier: Tier): MeshPhysicalMaterial {
           transmissionMap: surface,
           thickness: 0.7,
           ior: 1.5,
-          attenuationColor: new Color("#e0d6cb"),
+          attenuationColor: new Color("#d8cbbe"),
           attenuationDistance: 0.85,
         })
       : // Tier 1: no transmission pass — the roots get a beige tint instead.
-        new MeshPhysicalMaterial({ ...common, map: gradient((e) => [255 - 16 * (1 - e), 255 - 21 * (1 - e), 255 - 26 * (1 - e), 255], true) });
+        new MeshPhysicalMaterial({ ...common, map: gradient((e) => [255 - 21 * (1 - e), 255 - 28 * (1 - e), 255 - 35 * (1 - e), 255], true) });
 
   material.onBeforeCompile = (shader) => {
     Object.assign(shader.uniforms, scan);
@@ -199,7 +199,7 @@ function Studio() {
     panel(1.1, 9, "#ffffff", 2.4, [5.5, 0, 1], [0, -Math.PI / 2, 0]); // strip, end side
     panel(8, 2.4, "#cbbaa8", 3.4, [0, 1.2, -5.5], [0, 0, 0]); // beige rim from behind
     panel(4, 3, "#ffffff", 1.6, [0, 0.4, 5.5], [0, Math.PI, 0]); // soft front fill
-    panel(10, 6, "#f1ede8", 1.1, [0, -5.5, 0], [-Math.PI / 2, 0, 0]); // floor bounce
+    panel(10, 6, "#ebe5de", 1.1, [0, -5.5, 0], [-Math.PI / 2, 0, 0]); // floor bounce
     const pmrem = new PMREMGenerator(gl);
     const texture = pmrem.fromScene(room, 0.03).texture;
     pmrem.dispose();
@@ -388,7 +388,7 @@ function Tooth({ tier, still, onFirstFrame, onSettled, onContextLost }: Props) {
     <>
       <mesh position={[0, 0.15, -2.4]} scale={7.5}>
         <planeGeometry />
-        <meshBasicMaterial map={halo} color="#e8e0d8" transparent opacity={0.9} toneMapped={false} depthWrite={false} />
+        <meshBasicMaterial map={halo} color="#e0d6cb" transparent opacity={0.9} toneMapped={false} depthWrite={false} />
       </mesh>
       {/* Soft contact shadow: grounds the floating tooth. */}
       <mesh position={[0, -1.72, 0.1]} rotation={[-Math.PI / 2, 0, 0]} scale={[2.6, 1.3, 1]}>
@@ -396,7 +396,7 @@ function Tooth({ tier, still, onFirstFrame, onSettled, onContextLost }: Props) {
         <meshBasicMaterial map={halo} color="#2f3e51" transparent opacity={0.16} toneMapped={false} depthWrite={false} />
       </mesh>
       <directionalLight position={[-3, 5, 4]} intensity={1.1} />
-      <directionalLight position={[4, 1, 3]} intensity={0.35} color="#f1ede8" />
+      <directionalLight position={[4, 1, 3]} intensity={0.35} color="#ebe5de" />
       <directionalLight ref={rim} position={[0, 2, -4]} color="#cbbaa8" />
       <rectAreaLight ref={sweep} width={1.2} height={4} position={[-3.2, 1.2, 3]} />
       <group ref={group} rotation={[POSE.pitch, POSE.yaw + motion.spin, 0]}>

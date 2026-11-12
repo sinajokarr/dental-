@@ -59,7 +59,7 @@ export async function Hero({ visual }: { visual?: ReactNode }) {
           </div>
         </div>
         <div className="relative h-56 sm:h-72 lg:aspect-square lg:h-auto">
-          <div aria-hidden="true" className="absolute inset-[8%] -z-10 rounded-full bg-[radial-gradient(closest-side,rgb(203_186_168/0.7),rgb(232_224_216/0.5)_55%,transparent)] blur-2xl" />
+          <div aria-hidden="true" className="absolute inset-[8%] -z-10 rounded-full bg-[radial-gradient(closest-side,rgb(203_186_168/0.8),rgb(224_214_203/0.5)_55%,transparent)] blur-2xl" />
           {visual}
         </div>
       </div>
