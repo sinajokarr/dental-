@@ -8,7 +8,7 @@ import { waLink } from "@/lib/whatsapp";
 // HOMEPAGE_UX_SPEC S05 — only confirmed services. Motion (D-063, CSS view timelines, globals.css "Journey"):
 // the navy panel opens to full bleed, a glowing head runs along the line and each step lights up as it passes.
 // Without scroll-driven animations, with reduced motion or without JS: the finished journey.
-const HEAD = "journey-head absolute size-2.5 rounded-full bg-white shadow-[0_0_0_3px_rgb(127_211_244/0.45),0_0_18px_5px_rgb(127_211_244/0.75)]";
+const HEAD = "journey-head absolute size-2.5 rounded-full bg-white shadow-[0_0_0_3px_rgb(203_186_168/0.45),0_0_18px_5px_rgb(203_186_168/0.75)]";
 
 export async function Journey() {
   const t = await getTranslations("home.journey");
@@ -36,7 +36,7 @@ export async function Journey() {
           <ol className="grid gap-10 lg:grid-cols-5 lg:gap-6">
             {steps.map((step, i) => (
               <li key={step.title} data-journey-step="" style={{ "--i": i } as CSSProperties} className="journey-step relative ps-12 lg:ps-0 lg:pt-14">
-                <span aria-hidden="true" className="journey-marker absolute start-0 top-0 size-6 rounded-full border border-sky-400 bg-sky-400 shadow-[0_0_0_6px_rgb(127_211_244/0.15)]" />
+                <span aria-hidden="true" className="journey-marker absolute start-0 top-0 size-6 rounded-full border border-sky-400 bg-sky-400 shadow-[0_0_0_6px_rgb(203_186_168/0.15)]" />
                 <p className="eyebrow text-sky-400">0{i + 1}</p>
                 <h3 className="mt-2 text-h3 font-semibold text-white">{step.title}</h3>
                 <p className="mt-2 text-dark-muted">{step.text}</p>

@@ -2,6 +2,7 @@
 
 > نسخه: 1.1 · تاریخ: 2026-11-11 · وضعیت: **پیش‌نویس نهایی؛ قفل در فاز B**
 > Concept منتخب: **Arctic Porcelain**. ساختار، رنگ و Glass از Concept A (Glacier) می‌آید؛ Hero و تایپوگرافی از Concept B (Porcelain). جزئیات در `CREATIVE_DIRECTION.md`.
+> **پالت رنگ (D-073، 2026-11-12):** همه رنگ‌های برند از دو رنگ ساخته می‌شوند: **Beige Agate** `#CBBAA8` (اصلی) و **Blue Gentian** `#3B4D65` (ثانویه). tint یعنی ترکیب با سفید و shade یعنی ترکیب با سیاه. نام tokenها عوض نشده است: `ice-*` و `sky-*` حالا طیف بژ هستند و `navy-*`، `blue-700` و `slate-*` طیف Gentian. رنگ‌های قدیمی در سندهای قبلی (CREATIVE_DIRECTION، HOMEPAGE_UX_SPEC، 3D_HERO_MASTER_PLAN) دیگر معتبر نیستند.
 
 ## ۰. روح طراحی
 
@@ -10,7 +11,7 @@
 | ✅ Do | ❌ Don't |
 |---|---|
 | فضای خالی زیاد و ترکیب‌بندی مطمئن | شلوغی، شمارنده‌های پرتعداد، badgeهای رنگی متعدد |
-| نور، glow و بازتاب ملایم آبی | نئون، گرادیان‌های بنفش، حس SaaS و گیمینگ |
+| نور، glow و بازتاب ملایم بژ | نئون، گرادیان‌های بنفش، حس SaaS و گیمینگ |
 | تصاویر روشن و هوادار با white balance سرد | دندان کارتونی، عکس قبل/بعد ساختگی، دندانپزشک با انگشت شست بالا |
 | یک CTA اصلی در هر viewport | چند دکمه هم‌وزن کنار هم |
 
@@ -21,10 +22,10 @@
 ### Primitive Tokens
 
 ```text
-white        #FFFFFF    ice-50   #F8FCFF    ice-100  #F2FAFF
-sky-100      #DDF4FF    sky-200  #BDEAFF    sky-400  #7FD3F4
-navy-900     #092A4A    navy-800 #103C68    blue-700 #0C5798
-slate-600    #4A6785    (متن کم‌رنگ)      slate-500 #6F8DAA (کادر فیلد)
+white        #FFFFFF    ice-50   #F8F5F3 (بژ 14٪)    ice-100  #F5F2EE (بژ 19٪)
+sky-100      #F1EDE8 (بژ 26٪)    sky-200  #E8E0D8 (بژ 45٪)    sky-400  #CBBAA8 (Beige Agate)
+navy-900     #263242 (Gentian، shade 35٪)    navy-800 #2F3E51 (shade 20٪)    blue-700 #3B4D65 (Blue Gentian)
+slate-600    #58687C (Gentian، tint 15٪؛ متن کم‌رنگ)      slate-500 #7A8696 (tint 32٪؛ کادر فیلد)
 red-700      #B42318    green-700 #0E7A5A    (وضعیت فرم)
 ```
 
@@ -33,32 +34,32 @@ red-700      #B42318    green-700 #0E7A5A    (وضعیت فرم)
 | Token | مقدار | کنتراست (بدترین سطح روشن) | کاربرد |
 |---|---|---|---|
 | `bg.page` | `#FFFFFF` | — | پس‌زمینه صفحه |
-| `bg.section-alt` | `#F8FCFF` | — | سکشن‌های متناوب |
-| `bg.raised` | `#F2FAFF` | — | کارت‌های غیرشیشه‌ای |
-| `bg.highlight` | `#DDF4FF` | — | پس‌زمینه برجسته و Chip |
-| `text.primary` | `#092A4A` | 12.80 ✅ | عنوان و متن اصلی |
-| `text.secondary` | `#103C68` | 9.88 ✅ | متن ثانویه |
-| `text.muted` | `#4A6785` | 5.17 ✅ | توضیح، helper text و caption |
-| `text.link` / `action.primary` | `#0C5798` | 6.52 ✅ | لینک و CTA |
-| `border.subtle` | `#BDEAFF` | تزئینی | مرز کارت (هرگز به‌عنوان تنها مرز input) |
-| `border.input` | `#6F8DAA` | 3.28 ✅ (حداقل 3:1، WCAG 1.4.11) | کادر input، select و checkbox |
-| `decor.glow` | `#7FD3F4` | ❌ هرگز برای متن | glow، خط و آیکون تزئینی |
-| `state.error` | `#B42318` | 5.78 ✅ | خطای فرم |
-| `state.success` | `#0E7A5A` | 4.67 ✅ | موفقیت فرم |
+| `bg.section-alt` | `#F8F5F3` | — | سکشن‌های متناوب |
+| `bg.raised` | `#F5F2EE` | — | کارت‌های غیرشیشه‌ای |
+| `bg.highlight` | `#F1EDE8` | — | پس‌زمینه برجسته و Chip |
+| `text.primary` | `#263242` | 11.14 ✅ | عنوان و متن اصلی |
+| `text.secondary` | `#2F3E51` | 9.34 ✅ | متن ثانویه |
+| `text.muted` | `#58687C` | 4.89 ✅ | توضیح، helper text و caption |
+| `text.link` / `action.primary` | `#3B4D65` | 7.40 ✅ | لینک و CTA |
+| `border.subtle` | `#E8E0D8` | تزئینی | مرز کارت (هرگز به‌عنوان تنها مرز input) |
+| `border.input` | `#7A8696` | 3.31 ✅ (حداقل 3:1، WCAG 1.4.11) | کادر input، select و checkbox |
+| `decor.glow` | `#CBBAA8` | ❌ هرگز برای متن (1.89) | glow، خط و آیکون تزئینی |
+| `state.error` | `#B42318` | 5.64 ✅ | خطای فرم |
+| `state.success` | `#0E7A5A` | 4.56 ✅ | موفقیت فرم |
 
 ### Semantic Tokens — سکشن Navy (International و Finale)
 
-| Token | مقدار | کنتراست روی `#092A4A` / `#103C68` |
+| Token | مقدار | کنتراست روی `#263242` / `#2F3E51` |
 |---|---|---|
-| `dark.bg` | `#092A4A` | — |
-| `dark.text.primary` | `#FFFFFF` | 14.57 / 11.24 ✅ |
-| `dark.text.muted` | `#A9C4DD` | 8.06 / 6.22 ✅ |
-| `dark.accent` | `#7FD3F4` | 8.69 / 6.70 ✅ (روی navy، برای متن هم مجاز است) |
-| `dark.error` | `#FF8A80` | 6.38 / 4.92 ✅ |
+| `dark.bg` | `#263242` | — |
+| `dark.text.primary` | `#FFFFFF` | 12.98 / 10.89 ✅ |
+| `dark.text.muted` | `#DBCFC2` | 8.48 / 7.11 ✅ |
+| `dark.accent` | `#CBBAA8` | 6.88 / 5.77 ✅ (روی navy، برای متن هم مجاز است) |
+| `dark.error` | `#FF8A80` | 5.69 / 4.77 ✅ |
 
 ### نسبت رنگ در صفحه
 
-- حدود ۷۰٪ سفید و Ice، حدود ۱۵٪ Sky، و ۱۵٪ Navy.
+- هدف D-073: حدود ۶۵٪ بژ و طیف‌های آن (به‌همراه سطح‌های سفید) و حدود ۳۵٪ Gentian (متن، CTA، آیکون و سکشن‌های تیره).
 - Navy فقط در **دو ناحیه** استفاده می‌شود:
   1. سکشن International Patients
   2. Finale، یعنی Final CTA و Footer که به هم پیوسته‌اند.
@@ -90,7 +91,7 @@ red-700      #B42318    green-700 #0E7A5A    (وضعیت فرم)
 | `small` | Manrope 500 · 14px · lh 1.5 | Vazirmatn 500 · 15px · lh 1.7 |
 | `eyebrow` | Manrope 600 · 12px · UPPERCASE · tracking 0.18em | Vazirmatn 600 · 13px · بدون uppercase و tracking |
 
-**Italic تأکیدی:** در عنوان‌های لاتین یک کلمه کلیدی با Cormorant Italic نوشته می‌شود، مثلاً «Your *signature* smile». در فارسی معادل آن رنگ `#0C5798` است، نه italic.
+**Italic تأکیدی:** در عنوان‌های لاتین یک کلمه کلیدی با Cormorant Italic نوشته می‌شود، مثلاً «Your *signature* smile». در فارسی معادل آن رنگ `#3B4D65` است، نه italic.
 
 ### قوانین زبانی
 
@@ -153,14 +154,14 @@ background:
 1. حداکثر **۳** المان دارای backdrop-filter هم‌زمان در viewport.
 2. Glass فقط وقتی معنا دارد که **چیزی پشتش باشد**، مثل گرادیان، تصویر یا صحنه سه‌بعدی. روی سفید یکدست از `bg.raised` استفاده می‌شود.
 3. کنتراست متن روی Glass با **بدترین** پس‌زمینه ممکن تست می‌شود و باید ≥ 4.5:1 باشد.
-4. مرورگر بدون پشتیبانی backdrop-filter: با `@supports not (backdrop-filter: blur(1px))` پس‌زمینه به `#F8FCFF` با opacity 0.94 تغییر می‌کند.
+4. مرورگر بدون پشتیبانی backdrop-filter: با `@supports not (backdrop-filter: blur(1px))` پس‌زمینه به `#F8F5F3` با opacity 0.94 تغییر می‌کند.
 5. در حالت `prefers-reduced-transparency: reduce` همه سطوح Glass مات می‌شوند.
 
 ## ۶. نور و Glow
 
-- `glow.ice`: یک `radial-gradient` با رنگ `#DDF4FF` که به سمت شفاف محو می‌شود. پس‌زمینه Hero و سکشن فرم را می‌سازد.
-- `glow.pointer` (فقط دسکتاپ): یک spotlight نرم آبی که موقعیت pointer را دنبال می‌کند. با CSS variable و rAF throttle پیاده می‌شود و هیچ WebGL ندارد.
-- `caustic`: یک لکه نور آبی کشیده زیر دندان سه‌بعدی. با CSS ساخته می‌شود و هزینه GPU ندارد.
+- `glow.ice`: یک `radial-gradient` بژ (`#CBBAA8` با opacity .7 در مرکز، سپس `#E8E0D8`) که به سمت شفاف محو می‌شود. پس‌زمینه Hero و سکشن فرم را می‌سازد.
+- `glow.pointer` (فقط دسکتاپ): یک spotlight نرم بژ که موقعیت pointer را دنبال می‌کند. با CSS variable و rAF throttle پیاده می‌شود و هیچ WebGL ندارد.
+- `caustic`: یک لکه نور بژ کشیده زیر دندان سه‌بعدی. با CSS ساخته می‌شود و هزینه GPU ندارد.
 
 ---
 
@@ -170,10 +171,10 @@ background:
 
 | نوع | استایل | ارتفاع sm / md / lg | States |
 |---|---|---|---|
-| **Primary** | bg `#0C5798`، متن سفید، Manrope 600 | 44 / 52 / 56 | hover: bg `#103C68` + shadow glow · active: scale .98 · loading: spinner + `aria-busy` با عرض قفل‌شده |
-| **Primary on Navy** | bg سفید، متن `#092A4A` | همان | hover: bg `#DDF4FF` |
-| **WhatsApp (Secondary)** | `glass.card`، متن navy، glyph رسمی WhatsApp سبز `#25D366` با اندازه 20px | همان | hover: border `#7FD3F4` + fill سفید .8 |
-| **Tertiary** | متن `#0C5798` + فلش | — | underline از سمت inline-start کشیده می‌شود |
+| **Primary** | bg `#3B4D65`، متن سفید، Manrope 600 | 44 / 52 / 56 | hover: bg `#2F3E51` + shadow glow · active: scale .98 · loading: spinner + `aria-busy` با عرض قفل‌شده |
+| **Primary on Navy** | bg سفید، متن `#263242` | همان | hover: bg `#F1EDE8` |
+| **WhatsApp (Secondary)** | `glass.card`، متن navy، glyph رسمی WhatsApp سبز `#25D366` با اندازه 20px | همان | hover: border `#CBBAA8` + fill سفید .8 |
+| **Tertiary** | متن `#3B4D65` + فلش | — | underline از سمت inline-start کشیده می‌شود |
 
 - همه دکمه‌ها radius full دارند و padding-inline آن‌ها 28px است.
 - **Magnetic hover** (کشش تا 6px به سمت pointer) فقط روی Primary و فقط در دستگاه‌هایی با `pointer: fine`.
@@ -225,8 +226,8 @@ background:
 ### Form Fields
 
 - برچسب **همیشه بالای فیلد** است. placeholder هرگز جای برچسب را نمی‌گیرد.
-- ارتفاع 52px، radius 14، پس‌زمینه سفید با opacity .9، border 1px `#6F8DAA` (`border.input`). کادر روشن‌تر `#BDEAFF` کنتراست 1.28 دارد و معیار WCAG 1.4.11 را رد می‌کند.
-- **Focus:** border `#0C5798` + focus ring.
+- ارتفاع 52px، radius 14، پس‌زمینه سفید با opacity .9، border 1px `#7A8696` (`border.input`). کادر روشن‌تر `#E8E0D8` کنتراست 1.31 دارد و معیار WCAG 1.4.11 را رد می‌کند.
+- **Focus:** border `#3B4D65` + focus ring.
 - **Error:** border `#B42318` + پیام همراه آیکون زیر فیلد، با `aria-invalid` و `aria-describedby`.
 - **تلفن:** `<select>` بومی برای کد کشور + `<input type="tel" autocomplete="tel-national">`.
 - **کشور اقامت:** `<select>` بومی. نام کشورها با `Intl.DisplayNames` در زبان صفحه تولید می‌شود؛ ترجمه دستی لازم نیست.
@@ -253,7 +254,7 @@ background:
 
 ## ۸. Focus، دسترس‌پذیری و Hit Area
 
-- **Focus ring:** حلقه 2px `#0C5798` با offset سفید 2px (کنتراست 7.41). روی Navy از حلقه `#7FD3F4` استفاده می‌شود (کنتراست 8.69).
+- **Focus ring:** حلقه 2px `#3B4D65` با offset سفید 2px (کنتراست 8.62). روی Navy از حلقه `#CBBAA8` استفاده می‌شود (کنتراست 6.88).
 - فقط با `:focus-visible` نمایش داده می‌شود.
 - حداقل hit area برای همه المان‌های قابل لمس 44×44px است.
 - از دکمه submit غیرفعال (disabled) استفاده نمی‌کنیم. اعتبارسنجی هنگام submit انجام می‌شود و کاربر را به اولین خطا می‌برد.

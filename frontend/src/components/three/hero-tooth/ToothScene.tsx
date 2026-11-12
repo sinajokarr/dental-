@@ -37,7 +37,7 @@ RectAreaLightUniformsLib.init(); // the polish glint is a RectAreaLight sweep
 export type Tier = 1 | 2; // 2 = desktop (transmission), 1 = mobile/tablet (no extra render pass) — 3D_HERO_MASTER_PLAN §8
 export type Still = "scan" | "final"; // poster capture states (scripts/render-poster.mjs, D-065)
 
-const BACKGROUND = "#f8fcff"; // = hero bg (ice-50); transmission cannot see the DOM, so the canvas paints it
+const BACKGROUND = "#f8f5f3"; // = hero bg (ice-50); transmission cannot see the DOM, so the canvas paints it
 export const POSE = { pitch: 0.3, yaw: -0.5 } as const;
 
 const smoothstep = (a: number, b: number, x: number) => {
@@ -87,9 +87,9 @@ function gradient(texel: (enamel: number) => [number, number, number, number], s
 
 type ScanUniforms = { uScan: { value: number }; uScanGlow: { value: number }; uScanColor: { value: Color } };
 
-/** Porcelain crown, ice roots — with the scan plane injected: discard below it, a blue laser band at it. */
+/** Porcelain crown, translucent roots — with the scan plane injected: discard below it, a gentian laser band at it. */
 function toothMaterial(tier: Tier): MeshPhysicalMaterial {
-  const scan: ScanUniforms = { uScan: { value: SCAN_TOP }, uScanGlow: { value: 1 }, uScanColor: { value: new Color("#1f8fd6") } };
+  const scan: ScanUniforms = { uScan: { value: SCAN_TOP }, uScanGlow: { value: 1 }, uScanColor: { value: new Color("#3b4d65") } };
   // R = transmission (ice roots only), G = roughness (glossy crown 0.26 → satin roots 0.16 under the glass).
   const surface = gradient((e) => [255 * 0.94 * (1 - e), 255 * (0.16 + 0.1 * e), 0, 255]);
   const common = {
@@ -99,7 +99,7 @@ function toothMaterial(tier: Tier): MeshPhysicalMaterial {
     clearcoat: 1,
     clearcoatRoughness: 0.04,
     sheen: 0.3,
-    sheenColor: new Color("#dff4ff"),
+    sheenColor: new Color("#f5f2ee"),
     sheenRoughness: 0.45,
     specularIntensity: 1,
   };
@@ -111,11 +111,11 @@ function toothMaterial(tier: Tier): MeshPhysicalMaterial {
           transmissionMap: surface,
           thickness: 0.7,
           ior: 1.5,
-          attenuationColor: new Color("#a9defa"),
+          attenuationColor: new Color("#e0d6cb"),
           attenuationDistance: 0.85,
         })
-      : // Tier 1: no transmission pass — the roots get an ice-blue tint instead.
-        new MeshPhysicalMaterial({ ...common, map: gradient((e) => [255 - 46 * (1 - e), 255 - 16 * (1 - e), 255, 255], true) });
+      : // Tier 1: no transmission pass — the roots get a beige tint instead.
+        new MeshPhysicalMaterial({ ...common, map: gradient((e) => [255 - 16 * (1 - e), 255 - 21 * (1 - e), 255 - 26 * (1 - e), 255], true) });
 
   material.onBeforeCompile = (shader) => {
     Object.assign(shader.uniforms, scan);
@@ -145,7 +145,7 @@ function cloudMaterial(): ShaderMaterial {
       uScan: { value: SCAN_TOP },
       uOpacity: { value: 1 },
       uSize: { value: 15 },
-      uColor: { value: new Color("#0c5798") },
+      uColor: { value: new Color("#3b4d65") },
     },
     vertexShader: /* glsl */ `
       uniform float uScan;
@@ -187,7 +187,7 @@ function Studio() {
   const gl = useThree((state) => state.gl);
   const environment = useMemo(() => {
     const room = new Scene();
-    room.add(new Mesh(new BoxGeometry(14, 14, 14), new MeshBasicMaterial({ color: "#8f9cab", side: BackSide })));
+    room.add(new Mesh(new BoxGeometry(14, 14, 14), new MeshBasicMaterial({ color: "#939daa", side: BackSide })));
     const panel = (w: number, h: number, color: string, power: number, p: [number, number, number], r: [number, number, number]) => {
       const mesh = new Mesh(new PlaneGeometry(w, h), new MeshBasicMaterial({ color: new Color(color).multiplyScalar(power), side: DoubleSide }));
       mesh.position.set(...p);
@@ -197,9 +197,9 @@ function Studio() {
     panel(7, 3.5, "#ffffff", 4.2, [0, 5.5, 1.2], [Math.PI / 2, 0, 0]); // key softbox overhead
     panel(1.4, 10, "#ffffff", 3.4, [-5.5, 0.5, 2], [0, Math.PI / 2, 0]); // strip, start side
     panel(1.1, 9, "#ffffff", 2.4, [5.5, 0, 1], [0, -Math.PI / 2, 0]); // strip, end side
-    panel(8, 2.4, "#7fd3f4", 3.4, [0, 1.2, -5.5], [0, 0, 0]); // ice-blue rim from behind
+    panel(8, 2.4, "#cbbaa8", 3.4, [0, 1.2, -5.5], [0, 0, 0]); // beige rim from behind
     panel(4, 3, "#ffffff", 1.6, [0, 0.4, 5.5], [0, Math.PI, 0]); // soft front fill
-    panel(10, 6, "#ddf4ff", 1.1, [0, -5.5, 0], [-Math.PI / 2, 0, 0]); // floor bounce
+    panel(10, 6, "#f1ede8", 1.1, [0, -5.5, 0], [-Math.PI / 2, 0, 0]); // floor bounce
     const pmrem = new PMREMGenerator(gl);
     const texture = pmrem.fromScene(room, 0.03).texture;
     pmrem.dispose();
@@ -388,16 +388,16 @@ function Tooth({ tier, still, onFirstFrame, onSettled, onContextLost }: Props) {
     <>
       <mesh position={[0, 0.15, -2.4]} scale={7.5}>
         <planeGeometry />
-        <meshBasicMaterial map={halo} color="#ddf4ff" transparent opacity={0.9} toneMapped={false} depthWrite={false} />
+        <meshBasicMaterial map={halo} color="#e8e0d8" transparent opacity={0.9} toneMapped={false} depthWrite={false} />
       </mesh>
       {/* Soft contact shadow: grounds the floating tooth. */}
       <mesh position={[0, -1.72, 0.1]} rotation={[-Math.PI / 2, 0, 0]} scale={[2.6, 1.3, 1]}>
         <planeGeometry />
-        <meshBasicMaterial map={halo} color="#103c68" transparent opacity={0.16} toneMapped={false} depthWrite={false} />
+        <meshBasicMaterial map={halo} color="#2f3e51" transparent opacity={0.16} toneMapped={false} depthWrite={false} />
       </mesh>
       <directionalLight position={[-3, 5, 4]} intensity={1.1} />
-      <directionalLight position={[4, 1, 3]} intensity={0.35} color="#ddf4ff" />
-      <directionalLight ref={rim} position={[0, 2, -4]} color="#7fd3f4" />
+      <directionalLight position={[4, 1, 3]} intensity={0.35} color="#f1ede8" />
+      <directionalLight ref={rim} position={[0, 2, -4]} color="#cbbaa8" />
       <rectAreaLight ref={sweep} width={1.2} height={4} position={[-3.2, 1.2, 3]} />
       <group ref={group} rotation={[POSE.pitch, POSE.yaw + motion.spin, 0]}>
         <mesh ref={tooth} geometry={geometry} material={material} scale={[hx, hy, hz]} />

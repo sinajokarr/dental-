@@ -70,5 +70,5 @@ test("punctuation after emphasis stays on the same line as its word; Persian emp
   expect(words.some((w) => w.endsWith("شما،"))).toBe(true);
   const em = page.locator("#hero-title em");
   expect(await em.first().evaluate((el) => getComputedStyle(el).fontStyle)).toBe("normal");
-  expect(await em.first().evaluate((el) => getComputedStyle(el).color)).toBe("rgb(12, 87, 152)");
+  expect(await em.first().evaluate((el) => getComputedStyle(el).color)).toBe("rgb(59, 77, 101)");
 });

@@ -10,7 +10,7 @@ const base =
 
 const variants: Record<ButtonVariant, string> = {
   primary: "glint bg-blue-700 text-white hover:bg-navy-800 hover:shadow-glow",
-  inverted: "glint bg-white text-navy-900 [--glint:rgb(127_211_244/0.45)] hover:bg-sky-100 focus-visible:outline-sky-400",
+  inverted: "glint bg-white text-navy-900 [--glint:rgb(203_186_168/0.45)] hover:bg-sky-100 focus-visible:outline-sky-400",
   whatsapp: "glass-card text-navy-900 hover:[--edge-fill:rgb(255_255_255/0.85)]",
   "whatsapp-dark": "glass-dark text-white hover:bg-navy-800 focus-visible:outline-sky-400",
   tertiary: "group rounded-none px-0 text-blue-700",
