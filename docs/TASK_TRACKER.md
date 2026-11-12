@@ -40,6 +40,7 @@
 | B07 | Motion system | A07 | `lib/reveal.ts` · `lib/motion.ts` | `useReveal`، noscript، `dirSign`، GSAP lazy، reduced-motion | Playwright با RM و بدون JS · bundle analyzer (GSAP نباید در bundle اولیه باشد) | M | ✅ `50ec205` |
 | B08 | Gallery + QA راست‌به‌چپ | B01–B07 | `app/[locale]/dev/gallery` (فقط dev) | همه کامپوننت‌ها در ۴ زبان | اسکرین‌شات → **Gate G1** | S | ⏭ ادغام در G3 (ruling) |
 | B09 | پالت Beige Agate / Blue Gentian — فقط رنگ (D-073) | B02 | `globals.css` · rgbهای دستی در ۷ کامپوننت · `ToothScene.tsx` · posterهای Hero · `icon.svg` · `apple-icon.tsx` · `opengraph-image.tsx` | همه رنگ‌ها از `#CBBAA8` و `#3B4D65` ساخته می‌شوند؛ نام tokenها ثابت؛ چیدمان، تایپوگرافی و انیمیشن بدون تغییر | unit (token و کنتراست) · مقایسه جای ۵۵۲۶ المان قبل و بعد · e2e | M | ✅ commit `B09` (روی branch `palette-beige-agate-gentian`، push نشده) |
+| B10 | منوی زبان کنار دکمه‌اش باز شود (باگ) | B04 | `layout/LanguageSwitcher.tsx` · `tests/e2e/navigation.spec.ts` | استایل پیش‌فرض popover مرورگر (`inset: 0`) منو را به لبه start می‌چسباند (دسکتاپ: گوشه بالا چپ)؛ `start-auto` اضافه شد | e2e در LTR و RTL (اول شکست خورد، بعد پاس شد) | S | ✅ commit `B10` |
 
 ## Phase C — Homepage
 

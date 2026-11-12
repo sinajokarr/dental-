@@ -21,6 +21,23 @@ test("language switcher offers every other locale with native names, lang and hr
   }
 });
 
+test("language menu opens on the same side as its button, in LTR and RTL", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  for (const [locale, label] of [["en", "Language"], ["fa", "زبان"]]) {
+    await page.goto(`/${locale}`);
+    const button = page.getByRole("button", { name: new RegExp(`^${label}`) }).filter({ visible: true }).first();
+    await button.click();
+    const menu = page.getByRole("navigation", { name: label, exact: true });
+    await expect(menu).toBeVisible();
+    const [b, m] = [await button.boundingBox(), await menu.boundingBox()];
+    const middle = 1440 / 2;
+    const side = (box: { x: number; width: number }) => box.x + box.width / 2 > middle;
+    expect(side(m!), `${locale}: menu and button on the same side`).toBe(side(b!));
+    expect(m!.x >= 0 && m!.x + m!.width <= 1440, `${locale}: menu inside the viewport`).toBe(true);
+    await page.keyboard.press("Escape");
+  }
+});
+
 test("treatments menu opens from the keyboard and links to localized slugs", async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto("/tr");

@@ -27,7 +27,8 @@ export function LanguageSwitcher({ label }: { label: string }) {
         id="language-menu"
         popover="auto"
         aria-label={label}
-        className="glass-strong fixed end-6 top-20 m-0 rounded-md p-2 lg:end-12"
+        // start-auto: the browser's popover style sets `inset: 0`, which pinned the menu to the start edge.
+        className="glass-strong fixed start-auto end-6 top-20 m-0 rounded-md p-2 lg:end-12"
       >
         <ul className="grid gap-1">
           {routing.locales.map((target) => (
