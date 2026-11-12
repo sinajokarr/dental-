@@ -1,3 +1,4 @@
+import { ViewTransition } from "react";
 import { getTranslations } from "next-intl/server";
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { Link } from "@/i18n/navigation";
@@ -27,9 +28,12 @@ export async function Treatments() {
             <div data-draw="" data-reveal="draw" className={`chapter-art relative mx-auto aspect-square w-full max-w-sm lg:max-w-md ${i % 2 ? "md:order-2" : ""}`}>
               <div aria-hidden="true" className="absolute inset-[6%] rounded-full bg-white/70 shadow-e1 [mask-image:radial-gradient(closest-side,#000_96%,transparent)]" />
               <div aria-hidden="true" className="absolute inset-[6%] rounded-full [background-image:radial-gradient(rgb(59_77_101/0.13)_1px,transparent_1.2px)] [background-size:14px_14px] [mask-image:radial-gradient(closest-side,#000_55%,transparent)]" />
-              <div className="relative size-full">
-                <TreatmentDrawing name={chapter.key} />
-              </div>
+              {/* Shared with the treatment page: the drawing travels there instead of jumping (D-075). */}
+              <ViewTransition name={`treatment-${chapter.key}`}>
+                <div className="relative size-full">
+                  <TreatmentDrawing name={chapter.key} />
+                </div>
+              </ViewTransition>
             </div>
             <div className="max-w-lg">
               <h3 className="font-display text-h2 font-light text-balance">

@@ -28,5 +28,16 @@ export function RevealObserver() {
     return () => observer.disconnect();
   }, [pathname]);
 
+  // A drawing that travels from a home chapter into its treatment page (view transition, D-075) arrives
+  // finished: mark that navigation so the page does not erase the drawing and draw it again.
+  useEffect(() => {
+    const mark = (event: MouseEvent) => {
+      const link = (event.target as Element).closest("a");
+      if (link) document.documentElement.toggleAttribute("data-drawing-travels", Boolean(link.closest("[data-treatment-card]")));
+    };
+    document.addEventListener("click", mark);
+    return () => document.removeEventListener("click", mark);
+  }, []);
+
   return null;
 }

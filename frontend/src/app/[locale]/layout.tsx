@@ -24,7 +24,7 @@ export default async function LocaleLayout({ children }: LayoutProps<"/[locale]"
   const fonts = locale === "fa" ? ["vazirmatn"] : ["cormorant-garamond", "cormorant-garamond-italic", "manrope"];
   for (const font of fonts) preload(`/fonts/${font}.woff2`, { as: "font", type: "font/woff2", crossOrigin: "anonymous" });
   return (
-    <html lang={locale} dir={locale === "fa" ? "rtl" : "ltr"}>
+    <html lang={locale} dir={locale === "fa" ? "rtl" : "ltr"} data-scroll-behavior="smooth">
       <body>
         {/* Locale for client components; messages={null}: client components get their text as props, so no translations ship to the browser. */}
         <NextIntlClientProvider messages={null}>

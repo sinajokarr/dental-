@@ -1,3 +1,4 @@
+import { ViewTransition } from "react";
 import type { Metadata } from "next";
 import { getLocale, getTranslations } from "next-intl/server";
 import type { CSSProperties } from "react";
@@ -74,9 +75,11 @@ export async function TreatmentPage({ treatment }: { treatment: Treatment }) {
           <div data-draw-load="" className="relative mx-auto aspect-square w-full max-w-md">
             <div aria-hidden="true" className="absolute inset-[6%] rounded-full bg-white/70 shadow-e2" />
             <div aria-hidden="true" className="absolute inset-[6%] rounded-full [background-image:radial-gradient(rgb(59_77_101/0.13)_1px,transparent_1.2px)] [background-size:14px_14px] [mask-image:radial-gradient(closest-side,#000_55%,transparent)]" />
-            <div className="relative size-full">
-              <TreatmentDrawing name={treatment} />
-            </div>
+            <ViewTransition name={`treatment-${treatment}`}>
+              <div className="relative size-full">
+                <TreatmentDrawing name={treatment} />
+              </div>
+            </ViewTransition>
           </div>
         </div>
       </section>

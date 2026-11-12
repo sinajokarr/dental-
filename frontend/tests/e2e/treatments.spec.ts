@@ -54,3 +54,26 @@ test("with reduced motion every chapter and drawing is complete and still", asyn
   expect(await lines.count()).toBeGreaterThan(12);
   for (const line of await lines.all()) expect(await dashOffset(line)).toBe(0);
 });
+
+test("opening a treatment morphs its drawing into the next page (view transition)", async ({ page }) => {
+  // Records which elements are named when the browser snapshots the old page.
+  await page.addInitScript(() => {
+    const start = document.startViewTransition.bind(document);
+    const names: string[] = ((window as unknown as { __vt: string[] }).__vt = []);
+    document.startViewTransition = ((update: never) => {
+      document.querySelectorAll<HTMLElement>("[style*=view-transition-name]").forEach((el) => names.push(el.style.viewTransitionName));
+      return start(update);
+    }) as typeof document.startViewTransition;
+  });
+  await page.goto("/en");
+  await page.locator("section[aria-labelledby=treatments-title]").getByRole("link", { name: "Dental Implants" }).click();
+  await expect(page).toHaveURL(/\/en\/dental-implants$/);
+  expect(await page.evaluate(() => (window as unknown as { __vt: string[] }).__vt)).toContain("treatment-implants");
+  await expect(page.getByRole("heading", { level: 1 }).filter({ visible: true })).toBeVisible();
+  // The drawing arrived finished: it must not erase itself and draw again…
+  const stroke = page.locator("[data-draw-load] [pathLength]").filter({ visible: true }).first();
+  expect(await stroke.evaluate((el) => getComputedStyle(el).animationName)).toBe("none");
+  // …while a direct visit still draws it once.
+  await page.goto("/en/dental-implants");
+  expect(await stroke.evaluate((el) => getComputedStyle(el).animationName)).toBe("draw");
+});

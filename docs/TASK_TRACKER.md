@@ -43,6 +43,7 @@
 | B10 | منوی زبان کنار دکمه‌اش باز شود (باگ) | B04 | `layout/LanguageSwitcher.tsx` · `tests/e2e/navigation.spec.ts` | استایل پیش‌فرض popover مرورگر (`inset: 0`) منو را به لبه start می‌چسباند (دسکتاپ: گوشه بالا چپ)؛ `start-auto` اضافه شد | e2e در LTR و RTL (اول شکست خورد، بعد پاس شد) | S | ✅ commit `B10` |
 | B11 | پالت پررنگ‌تر (بازخورد کارفرما) | B09 | `globals.css` · `Hero.tsx` · `PointerGlow.tsx` · `ToothScene.tsx` · posterهای Hero · `opengraph-image.tsx` | سطح‌های بژ یک پله پررنگ‌تر، کنتراست AA حفظ شد (D-074) | unit · e2e · مقایسه ۵۵۲۶ المان | S | ✅ commit `B11` |
 | B12 | منوی زبان دقیقاً زیر دکمه‌اش باز شود (بازخورد کارفرما) | B10 | `layout/LanguageSwitcher.tsx` · `tests/e2e/navigation.spec.ts` | لبه منو با لبه دکمه هم‌تراز و درست زیر آن، در LTR و RTL | e2e (اول شکست خورد، بعد پاس شد) | S | ✅ commit `B12` |
+| B13 | View Transitions: نقاشی درمان بین صفحه‌ها (D-075) | C13 | `Treatments.tsx` · `TreatmentPage.tsx` · `RevealObserver.tsx` · `globals.css` · `[locale]/layout.tsx` · `tests/e2e/treatments.spec.ts` | نقاشی نرم به صفحه درمان می‌رود و دوباره کشیده نمی‌شود؛ reduced motion بدون انیمیشن | e2e (اول شکست خورد، بعد پاس شد) + فریم‌های انتقال | S | ✅ commit `B13` |
 
 ## Phase C — Homepage
 

@@ -35,7 +35,7 @@ export function LanguageSwitcher({ label }: { label: string }) {
           if (event.newState !== "open" || !button) return;
           const box = button.getBoundingClientRect();
           const width = document.documentElement.clientWidth;
-          const end = getComputedStyle(menu).direction === "rtl" ? box.left : width - box.right;
+          const end = getComputedStyle(menu).direction === "rtl" ? box.x : width - box.right; // box.x = the inline-end edge in RTL
           // ponytail: the menu is ~180px wide (hidden menus cannot be measured); keep it inside narrow screens.
           menu.style.insetInlineEnd = `${Math.max(8, Math.min(end, width - 188))}px`;
           menu.style.top = `${box.bottom + 8}px`;
