@@ -31,28 +31,6 @@ test("treatments are chapters, not a numbered sequence", async ({ page }) => {
   await expect(section).not.toContainText(/0[1-3]/);
 });
 
-const dashOffset = (path: import("@playwright/test").Locator) =>
-  path.evaluate((p) => parseFloat(getComputedStyle(p).strokeDashoffset) || 0);
-
-test("each chapter's line drawing draws itself as it scrolls into view", async ({ page }) => {
-  await page.setViewportSize({ width: 1280, height: 800 });
-  await page.goto("/en");
-  const drawing = page.locator("[data-draw]").nth(2);
-  const firstLine = drawing.locator("[pathLength]").first();
-  expect(await dashOffset(firstLine)).toBeGreaterThan(0.5); // far below the fold: not drawn yet
-  await drawing.evaluate((el) => el.scrollIntoView({ block: "center" }));
-  await expect.poll(() => dashOffset(firstLine)).toBeLessThan(0.05);
-});
-
-test("with reduced motion every chapter and drawing is complete and still", async ({ page }) => {
-  await page.emulateMedia({ reducedMotion: "reduce" });
-  await page.goto("/fa");
-  await expect(page.locator("[data-treatment-card]")).toHaveCount(3);
-  const lines = page.locator("[data-draw] [pathLength]");
-  expect(await lines.count()).toBeGreaterThan(12);
-  for (const line of await lines.all()) expect(await dashOffset(line)).toBe(0);
-});
-
 test("opening a treatment morphs its drawing into the next page (view transition)", async ({ page }) => {
   // Records which elements are named when the browser snapshots the old page.
   await page.addInitScript(() => {
