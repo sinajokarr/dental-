@@ -54,3 +54,14 @@ test("phones: the menu is a modal dialog and nothing overflows sideways", async 
   await page.keyboard.press("Escape");
   await expect(page.getByRole("dialog")).toBeHidden();
 });
+
+test.describe("hero film", () => {
+  test.use({ reducedMotion: "no-preference" });
+  test("the smile film plays to its end in this engine", async ({ page }) => {
+    await page.goto("/en");
+    const video = page.locator("[data-hero-film] video");
+    await expect.poll(() => video.evaluate((v: HTMLVideoElement) => v.ended || document.querySelector("[data-hero-film]")!.hasAttribute("data-still")), { timeout: 15_000 }).toBe(true);
+    expect(await video.evaluate((v: HTMLVideoElement) => v.error?.code ?? 0), "decode error").toBe(0);
+    expect(await page.locator("[data-hero-film]").getAttribute("data-still"), "autoplay refused").toBeNull();
+  });
+});

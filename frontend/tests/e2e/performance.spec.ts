@@ -32,19 +32,20 @@ for (const locale of ["fa", "en"]) {
   });
 }
 
-test("lab vitals on a throttled phone: LCP ≤ 2.5 s, CLS ≈ 0, the hero portrait is one request ≤ 120 KB, no 3D", async ({ browser }) => {
-  const context = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 3, isMobile: true, hasTouch: true });
+test("lab vitals on a throttled phone: LCP ≤ 2.5 s, CLS ≈ 0, the hero film's first frame ≤ 60 KB and the phone film ≤ 250 KB, no 3D", async ({ browser }) => {
+  const context = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 3, isMobile: true, hasTouch: true, reducedMotion: "no-preference" });
   const page = await context.newPage();
   const cdp = await context.newCDPSession(page);
   await cdp.send("Network.enable");
   await cdp.send("Network.emulateNetworkConditions", { offline: false, latency: 150, downloadThroughput: (1.6 * 1024 * 1024) / 8, uploadThroughput: (750 * 1024) / 8 });
   await cdp.send("Emulation.setCPUThrottlingRate", { rate: 4 });
-  // The hero portrait (D-080): one request for one source, and no 3D asset.
-  let photo = 0;
+  // The hero film (D-084): its first frame is the poster; the phone gets the small film; no 3D asset.
+  let photo = 0, film = 0;
   const heroAssets: string[] = [];
   page.on("request", (request) => /models\/|tooth/.test(request.url()) && heroAssets.push(request.url()));
   page.on("response", async (response) => {
-    if (response.url().includes("portrait")) photo = Math.max(photo, (await response.body()).length);
+    if (response.url().includes("film/first.webp")) photo = Math.max(photo, (await response.body()).length);
+    if (/film\/smile-\d+\./.test(response.url())) film = Math.max(film, Number(response.headers()["content-range"]?.split("/")[1] ?? response.headers()["content-length"] ?? 0)); // whole file, however it is ranged
   });
   await page.goto("/en", { waitUntil: "load" });
   await page.waitForTimeout(3000);
@@ -59,11 +60,13 @@ test("lab vitals on a throttled phone: LCP ≤ 2.5 s, CLS ≈ 0, the hero portra
         setTimeout(() => resolve({ lcp, cls }), 200);
       }),
   );
-  console.log(`throttled phone: LCP ${(lcp / 1000).toFixed(2)} s · CLS ${cls.toFixed(3)} · hero portrait ${(photo / KB).toFixed(0)} KB · other hero assets ${heroAssets.length}`);
+  console.log(`throttled phone: LCP ${(lcp / 1000).toFixed(2)} s · CLS ${cls.toFixed(3)} · film poster ${(photo / KB).toFixed(0)} KB · film ${(film / KB).toFixed(0)} KB · other hero assets ${heroAssets.length}`);
   expect(lcp).toBeLessThanOrEqual(2500);
   expect(cls).toBeLessThan(0.01);
   expect(photo).toBeGreaterThan(0);
-  expect(photo).toBeLessThanOrEqual(120 * KB);
+  expect(photo).toBeLessThanOrEqual(60 * KB);
+  expect(film).toBeGreaterThan(0);
+  expect(film).toBeLessThanOrEqual(250 * KB);
   expect(heroAssets).toEqual([]);
   await context.close();
 });
