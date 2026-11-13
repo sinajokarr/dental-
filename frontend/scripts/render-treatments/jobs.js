@@ -6,8 +6,19 @@ const titanium = (T) => new T.MeshStandardMaterial({ color: 0xc3c7cc, metalness:
 const anodized = (T) => new T.MeshStandardMaterial({ color: 0xd6bf8c, metalness: 1, roughness: 0.27, side: T.DoubleSide });
 const gingiva = (T) => new T.MeshPhysicalMaterial({ color: 0xd48f8a, roughness: 0.5, clearcoat: 0.25, clearcoatRoughness: 0.35, sheen: 0.6, sheenRoughness: 0.5, sheenColor: new T.Color(0xffb9b2), side: T.DoubleSide });
 const enamel = (T) => new T.MeshPhysicalMaterial({ vertexColors: true, roughness: 0.24, clearcoat: 0.75, clearcoatRoughness: 0.14, sheen: 0.28, sheenRoughness: 0.45, sheenColor: new T.Color(0xfff2e0) });
-const veneerPorcelain = (T) => new T.MeshPhysicalMaterial({ transparent: true, opacity: 0.88, color: 0xf3f7fb, roughness: 0.12, clearcoat: 1, clearcoatRoughness: 0.05, sheen: 0.25, sheenColor: new T.Color(0xfff6ea), ior: 1.52, side: T.DoubleSide });
+const veneerPorcelain = (T) => new T.MeshPhysicalMaterial({ transparent: true, opacity: 0.9, color: 0xf3f7fb, roughness: 0.2, clearcoat: 0.7, clearcoatRoughness: 0.12, sheen: 0.25, sheenColor: new T.Color(0xfff6ea), ior: 1.52, side: T.DoubleSide });
 const porcelain = (T) => new T.MeshPhysicalMaterial({ color: 0xf7f2ea, roughness: 0.25, clearcoat: 0.9, clearcoatRoughness: 0.1, sheen: 0.3, sheenRoughness: 0.4, sheenColor: new T.Color(0xfff4e6), ior: 1.5 });
+
+/** Vertical alpha ramp for soft tissue that should dissolve, not end in a cut edge. Stops run from v = 1 down to v = 0. */
+function fadeMap(T, stops) {
+  const c = document.createElement("canvas");
+  c.width = 4; c.height = 256;
+  const x = c.getContext("2d");
+  const g = x.createLinearGradient(0, 0, 0, 256);
+  for (const [at, colour] of stops) g.addColorStop(at, colour);
+  x.fillStyle = g; x.fillRect(0, 0, 4, 256);
+  return new T.CanvasTexture(c);
+}
 
 function orbit(cam, T, { target, distance, yaw, pitch }) {
   cam.position.set(target[0] + distance * Math.sin(yaw) * Math.cos(pitch), target[1] + distance * Math.sin(pitch), target[2] + distance * Math.cos(yaw) * Math.cos(pitch));
@@ -56,10 +67,12 @@ export const JOBS = {
     rim: 1.1,
     parts(assets, T) {
       const o = { W: 8.7, H: 10.8, T: 7, root: 10, ripple: 0.08 };
-      const shellGeometries = veneerShell(o);
+      const shellGeometries = veneerShell(o, { thickness: 0.3 }); // a veneer is a fraction of a millimetre: keep it visibly thin
+      const collar = gingiva(T); // the gum dissolves downwards instead of ending in a cut rim
+      collar.transparent = true; collar.alphaMap = fadeMap(T, [[0, "#fff"], [0.45, "#fff"], [1, "#000"]]); collar.depthWrite = true;
       return {
         tooth: { geometry: tooth(o), material: enamel(T) },
-        gum: { geometry: toothGum({ ...o, gumBottom: -4.2 }), material: gingiva(T) },
+        gum: { geometry: toothGum({ ...o, gumBottom: -5.6 }), material: collar },
         // The shell is several geometries (two sheets + edge strips) merged into one mesh group below.
         shell: { geometry: shellGeometries, material: veneerPorcelain(T) },
       };
@@ -129,18 +142,10 @@ export const JOBS = {
         const t = (al - centres[i].a) / (centres[i + 1].a - centres[i].a);
         return centres[i].y + (centres[i + 1].y - centres[i].y) * t - 2.3 * Math.pow(Math.sin(Math.PI * t), 1.5);
       };
-      const fade = (() => {
-        const c = document.createElement("canvas");
-        c.width = 4; c.height = 256;
-        const x = c.getContext("2d");
-        const g = x.createLinearGradient(0, 0, 0, 256);
-        g.addColorStop(0, "#000"); g.addColorStop(0.55, "#fff"); g.addColorStop(1, "#fff");
-        x.fillStyle = g; x.fillRect(0, 0, 4, 256);
-        return new T.CanvasTexture(c);
-      })();
+      const fade = fadeMap(T, [[0, "#000"], [0.5, "#fff"], [1, "#fff"]]);
       const plateMaterial = gingiva(T);
       plateMaterial.transparent = true; plateMaterial.alphaMap = fade; plateMaterial.depthWrite = true;
-      parts.plate = { geometry: archGum({ R, alpha: alphaMax + 0.1, edge }), material: plateMaterial };
+      parts.plate = { geometry: archGum({ R, alpha: alphaMax + 0.1, edge, top: Math.max(...centres.map((c) => c.y)) + 12 }), material: plateMaterial };
       return parts;
     },
     camera(cam, T) {

@@ -104,7 +104,7 @@
 /* Veneer: --p runs from 0 (apart) to 1 (in place). */
 .ex[data-explorer="veneers"] .sr-v-shell {
   translate: calc((1 - var(--p)) * -24%) calc((1 - var(--p)) * 5%);
-  scale: calc(1 + (1 - var(--p)) * 0.1);
+  scale: calc(1 + (1 - var(--p)) * 0.05);
   transition: none; /* follows the slider directly */
 }
 

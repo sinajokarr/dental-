@@ -217,11 +217,11 @@ export function toothGum(o = {}) {
 
 /** Alveolar gum plate behind a row of teeth: follows the dental arch (radius R), its lower edge is the gingival margin
  *  (zeniths at the tooth centres, papillae between them), its top fades out. `edge(alpha)` gives the margin height. */
-export function archGum({ R, alpha, edge, height = 15 }) {
+export function archGum({ R, alpha, edge, top }) {
   return grid(220, 46, (u, v) => {
     const a = (u * 2 - 1) * alpha;
     const r = R + 4.4 - 3.4 * v;
     const y0 = edge(a);
-    return [r * Math.sin(a), y0 + v * height, -(r * (1 - Math.cos(a)))];
+    return [r * Math.sin(a), y0 + v * (top - y0), -(r * (1 - Math.cos(a)))]; // scalloped margin below, level edge above
   }, { flip: true });
 }
