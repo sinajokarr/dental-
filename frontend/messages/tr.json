@@ -18,7 +18,7 @@
     },
     "treatments": {
       "eyebrow": "Öne çıkan tedaviler",
-      "title": "Gülüşünüze odaklanan tedaviler",
+      "title": "Üç tedavi, ayrıntılı bir planla",
       "lead": "Her tedavi, karar vermeden önce seçeneklerinizi öğrenmeniz için ücretsiz bir ilk danışmanlıkla başlar.",
       "more": "Daha fazla bilgi",
       "implants": "Çene kemiğine yerleştirilen titanyum bir vida, eksik kökün yerini alır ve yeni bir kuronu taşır — bir veya birden fazla eksik diş için sabit bir çözüm.",
@@ -27,7 +27,7 @@
     },
     "why": {
       "eyebrow": "Neden JOKAR DENTAL",
-      "title": "Size göre planlanan bir bakım",
+      "title": "Önce planlama, sonra tedavi.",
       "link": "Uluslararası hastalar için süreç",
       "items": [
         {
@@ -58,7 +58,7 @@
     },
     "journey": {
       "eyebrow": "Uluslararası hastalar",
-      "title": "İlk mesajınızdan Türkiye'deki tedavinize",
+      "title": "İlk mesajdan tedavi sonrası takibe",
       "lead": "Yurt dışından gelen hastalar için her adımda koordinasyonla net bir süreç.",
       "cta": "Ücretsiz danışmanlıkla başlayın",
       "steps": [
@@ -142,7 +142,7 @@
       "call": "Ya da bizi arayın"
     },
     "finale": {
-      "title": "Yeni gülüşünüz tek bir konuşmayla başlar",
+      "title": "Her şey bir sohbetle başlar",
       "lead": "Ücretsiz ilk danışmanlık · Antalya ve İstanbul"
     }
   },

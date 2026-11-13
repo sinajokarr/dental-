@@ -27,6 +27,7 @@ ice-100      #F1ECE5    sky-100  #ECE4DA (برجسته و hover)    sky-200  #E5
 sky-400      #CCBBA9 (Beige Agate)
 navy-900     #273447 (متن اصلی)    navy-800 #2F3D54 (hover و glass تیره)    blue-700 #3C4C66 (Blue Gentian)
 band         #3C4C66 (بخش‌های تیره)    muted-blue #5B6D87 (تأکید فارسی؛ فقط روی white، ivory و ice-50)
+mist         #DCE3EB (Soft Blue: باندهای پایانی روشن، فقط با متن تیره — D-083)
 slate-600    #586679 (متن ثانویه)    slate-500 #77859A (کادر فیلد)
 red-700      #B42318    green-700 #0D7254    (وضعیت فرم)
 ```

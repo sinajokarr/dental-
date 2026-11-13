@@ -74,6 +74,7 @@
   --color-navy-800: #2f3d54; /* hover on gentian, dark glass */
   --color-blue-700: #3c4c66; /* Blue Gentian: buttons, links, focus */
   --color-band: #3c4c66; /* dark bands (international journey, finale, footer) — the lighter Blue Gentian, not near-black */
+  --color-mist: #dce3eb; /* Soft Blue: the quiet closing bands (finale, treatment pages) — dark text only (D-083) */
   --color-muted-blue: #5b6d87; /* Muted Blue: Persian emphasis, secondary accents (on white, ivory and ice-50 only) */
   --color-slate-600: #586679; /* secondary text */
   --color-slate-500: #77859a; /* form field borders, 3.19:1 or better on every light surface (D-042) */

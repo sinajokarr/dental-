@@ -51,6 +51,7 @@
 | V5-A2 | سه تصویر خدمات: رندر استودیویی آفلاین (D-081) | V5-B | `scripts/render-treatments/*` · `assets/treatments/*` · `sections/service-art/*` · `tests/e2e/service-art.spec.ts` | لایه‌های PNG→AVIF، حرکت CSS یک‌باره، راهنمای هم‌تراز | Playwright: service-art 9/9 · کل ۱۸۵ passed / ۳ skipped · tsc/lint 0 · Lighthouse و دستگاه واقعی NOT RUN | M | ✅ |
 | V6-00 | ممیزی سایت + بسته تأیید خلاقانه | V5-A2 | `WEBSITE_AUDIT.md` · `CREATIVE_APPROVAL_PACKAGE.md` | فقط سند | — | S | ✅ `9dae791` |
 | V6-01 | صفحه‌های اختصاصی سه درمان: explorer تعاملی + بخش‌های مخصوص هر درمان + شعار Hero (D-082) | V6-00 | `sections/explorers/*` · `TreatmentPage.tsx` · `messages/*.json` · `treatment-pages.spec.ts` · `treatments.spec.ts` · `hero.spec.ts` | سه تعامل بومی، محتوای ۴زبانه، رفع خطای RTL guard در `SmileRender.tsx` | unit ۵۷/۵۷ · e2e ۱۹۱ passed / ۳ skipped · tsc/lint 0 · LCP 0.72s CLS 0 (Home) · Lighthouse، INP، دستگاه واقعی، screen reader: NOT RUN · بازبینی پزشکی/بومی: NOT DONE | L | ✅ |
+| V6-02 | باندهای Soft Blue به‌جای دو باند تیره + چهار عنوان برند صفحه اصلی (D-083) | V6-01 | `globals.css` · `Section.tsx` · `Finale.tsx` · `TreatmentPage.tsx` · `messages/*.json` · `tokens.test.ts` · `contrast.test.ts` | توکن mist، متن تیره روی باند روشن | unit ۵۷/۵۷ · e2e ۱۹۰ passed / ۳ skipped / ۱ failed (Firefox، فرم مشاوره: در تکرار ۶ از ۶ سبز؛ ناپایدار، بی‌ارتباط با این تغییر) · tsc/lint 0 | S | ✅ |
 
 ## Phase C — Homepage
 

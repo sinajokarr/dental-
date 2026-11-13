@@ -172,16 +172,16 @@ export async function TreatmentPage({ treatment }: { treatment: Treatment }) {
         <p className="mt-12 text-small text-slate-600">{page("medicalNote")}</p>
       </Section>
 
-      <Section tone="navy" labelledBy="intl-title" className="panel-open overflow-clip">
-        <div aria-hidden="true" className="absolute -top-40 end-0 size-[30rem] rounded-full bg-blue-700/40 blur-3xl" />
+      <Section tone="mist" labelledBy="intl-title" className="panel-open overflow-clip">
+        <div aria-hidden="true" className="absolute -top-40 end-0 size-[30rem] rounded-full bg-white/60 blur-3xl" />
         <div className="relative grid grid-cols-1 items-end gap-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
-          <SectionHeader id="intl-title" dark eyebrow={page("intlEyebrow")} title={page("intlTitle")} lead={page("intlText")} />
+          <SectionHeader id="intl-title" eyebrow={page("intlEyebrow")} title={page("intlTitle")} lead={page("intlText")} />
           <div className="flex flex-col gap-3 sm:flex-row lg:flex-col lg:items-start">
-            <Link href="/international-patients" className={buttonClass("inverted", "lg")}>
+            <Link href="/international-patients" className={buttonClass("primary", "lg")}>
               {home("why.link")}
             </Link>
-            <a href={waLink(chat("international"))} target="_blank" rel="noopener" className={buttonClass("whatsapp-dark", "lg")}>
-              <WhatsAppIcon className="size-5 text-[#25D366]" />
+            <a href={waLink(chat("international"))} target="_blank" rel="noopener" className={buttonClass("whatsapp", "lg")}>
+              <WhatsAppIcon className="size-5 text-[#128C4A]" />
               {nav("whatsapp")}
             </a>
           </div>

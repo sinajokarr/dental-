@@ -40,6 +40,9 @@ const PAIRS: [string, string[], number][] = [
   ["green-700", LIGHT, 4.5],
   ["white", ["blue-700", "band", "navy-800", "navy-900"], 4.5],
   ["slate-500", ["white", "ivory", "ice-50", "ice-100"], 3],
+  ["navy-900", ["mist"], 4.5], // Soft Blue closing bands (D-083)
+  ["slate-600", ["mist"], 4.5],
+  ["blue-700", ["mist"], 4.5],
   ["white", DARK, 4.5],
   ["dark-muted", DARK, 4.5],
   ["sky-400", DARK, 4.5],

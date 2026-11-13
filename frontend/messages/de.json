@@ -18,7 +18,7 @@
     },
     "treatments": {
       "eyebrow": "Unsere Behandlungen",
-      "title": "Behandlungen rund um Ihr Lächeln",
+      "title": "Drei Behandlungen, sorgfältig geplant",
       "lead": "Jede Behandlung beginnt mit einer kostenlosen Erstberatung, damit Sie Ihre Möglichkeiten kennen, bevor Sie sich entscheiden.",
       "more": "Mehr erfahren",
       "implants": "Ein Titanstift im Kieferknochen ersetzt die fehlende Zahnwurzel und trägt eine neue Krone – eine feste Lösung für einen oder mehrere fehlende Zähne.",
@@ -27,7 +27,7 @@
     },
     "why": {
       "eyebrow": "Warum JOKAR DENTAL",
-      "title": "Versorgung, die um Sie herum geplant wird",
+      "title": "Erst planen, dann behandeln.",
       "link": "So läuft es für internationale Patienten",
       "items": [
         {
@@ -58,7 +58,7 @@
     },
     "journey": {
       "eyebrow": "Internationale Patienten",
-      "title": "Von Ihrer ersten Nachricht bis zur Behandlung in der Türkei",
+      "title": "Von der ersten Nachricht bis zur Nachsorge",
       "lead": "Ein klarer Weg für Patienten aus dem Ausland – mit Koordination bei jedem Schritt.",
       "cta": "Mit einer kostenlosen Beratung beginnen",
       "steps": [
@@ -142,7 +142,7 @@
       "call": "Oder rufen Sie uns an"
     },
     "finale": {
-      "title": "Ihr neues Lächeln beginnt mit einem Gespräch",
+      "title": "Am Anfang steht ein Gespräch",
       "lead": "Kostenlose Erstberatung · Antalya & Istanbul"
     }
   },

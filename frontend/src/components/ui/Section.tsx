@@ -1,10 +1,11 @@
 import { Fragment, type CSSProperties, type ReactNode } from "react";
 
-type Tone = "light" | "ice" | "navy";
+type Tone = "light" | "ice" | "mist" | "navy";
 
 const tones: Record<Tone, string> = {
   light: "bg-ivory text-navy-900",
   ice: "bg-ice-50 text-navy-900",
+  mist: "bg-mist text-navy-900",
   navy: "bg-band text-white",
 };
 

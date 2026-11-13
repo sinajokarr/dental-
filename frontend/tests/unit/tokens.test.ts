@@ -11,6 +11,7 @@ const TOKENS: Record<string, string> = {
   "--color-sky-100": "#ece4da",
   "--color-sky-200": "#e5d9ce",
   "--color-sky-400": "#ccbba9",
+  "--color-mist": "#dce3eb",
   "--color-navy-900": "#273447",
   "--color-navy-800": "#2f3d54",
   "--color-blue-700": "#3c4c66",
