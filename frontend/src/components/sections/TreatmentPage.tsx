@@ -13,11 +13,11 @@ import { Consultation } from "./Consultation";
 import { Faq } from "./Faq";
 import { ImplantAnatomy, PorcelainLayers, SmileAnalysis } from "./explorers/Explorers";
 import { ImplantRender } from "./service-art/ImplantRender";
-import { ServiceArt } from "./service-art/ServiceArt";
+import { ServiceFilm } from "./service-film/ServiceFilm";
 import { SmileRender } from "./service-art/SmileRender";
 import { VeneersRender } from "./service-art/VeneersRender";
 
-// The three treatment pages (D-082): hero with the treatment's studio render, what it is, the treatment's own explorer
+// The three treatment pages (D-082): hero with the treatment's film (D-086), what it is, the treatment's own explorer
 // (implant anatomy · porcelain layers · smile analysis), who it is for, how it works, the treatment's own notes
 // (materials, aesthetics, aftercare, risks — a different set per treatment), international patients, its FAQ and the
 // consultation form with the treatment preselected. General educational wording, no durations, prices or results
@@ -83,7 +83,7 @@ export async function TreatmentPage({ treatment }: { treatment: Treatment }) {
             <div aria-hidden="true" className="absolute inset-[6%] rounded-full bg-white/70 shadow-e2" />
             <ViewTransition name={`treatment-${treatment}`}>
               <div aria-hidden="true" className="relative size-full">
-                <ServiceArt name={treatment} />
+                <ServiceFilm name={treatment} />
               </div>
             </ViewTransition>
           </div>

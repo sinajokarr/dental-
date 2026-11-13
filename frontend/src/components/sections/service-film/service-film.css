@@ -1,0 +1,41 @@
+/* Treatment films (D-086). Plain prefixed CSS (sf-). The base rule IS the finished picture: a circular window showing
+   the film's last frame. The video is shown only once it is actually playing, so a slow network never shows an empty
+   circle; it stays visible on its last frame. */
+.sf {
+  position: absolute;
+  inset: 6%;
+  overflow: hidden;
+  border-radius: 50%;
+  background: var(--color-sky-100) center / cover no-repeat;
+  box-shadow: var(--shadow-e2);
+  isolation: isolate;
+}
+.sf::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--color-sky-400) 55%, transparent);
+  pointer-events: none;
+}
+.sf-video,
+.sf video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.sf video {
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.4s ease-out;
+}
+.sf[data-state="play"] video,
+.sf[data-state="ended"] video {
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .sf video {
+    display: none;
+  }
+}

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type CSSProperties, type ReactNode } from "react";
+import "../service-art/service-art.css";
 import "./explorers.css";
 
 // The three treatment-page explorers (D-082). Each wraps the treatment's finished studio render (server-rendered, passed

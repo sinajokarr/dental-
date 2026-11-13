@@ -42,7 +42,8 @@ const server = http.createServer((req, res) => {
       const recorder = new MediaRecorder(canvas.captureStream(), { mimeType: mime, videoBitsPerSecond: o.kbps * 1000 });
       const chunks = []; recorder.ondataavailable = (e) => chunks.push(e.data);
       const done = new Promise((ok) => (recorder.onstop = ok));
-      const frame = () => { draw(); if (video.currentTime >= o.end || video.ended) { video.pause(); recorder.stop(); } else video.requestVideoFrameCallback(frame); };
+      const frame = () => { draw(); if (video.currentTime >= o.end || video.ended) { video.pause(); if (recorder.state === "recording") recorder.stop(); } else video.requestVideoFrameCallback(frame); };
+      video.onended = () => recorder.state === "recording" && recorder.stop(); // the last frame may never reach `end`
       recorder.start(); video.requestVideoFrameCallback(frame); await video.play(); await done;
       out.files[ext] = await b64(new Blob(chunks, { type: mime }));
     }
