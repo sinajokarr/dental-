@@ -48,6 +48,7 @@
 | SV01 | سه انیمیشن بخش خدمات اصلی (D-077) | C13 | `sections/service-art/*` · `Treatments.tsx` · `tests/e2e/service-art.spec.ts` · `treatments.spec.ts` | هر درمان یک روایت ≈ ۲٫۵ ثانیه؛ مستقل؛ یک‌بار؛ تصویر نهایی ثابت؛ چیدمان یکسان | e2e 187 · mutation check · ۴۷۷ box · ریتم فریم | L | ✅ commit `SV01` (بدون push) |
 | V5-A1 | Hero: لبخند طبیعی و تمام‌رخ (D-080، جایگزین D-078) | HS01 | `sections/hero-portrait/*` · `public/images/hero/portrait.webp` · `page.tsx` · `next.config.ts` · `hero-portrait.spec.ts` · `performance.spec.ts` · `ASSET_LICENSES.md` | پنجره قوسی، subject جدا از backdrop، reveal ≈ ۳ ثانیه، عمق با ماوس، ۴۹KB | e2e · mutation check · LCP 0.80s | M | ✅ commit `V5-A1` (بدون push) |
 | V5-B | پالت Soft Luxury (D-079) | V5-A1 | `globals.css` · `Section.tsx` · `SiteFooter.tsx` · `TrustStrip.tsx` · کامپوننت‌هایی که rgb پراکنده داشتند · icon و OG · tests | tokenهای ivory/band/muted-blue؛ بخش‌های تیره = Blue Gentian؛ بدون rgb پراکنده | unit 57/57 · e2e 185 (axe) | M | ✅ commit `V5-B` (بدون push) |
+| V5-A2 | سه تصویر خدمات: رندر استودیویی آفلاین (D-081) | V5-B | `scripts/render-treatments/*` · `assets/treatments/*` · `sections/service-art/*` · `tests/e2e/service-art.spec.ts` | لایه‌های PNG→AVIF، حرکت CSS یک‌باره، راهنمای هم‌تراز | Playwright: service-art 9/9 · کل ۱۸۵ passed / ۳ skipped · tsc/lint 0 · Lighthouse و دستگاه واقعی NOT RUN | M | ✅ |
 
 ## Phase C — Homepage
 

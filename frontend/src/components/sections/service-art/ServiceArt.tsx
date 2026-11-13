@@ -1,12 +1,12 @@
 import "./service-art.css";
-import { ImplantArt } from "./ImplantArt";
+import { ImplantRender } from "./ImplantRender";
 import { PlayOnView } from "./PlayOnView";
-import { SmileArt } from "./SmileArt";
-import { VeneersArt } from "./VeneersArt";
+import { SmileRender } from "./SmileRender";
+import { VeneersRender } from "./VeneersRender";
 
-const ART = { implants: ImplantArt, veneers: VeneersArt, smileDesign: SmileArt } as const;
+const ART = { implants: ImplantRender, veneers: VeneersRender, smileDesign: SmileRender } as const;
 
-/** The animated illustration of one home-page service (D-077). The treatment pages keep their own TreatmentDrawing. */
+/** The studio-render illustration of one home-page service (D-081). The treatment pages keep their own TreatmentDrawing. */
 export function ServiceArt({ name }: { name: keyof typeof ART }) {
   const Art = ART[name];
   return (
