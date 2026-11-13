@@ -2,7 +2,7 @@
   "home": {
     "hero": {
       "eyebrow": "Antalya · Istanbul",
-      "title": "Your <em>signature</em> smile, crafted in Antalya & Istanbul",
+      "title": "A smile that <em>feels like you</em>",
       "subtitle": "Dental implants, veneers and smile design — with a free initial consultation and full support for international patients.",
       "cta": "Request a free consultation"
     },
@@ -254,7 +254,8 @@
     "how": "How it works",
     "intlEyebrow": "International patients",
     "intlTitle": "Coming from abroad?",
-    "intlText": "We coordinate your hotel, airport transfer and interpreter — and you can send photos or X-rays for an online assessment before you travel."
+    "intlText": "We coordinate your hotel, airport transfer and interpreter — and you can send photos or X-rays for an online assessment before you travel.",
+    "medicalNote": "This page gives general information and does not replace an examination by a dentist."
   },
   "treatments": {
     "implants": {
@@ -299,6 +300,67 @@
         {
           "q": "How many visits will I need?",
           "a": "That depends on your treatment plan, including how long healing takes in your case. We explain it in your consultation; most visits take 3 to 8 days."
+        },
+        {
+          "q": "Does implant placement hurt?",
+          "a": "The implant is usually placed under local anaesthesia. Some soreness or swelling afterwards is common; your dentist explains how to manage it."
+        },
+        {
+          "q": "What is an implant made of?",
+          "a": "Usually titanium, with a ceramic crown. The materials used in your case are explained in your consultation."
+        },
+        {
+          "q": "Is an implant suitable for everyone?",
+          "a": "No. It depends on your general health, your gums and your jawbone. The dentist assesses this before any treatment is planned."
+        }
+      ],
+      "explorer": {
+        "title": "The three parts of an implant",
+        "lead": "An implant restoration is built from three parts, each with its own job. Select a part to see what it does.",
+        "hint": "Select a part",
+        "note": "A simplified teaching illustration — not a surgical simulation.",
+        "items": [
+          {
+            "key": "fixture",
+            "title": "Implant (fixture)",
+            "text": "A small threaded post, usually made of titanium, placed in the jawbone. It takes the place of the missing tooth root."
+          },
+          {
+            "key": "abutment",
+            "title": "Abutment",
+            "text": "The connecting piece between the implant and the crown. It sits at gum level and holds the crown in place."
+          },
+          {
+            "key": "crown",
+            "title": "Crown",
+            "text": "The visible part. It is made to match the shape and shade of your other teeth."
+          }
+        ]
+      },
+      "notes": [
+        {
+          "id": "materials",
+          "title": "Materials",
+          "text": [
+            "Implants are usually made of titanium, a material the body generally accepts well and that bone can grow onto.",
+            "The crown is typically ceramic, chosen to match your natural teeth. Which materials are used in your case is explained in your consultation."
+          ]
+        },
+        {
+          "id": "aftercare",
+          "title": "Healing and aftercare",
+          "text": [
+            "After the implant is placed, the bone needs time to heal around it. How long this takes differs from person to person.",
+            "Careful oral hygiene and the check-ups your dentist recommends help protect the implant and the gums around it. You receive your aftercare instructions in person."
+          ]
+        },
+        {
+          "id": "risks",
+          "title": "Risks and what to consider",
+          "text": [
+            "Implant placement is a surgical procedure. As with any surgery there are risks, such as infection, swelling or an implant that does not bond with the bone.",
+            "Smoking, gum disease and some health conditions can affect healing. This is why an examination comes first — and why this treatment is not suitable for everyone."
+          ]
         }
       ]
     },
@@ -344,6 +406,72 @@
         {
           "q": "Where can I have veneers?",
           "a": "In Antalya or Istanbul — veneers are offered in both cities."
+        },
+        {
+          "q": "Can a veneer be removed again?",
+          "a": "Usually enamel is shaped before bonding, and that cannot be undone. A tooth prepared for a veneer will generally need a veneer or another restoration in future."
+        },
+        {
+          "q": "How do I care for veneers?",
+          "a": "Like natural teeth: brushing, cleaning between the teeth and regular check-ups. Avoid biting on very hard objects."
+        },
+        {
+          "q": "Will veneers look natural?",
+          "a": "The shape and shade are planned with you so they suit your other teeth and your face. What is achievable in your case is discussed in your consultation."
+        }
+      ],
+      "explorer": {
+        "title": "A thin layer on the front of the tooth",
+        "lead": "A veneer covers only the front surface of a tooth. Move the slider to see how the shell meets the tooth.",
+        "hint": "Position of the veneer",
+        "note": "A simplified teaching illustration — not a preview of a treatment result.",
+        "items": [
+          {
+            "key": "apart",
+            "title": "The shell",
+            "text": "A veneer is a thin shell made to measure for one tooth. Its shape and shade are planned before it is made."
+          },
+          {
+            "key": "seated",
+            "title": "On the tooth",
+            "text": "The shell is bonded to the prepared front surface. The tooth itself and its root stay in place."
+          }
+        ],
+        "apart": "Apart",
+        "seated": "In place"
+      },
+      "notes": [
+        {
+          "id": "materials",
+          "title": "Porcelain",
+          "text": [
+            "Porcelain veneers are made of dental ceramic. The material lets some light through, much as natural enamel does, which is why a well-planned veneer can look like a natural tooth.",
+            "The shade is chosen with you, so it suits your other teeth and your face."
+          ]
+        },
+        {
+          "id": "aesthetics",
+          "title": "A natural look",
+          "text": [
+            "Natural teeth are not perfectly uniform. Small differences in shape, translucency and surface are part of what makes a smile look real.",
+            "A good plan aims for teeth that suit you — not for the whitest shade available."
+          ]
+        },
+        {
+          "id": "care",
+          "title": "Caring for veneers",
+          "text": [
+            "Veneers are cared for like natural teeth: brushing, cleaning between the teeth and regular check-ups.",
+            "Biting on very hard objects can chip porcelain. If you grind your teeth, tell your dentist — a night guard may be recommended."
+          ]
+        },
+        {
+          "id": "risks",
+          "title": "Risks and what to consider",
+          "text": [
+            "In many cases a thin layer of enamel is removed before a veneer is bonded. This cannot be undone, so the decision deserves time.",
+            "Teeth can be sensitive for a while afterwards, and a veneer can chip or come loose and need replacing. Veneers are not suitable for everyone; your dentist checks your teeth and gums first."
+          ]
         }
       ]
     },
@@ -389,6 +517,72 @@
         {
           "q": "Where is smile design offered?",
           "a": "In both of our cities, Antalya and Istanbul."
+        },
+        {
+          "q": "Does a smile design commit me to treatment?",
+          "a": "No. The plan shows your options. You decide afterwards whether and how to proceed."
+        },
+        {
+          "q": "Do I see the plan before treatment?",
+          "a": "Yes. The plan is discussed with you before any treatment begins."
+        },
+        {
+          "q": "Which treatments can be part of a smile design?",
+          "a": "That depends on your plan — for example veneers or implants. The dentist explains what would be involved in your case."
+        }
+      ],
+      "explorer": {
+        "title": "What a smile design looks at",
+        "lead": "A smile design considers proportions and lines, not single teeth. Switch the guides on and off to see what is assessed.",
+        "hint": "Guides",
+        "note": "An illustration of the planning principles — it does not predict the result of a treatment.",
+        "items": [
+          {
+            "key": "mid",
+            "title": "Midline",
+            "text": "The line between the two front teeth, considered in relation to the middle of the face."
+          },
+          {
+            "key": "arc",
+            "title": "Smile arc",
+            "text": "The curve along the edges of the upper teeth, which usually follows the line of the lower lip."
+          },
+          {
+            "key": "ratio",
+            "title": "Proportions",
+            "text": "How wide each tooth appears next to its neighbours when you smile."
+          },
+          {
+            "key": "zenith",
+            "title": "Gum line",
+            "text": "The highest point of the gum on each tooth, and how these points line up."
+          }
+        ]
+      },
+      "notes": [
+        {
+          "id": "planning",
+          "title": "Planning before treatment",
+          "text": [
+            "Smile design is a plan, not a treatment in itself. Photos and an examination are used to plan the shape, size and shade of the teeth together with your face.",
+            "The plan shows which treatments could be involved — for example veneers, implants or both — before anything is done."
+          ]
+        },
+        {
+          "id": "aesthetics",
+          "title": "Harmony over perfection",
+          "text": [
+            "A smile looks natural when it fits the face it belongs to. That is why two plans are never the same.",
+            "You see and discuss the plan first. Your wishes are part of it from the start."
+          ]
+        },
+        {
+          "id": "expectations",
+          "title": "Realistic expectations",
+          "text": [
+            "A plan is a guide. The final result depends on your teeth, your gums and the treatments that are possible for you.",
+            "Your dentist tells you plainly what can be achieved in your case and what cannot, including the risks of each treatment involved."
+          ]
         }
       ]
     }

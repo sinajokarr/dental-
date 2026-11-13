@@ -11,12 +11,17 @@ import { pageMetadata } from "@/lib/seo";
 import { waLink } from "@/lib/whatsapp";
 import { Consultation } from "./Consultation";
 import { Faq } from "./Faq";
-import { TreatmentDrawing } from "./TreatmentDrawing";
+import { ImplantAnatomy, PorcelainLayers, SmileAnalysis } from "./explorers/Explorers";
+import { ImplantRender } from "./service-art/ImplantRender";
+import { ServiceArt } from "./service-art/ServiceArt";
+import { SmileRender } from "./service-art/SmileRender";
+import { VeneersRender } from "./service-art/VeneersRender";
 
-// One template for the three treatment pages (SITEMAP_AND_USER_FLOWS §5): hero with the treatment's drawing,
-// what it is, who it is for, how it works, international patients, its own FAQ, and the consultation form with
-// the treatment preselected. Medical wording awaits a native medical reviewer (Q7); no durations, prices or
-// results beyond the confirmed facts (Claims Policy).
+// The three treatment pages (D-082): hero with the treatment's studio render, what it is, the treatment's own explorer
+// (implant anatomy · porcelain layers · smile analysis), who it is for, how it works, the treatment's own notes
+// (materials, aesthetics, aftercare, risks — a different set per treatment), international patients, its FAQ and the
+// consultation form with the treatment preselected. General educational wording, no durations, prices or results
+// beyond the confirmed facts (Claims Policy); it awaits a medical reviewer (Q7).
 type Treatment = "implants" | "veneers" | "smileDesign";
 const CONTEXT = { implants: "implants", veneers: "veneers", smileDesign: "smile_design" } as const;
 const HREF = { implants: "/dental-implants", veneers: "/dental-veneers", smileDesign: "/smile-design" } as const;
@@ -38,6 +43,8 @@ export async function TreatmentPage({ treatment }: { treatment: Treatment }) {
   const who = t.raw(`${treatment}.who`) as string[];
   const how = t.raw(`${treatment}.how`) as { title: string; text: string }[];
   const faq = t.raw(`${treatment}.faq`) as { q: string; a: string }[];
+  const notes = t.raw(`${treatment}.notes`) as { id: string; title: string; text: string[] }[];
+  const explorer = t.raw(`${treatment}.explorer`) as { title: string; lead: string; hint: string; note: string; apart?: string; seated?: string; items: { key: string; title: string; text: string }[] };
 
   return (
     <>
@@ -72,12 +79,11 @@ export async function TreatmentPage({ treatment }: { treatment: Treatment }) {
               </a>
             </div>
           </div>
-          <div data-draw-load="" className="relative mx-auto aspect-square w-full max-w-md">
+          <div className="relative mx-auto aspect-square w-full max-w-md">
             <div aria-hidden="true" className="absolute inset-[6%] rounded-full bg-white/70 shadow-e2" />
-            <div aria-hidden="true" className="absolute inset-[6%] rounded-full [background-image:radial-gradient(color-mix(in_srgb,var(--color-blue-700)_13%,transparent)_1px,transparent_1.2px)] [background-size:14px_14px] [mask-image:radial-gradient(closest-side,#000_55%,transparent)]" />
             <ViewTransition name={`treatment-${treatment}`}>
-              <div className="relative size-full">
-                <TreatmentDrawing name={treatment} />
+              <div aria-hidden="true" className="relative size-full">
+                <ServiceArt name={treatment} />
               </div>
             </ViewTransition>
           </div>
@@ -97,7 +103,29 @@ export async function TreatmentPage({ treatment }: { treatment: Treatment }) {
         </div>
       </Section>
 
-      <Section tone="ice" labelledBy="who-title">
+      <Section tone="ice" labelledBy="explorer-title">
+        <SectionHeader id="explorer-title" title={explorer.title} lead={explorer.lead} />
+        <div className="mt-10 lg:mt-14">
+          {treatment === "implants" && (
+            <ImplantAnatomy items={explorer.items} hint={explorer.hint}>
+              <ImplantRender />
+            </ImplantAnatomy>
+          )}
+          {treatment === "veneers" && (
+            <PorcelainLayers items={explorer.items} label={explorer.hint} apart={explorer.apart!} seated={explorer.seated!}>
+              <VeneersRender />
+            </PorcelainLayers>
+          )}
+          {treatment === "smileDesign" && (
+            <SmileAnalysis items={explorer.items} hint={explorer.hint}>
+              <SmileRender />
+            </SmileAnalysis>
+          )}
+        </div>
+        <p className="mt-8 text-small text-slate-600">{explorer.note}</p>
+      </Section>
+
+      <Section labelledBy="who-title">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-20">
           <SectionHeader id="who-title" title={page("who")} />
           <ul className="divide-y divide-sky-200 border-y border-sky-200">
@@ -113,7 +141,7 @@ export async function TreatmentPage({ treatment }: { treatment: Treatment }) {
         </div>
       </Section>
 
-      <Section labelledBy="how-title">
+      <Section tone="ice" labelledBy="how-title">
         <SectionHeader id="how-title" title={page("how")} />
         <ol className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:mt-16 lg:grid-cols-4 lg:gap-6">
           {how.map((step, i) => (
@@ -124,6 +152,24 @@ export async function TreatmentPage({ treatment }: { treatment: Treatment }) {
             </li>
           ))}
         </ol>
+      </Section>
+
+      <Section labelledBy="notes-title-0">
+        <div className={`grid grid-cols-1 gap-x-12 gap-y-12 md:grid-cols-2 ${notes.length === 3 ? "lg:grid-cols-3" : ""}`}>
+          {notes.map((note, i) => (
+            <article key={note.id} data-note={note.id} className="border-t border-sky-200 pt-6">
+              <h2 id={`notes-title-${i}`} className="font-display text-h3 font-light">
+                {note.title}
+              </h2>
+              {note.text.map((paragraph) => (
+                <p key={paragraph} data-reveal="" className="mt-4 text-slate-600">
+                  {paragraph}
+                </p>
+              ))}
+            </article>
+          ))}
+        </div>
+        <p className="mt-12 text-small text-slate-600">{page("medicalNote")}</p>
       </Section>
 
       <Section tone="navy" labelledBy="intl-title" className="panel-open overflow-clip">

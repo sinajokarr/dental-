@@ -6,7 +6,7 @@ import { RenderLayer } from "./RenderLayer";
 // exact projected points of the render — midline, smile arc along the incisal edges, proportion bracket, gingival zeniths —
 // which then fade and leave the natural arch. A fine pointer over the chapter calls the guides back.
 type Point = [number, number];
-const teeth = meta.teeth as unknown as { incisal: Point; left: Point; right: Point; edgeLeft: Point; edgeRight: Point; zenith: Point }[];
+const teeth = meta.teeth as unknown as { incisal: Point; edgeLeft: Point; edgeRight: Point; zenith: Point }[];
 
 /** Smooth curve through points (Catmull-Rom → cubic Bézier). */
 function smooth(points: Point[]): string {

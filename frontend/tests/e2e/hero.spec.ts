@@ -65,7 +65,7 @@ test("punctuation after emphasis stays on the same line as its word; Persian emp
   await page.goto("/fa");
   const words = await page.locator(".hero-word").allTextContents();
   expect(words).not.toContain("،");
-  expect(words.some((w) => w.endsWith("شما،"))).toBe(true);
+  expect(words.join(" ")).toContain("به خودتان می‌آید"); // the brand line (D-082), emphasis inside whole words
   const em = page.locator("#hero-title em");
   expect(await em.first().evaluate((el) => getComputedStyle(el).fontStyle)).toBe("normal");
   expect(await em.first().evaluate((el) => getComputedStyle(el).color)).toBe("rgb(91, 109, 135)");

@@ -31,7 +31,7 @@ test("treatments are chapters, not a numbered sequence", async ({ page }) => {
   await expect(section).not.toContainText(/0[1-3]/);
 });
 
-test("opening a treatment morphs its drawing into the next page (view transition)", async ({ page }) => {
+test("opening a treatment morphs its render into the next page (view transition)", async ({ page }) => {
   // Records which elements are named when the browser snapshots the old page.
   await page.addInitScript(() => {
     const start = document.startViewTransition.bind(document);
@@ -46,10 +46,12 @@ test("opening a treatment morphs its drawing into the next page (view transition
   await expect(page).toHaveURL(/\/en\/dental-implants$/);
   expect(await page.evaluate(() => (window as unknown as { __vt: string[] }).__vt)).toContain("treatment-implants");
   await expect(page.getByRole("heading", { level: 1 }).filter({ visible: true })).toBeVisible();
-  // The drawing arrived finished: it must not erase itself and draw again…
-  const stroke = page.locator("[data-draw-load] [pathLength]").filter({ visible: true }).first();
-  expect(await stroke.evaluate((el) => getComputedStyle(el).animationName)).toBe("none");
-  // …while a direct visit still draws it once.
+  // The render arrives finished (D-082): in view at load, it is never armed and never replays its story.
+  const art = page.locator("section[aria-labelledby=page-title] [data-service-art]");
+  await expect(art).toHaveCount(1);
+  await expect(art).not.toHaveAttribute("data-state");
+  expect(await art.locator(".sr-i-crown").evaluate((el) => getComputedStyle(el).opacity)).toBe("1");
+  // …and a direct visit shows the same finished picture.
   await page.goto("/en/dental-implants");
-  expect(await stroke.evaluate((el) => getComputedStyle(el).animationName)).toBe("draw");
+  await expect(art).not.toHaveAttribute("data-state");
 });

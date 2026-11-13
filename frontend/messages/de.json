@@ -2,7 +2,7 @@
   "home": {
     "hero": {
       "eyebrow": "Antalya · Istanbul",
-      "title": "Ihr <em>unverwechselbares</em> Lächeln – gestaltet in Antalya & Istanbul",
+      "title": "Ein Lächeln, das <em>zu Ihnen passt</em>",
       "subtitle": "Zahnimplantate, Veneers und Smile Design – mit kostenloser Erstberatung und umfassender Unterstützung für internationale Patienten.",
       "cta": "Kostenlose Beratung anfragen"
     },
@@ -254,7 +254,8 @@
     "how": "So läuft es ab",
     "intlEyebrow": "Internationale Patienten",
     "intlTitle": "Sie kommen aus dem Ausland?",
-    "intlText": "Wir koordinieren Hotel, Flughafentransfer und Dolmetscher – und vor der Reise können Sie Fotos oder Röntgenbilder für eine Online-Einschätzung senden."
+    "intlText": "Wir koordinieren Hotel, Flughafentransfer und Dolmetscher – und vor der Reise können Sie Fotos oder Röntgenbilder für eine Online-Einschätzung senden.",
+    "medicalNote": "Diese Seite gibt allgemeine Informationen und ersetzt keine zahnärztliche Untersuchung."
   },
   "treatments": {
     "implants": {
@@ -299,6 +300,67 @@
         {
           "q": "Wie viele Besuche brauche ich?",
           "a": "Das hängt von Ihrem Behandlungsplan ab, auch davon, wie lange die Einheilung in Ihrem Fall dauert. Wir erklären es in Ihrer Beratung; die meisten Aufenthalte dauern 3 bis 8 Tage."
+        },
+        {
+          "q": "Tut das Einsetzen eines Implantats weh?",
+          "a": "Das Implantat wird in der Regel unter örtlicher Betäubung eingesetzt. Leichte Schmerzen oder eine Schwellung danach sind häufig; Ihr Zahnarzt erklärt Ihnen, was dagegen hilft."
+        },
+        {
+          "q": "Woraus besteht ein Implantat?",
+          "a": "Meist aus Titan, mit einer Krone aus Keramik. Welche Materialien in Ihrem Fall verwendet werden, erfahren Sie in der Beratung."
+        },
+        {
+          "q": "Ist ein Implantat für jeden geeignet?",
+          "a": "Nein. Das hängt von Ihrer allgemeinen Gesundheit, Ihrem Zahnfleisch und Ihrem Kieferknochen ab. Der Zahnarzt prüft das, bevor eine Behandlung geplant wird."
+        }
+      ],
+      "explorer": {
+        "title": "Die drei Teile eines Implantats",
+        "lead": "Eine Implantatversorgung besteht aus drei Teilen, jedes mit eigener Aufgabe. Wählen Sie ein Teil aus, um zu sehen, wozu es dient.",
+        "hint": "Teil auswählen",
+        "note": "Vereinfachte Darstellung zur Erklärung – keine Simulation des Eingriffs.",
+        "items": [
+          {
+            "key": "fixture",
+            "title": "Implantat (Implantatkörper)",
+            "text": "Ein kleiner Stift mit Gewinde, meist aus Titan, der in den Kieferknochen eingesetzt wird. Er ersetzt die fehlende Zahnwurzel."
+          },
+          {
+            "key": "abutment",
+            "title": "Abutment (Aufbau)",
+            "text": "Das Verbindungsstück zwischen Implantat und Krone. Es sitzt auf Höhe des Zahnfleischs und hält die Krone."
+          },
+          {
+            "key": "crown",
+            "title": "Krone",
+            "text": "Der sichtbare Teil. Sie wird in Form und Farbe an Ihre übrigen Zähne angepasst."
+          }
+        ]
+      },
+      "notes": [
+        {
+          "id": "materials",
+          "title": "Materialien",
+          "text": [
+            "Implantate bestehen meist aus Titan – einem Material, das der Körper in der Regel gut annimmt und mit dem der Knochen verwachsen kann.",
+            "Die Krone ist in der Regel aus Keramik und wird passend zu Ihren natürlichen Zähnen gewählt. Welche Materialien in Ihrem Fall verwendet werden, erfahren Sie in der Beratung."
+          ]
+        },
+        {
+          "id": "aftercare",
+          "title": "Heilung und Nachsorge",
+          "text": [
+            "Nach dem Einsetzen braucht der Knochen Zeit, um rund um das Implantat zu heilen. Wie lange das dauert, ist von Mensch zu Mensch verschieden.",
+            "Sorgfältige Mundhygiene und die Kontrollen, die Ihr Zahnarzt empfiehlt, helfen, das Implantat und das Zahnfleisch darum zu schützen. Ihre Hinweise zur Nachsorge erhalten Sie persönlich."
+          ]
+        },
+        {
+          "id": "risks",
+          "title": "Risiken und was Sie bedenken sollten",
+          "text": [
+            "Das Einsetzen eines Implantats ist ein chirurgischer Eingriff. Wie bei jeder Operation gibt es Risiken, etwa eine Infektion, eine Schwellung oder ein Implantat, das nicht mit dem Knochen verwächst.",
+            "Rauchen, Zahnfleischerkrankungen und manche Vorerkrankungen können die Heilung beeinflussen. Deshalb steht am Anfang eine Untersuchung – und deshalb ist die Behandlung nicht für jeden geeignet."
+          ]
         }
       ]
     },
@@ -344,6 +406,72 @@
         {
           "q": "Wo kann ich Veneers bekommen?",
           "a": "In Antalya oder Istanbul – Veneers bieten wir in beiden Städten an."
+        },
+        {
+          "q": "Kann ein Veneer wieder entfernt werden?",
+          "a": "Meist wird vor dem Kleben Zahnschmelz abgetragen, und das lässt sich nicht rückgängig machen. Ein für ein Veneer vorbereiteter Zahn braucht in der Regel auch künftig ein Veneer oder eine andere Versorgung."
+        },
+        {
+          "q": "Wie pflege ich Veneers?",
+          "a": "Wie natürliche Zähne: Zähneputzen, Reinigung der Zahnzwischenräume und regelmäßige Kontrollen. Beißen Sie nicht auf sehr harte Gegenstände."
+        },
+        {
+          "q": "Sehen Veneers natürlich aus?",
+          "a": "Form und Farbe werden mit Ihnen geplant, damit sie zu Ihren übrigen Zähnen und Ihrem Gesicht passen. Was in Ihrem Fall möglich ist, besprechen wir in der Beratung."
+        }
+      ],
+      "explorer": {
+        "title": "Eine dünne Schicht auf der Vorderseite des Zahns",
+        "lead": "Ein Veneer bedeckt nur die Vorderfläche eines Zahns. Bewegen Sie den Regler, um zu sehen, wie die Schale auf den Zahn trifft.",
+        "hint": "Position des Veneers",
+        "note": "Vereinfachte Darstellung zur Erklärung – keine Vorschau auf ein Behandlungsergebnis.",
+        "items": [
+          {
+            "key": "apart",
+            "title": "Die Schale",
+            "text": "Ein Veneer ist eine dünne Schale, die für einen einzelnen Zahn nach Maß gefertigt wird. Form und Farbe werden vorher geplant."
+          },
+          {
+            "key": "seated",
+            "title": "Auf dem Zahn",
+            "text": "Die Schale wird auf die vorbereitete Vorderfläche geklebt. Der Zahn selbst und seine Wurzel bleiben erhalten."
+          }
+        ],
+        "apart": "Getrennt",
+        "seated": "Am Zahn"
+      },
+      "notes": [
+        {
+          "id": "materials",
+          "title": "Keramik",
+          "text": [
+            "Keramik-Veneers bestehen aus Dentalkeramik. Das Material lässt etwas Licht durch, ähnlich wie natürlicher Zahnschmelz – deshalb kann ein gut geplantes Veneer wie ein natürlicher Zahn wirken.",
+            "Die Farbe wird gemeinsam mit Ihnen gewählt, damit sie zu Ihren übrigen Zähnen und zu Ihrem Gesicht passt."
+          ]
+        },
+        {
+          "id": "aesthetics",
+          "title": "Ein natürliches Aussehen",
+          "text": [
+            "Natürliche Zähne sind nicht vollkommen gleichmäßig. Kleine Unterschiede in Form, Transluzenz und Oberfläche gehören zu dem, was ein Lächeln echt wirken lässt.",
+            "Eine gute Planung zielt auf Zähne, die zu Ihnen passen – nicht auf die hellste verfügbare Farbe."
+          ]
+        },
+        {
+          "id": "care",
+          "title": "Pflege von Veneers",
+          "text": [
+            "Veneers werden wie natürliche Zähne gepflegt: Zähneputzen, Reinigung der Zahnzwischenräume und regelmäßige Kontrollen.",
+            "Beim Beißen auf sehr harte Gegenstände kann Keramik absplittern. Wenn Sie mit den Zähnen knirschen, sagen Sie es Ihrem Zahnarzt – eventuell wird eine Schiene für die Nacht empfohlen."
+          ]
+        },
+        {
+          "id": "risks",
+          "title": "Risiken und was Sie bedenken sollten",
+          "text": [
+            "In vielen Fällen wird vor dem Kleben eine dünne Schicht Zahnschmelz abgetragen. Das lässt sich nicht rückgängig machen – nehmen Sie sich für die Entscheidung Zeit.",
+            "Die Zähne können danach eine Zeit lang empfindlich sein, und ein Veneer kann absplittern oder sich lösen und muss dann ersetzt werden. Veneers sind nicht für jeden geeignet; der Zahnarzt prüft zuerst Ihre Zähne und Ihr Zahnfleisch."
+          ]
         }
       ]
     },
@@ -389,6 +517,72 @@
         {
           "q": "Wo wird Smile Design angeboten?",
           "a": "In unseren beiden Städten, Antalya und Istanbul."
+        },
+        {
+          "q": "Verpflichtet mich ein Smile Design zu einer Behandlung?",
+          "a": "Nein. Die Planung zeigt Ihre Möglichkeiten. Danach entscheiden Sie, ob und wie es weitergeht."
+        },
+        {
+          "q": "Sehe ich die Planung vor der Behandlung?",
+          "a": "Ja. Die Planung wird mit Ihnen besprochen, bevor eine Behandlung beginnt."
+        },
+        {
+          "q": "Welche Behandlungen können zu einem Smile Design gehören?",
+          "a": "Das hängt von Ihrer Planung ab – zum Beispiel Veneers oder Implantate. Der Zahnarzt erklärt, was in Ihrem Fall dazugehören würde."
+        }
+      ],
+      "explorer": {
+        "title": "Worauf ein Smile Design achtet",
+        "lead": "Ein Smile Design betrachtet Proportionen und Linien, nicht einzelne Zähne. Schalten Sie die Hilfslinien ein und aus, um zu sehen, was beurteilt wird.",
+        "hint": "Hilfslinien",
+        "note": "Eine Darstellung der Planungsgrundsätze – sie sagt kein Behandlungsergebnis voraus.",
+        "items": [
+          {
+            "key": "mid",
+            "title": "Mittellinie",
+            "text": "Die Linie zwischen den beiden mittleren Schneidezähnen, betrachtet im Verhältnis zur Gesichtsmitte."
+          },
+          {
+            "key": "arc",
+            "title": "Lachlinie",
+            "text": "Der Bogen entlang der Schneidekanten der oberen Zähne, der meist dem Verlauf der Unterlippe folgt."
+          },
+          {
+            "key": "ratio",
+            "title": "Proportionen",
+            "text": "Wie breit jeder Zahn beim Lächeln neben seinen Nachbarn erscheint."
+          },
+          {
+            "key": "zenith",
+            "title": "Zahnfleischverlauf",
+            "text": "Der höchste Punkt des Zahnfleischs an jedem Zahn und wie diese Punkte zueinander stehen."
+          }
+        ]
+      },
+      "notes": [
+        {
+          "id": "planning",
+          "title": "Planung vor der Behandlung",
+          "text": [
+            "Smile Design ist eine Planung, keine Behandlung an sich. Anhand von Fotos und einer Untersuchung werden Form, Größe und Farbe der Zähne zusammen mit Ihrem Gesicht geplant.",
+            "Die Planung zeigt, welche Behandlungen infrage kommen – zum Beispiel Veneers, Implantate oder beides –, bevor etwas gemacht wird."
+          ]
+        },
+        {
+          "id": "aesthetics",
+          "title": "Harmonie statt Perfektion",
+          "text": [
+            "Ein Lächeln wirkt natürlich, wenn es zu dem Gesicht passt, zu dem es gehört. Deshalb gleicht keine Planung der anderen.",
+            "Sie sehen und besprechen die Planung zuerst. Ihre Wünsche sind von Anfang an Teil davon."
+          ]
+        },
+        {
+          "id": "expectations",
+          "title": "Realistische Erwartungen",
+          "text": [
+            "Eine Planung ist eine Orientierung. Das Ergebnis hängt von Ihren Zähnen, Ihrem Zahnfleisch und den Behandlungen ab, die für Sie möglich sind.",
+            "Ihr Zahnarzt sagt Ihnen offen, was in Ihrem Fall erreichbar ist und was nicht – einschließlich der Risiken jeder beteiligten Behandlung."
+          ]
         }
       ]
     }

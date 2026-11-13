@@ -2,7 +2,7 @@
   "home": {
     "hero": {
       "eyebrow": "Antalya · İstanbul",
-      "title": "<em>Size özel</em> bir gülüş — Antalya ve İstanbul'da",
+      "title": "<em>Size yakışan</em> bir gülümseme",
       "subtitle": "Diş implantı, porselen lamina ve gülüş tasarımı — ücretsiz ilk danışmanlık ve uluslararası hastalar için tam destekle.",
       "cta": "Ücretsiz danışmanlık talep edin"
     },
@@ -254,7 +254,8 @@
     "how": "Süreç nasıl işler?",
     "intlEyebrow": "Uluslararası hastalar",
     "intlTitle": "Yurt dışından mı geliyorsunuz?",
-    "intlText": "Otel, havalimanı transferi ve tercümanı biz koordine ederiz; seyahatten önce fotoğraflarınızı veya röntgenlerinizi online değerlendirme için gönderebilirsiniz."
+    "intlText": "Otel, havalimanı transferi ve tercümanı biz koordine ederiz; seyahatten önce fotoğraflarınızı veya röntgenlerinizi online değerlendirme için gönderebilirsiniz.",
+    "medicalNote": "Bu sayfa genel bilgi verir; diş hekimi muayenesinin yerini tutmaz."
   },
   "treatments": {
     "implants": {
@@ -299,6 +300,67 @@
         {
           "q": "Kaç ziyaret gerekir?",
           "a": "Bu, iyileşmenin sizin durumunuzda ne kadar süreceği dahil tedavi planınıza bağlıdır. Danışmanlıkta açıklarız; ziyaretlerin çoğu 3 ila 8 gün sürer."
+        },
+        {
+          "q": "İmplant yerleştirilmesi acıtır mı?",
+          "a": "İmplant genellikle lokal anestezi altında yerleştirilir. Sonrasında hafif ağrı veya şişlik sık görülür; diş hekiminiz bunu nasıl hafifleteceğinizi anlatır."
+        },
+        {
+          "q": "İmplant hangi malzemeden yapılır?",
+          "a": "Genellikle titanyumdan, seramik bir kronla. Sizin tedavinizde kullanılacak malzemeler danışmanlıkta anlatılır."
+        },
+        {
+          "q": "İmplant herkes için uygun mudur?",
+          "a": "Hayır. Genel sağlığınıza, diş etlerinize ve çene kemiğinize bağlıdır. Diş hekimi, herhangi bir tedavi planlanmadan önce bunları değerlendirir."
+        }
+      ],
+      "explorer": {
+        "title": "Bir implantın üç parçası",
+        "lead": "İmplant üstü restorasyon üç parçadan oluşur ve her birinin ayrı bir görevi vardır. Ne işe yaradığını görmek için bir parça seçin.",
+        "hint": "Bir parça seçin",
+        "note": "Anlatım amaçlı sadeleştirilmiş bir görseldir; cerrahi işlemin simülasyonu değildir.",
+        "items": [
+          {
+            "key": "fixture",
+            "title": "İmplant (vida)",
+            "text": "Çene kemiğine yerleştirilen, genellikle titanyumdan yapılan küçük, yivli bir parçadır. Eksik dişin kökünün yerini alır."
+          },
+          {
+            "key": "abutment",
+            "title": "Abutment (dayanak)",
+            "text": "İmplant ile kron arasındaki bağlantı parçasıdır. Diş eti seviyesinde durur ve kronu taşır."
+          },
+          {
+            "key": "crown",
+            "title": "Kron",
+            "text": "Görünen kısımdır. Şekli ve rengi diğer dişlerinize uyacak biçimde hazırlanır."
+          }
+        ]
+      },
+      "notes": [
+        {
+          "id": "materials",
+          "title": "Malzemeler",
+          "text": [
+            "İmplantlar genellikle titanyumdan yapılır; vücudun çoğunlukla iyi kabul ettiği ve kemiğin üzerine tutunabildiği bir malzemedir.",
+            "Kron genellikle seramiktir ve doğal dişlerinize uyacak şekilde seçilir. Sizin tedavinizde hangi malzemelerin kullanılacağı danışmanlıkta anlatılır."
+          ]
+        },
+        {
+          "id": "aftercare",
+          "title": "İyileşme ve tedavi sonrası bakım",
+          "text": [
+            "İmplant yerleştirildikten sonra kemiğin çevresinde iyileşmesi için zamana ihtiyaç vardır. Bu süre kişiden kişiye değişir.",
+            "Özenli ağız hijyeni ve diş hekiminizin önerdiği kontroller, implantın ve çevresindeki diş etinin korunmasına yardımcı olur. Bakım talimatlarınızı yüz yüze alırsınız."
+          ]
+        },
+        {
+          "id": "risks",
+          "title": "Riskler ve dikkat edilmesi gerekenler",
+          "text": [
+            "İmplant yerleştirilmesi cerrahi bir işlemdir. Her cerrahi işlemde olduğu gibi enfeksiyon, şişlik veya implantın kemikle kaynaşmaması gibi riskler vardır.",
+            "Sigara, diş eti hastalıkları ve bazı sağlık sorunları iyileşmeyi etkileyebilir. Bu nedenle önce muayene yapılır ve bu tedavi herkes için uygun değildir."
+          ]
         }
       ]
     },
@@ -344,6 +406,72 @@
         {
           "q": "Laminayı nerede yaptırabilirim?",
           "a": "Antalya'da veya İstanbul'da — porselen lamina her iki şehirde de sunulur."
+        },
+        {
+          "q": "Lamina sonradan çıkarılabilir mi?",
+          "a": "Genellikle yapıştırmadan önce diş minesi şekillendirilir ve bu geri alınamaz. Lamina için hazırlanmış bir diş, ileride de genellikle lamina veya başka bir restorasyona ihtiyaç duyar."
+        },
+        {
+          "q": "Laminalara nasıl bakmalıyım?",
+          "a": "Doğal dişler gibi: fırçalama, diş aralarının temizliği ve düzenli kontroller. Çok sert cisimleri ısırmaktan kaçının."
+        },
+        {
+          "q": "Laminalar doğal görünür mü?",
+          "a": "Şekil ve renk, diğer dişlerinize ve yüzünüze uyması için sizinle birlikte planlanır. Sizin durumunuzda nelerin mümkün olduğu danışmanlıkta konuşulur."
+        }
+      ],
+      "explorer": {
+        "title": "Dişin ön yüzeyinde ince bir katman",
+        "lead": "Lamina yalnızca dişin ön yüzeyini kaplar. Kabuğun dişle nasıl buluştuğunu görmek için kaydırıcıyı hareket ettirin.",
+        "hint": "Laminanın konumu",
+        "note": "Anlatım amaçlı sadeleştirilmiş bir görseldir; tedavi sonucunun ön izlemesi değildir.",
+        "items": [
+          {
+            "key": "apart",
+            "title": "Kabuk",
+            "text": "Lamina, tek bir diş için ölçüye göre hazırlanan ince bir kabuktur. Şekli ve rengi yapılmadan önce planlanır."
+          },
+          {
+            "key": "seated",
+            "title": "Dişin üzerinde",
+            "text": "Kabuk, dişin hazırlanmış ön yüzeyine yapıştırılır. Dişin kendisi ve kökü yerinde kalır."
+          }
+        ],
+        "apart": "Ayrı",
+        "seated": "Yerinde"
+      },
+      "notes": [
+        {
+          "id": "materials",
+          "title": "Porselen",
+          "text": [
+            "Porselen laminalar dental seramikten yapılır. Bu malzeme, doğal diş minesi gibi ışığın bir kısmını geçirir; bu yüzden iyi planlanmış bir lamina doğal bir diş gibi görünebilir.",
+            "Renk, diğer dişlerinize ve yüzünüze uyması için sizinle birlikte seçilir."
+          ]
+        },
+        {
+          "id": "aesthetics",
+          "title": "Doğal bir görünüm",
+          "text": [
+            "Doğal dişler kusursuz biçimde tek tip değildir. Şekil, yarı saydamlık ve yüzeydeki küçük farklılıklar, bir gülüşü gerçek gösteren şeylerin parçasıdır.",
+            "İyi bir planın hedefi size yakışan dişlerdir; mümkün olan en beyaz renk değil."
+          ]
+        },
+        {
+          "id": "care",
+          "title": "Laminaların bakımı",
+          "text": [
+            "Laminalara doğal dişler gibi bakılır: fırçalama, diş aralarının temizliği ve düzenli kontroller.",
+            "Çok sert cisimleri ısırmak porseleni kırabilir. Diş sıkıyor veya gıcırdatıyorsanız diş hekiminize söyleyin; gece plağı önerilebilir."
+          ]
+        },
+        {
+          "id": "risks",
+          "title": "Riskler ve dikkat edilmesi gerekenler",
+          "text": [
+            "Çoğu durumda lamina yapıştırılmadan önce diş minesinden ince bir tabaka alınır. Bu işlem geri alınamaz; bu yüzden karar vermek için kendinize zaman tanıyın.",
+            "Dişlerde bir süre hassasiyet olabilir; lamina kırılabilir veya yerinden çıkabilir ve yenilenmesi gerekebilir. Lamina herkes için uygun değildir; diş hekimi önce dişlerinizi ve diş etlerinizi değerlendirir."
+          ]
         }
       ]
     },
@@ -389,6 +517,72 @@
         {
           "q": "Gülüş tasarımı nerede sunuluyor?",
           "a": "İki şehrimizde de: Antalya ve İstanbul."
+        },
+        {
+          "q": "Gülüş tasarımı beni tedaviye bağlar mı?",
+          "a": "Hayır. Plan seçeneklerinizi gösterir. Devam edip etmeyeceğinize ve nasıl ilerleyeceğinize sonrasında siz karar verirsiniz."
+        },
+        {
+          "q": "Planı tedaviden önce görebilir miyim?",
+          "a": "Evet. Plan, herhangi bir tedavi başlamadan önce sizinle konuşulur."
+        },
+        {
+          "q": "Gülüş tasarımına hangi tedaviler dahil olabilir?",
+          "a": "Planınıza bağlıdır; örneğin lamina veya implant. Diş hekimi sizin durumunuzda nelerin gerekeceğini anlatır."
+        }
+      ],
+      "explorer": {
+        "title": "Gülüş tasarımı nelere bakar",
+        "lead": "Gülüş tasarımı tek tek dişlere değil, oranlara ve çizgilere bakar. Nelerin değerlendirildiğini görmek için kılavuz çizgileri açıp kapatın.",
+        "hint": "Kılavuz çizgiler",
+        "note": "Planlama ilkelerini gösteren bir görseldir; tedavi sonucunu öngörmez.",
+        "items": [
+          {
+            "key": "mid",
+            "title": "Orta hat",
+            "text": "İki ön diş arasındaki çizgidir; yüzün ortasına göre değerlendirilir."
+          },
+          {
+            "key": "arc",
+            "title": "Gülüş kavsi",
+            "text": "Üst dişlerin kenarları boyunca uzanan ve genellikle alt dudağın çizgisini izleyen eğridir."
+          },
+          {
+            "key": "ratio",
+            "title": "Oranlar",
+            "text": "Gülerken her dişin yanındaki dişlere göre ne kadar geniş göründüğüdür."
+          },
+          {
+            "key": "zenith",
+            "title": "Diş eti hattı",
+            "text": "Her dişte diş etinin en yüksek noktası ve bu noktaların birbirine göre hizasıdır."
+          }
+        ]
+      },
+      "notes": [
+        {
+          "id": "planning",
+          "title": "Tedaviden önce planlama",
+          "text": [
+            "Gülüş tasarımı bir tedavi değil, bir planlamadır. Fotoğraflar ve muayeneyle dişlerin şekli, boyutu ve rengi yüzünüzle birlikte planlanır.",
+            "Plan, herhangi bir işlem yapılmadan önce hangi tedavilerin söz konusu olabileceğini gösterir; örneğin lamina, implant veya ikisi birden."
+          ]
+        },
+        {
+          "id": "aesthetics",
+          "title": "Kusursuzluk değil, uyum",
+          "text": [
+            "Bir gülüş, ait olduğu yüze uyduğunda doğal görünür. Bu yüzden hiçbir plan bir diğerinin aynısı değildir.",
+            "Planı önce siz görür ve konuşursunuz. İstekleriniz en baştan planın bir parçasıdır."
+          ]
+        },
+        {
+          "id": "expectations",
+          "title": "Gerçekçi beklentiler",
+          "text": [
+            "Plan bir yol göstericidir. Sonuç; dişlerinize, diş etlerinize ve sizin için mümkün olan tedavilere bağlıdır.",
+            "Diş hekiminiz, sizin durumunuzda neyin mümkün olup neyin olmadığını ve ilgili her tedavinin risklerini açıkça anlatır."
+          ]
         }
       ]
     }

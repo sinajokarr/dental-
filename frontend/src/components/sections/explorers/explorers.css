@@ -1,0 +1,130 @@
+/* Treatment-page explorers (D-082). Plain prefixed CSS (ex-), logical properties only. The art is the finished studio
+   render of service-art.css; here it only reacts to a control: opacity and translate, short transitions, none under
+   reduced motion. */
+.ex {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+}
+@media (width >= 64rem) {
+  .ex {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 4rem;
+  }
+}
+.ex-art {
+  position: relative;
+  inline-size: 100%;
+  max-inline-size: 28rem;
+  margin-inline: auto;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, var(--color-white), color-mix(in srgb, var(--color-sky-200) 45%, transparent));
+}
+.ex-panel {
+  min-inline-size: 0;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+.ex-text {
+  margin-block-start: 1.5rem;
+  min-block-size: 7.5rem; /* the explanation changes; the page must not jump */
+}
+.ex-chip {
+  min-block-size: 2.75rem;
+  padding-inline: 1.1rem;
+  border: 1px solid var(--color-slate-500);
+  border-radius: 999px;
+  background: var(--color-white);
+  color: var(--color-navy-900);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+.ex-chip:hover {
+  border-color: var(--color-blue-700);
+}
+.ex-chip[aria-pressed="true"] {
+  background: var(--color-blue-700);
+  border-color: var(--color-blue-700);
+  color: var(--color-white);
+}
+.ex-chip:focus-visible,
+.ex-range:focus-visible,
+.ex-check input:focus-visible {
+  outline: 2px solid var(--color-blue-700);
+  outline-offset: 3px;
+}
+.ex-range {
+  display: block;
+  inline-size: 100%;
+  block-size: 2.75rem;
+  accent-color: var(--color-blue-700);
+  cursor: pointer;
+}
+.ex-check {
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+  min-block-size: 2.75rem;
+  cursor: pointer;
+}
+.ex-check input {
+  flex: none;
+  inline-size: 1.35rem;
+  block-size: 1.35rem;
+  margin-block-start: 0.15rem;
+  accent-color: var(--color-blue-700);
+}
+
+.ex .sr-layer,
+.ex .sr-guides path,
+.ex .sr-guides g,
+.ex .sr-guides circle {
+  transition: opacity 0.35s ease-out, translate 0.35s ease-out, scale 0.35s ease-out;
+}
+.ex .sr [data-sr-extra] {
+  display: revert; /* the explorer is about the marks: phones keep them */
+}
+
+/* Implant: the parts that were not chosen step back. */
+.ex[data-active] .sr-i-gum {
+  opacity: 0.35;
+}
+.ex[data-active="fixture"] :is(.sr-i-abutment, .sr-i-crown),
+.ex[data-active="abutment"] :is(.sr-i-fixture, .sr-i-crown),
+.ex[data-active="crown"] :is(.sr-i-fixture, .sr-i-abutment) {
+  opacity: 0.16;
+}
+.ex[data-active="abutment"] .sr-i-gum {
+  opacity: 0.12; /* the abutment sits inside the gum cuff */
+}
+
+/* Veneer: --p runs from 0 (apart) to 1 (in place). */
+.ex[data-explorer="veneers"] .sr-v-shell {
+  translate: calc((1 - var(--p)) * -24%) calc((1 - var(--p)) * 5%);
+  scale: calc(1 + (1 - var(--p)) * 0.1);
+  transition: none; /* follows the slider directly */
+}
+
+/* Smile design: every guide is visible only while its checkbox is on. */
+.ex[data-explorer="smileDesign"] .sr-s-guides {
+  opacity: 1;
+}
+.ex[data-explorer="smileDesign"]:not([data-guides~="mid"]) .sr-dotted,
+.ex[data-explorer="smileDesign"]:not([data-guides~="arc"]) .sr-s-arc,
+.ex[data-explorer="smileDesign"]:not([data-guides~="ratio"]) .sr-s-guides g,
+.ex[data-explorer="smileDesign"]:not([data-guides~="zenith"]) .sr-dot {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ex .sr-layer,
+  .ex .sr-guides path,
+  .ex .sr-guides g,
+  .ex .sr-guides circle,
+  .ex-chip {
+    transition: none;
+  }
+}
