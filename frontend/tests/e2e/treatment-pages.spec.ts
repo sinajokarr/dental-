@@ -95,3 +95,52 @@ for (const path of ["/fa/dental-veneers", "/en/smile-design", "/en/dental-implan
     await expectNoSeriousA11yViolations(page);
   });
 }
+
+// V6 §9.3 / §10.3: lab vitals of each treatment page on a throttled phone, and the 16 page × language combinations.
+for (const path of ["/en/dental-implants", "/en/dental-veneers", "/en/smile-design"]) {
+  test(`${path}: LCP ≤ 2.5 s and CLS ≤ 0.1 on a throttled phone`, async ({ browser, browserName }) => {
+    test.skip(browserName !== "chromium", "CDP throttling is Chromium-only");
+    const context = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 3, isMobile: true, hasTouch: true });
+    const page = await context.newPage();
+    const cdp = await context.newCDPSession(page);
+    await cdp.send("Network.enable");
+    await cdp.send("Network.emulateNetworkConditions", { offline: false, latency: 150, downloadThroughput: (1.6 * 1024 * 1024) / 8, uploadThroughput: (750 * 1024) / 8 });
+    await cdp.send("Emulation.setCPUThrottlingRate", { rate: 4 });
+    await page.goto(path, { waitUntil: "load" });
+    await page.waitForTimeout(3000);
+    const { lcp, cls } = await page.evaluate(
+      () =>
+        new Promise<{ lcp: number; cls: number }>((resolve) => {
+          let lcp = 0, cls = 0;
+          new PerformanceObserver((list) => list.getEntries().forEach((e) => (lcp = e.startTime))).observe({ type: "largest-contentful-paint", buffered: true });
+          new PerformanceObserver((list) =>
+            (list.getEntries() as (PerformanceEntry & { value: number; hadRecentInput: boolean })[]).forEach((e) => !e.hadRecentInput && (cls += e.value)),
+          ).observe({ type: "layout-shift", buffered: true });
+          setTimeout(() => resolve({ lcp, cls }), 200);
+        }),
+    );
+    console.log(`${path} throttled phone: LCP ${(lcp / 1000).toFixed(2)} s · CLS ${cls.toFixed(3)}`);
+    expect(lcp).toBeLessThanOrEqual(2500);
+    expect(cls).toBeLessThanOrEqual(0.1);
+    await context.close();
+  });
+}
+
+for (const locale of ["fa", "en", "de", "tr"] as const) {
+  test(`${locale}: home and the three treatment pages load clean on a phone and a desktop (no console error, no sideways scroll)`, async ({ page }) => {
+    const errors: string[] = [];
+    page.on("console", (message) => message.type() === "error" && errors.push(message.text()));
+    page.on("pageerror", (error) => errors.push(String(error)));
+    for (const path of [`/${locale}`, ...PAGES.map((treatment) => `/${locale}/${treatment.slugs[locale]}`)]) {
+      for (const width of [390, 1440]) {
+        await page.setViewportSize({ width, height: 900 });
+        const response = await page.goto(path);
+        expect(response?.status(), path).toBe(200);
+        await expect(page.getByRole("heading", { level: 1 }), path).toBeVisible();
+        expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `${path} @${width}: sideways scroll`).toBe(true);
+        expect(await page.locator("html").getAttribute("dir"), path).toBe(locale === "fa" ? "rtl" : "ltr");
+      }
+    }
+    expect(errors).toEqual([]);
+  });
+}
