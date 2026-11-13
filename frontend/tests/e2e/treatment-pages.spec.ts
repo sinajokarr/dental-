@@ -144,3 +144,20 @@ for (const locale of ["fa", "en", "de", "tr"] as const) {
     expect(errors).toEqual([]);
   });
 }
+
+// D-087: licensed photographs of people (models, never patients) on the home page, International Patients and About.
+for (const [path, selector] of [["/en", "section[aria-labelledby=why-title]"], ["/fa/about", "main"]] as const) {
+  test(`${path}: the photograph is decorative, loads, and is revealed`, async ({ page }) => {
+    await page.goto(path);
+    const photo = page.locator(`${selector} [data-photo]`);
+    await photo.scrollIntoViewIfNeeded();
+    await expect(photo.locator("img")).toHaveAttribute("alt", "");
+    await expect.poll(() => photo.locator("img").evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth > 0)).toBe(true);
+  });
+}
+test("international patients: the hero photograph is the page's priority image", async ({ page }) => {
+  await page.goto("/de/internationale-patienten");
+  const img = page.locator("section[aria-labelledby=page-title] img");
+  await expect(img).toHaveAttribute("alt", "");
+  await expect(img).toHaveAttribute("fetchpriority", "high");
+});

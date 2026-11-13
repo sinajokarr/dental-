@@ -1,10 +1,12 @@
 import { getTranslations } from "next-intl/server";
 import type { CSSProperties } from "react";
 import { Section, SectionHeader } from "@/components/ui/Section";
+import { Photo } from "@/components/ui/Photo";
 import { Link } from "@/i18n/navigation";
+import consultation from "../../assets/photos/consultation.jpg";
 
 // Advantages, each traceable to a confirmed fact in PROJECT_BRIEF (AN-15). Not a sequence, so no numbers;
-// on desktop the heading stays in view while the list scrolls past it.
+// on desktop the heading — and a photograph of a calm consultation (D-087) — stays in view while the list scrolls past it.
 export async function WhyJokar() {
   const t = await getTranslations("home.why");
   const items = t.raw("items") as { title: string; text: string }[];
@@ -14,6 +16,7 @@ export async function WhyJokar() {
       <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
         <div className="lg:sticky lg:top-32 lg:self-start">
           <SectionHeader id="why-title" eyebrow={t("eyebrow")} title={t("title")} />
+          <Photo src={consultation} sizes="(min-width: 64rem) 34vw, 90vw" position="30% center" className="mt-10 aspect-[4/5] w-full max-w-md max-lg:aspect-[4/3]" />
         </div>
         <div>
           <ul className="divide-y divide-sky-200 border-y border-sky-200">

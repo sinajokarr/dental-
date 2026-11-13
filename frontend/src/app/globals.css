@@ -330,19 +330,7 @@ body {
   }
 }
 
-/* Treatment drawings (D-063): each line draws itself with its chapter's scroll (a view timeline) and the art
-   drifts against the text; without scroll-driven animations the lines draw once on reveal. Reduced motion and
-   no JS show the finished drawing. */
-@keyframes draw {
-  from {
-    stroke-dashoffset: 1;
-  }
-}
-@keyframes guide-in {
-  from {
-    opacity: 0;
-  }
-}
+/* Treatment chapters (D-063): the film window drifts gently against the text with its chapter's scroll. */
 @keyframes drift {
   from {
     translate: 0 2.5rem;
@@ -353,44 +341,10 @@ body {
 }
 @media (prefers-reduced-motion: no-preference) {
   @supports (animation-timeline: view()) {
-    [data-draw] [pathLength] {
-      stroke-dasharray: 1;
-      animation: draw linear both;
-      animation-timeline: --chapter;
-      animation-range: entry calc(10% + var(--d, 0) * 1.5%) cover calc(34% + var(--d, 0) * 1%);
-    }
-    [data-draw] [data-guide] {
-      animation: guide-in linear both;
-      animation-timeline: --chapter;
-      animation-range: entry 40% cover 30%;
-    }
     .chapter-art {
       animation: drift linear both;
       animation-timeline: --chapter;
     }
-  }
-  @supports not (animation-timeline: view()) {
-    [data-motion] [data-draw] [pathLength] {
-      stroke-dasharray: 1;
-      transition: stroke-dashoffset 1.4s var(--ease-out);
-      transition-delay: calc(var(--d, 0) * 70ms);
-    }
-    [data-motion] [data-draw]:not([data-revealed]) [pathLength] {
-      stroke-dashoffset: 1;
-    }
-  }
-}
-
-/* Treatment page heroes draw their drawing once on load (≈2.8 s, well under the 5 s auto-motion limit). */
-@media (prefers-reduced-motion: no-preference) {
-  html:not([data-drawing-travels]) [data-draw-load] [pathLength] {
-    stroke-dasharray: 1;
-    animation: draw 1.3s var(--ease-out) both;
-    animation-delay: calc(300ms + var(--d, 0) * 70ms);
-  }
-  html:not([data-drawing-travels]) [data-draw-load] [data-guide] {
-    animation: guide-in 0.8s var(--ease-out) both;
-    animation-delay: 900ms;
   }
 }
 

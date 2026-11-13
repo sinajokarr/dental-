@@ -4,10 +4,12 @@ import { pageMetadata } from "@/lib/seo";
 import type { CSSProperties } from "react";
 import { PageIntro } from "@/components/sections/PageIntro";
 import { buttonClass } from "@/components/ui/button";
+import { Photo } from "@/components/ui/Photo";
 import { Section } from "@/components/ui/Section";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { Link } from "@/i18n/navigation";
 import { waLink } from "@/lib/whatsapp";
+import xray from "../../../assets/photos/xray.jpg";
 
 // G07 — About, written from confirmed facts only (D-062): no doctors, years, patient numbers or awards.
 export default async function AboutPage() {
@@ -19,6 +21,7 @@ export default async function AboutPage() {
     <>
       <PageIntro title={t("title")} lead={t("lead")} current={nav("about")} />
       <Section>
+        <Photo src={xray} sizes="(min-width: 80rem) 1184px, 92vw" position="center 40%" arch={false} className="mb-14 aspect-[16/9] w-full lg:aspect-[21/9]" />
         <ul className="divide-y divide-sky-200 border-y border-sky-200">
           {sections.map((section, i) => (
             <li key={section.title} data-about-section="" data-reveal="" style={{ "--i": i } as CSSProperties} className="grid grid-cols-1 gap-3 py-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-20">

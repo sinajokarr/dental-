@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import type { CSSProperties } from "react";
 import { LeadForm } from "@/components/forms/LeadForm";
@@ -10,7 +11,7 @@ import { Cities } from "./Cities";
 import { Consultation } from "./Consultation";
 import { Faq } from "./Faq";
 import { Journey } from "./Journey";
-import { TreatmentDrawing } from "./TreatmentDrawing";
+import travel from "../../assets/photos/travel.jpg";
 
 // G05 — International Patients (SITEMAP_AND_USER_FLOWS §1, INTERNATIONAL_PATIENT_FUNNEL). Only confirmed
 // services (D-062); travel questions are the confirmed homepage answers.
@@ -66,11 +67,8 @@ export async function InternationalPage() {
               </a>
             </div>
           </div>
-          <div data-draw-load="" className="relative mx-auto aspect-square w-full max-w-md">
-            <div aria-hidden="true" className="absolute inset-[6%] rounded-full bg-white/70 shadow-e2" />
-            <div className="relative size-full">
-              <TreatmentDrawing name="travel" />
-            </div>
+          <div className="relative mx-auto aspect-[4/5] w-full max-w-sm lg:max-w-md">
+            <Image src={travel} alt="" fill loading="eager" fetchPriority="high" sizes="(min-width: 64rem) 448px, 384px" quality={75} placeholder="blur" className="rounded-t-[999px] rounded-b-[28px] object-cover shadow-e3" />
           </div>
         </div>
       </section>
