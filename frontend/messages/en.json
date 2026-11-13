@@ -19,11 +19,11 @@
     "treatments": {
       "eyebrow": "Signature treatments",
       "title": "Three treatments, planned in detail",
-      "lead": "Every treatment starts with a free initial consultation, so you understand your options before you decide.",
+      "lead": "Three treatments, one way of working: we listen first, plan with you, and explain every step before anything begins.",
       "more": "Learn more",
-      "implants": "A titanium post placed in the jawbone replaces the missing root and supports a new crown — a fixed solution for one or more missing teeth.",
-      "veneers": "Thin, custom-made shells bonded to the front surface of the teeth to refine their shape, colour and proportions.",
-      "smileDesign": "A planned approach to your smile as a whole — tooth shape, colour and balance with your face — before any treatment begins."
+      "implants": "A titanium implant takes the place of a missing root and carries a crown made for you — a fixed, natural-looking way to replace one tooth or several.",
+      "veneers": "Thin porcelain shells, made to measure and bonded to the front of your teeth, to refine their shape, shade and proportions — while your own teeth stay in place.",
+      "smileDesign": "Before any treatment, your smile is planned as a whole — tooth shape, shade and proportions, in harmony with your face. You see the plan first, then decide."
     },
     "why": {
       "eyebrow": "Why JOKAR DENTAL",
@@ -31,48 +31,48 @@
       "link": "How it works for international patients",
       "items": [
         {
-          "title": "All three treatments, in both cities",
-          "text": "Implants, veneers and smile design are offered in Antalya and in Istanbul."
+          "title": "Antalya and Istanbul, the same care",
+          "text": "Implants, veneers and smile design are offered in both cities. Choose the one that suits your trip."
         },
         {
-          "title": "We speak your language",
-          "text": "Talk with us in Persian, English, German or Turkish — on WhatsApp or by phone."
+          "title": "In your language, from the first message",
+          "text": "Persian, English, German or Turkish — on WhatsApp or by phone, with the same people who plan your visit."
         },
         {
-          "title": "Assessment before you travel",
-          "text": "Send photos or X-rays on WhatsApp and we review them online before you plan your trip."
+          "title": "Your case reviewed before you fly",
+          "text": "Send photos or X-rays on WhatsApp. We look at them online, so you arrive knowing what to expect."
         },
         {
-          "title": "Your trip, coordinated",
-          "text": "Hotel, airport transfer and an interpreter, arranged with you."
+          "title": "Your stay, taken care of",
+          "text": "Hotel, airport transfer and an interpreter, arranged with you — so the only thing you focus on is your treatment."
         },
         {
-          "title": "Follow-up after treatment",
-          "text": "We stay in touch after your treatment. A guarantee applies; its terms depend on the treatment and are explained in your consultation."
+          "title": "We stay in touch",
+          "text": "Follow-up continues after you fly home. A guarantee applies; its terms depend on the treatment and are explained in your consultation."
         },
         {
-          "title": "Treatment packages",
-          "text": "Packages that bring your treatment and travel arrangements together."
+          "title": "One plan, one package",
+          "text": "Your treatment and travel arrangements, brought together in one clear package."
         }
       ]
     },
     "journey": {
       "eyebrow": "International patients",
       "title": "From your first message to your follow-up",
-      "lead": "A clear path for patients travelling from abroad, with coordination at every step.",
+      "lead": "Five clear steps, coordinated by one team — so you always know what comes next.",
       "cta": "Start with a free consultation",
       "steps": [
         {
           "title": "Request your free consultation",
-          "text": "Send the form or message us on WhatsApp — in your language."
+          "text": "Send the form or a message on WhatsApp, in your language. It takes a minute."
         },
         {
           "title": "Online assessment",
-          "text": "Send photos or X-rays on WhatsApp; we review them and talk you through your options."
+          "text": "Share photos or X-rays. We review them and talk you through your options — honestly, before any decision."
         },
         {
           "title": "Receive your treatment package",
-          "text": "Your package brings your treatment and travel arrangements together."
+          "text": "Your treatment and travel are brought together in one package, so you can plan with confidence."
         },
         {
           "title": "Travel with coordination",
@@ -80,7 +80,7 @@
         },
         {
           "title": "Treatment and follow-up",
-          "text": "Your treatment takes place at JOKAR DENTAL in Antalya or Istanbul — and we follow up afterwards."
+          "text": "Your treatment takes place at JOKAR DENTAL in Antalya or Istanbul — and our follow-up continues after you return home."
         }
       ]
     },
@@ -131,12 +131,12 @@
     "consultation": {
       "eyebrow": "Free consultation",
       "title": "Begin with a free consultation",
-      "lead": "Tell us a little about what you need. Our team will contact you through the channel you prefer.",
+      "lead": "Tell us a little about your smile and what you would like. We reply through the channel you prefer — without obligation.",
       "nextTitle": "What happens next",
       "next": [
-        "We receive your request.",
-        "Our team contacts you to understand your needs.",
-        "We plan your free consultation together."
+        "We read your request carefully.",
+        "We contact you to understand what matters to you.",
+        "Together we plan your free consultation."
       ],
       "chat": "Prefer to chat?",
       "call": "Or call us"
@@ -175,7 +175,7 @@
     "after_form": "Hello JOKAR DENTAL, I've just submitted a consultation request ({reference})."
   },
   "footer": {
-    "tagline": "Dental implants, veneers and smile design in Antalya & Istanbul.",
+    "tagline": "Dental implants, porcelain veneers and smile design in Antalya & Istanbul — planned around you.",
     "treatments": "Treatments",
     "patients": "Patients",
     "legal": "Legal",
@@ -253,14 +253,14 @@
     "who": "Who it is for",
     "how": "How it works",
     "intlEyebrow": "International patients",
-    "intlTitle": "Coming from abroad?",
-    "intlText": "We coordinate your hotel, airport transfer and interpreter — and you can send photos or X-rays for an online assessment before you travel.",
+    "intlTitle": "Travelling from abroad?",
+    "intlText": "Send photos or X-rays for an online assessment before you fly. We coordinate your hotel, airport transfer and interpreter.",
     "medicalNote": "This page gives general information and does not replace an examination by a dentist."
   },
   "treatments": {
     "implants": {
       "title": "Dental implants",
-      "lead": "A fixed replacement for missing teeth: a titanium implant takes the place of the root and carries a new crown.",
+      "lead": "A fixed, natural-looking replacement for missing teeth: a titanium implant takes the place of the root and carries a crown made for you.",
       "what": [
         "A dental implant is a small titanium post that is placed in the jawbone where a tooth is missing.",
         "Once it has bonded with the bone, it carries a crown — or, for several missing teeth, a bridge — made to match your other teeth."
@@ -366,7 +366,7 @@
     },
     "veneers": {
       "title": "Dental veneers",
-      "lead": "Thin, custom-made shells for the front of your teeth — to refine their shape, colour and proportions.",
+      "lead": "Thin porcelain shells for the front of your teeth — to refine their shape, shade and proportions, made to suit your face.",
       "what": [
         "Veneers are thin shells made to measure for each tooth and bonded to its front surface.",
         "They change how a tooth looks — its shape, colour, size or length — while the tooth itself stays in place."
@@ -477,7 +477,7 @@
     },
     "smileDesign": {
       "title": "Smile design",
-      "lead": "Your smile planned as a whole — tooth shape, colour and balance with your face — before any treatment begins.",
+      "lead": "Your smile planned as a whole — tooth shape, shade and proportions in harmony with your face — before any treatment begins.",
       "what": [
         "Smile design is a way of planning: the shape, size, colour and proportions of your teeth are planned together with your face and lips.",
         "The plan shows which treatments — for example veneers or implants — bring you to the smile you want."
@@ -589,10 +589,10 @@
   },
   "international": {
     "eyebrow": "International patients",
-    "title": "Your treatment in Türkiye, coordinated from the first message",
-    "lead": "Tell us what you need in your language. We help you plan your treatment, your trip and your stay in Antalya or Istanbul.",
+    "title": "Your treatment in Türkiye, made simple from the first message",
+    "lead": "Tell us in your language what you need. We plan your treatment, your trip and your stay in Antalya or Istanbul with you — step by step.",
     "servicesEyebrow": "Coordination",
-    "servicesTitle": "What we take care of",
+    "servicesTitle": "Everything around your treatment, coordinated",
     "services": [
       {
         "title": "Online assessment",
@@ -600,29 +600,29 @@
       },
       {
         "title": "Hotel",
-        "text": "We help you arrange your hotel for the length of your visit."
+        "text": "We help you arrange a hotel for the length of your stay."
       },
       {
         "title": "Airport transfer",
-        "text": "Your airport transfer is coordinated for you."
+        "text": "Someone is there to bring you from the airport — and back again."
       },
       {
         "title": "Interpreter",
-        "text": "An interpreter is available, so you can follow every step of your treatment."
+        "text": "An interpreter is available, so you understand every step of your treatment."
       },
       {
         "title": "Treatment packages",
-        "text": "Packages bring your treatment and travel arrangements together."
+        "text": "Your treatment and travel arrangements, brought together in one package."
       },
       {
         "title": "Follow-up",
         "text": "We stay in touch after your treatment. A guarantee applies; its terms depend on the treatment."
       }
     ],
-    "stayTitle": "Planning your stay",
-    "stayText": "Most visits take 3 to 8 days, depending on your treatment. Once we have reviewed your case, we tell you what to expect.",
-    "citiesTitle": "Antalya or Istanbul",
-    "citiesText": "Implants, veneers and smile design are offered in both cities — choose the one that suits your trip."
+    "stayTitle": "How long you will stay",
+    "stayText": "Most visits take 3 to 8 days, depending on your treatment. Once we have reviewed your case, we tell you exactly what to expect.",
+    "citiesTitle": "Antalya or Istanbul — your choice",
+    "citiesText": "Implants, veneers and smile design are offered in both cities. Choose the coast or the city, whichever suits your trip."
   },
   "consultationPage": {
     "title": "Free consultation",
@@ -630,26 +630,26 @@
   },
   "about": {
     "title": "About JOKAR DENTAL",
-    "lead": "Dental implants, veneers and smile design in Antalya and Istanbul — care that is planned around you, from your first message to your follow-up.",
+    "lead": "Dental implants, porcelain veneers and smile design in Antalya and Istanbul — planned around you, explained in your language, and followed up after you return home.",
     "sections": [
       {
-        "title": "What we do",
-        "text": "We focus on three treatments: dental implants, veneers and smile design. All three are offered in both of our cities, Antalya and Istanbul."
+        "title": "Three treatments, done with focus",
+        "text": "We concentrate on dental implants, porcelain veneers and smile design. All three are offered in both of our cities, Antalya and Istanbul."
       },
       {
-        "title": "How we work",
-        "text": "Every treatment starts with a free consultation. We look at your case, explain your options and plan your treatment with you, so you can decide with all the information."
+        "title": "Planning comes first",
+        "text": "Every treatment begins with a free consultation. We look at your case, explain your options and plan with you — so you decide with all the information, never under pressure."
       },
       {
         "title": "Your language, your plan",
-        "text": "We talk with every patient in their own language — on this website in Persian, English, German and Turkish. Before you travel, you can send photos or X-rays for an online assessment."
+        "text": "We speak with every patient in their own language — on this website in Persian, English, German and Turkish. Before you travel, you can send photos or X-rays for an online assessment."
       },
       {
-        "title": "Your trip, coordinated",
+        "title": "A journey that feels simple",
         "text": "For patients from abroad we coordinate the hotel, the airport transfer and an interpreter. Most visits take 3 to 8 days, depending on the treatment."
       },
       {
-        "title": "After your treatment",
+        "title": "Beyond the last appointment",
         "text": "We stay in touch after your treatment. A guarantee applies; its terms depend on the treatment and are explained in your consultation."
       }
     ],

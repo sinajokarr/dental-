@@ -33,7 +33,7 @@ export async function Hero({ visual }: { visual?: ReactNode }) {
     <section aria-labelledby="hero-title" className="relative isolate overflow-hidden bg-ice-50 pt-24 pb-14 lg:flex lg:min-h-svh lg:items-center lg:pt-28">
       <PointerGlow />
       <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-6 px-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-10 lg:px-12">
-        {/* Phones: words and both calls to action first, so they are on screen at load (H01); the tooth follows. */}
+        {/* Phones: words and both calls to action first, so they are on screen at load (H01); the photograph follows. */}
         <div>
           <p className="eyebrow hero-rise mb-4 text-blue-700 [--d:200ms] lg:mb-6">{t("eyebrow")}</p>
           <h1 id="hero-title" className="font-display text-display font-light text-balance">
@@ -58,8 +58,8 @@ export async function Hero({ visual }: { visual?: ReactNode }) {
             </a>
           </div>
         </div>
-        <div className="relative h-56 sm:h-72 lg:aspect-square lg:h-auto">
-          <div aria-hidden="true" className="absolute inset-[8%] -z-10 rounded-full bg-[radial-gradient(closest-side,color-mix(in_srgb,var(--color-sky-400)_80%,transparent),color-mix(in_srgb,var(--color-sky-200)_50%,transparent)_55%,transparent)] blur-2xl" />
+        <div className="relative h-[22rem] sm:h-[28rem] lg:static lg:aspect-square lg:h-auto">
+          <div aria-hidden="true" className="absolute inset-[8%] -z-10 rounded-full lg:hidden bg-[radial-gradient(closest-side,color-mix(in_srgb,var(--color-sky-400)_80%,transparent),color-mix(in_srgb,var(--color-sky-200)_50%,transparent)_55%,transparent)] blur-2xl" />
           {visual}
         </div>
       </div>

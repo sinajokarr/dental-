@@ -19,11 +19,11 @@
     "treatments": {
       "eyebrow": "Öne çıkan tedaviler",
       "title": "Üç tedavi, ayrıntılı bir planla",
-      "lead": "Her tedavi, karar vermeden önce seçeneklerinizi öğrenmeniz için ücretsiz bir ilk danışmanlıkla başlar.",
+      "lead": "Üç tedavi, tek bir çalışma biçimi: Önce dinliyor, sizinle birlikte planlıyor ve her adımı başlamadan önce anlatıyoruz.",
       "more": "Daha fazla bilgi",
-      "implants": "Çene kemiğine yerleştirilen titanyum bir vida, eksik kökün yerini alır ve yeni bir kuronu taşır — bir veya birden fazla eksik diş için sabit bir çözüm.",
-      "veneers": "Dişlerin şeklini, rengini ve oranlarını düzenlemek için ön yüzeylerine yapıştırılan, kişiye özel ince kaplamalar.",
-      "smileDesign": "Tedavi başlamadan önce gülüşünüzün bir bütün olarak planlanması — diş şekli, rengi ve yüzünüzle uyumu."
+      "implants": "Titanyum implant eksik kökün yerini alır ve size özel hazırlanan kronu taşır; bir ya da birkaç dişi sabit ve doğal görünümle yenilemenin yolu.",
+      "veneers": "Ölçüye göre hazırlanıp dişlerin ön yüzeyine yapıştırılan ince porselen kabuklar; biçimi, rengi ve oranları inceltir, kendi dişleriniz yerinde kalır.",
+      "smileDesign": "Her tedaviden önce gülüşünüz bir bütün olarak planlanır; dişlerin biçimi, rengi ve oranları yüzünüzle uyum içinde. Önce planı görür, sonra karar verirsiniz."
     },
     "why": {
       "eyebrow": "Neden JOKAR DENTAL",
@@ -31,48 +31,48 @@
       "link": "Uluslararası hastalar için süreç",
       "items": [
         {
-          "title": "Üç tedavi de iki şehirde",
-          "text": "İmplant, porselen lamina ve gülüş tasarımı hem Antalya'da hem İstanbul'da sunulur."
+          "title": "Antalya ve İstanbul'da aynı özen",
+          "text": "İmplant, porselen lamina ve gülüş tasarımı her iki şehirde de sunulur. Seyahatinize uyan şehri seçin."
         },
         {
-          "title": "Sizin dilinizi konuşuyoruz",
-          "text": "Bizimle Farsça, İngilizce, Almanca veya Türkçe görüşün; WhatsApp'tan ya da telefonla."
+          "title": "İlk mesajdan itibaren kendi dilinizde",
+          "text": "Farsça, İngilizce, Almanca veya Türkçe; WhatsApp'tan ya da telefonla, ziyaretinizi planlayan aynı ekiple."
         },
         {
-          "title": "Seyahat öncesi değerlendirme",
-          "text": "Fotoğraflarınızı veya röntgenlerinizi WhatsApp'tan gönderin; seyahatinizi planlamadan önce online olarak inceleyelim."
+          "title": "Uçmadan önce durumunuz değerlendirilir",
+          "text": "Fotoğraf veya röntgenlerinizi WhatsApp'tan gönderin. Online inceleriz; neyle karşılaşacağınızı bilerek gelirsiniz."
         },
         {
-          "title": "Seyahatiniz, koordineli",
-          "text": "Otel, havalimanı transferi ve tercüman sizinle birlikte planlanır."
+          "title": "Konaklamanız bize emanet",
+          "text": "Otel, havalimanı transferi ve tercüman sizinle birlikte planlanır; böylece yalnızca tedavinize odaklanırsınız."
         },
         {
-          "title": "Tedavi sonrası takip",
-          "text": "Tedaviniz bittikten sonra da sizinle iletişimde kalırız. Tedavilerimiz garantilidir; garanti koşulları tedaviye göre değişir ve danışmanlıkta açıklanır."
+          "title": "İletişimde kalırız",
+          "text": "Takip, evinize döndükten sonra da sürer. Garanti vardır; koşulları tedaviye göre değişir ve danışmanlıkta anlatılır."
         },
         {
-          "title": "Tedavi paketleri",
-          "text": "Tedavinizi ve seyahat düzenlemelerinizi bir araya getiren paketler."
+          "title": "Tek plan, tek paket",
+          "text": "Tedaviniz ve seyahat düzenlemeleriniz tek ve anlaşılır bir pakette."
         }
       ]
     },
     "journey": {
       "eyebrow": "Uluslararası hastalar",
       "title": "İlk mesajdan tedavi sonrası takibe",
-      "lead": "Yurt dışından gelen hastalar için her adımda koordinasyonla net bir süreç.",
+      "lead": "Tek bir ekibin koordine ettiği beş net adım; bir sonraki adımı her zaman bilirsiniz.",
       "cta": "Ücretsiz danışmanlıkla başlayın",
       "steps": [
         {
           "title": "Ücretsiz danışmanlık talep edin",
-          "text": "Formu gönderin veya bize WhatsApp'tan kendi dilinizde yazın."
+          "text": "Formu gönderin ya da WhatsApp'tan kendi dilinizde yazın. Bir dakikanızı alır."
         },
         {
           "title": "Online değerlendirme",
-          "text": "Fotoğraflarınızı veya röntgenlerinizi WhatsApp'tan gönderin; inceleyip seçeneklerinizi sizinle konuşalım."
+          "text": "Fotoğraf veya röntgen paylaşın. İnceler ve seçeneklerinizi herhangi bir karardan önce dürüstçe anlatırız."
         },
         {
           "title": "Tedavi paketinizi alın",
-          "text": "Paketiniz tedavinizi ve seyahat düzenlemelerinizi bir araya getirir."
+          "text": "Tedaviniz ve seyahatiniz tek bir pakette bir araya gelir; güvenle planlayabilirsiniz."
         },
         {
           "title": "Koordineli seyahat",
@@ -80,7 +80,7 @@
         },
         {
           "title": "Tedavi ve takip",
-          "text": "Tedaviniz Antalya veya İstanbul'daki JOKAR DENTAL'de yapılır; sonrasında da sizi takip ederiz."
+          "text": "Tedaviniz Antalya veya İstanbul'da JOKAR DENTAL'da yapılır; takibimiz evinize döndükten sonra da sürer."
         }
       ]
     },
@@ -131,11 +131,11 @@
     "consultation": {
       "eyebrow": "Ücretsiz danışmanlık",
       "title": "Ücretsiz bir danışmanlıkla başlayın",
-      "lead": "Bize ihtiyacınızı kısaca anlatın. Ekibimiz tercih ettiğiniz kanaldan sizinle iletişime geçecektir.",
+      "lead": "Gülüşünüzü ve isteğinizi bize kısaca anlatın. Tercih ettiğiniz kanaldan, hiçbir yükümlülük olmadan yanıt veririz.",
       "nextTitle": "Sonraki adımlar",
       "next": [
-        "Talebinizi alırız.",
-        "Ekibimiz ihtiyaçlarınızı anlamak için sizinle iletişime geçer.",
+        "Talebinizi özenle okuruz.",
+        "Sizin için neyin önemli olduğunu anlamak üzere sizinle iletişime geçeriz.",
         "Ücretsiz danışmanlığınızı birlikte planlarız."
       ],
       "chat": "Yazışmayı mı tercih edersiniz?",
@@ -175,7 +175,7 @@
     "after_form": "Merhaba JOKAR DENTAL, az önce bir danışmanlık talebi gönderdim ({reference})."
   },
   "footer": {
-    "tagline": "Antalya ve İstanbul'da diş implantı, porselen lamina ve gülüş tasarımı.",
+    "tagline": "Antalya ve İstanbul'da diş implantı, porselen lamina ve gülüş tasarımı; size göre planlanır.",
     "treatments": "Tedaviler",
     "patients": "Hastalar",
     "legal": "Yasal",
@@ -254,13 +254,13 @@
     "how": "Süreç nasıl işler?",
     "intlEyebrow": "Uluslararası hastalar",
     "intlTitle": "Yurt dışından mı geliyorsunuz?",
-    "intlText": "Otel, havalimanı transferi ve tercümanı biz koordine ederiz; seyahatten önce fotoğraflarınızı veya röntgenlerinizi online değerlendirme için gönderebilirsiniz.",
+    "intlText": "Uçmadan önce online değerlendirme için fotoğraf veya röntgen gönderin. Otel, havalimanı transferi ve tercümanı biz koordine ederiz.",
     "medicalNote": "Bu sayfa genel bilgi verir; diş hekimi muayenesinin yerini tutmaz."
   },
   "treatments": {
     "implants": {
       "title": "Diş implantı",
-      "lead": "Eksik dişler için sabit bir çözüm: titanyum implant kökün yerini alır ve yeni bir kronu taşır.",
+      "lead": "Eksik dişler için sabit ve doğal görünümlü bir çözüm: Titanyum implant kökün yerini alır ve size özel hazırlanan kronu taşır.",
       "what": [
         "Diş implantı, dişin eksik olduğu bölgede çene kemiğine yerleştirilen küçük bir titanyum vidadır.",
         "Kemikle kaynaştıktan sonra, diğer dişlerinize uyumlu olarak hazırlanan bir kronu — birden fazla eksik dişte ise bir köprüyü — taşır."
@@ -366,7 +366,7 @@
     },
     "veneers": {
       "title": "Porselen lamina",
-      "lead": "Dişlerinizin ön yüzü için ince, kişiye özel kaplamalar — şekil, renk ve oranları düzenlemek için.",
+      "lead": "Dişlerinizin ön yüzü için ince porselen kabuklar; biçimi, rengi ve oranları yüzünüze uygun şekilde inceltir.",
       "what": [
         "Porselen laminalar, her diş için ölçüye göre hazırlanan ve dişin ön yüzeyine yapıştırılan ince kaplamalardır.",
         "Dişin görünümünü — şeklini, rengini, boyunu veya uzunluğunu — değiştirir; dişin kendisi yerinde kalır."
@@ -477,7 +477,7 @@
     },
     "smileDesign": {
       "title": "Gülüş tasarımı",
-      "lead": "Herhangi bir tedavi başlamadan önce gülüşünüzün bütün olarak planlanması — diş şekli, rengi ve yüzünüzle uyumu.",
+      "lead": "Gülüşünüz bir bütün olarak planlanır; dişlerin biçimi, rengi ve oranları yüzünüzle uyum içinde, herhangi bir tedavi başlamadan önce.",
       "what": [
         "Gülüş tasarımı bir planlama yöntemidir: dişlerinizin şekli, boyutu, rengi ve oranları yüzünüz ve dudaklarınızla birlikte planlanır.",
         "Plan, istediğiniz gülüşe hangi tedavilerin — örneğin porselen lamina veya implant — götüreceğini gösterir."
@@ -589,40 +589,40 @@
   },
   "international": {
     "eyebrow": "Uluslararası hastalar",
-    "title": "Türkiye'deki tedaviniz, ilk mesajdan itibaren koordineli",
-    "lead": "İhtiyacınızı kendi dilinizde anlatın. Tedavinizi, seyahatinizi ve Antalya ya da İstanbul'daki konaklamanızı planlamanıza yardımcı olalım.",
+    "title": "Türkiye'deki tedaviniz, ilk mesajdan itibaren kolay",
+    "lead": "İhtiyacınızı kendi dilinizde anlatın. Tedavinizi, seyahatinizi ve Antalya ya da İstanbul'daki konaklamanızı sizinle adım adım planlarız.",
     "servicesEyebrow": "Koordinasyon",
-    "servicesTitle": "Sizin için üstlendiklerimiz",
+    "servicesTitle": "Tedavinizin etrafındaki her şey, koordineli",
     "services": [
       {
         "title": "Online değerlendirme",
-        "text": "Seyahatten önce fotoğraflarınızı veya röntgenlerinizi WhatsApp'tan gönderin; ziyaretiniz durumunuza göre planlansın."
+        "text": "Seyahatten önce fotoğraf veya röntgenlerinizi WhatsApp'tan gönderin; ziyaretiniz durumunuza göre planlansın."
       },
       {
         "title": "Otel",
-        "text": "Ziyaretiniz süresince otelinizi ayarlamanıza yardımcı oluruz."
+        "text": "Konaklamanız süresince otel ayarlamanıza yardımcı oluruz."
       },
       {
         "title": "Havalimanı transferi",
-        "text": "Havalimanı transferiniz sizin için koordine edilir."
+        "text": "Havalimanında sizi karşılayan biri olur; dönüşte de."
       },
       {
         "title": "Tercüman",
-        "text": "Tedavinizin her adımını takip edebilmeniz için tercüman hazırdır."
+        "text": "Tedavinizin her adımını anlamanız için tercüman hazırdır."
       },
       {
         "title": "Tedavi paketleri",
-        "text": "Tedavinizi ve seyahat düzenlemelerinizi bir araya getiren paketler."
+        "text": "Tedaviniz ve seyahat düzenlemeleriniz tek bir pakette."
       },
       {
         "title": "Takip",
-        "text": "Tedavinizden sonra da sizinle iletişimde kalırız. Tedavilerimiz garantilidir; garanti koşulları tedaviye göre değişir."
+        "text": "Tedavinizden sonra iletişimde kalırız. Garanti vardır; koşulları tedaviye göre değişir."
       }
     ],
-    "stayTitle": "Konaklamanızı planlayın",
-    "stayText": "Ziyaretlerin çoğu, tedaviye bağlı olarak 3 ila 8 gün sürer. Durumunuzu inceledikten sonra yaklaşık süreyi size bildiririz.",
-    "citiesTitle": "Antalya veya İstanbul",
-    "citiesText": "İmplant, porselen lamina ve gülüş tasarımı iki şehirde de sunulur; seyahatinize en uygun şehri seçin."
+    "stayTitle": "Ne kadar kalacaksınız",
+    "stayText": "Ziyaretlerin çoğu, tedaviye bağlı olarak 3 ila 8 gün sürer. Durumunuzu inceledikten sonra neyle karşılaşacağınızı net olarak söyleriz.",
+    "citiesTitle": "Antalya ya da İstanbul, seçim sizin",
+    "citiesText": "İmplant, porselen lamina ve gülüş tasarımı her iki şehirde de sunulur. Sahil ya da şehir; seyahatinize hangisi uyarsa."
   },
   "consultationPage": {
     "title": "Ücretsiz danışmanlık",
@@ -630,27 +630,27 @@
   },
   "about": {
     "title": "JOKAR DENTAL hakkında",
-    "lead": "Antalya ve İstanbul'da diş implantı, porselen lamina ve gülüş tasarımı — ilk mesajdan tedavi sonrası takibe kadar size göre planlanan bir bakım.",
+    "lead": "Antalya ve İstanbul'da diş implantı, porselen lamina ve gülüş tasarımı; size göre planlanır, kendi dilinizde anlatılır ve döndükten sonra da takip edilir.",
     "sections": [
       {
-        "title": "Ne yapıyoruz",
-        "text": "Üç tedaviye odaklanıyoruz: diş implantı, porselen lamina ve gülüş tasarımı. Üçü de iki şehrimizde, Antalya ve İstanbul'da sunulur."
+        "title": "Odaklandığımız üç tedavi",
+        "text": "Diş implantı, porselen lamina ve gülüş tasarımına odaklanıyoruz. Üçü de iki şehrimizde, Antalya ve İstanbul'da sunulur."
       },
       {
-        "title": "Nasıl çalışıyoruz",
-        "text": "Her tedavi ücretsiz bir danışmanlıkla başlar. Durumunuzu inceler, seçeneklerinizi anlatır ve tedavinizi sizinle birlikte planlarız; böylece tüm bilgilerle karar verirsiniz."
+        "title": "Önce planlama",
+        "text": "Her tedavi ücretsiz bir danışmanlıkla başlar. Durumunuzu inceler, seçeneklerinizi anlatır ve sizinle birlikte planlarız; böylece tüm bilgilerle ve baskı hissetmeden karar verirsiniz."
       },
       {
         "title": "Sizin diliniz, sizin planınız",
-        "text": "Her hastayla kendi dilinde konuşuyoruz; bu web sitesinde Farsça, İngilizce, Almanca ve Türkçe. Seyahatten önce fotoğraflarınızı veya röntgenlerinizi online değerlendirme için gönderebilirsiniz."
+        "text": "Her hastayla kendi dilinde konuşuruz; bu web sitesinde Farsça, İngilizce, Almanca ve Türkçe. Seyahatten önce online değerlendirme için fotoğraf veya röntgen gönderebilirsiniz."
       },
       {
-        "title": "Seyahatiniz, koordineli",
-        "text": "Yurt dışından gelen hastalar için otel, havalimanı transferi ve tercümanı koordine ederiz. Ziyaretlerin çoğu, tedaviye bağlı olarak 3 ila 8 gün sürer."
+        "title": "Kolay hissettiren bir yolculuk",
+        "text": "Yurt dışından gelen hastalarımız için otel, havalimanı transferi ve tercümanı koordine ederiz. Ziyaretlerin çoğu, tedaviye bağlı olarak 3 ila 8 gün sürer."
       },
       {
-        "title": "Tedaviden sonra",
-        "text": "Tedavinizden sonra da sizinle iletişimde kalırız. Tedavilerimiz garantilidir; garanti koşulları tedaviye göre değişir ve danışmanlıkta açıklanır."
+        "title": "Son randevudan sonra da",
+        "text": "Tedavinizden sonra iletişimde kalırız. Garanti vardır; koşulları tedaviye göre değişir ve danışmanlıkta anlatılır."
       }
     ],
     "cta": "Ücretsiz danışmanlıkla başlayın"

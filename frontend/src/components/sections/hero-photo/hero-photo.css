@@ -1,0 +1,61 @@
+/* Hero photograph (D-088) as an editorial split (D-089). Plain prefixed CSS (hero-photo / hp-), logical properties
+   only, so the composition mirrors itself in Persian. The base rules ARE the finished picture. */
+.hero-photo {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 24px;
+  isolation: isolate;
+  background: var(--color-sky-200);
+}
+.hero-photo-img {
+  object-position: 42% 40%; /* the smile, whatever the crop */
+}
+@media (width >= 64rem) {
+  /* Out of the grid: full height, flush with the inline-end edge of the screen (Hero.tsx makes the slot static). */
+  .hero-photo {
+    inset-block: 0;
+    inset-inline-start: auto;
+    inset-inline-end: 0;
+    inline-size: 45%;
+    border-radius: 0;
+    z-index: -1;
+  }
+  /* Where the photograph meets the words it dissolves into the hero's ivory. */
+  .hero-photo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, var(--color-ice-50) 0%, color-mix(in srgb, var(--color-ice-50) 55%, transparent) 9%, transparent 26%);
+    pointer-events: none;
+  }
+  .hero-photo:dir(rtl)::after {
+    background: linear-gradient(270deg, var(--color-ice-50) 0%, color-mix(in srgb, var(--color-ice-50) 55%, transparent) 9%, transparent 26%);
+  }
+  .hero-photo-img {
+    object-position: 38% 42%;
+  }
+}
+@media (width >= 80rem) {
+  .hero-photo {
+    inline-size: 47%;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero-photo {
+    animation: hp-fade 1.2s ease-out both;
+  }
+  .hero-photo-img {
+    animation: hp-push 2.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+}
+@keyframes hp-fade {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes hp-push {
+  from {
+    scale: 1.07;
+  }
+}

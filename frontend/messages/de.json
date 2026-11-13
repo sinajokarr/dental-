@@ -19,11 +19,11 @@
     "treatments": {
       "eyebrow": "Unsere Behandlungen",
       "title": "Drei Behandlungen, sorgfältig geplant",
-      "lead": "Jede Behandlung beginnt mit einer kostenlosen Erstberatung, damit Sie Ihre Möglichkeiten kennen, bevor Sie sich entscheiden.",
+      "lead": "Drei Behandlungen, eine Arbeitsweise: Wir hören zuerst zu, planen gemeinsam mit Ihnen und erklären jeden Schritt, bevor etwas beginnt.",
       "more": "Mehr erfahren",
-      "implants": "Ein Titanstift im Kieferknochen ersetzt die fehlende Zahnwurzel und trägt eine neue Krone – eine feste Lösung für einen oder mehrere fehlende Zähne.",
-      "veneers": "Dünne, individuell gefertigte Schalen, die auf die Vorderseite der Zähne geklebt werden, um Form, Farbe und Proportionen zu verfeinern.",
-      "smileDesign": "Eine geplante Gestaltung Ihres Lächelns als Ganzes – Zahnform, Farbe und Harmonie mit Ihrem Gesicht – bevor eine Behandlung beginnt."
+      "implants": "Ein Titanimplantat ersetzt die fehlende Zahnwurzel und trägt eine eigens für Sie gefertigte Krone – ein fester, natürlich wirkender Ersatz für einen oder mehrere Zähne.",
+      "veneers": "Hauchdünne Keramikschalen, nach Maß gefertigt und auf die Vorderseite der Zähne geklebt, verfeinern Form, Farbe und Proportionen – Ihre eigenen Zähne bleiben erhalten.",
+      "smileDesign": "Vor jeder Behandlung wird Ihr Lächeln als Ganzes geplant – Form, Farbe und Proportionen der Zähne, im Einklang mit Ihrem Gesicht. Sie sehen die Planung zuerst und entscheiden dann."
     },
     "why": {
       "eyebrow": "Warum JOKAR DENTAL",
@@ -31,48 +31,48 @@
       "link": "So läuft es für internationale Patienten",
       "items": [
         {
-          "title": "Alle drei Behandlungen in beiden Städten",
-          "text": "Implantate, Veneers und Smile Design bieten wir in Antalya und in Istanbul an."
+          "title": "Antalya und Istanbul, dieselbe Sorgfalt",
+          "text": "Implantate, Veneers und Smile Design bieten wir in beiden Städten an. Wählen Sie die, die zu Ihrer Reise passt."
         },
         {
-          "title": "Wir sprechen Ihre Sprache",
-          "text": "Sprechen Sie mit uns auf Persisch, Englisch, Deutsch oder Türkisch – per WhatsApp oder telefonisch."
+          "title": "In Ihrer Sprache, ab der ersten Nachricht",
+          "text": "Persisch, Englisch, Deutsch oder Türkisch – per WhatsApp oder Telefon, mit denselben Menschen, die Ihren Aufenthalt planen."
         },
         {
-          "title": "Einschätzung vor der Reise",
-          "text": "Senden Sie Fotos oder Röntgenbilder per WhatsApp – wir sehen sie uns online an, bevor Sie Ihre Reise planen."
+          "title": "Ihr Fall, geprüft vor dem Abflug",
+          "text": "Senden Sie Fotos oder Röntgenbilder per WhatsApp. Wir sehen sie uns online an, damit Sie wissen, was Sie erwartet."
         },
         {
-          "title": "Ihre Reise, koordiniert",
-          "text": "Hotel, Flughafentransfer und Dolmetscher – mit Ihnen abgestimmt."
+          "title": "Ihr Aufenthalt, organisiert",
+          "text": "Hotel, Flughafentransfer und Dolmetscher – mit Ihnen abgestimmt, damit Sie sich ganz auf Ihre Behandlung konzentrieren können."
         },
         {
-          "title": "Nachsorge nach der Behandlung",
-          "text": "Wir bleiben auch nach Ihrer Behandlung in Kontakt. Es gibt eine Garantie; ihre Bedingungen hängen von der Behandlung ab und werden Ihnen in der Beratung erklärt."
+          "title": "Wir bleiben in Kontakt",
+          "text": "Die Nachsorge geht weiter, wenn Sie wieder zu Hause sind. Es gibt eine Garantie; ihre Bedingungen hängen von der Behandlung ab und werden in Ihrer Beratung erklärt."
         },
         {
-          "title": "Behandlungspakete",
-          "text": "Pakete, die Ihre Behandlung und Ihre Reiseorganisation verbinden."
+          "title": "Ein Plan, ein Paket",
+          "text": "Behandlung und Reiseorganisation, zusammengeführt in einem klaren Paket."
         }
       ]
     },
     "journey": {
       "eyebrow": "Internationale Patienten",
       "title": "Von der ersten Nachricht bis zur Nachsorge",
-      "lead": "Ein klarer Weg für Patienten aus dem Ausland – mit Koordination bei jedem Schritt.",
+      "lead": "Fünf klare Schritte, koordiniert von einem Team – damit Sie immer wissen, was als Nächstes kommt.",
       "cta": "Mit einer kostenlosen Beratung beginnen",
       "steps": [
         {
           "title": "Kostenlose Beratung anfragen",
-          "text": "Senden Sie das Formular oder schreiben Sie uns per WhatsApp – in Ihrer Sprache."
+          "text": "Senden Sie das Formular oder eine WhatsApp-Nachricht in Ihrer Sprache. Das dauert eine Minute."
         },
         {
           "title": "Online-Einschätzung",
-          "text": "Senden Sie Fotos oder Röntgenbilder per WhatsApp; wir sehen sie uns an und besprechen Ihre Möglichkeiten mit Ihnen."
+          "text": "Schicken Sie Fotos oder Röntgenbilder. Wir prüfen sie und erklären Ihnen Ihre Möglichkeiten – ehrlich und vor jeder Entscheidung."
         },
         {
           "title": "Ihr Behandlungspaket",
-          "text": "Ihr Paket verbindet Behandlung und Reiseorganisation."
+          "text": "Behandlung und Reise werden in einem Paket zusammengeführt, damit Sie mit Sicherheit planen können."
         },
         {
           "title": "Reisen mit Koordination",
@@ -80,7 +80,7 @@
         },
         {
           "title": "Behandlung und Nachsorge",
-          "text": "Ihre Behandlung findet bei JOKAR DENTAL in Antalya oder Istanbul statt – und wir begleiten Sie auch danach."
+          "text": "Ihre Behandlung findet bei JOKAR DENTAL in Antalya oder Istanbul statt – und unsere Nachsorge geht weiter, wenn Sie wieder zu Hause sind."
         }
       ]
     },
@@ -131,11 +131,11 @@
     "consultation": {
       "eyebrow": "Kostenlose Beratung",
       "title": "Beginnen Sie mit einer kostenlosen Beratung",
-      "lead": "Erzählen Sie uns kurz, was Sie brauchen. Unser Team kontaktiert Sie auf dem Weg, den Sie bevorzugen.",
+      "lead": "Erzählen Sie uns ein wenig über Ihr Lächeln und Ihre Wünsche. Wir antworten auf dem Weg, den Sie bevorzugen – unverbindlich.",
       "nextTitle": "So geht es weiter",
       "next": [
-        "Wir erhalten Ihre Anfrage.",
-        "Unser Team meldet sich, um Ihre Wünsche zu verstehen.",
+        "Wir lesen Ihre Anfrage sorgfältig.",
+        "Wir melden uns, um zu verstehen, was Ihnen wichtig ist.",
         "Gemeinsam planen wir Ihre kostenlose Beratung."
       ],
       "chat": "Lieber direkt schreiben?",
@@ -175,7 +175,7 @@
     "after_form": "Hallo JOKAR DENTAL, ich habe gerade eine Beratungsanfrage gesendet ({reference})."
   },
   "footer": {
-    "tagline": "Zahnimplantate, Veneers und Smile Design in Antalya & Istanbul.",
+    "tagline": "Zahnimplantate, Keramik-Veneers und Smile Design in Antalya & Istanbul – nach Ihnen geplant.",
     "treatments": "Behandlungen",
     "patients": "Patienten",
     "legal": "Rechtliches",
@@ -253,14 +253,14 @@
     "who": "Für wen?",
     "how": "So läuft es ab",
     "intlEyebrow": "Internationale Patienten",
-    "intlTitle": "Sie kommen aus dem Ausland?",
-    "intlText": "Wir koordinieren Hotel, Flughafentransfer und Dolmetscher – und vor der Reise können Sie Fotos oder Röntgenbilder für eine Online-Einschätzung senden.",
+    "intlTitle": "Sie reisen aus dem Ausland an?",
+    "intlText": "Senden Sie vor dem Abflug Fotos oder Röntgenbilder für eine Online-Einschätzung. Wir koordinieren Hotel, Flughafentransfer und Dolmetscher.",
     "medicalNote": "Diese Seite gibt allgemeine Informationen und ersetzt keine zahnärztliche Untersuchung."
   },
   "treatments": {
     "implants": {
       "title": "Zahnimplantate",
-      "lead": "Fester Ersatz für fehlende Zähne: Ein Titanimplantat übernimmt die Rolle der Wurzel und trägt eine neue Krone.",
+      "lead": "Ein fester, natürlich wirkender Ersatz für fehlende Zähne: Ein Titanimplantat ersetzt die Wurzel und trägt eine eigens für Sie gefertigte Krone.",
       "what": [
         "Ein Zahnimplantat ist ein kleiner Titanstift, der dort in den Kieferknochen gesetzt wird, wo ein Zahn fehlt.",
         "Sobald es mit dem Knochen verwachsen ist, trägt es eine Krone – oder bei mehreren fehlenden Zähnen eine Brücke –, passend zu Ihren übrigen Zähnen gefertigt."
@@ -366,7 +366,7 @@
     },
     "veneers": {
       "title": "Veneers",
-      "lead": "Dünne, individuell gefertigte Schalen für die Vorderseite Ihrer Zähne – für Form, Farbe und Proportionen.",
+      "lead": "Hauchdünne Keramikschalen für die Vorderseite Ihrer Zähne – sie verfeinern Form, Farbe und Proportionen, passend zu Ihrem Gesicht.",
       "what": [
         "Veneers sind dünne Schalen, die für jeden Zahn nach Maß gefertigt und auf seiner Vorderseite befestigt werden.",
         "Sie verändern das Aussehen eines Zahns – Form, Farbe, Größe oder Länge –, während der Zahn selbst erhalten bleibt."
@@ -477,7 +477,7 @@
     },
     "smileDesign": {
       "title": "Smile Design",
-      "lead": "Ihr Lächeln als Ganzes geplant – Zahnform, Farbe und Harmonie mit Ihrem Gesicht –, bevor eine Behandlung beginnt.",
+      "lead": "Ihr Lächeln als Ganzes geplant – Form, Farbe und Proportionen der Zähne im Einklang mit Ihrem Gesicht –, bevor eine Behandlung beginnt.",
       "what": [
         "Smile Design ist eine Art der Planung: Form, Größe, Farbe und Proportionen Ihrer Zähne werden zusammen mit Ihrem Gesicht und Ihren Lippen geplant.",
         "Der Plan zeigt, welche Behandlungen – zum Beispiel Veneers oder Implantate – Sie zu dem Lächeln führen, das Sie sich wünschen."
@@ -589,40 +589,40 @@
   },
   "international": {
     "eyebrow": "Internationale Patienten",
-    "title": "Ihre Behandlung in der Türkei, koordiniert ab der ersten Nachricht",
-    "lead": "Sagen Sie uns in Ihrer Sprache, was Sie brauchen. Wir helfen Ihnen, Behandlung, Reise und Aufenthalt in Antalya oder Istanbul zu planen.",
+    "title": "Ihre Behandlung in der Türkei – einfach ab der ersten Nachricht",
+    "lead": "Sagen Sie uns in Ihrer Sprache, was Sie brauchen. Wir planen Behandlung, Reise und Aufenthalt in Antalya oder Istanbul gemeinsam mit Ihnen – Schritt für Schritt.",
     "servicesEyebrow": "Koordination",
-    "servicesTitle": "Darum kümmern wir uns",
+    "servicesTitle": "Alles rund um Ihre Behandlung, koordiniert",
     "services": [
       {
         "title": "Online-Einschätzung",
-        "text": "Senden Sie vor der Reise Fotos oder Röntgenbilder per WhatsApp – so wird Ihr Besuch auf Ihren Fall abgestimmt."
+        "text": "Senden Sie vor der Reise Fotos oder Röntgenbilder per WhatsApp, damit Ihr Aufenthalt nach Ihrem Fall geplant wird."
       },
       {
         "title": "Hotel",
-        "text": "Wir helfen Ihnen, Ihr Hotel für die Dauer Ihres Aufenthalts zu organisieren."
+        "text": "Wir helfen Ihnen, ein Hotel für die Dauer Ihres Aufenthalts zu finden."
       },
       {
         "title": "Flughafentransfer",
-        "text": "Ihr Flughafentransfer wird für Sie koordiniert."
+        "text": "Jemand holt Sie am Flughafen ab – und bringt Sie wieder hin."
       },
       {
         "title": "Dolmetscher",
-        "text": "Ein Dolmetscher steht zur Verfügung, damit Sie jeden Schritt Ihrer Behandlung verstehen."
+        "text": "Ein Dolmetscher steht bereit, damit Sie jeden Schritt Ihrer Behandlung verstehen."
       },
       {
         "title": "Behandlungspakete",
-        "text": "Pakete, die Ihre Behandlung und Ihre Reiseorganisation verbinden."
+        "text": "Behandlung und Reiseorganisation, zusammengeführt in einem Paket."
       },
       {
         "title": "Nachsorge",
-        "text": "Wir bleiben auch nach Ihrer Behandlung in Kontakt. Es gibt eine Garantie; ihre Bedingungen hängen von der Behandlung ab."
+        "text": "Wir bleiben nach Ihrer Behandlung in Kontakt. Es gibt eine Garantie; ihre Bedingungen hängen von der Behandlung ab."
       }
     ],
-    "stayTitle": "Ihren Aufenthalt planen",
-    "stayText": "Die meisten Aufenthalte dauern je nach Behandlung 3 bis 8 Tage. Sobald wir Ihren Fall angesehen haben, sagen wir Ihnen, womit Sie rechnen können.",
-    "citiesTitle": "Antalya oder Istanbul",
-    "citiesText": "Implantate, Veneers und Smile Design bieten wir in beiden Städten an – wählen Sie die Stadt, die zu Ihrer Reise passt."
+    "stayTitle": "Wie lange Sie bleiben",
+    "stayText": "Die meisten Aufenthalte dauern je nach Behandlung 3 bis 8 Tage. Sobald wir Ihren Fall geprüft haben, sagen wir Ihnen genau, was Sie erwartet.",
+    "citiesTitle": "Antalya oder Istanbul – Sie entscheiden",
+    "citiesText": "Implantate, Veneers und Smile Design bieten wir in beiden Städten an. Küste oder Metropole – wählen Sie, was zu Ihrer Reise passt."
   },
   "consultationPage": {
     "title": "Kostenlose Beratung",
@@ -630,27 +630,27 @@
   },
   "about": {
     "title": "Über JOKAR DENTAL",
-    "lead": "Zahnimplantate, Veneers und Smile Design in Antalya und Istanbul – eine Betreuung, die sich nach Ihnen richtet, von der ersten Nachricht bis zur Nachsorge.",
+    "lead": "Zahnimplantate, Keramik-Veneers und Smile Design in Antalya und Istanbul – nach Ihnen geplant, in Ihrer Sprache erklärt und nachbetreut, wenn Sie wieder zu Hause sind.",
     "sections": [
       {
-        "title": "Was wir tun",
-        "text": "Wir konzentrieren uns auf drei Behandlungen: Zahnimplantate, Veneers und Smile Design. Alle drei bieten wir in unseren beiden Städten an, Antalya und Istanbul."
+        "title": "Drei Behandlungen, mit vollem Fokus",
+        "text": "Wir konzentrieren uns auf Zahnimplantate, Keramik-Veneers und Smile Design. Alle drei bieten wir in unseren beiden Städten an, Antalya und Istanbul."
       },
       {
-        "title": "Wie wir arbeiten",
-        "text": "Jede Behandlung beginnt mit einer kostenlosen Beratung. Wir sehen uns Ihren Fall an, erklären Ihre Möglichkeiten und planen die Behandlung gemeinsam mit Ihnen – damit Sie mit allen Informationen entscheiden."
+        "title": "Zuerst kommt die Planung",
+        "text": "Jede Behandlung beginnt mit einer kostenlosen Beratung. Wir sehen uns Ihren Fall an, erklären Ihre Möglichkeiten und planen gemeinsam – damit Sie mit allen Informationen entscheiden, nie unter Druck."
       },
       {
         "title": "Ihre Sprache, Ihr Plan",
         "text": "Wir sprechen mit jedem Patienten in seiner Sprache – auf dieser Website auf Persisch, Englisch, Deutsch und Türkisch. Vor der Reise können Sie Fotos oder Röntgenbilder für eine Online-Einschätzung senden."
       },
       {
-        "title": "Ihre Reise, koordiniert",
+        "title": "Eine Reise, die sich einfach anfühlt",
         "text": "Für Patienten aus dem Ausland koordinieren wir Hotel, Flughafentransfer und Dolmetscher. Die meisten Aufenthalte dauern je nach Behandlung 3 bis 8 Tage."
       },
       {
-        "title": "Nach Ihrer Behandlung",
-        "text": "Wir bleiben auch nach der Behandlung in Kontakt. Es gibt eine Garantie; ihre Bedingungen hängen von der Behandlung ab und werden Ihnen in der Beratung erklärt."
+        "title": "Über den letzten Termin hinaus",
+        "text": "Wir bleiben nach Ihrer Behandlung in Kontakt. Es gibt eine Garantie; ihre Bedingungen hängen von der Behandlung ab und werden in Ihrer Beratung erklärt."
       }
     ],
     "cta": "Mit einer kostenlosen Beratung beginnen"
