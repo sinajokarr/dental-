@@ -2,7 +2,7 @@
 // the clip plays into a canvas (crop + scale + a light grade) and MediaRecorder writes WebM (VP9) and MP4 (H.264).
 // Also exports the first and the last frame as PNG (posters). No ffmpeg on this machine; nothing is installed.
 //   node scripts/video/encode.mjs <source.mp4> <out-basename> '<json options>'
-//   options: { start, end, crop: [x, y, w, h] (source px), size: [w, h], kbps, filter }
+//   options: { start, end, crop: [x, y, w, h] (source px, after rotation), size: [w, h], kbps, filter, rotate: 0 | 90 | -90 | 180 }
 import { chromium } from "@playwright/test";
 import http from "node:http";
 import fs from "node:fs";
@@ -29,7 +29,19 @@ const server = http.createServer((req, res) => {
     const [W, H] = o.size, [cx, cy, cw, ch] = o.crop;
     const canvas = document.createElement("canvas"); canvas.width = W; canvas.height = H;
     const ctx = canvas.getContext("2d"); ctx.filter = o.filter; ctx.imageSmoothingQuality = "high";
-    const draw = () => ctx.drawImage(video, cx, cy, cw, ch, 0, 0, W, H);
+    // Phone footage often arrives sideways: rotate into an intermediate canvas first, then crop from it.
+    let source = video;
+    if (o.rotate) {
+      const turned = document.createElement("canvas");
+      const half = o.rotate === 180;
+      turned.width = half ? video.videoWidth : video.videoHeight; turned.height = half ? video.videoHeight : video.videoWidth;
+      const t = turned.getContext("2d");
+      if (half) { t.translate(video.videoWidth, video.videoHeight); t.rotate(Math.PI); }
+      else if (o.rotate === -90) { t.translate(0, video.videoWidth); t.rotate(-Math.PI / 2); } else { t.translate(video.videoHeight, 0); t.rotate(Math.PI / 2); }
+      source = turned;
+      source.paint = () => t.drawImage(video, 0, 0);
+    }
+    const draw = () => { source.paint?.(); ctx.drawImage(source, cx, cy, cw, ch, 0, 0, W, H); };
     const seek = (t) => new Promise((ok) => { video.onseeked = ok; video.currentTime = t; });
     const b64 = async (blob) => { const bytes = new Uint8Array(await blob.arrayBuffer()); let s = ""; for (let i = 0; i < bytes.length; i += 32768) s += String.fromCharCode(...bytes.subarray(i, i + 32768)); return btoa(s); };
     const png = async () => b64(await new Promise((ok) => canvas.toBlob(ok, "image/png")));

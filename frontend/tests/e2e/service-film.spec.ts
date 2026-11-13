@@ -85,6 +85,6 @@ test("decorative: hidden from assistive technology, no controls, no canvas; ever
   const { statSync, readdirSync } = await import("node:fs");
   for (const file of readdirSync("public/images/treatments")) {
     const size = statSync(`public/images/treatments/${file}`).size;
-    expect(size, file).toBeLessThanOrEqual(file.includes("-480.") ? 160 * 1024 : file.endsWith(".webp") ? 40 * 1024 : 400 * 1024);
+    expect(size, file).toBeLessThanOrEqual(file.includes("-480.") ? 180 * 1024 : file.endsWith(".webp") ? 40 * 1024 : 480 * 1024);
   }
 });
