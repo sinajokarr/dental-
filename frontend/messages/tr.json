@@ -312,6 +312,26 @@
         {
           "q": "İmplant herkes için uygun mudur?",
           "a": "Hayır. Genel sağlığınıza, diş etlerinize ve çene kemiğinize bağlıdır. Diş hekimi, herhangi bir tedavi planlanmadan önce bunları değerlendirir."
+        },
+        {
+          "q": "All-on-4 ve All-on-6 herkes için uygun mu?",
+          "a": "Hayır. İkisi de doğru yerlerde yeterli kemik ve cerrahiye izin veren bir genel sağlık gerektirir. Muayene ve görüntülemeden sonra diş hekiminiz bunlardan birinin size uygun olup olmadığını — ya da neyin uygun olduğunu — açıklar."
+        },
+        {
+          "q": "Ameliyat günü sabit dişlerle mi ayrılırım?",
+          "a": "Yalnızca implantlar yeterince sabitse; o durumda da dişler geçicidir. Kalıcı köprü iyileşmeden sonra yapılır. Hemen yükleme güvenli değilse başka bir geçici çözüm alırsınız."
+        },
+        {
+          "q": "Hangi implant markası kullanılacak?",
+          "a": "Straumann, Nobel Biocare, Medentika ve Osstem ile çalışıyoruz. Seçim vakanıza bağlıdır ve tedaviden önce size açıklanır."
+        },
+        {
+          "q": "İmplant tedavisinin garantisi var mı?",
+          "a": "Evet, yazılı olarak. Koşulları tedaviye ve implant sistemine göre değişir; tedavi başlamadan önce size verilir."
+        },
+        {
+          "q": "Kemik greftine ya da sinüs liftingine ihtiyacım var mı?",
+          "a": "Yalnızca kemik planlanan implant için yeterli değilse. Görüntüleme bunu gösterir; bazen açılı ya da daha kısa implantlar bir alternatiftir."
         }
       ],
       "explorer": {
@@ -529,6 +549,22 @@
         {
           "q": "Gülüş tasarımına hangi tedaviler dahil olabilir?",
           "a": "Planınıza bağlıdır; örneğin lamina veya implant. Diş hekimi sizin durumunuzda nelerin gerekeceğini anlatır."
+        },
+        {
+          "q": "Laboratuvarınız bir kronu ne kadar hızlı üretebilir?",
+          "a": "Vaka uygun olduğunda 24 ila 48 saat içinde. Daha büyük ya da karmaşık çalışmalar daha uzun sürer; tedavi planınız gerçekçi süreyi belirtir."
+        },
+        {
+          "q": "Diş eti şekillendirme acıtır mı?",
+          "a": "Lokal anestezi altında yapılır. Sonrasında diş etleri birkaç gün hassas olabilir; ne kadar olacağı kişiden kişiye değişir."
+        },
+        {
+          "q": "Dişlerim ne kadar beyazlar?",
+          "a": "Bu önceden vaat edilemez. Doğal diş renginize ve renklenmenin nedenine bağlıdır; doğal görünen bir sonuç hedefliyoruz."
+        },
+        {
+          "q": "Kronlar veya laminalar beyazlatılabilir mi?",
+          "a": "Hayır. Beyazlatma yalnızca doğal dişleri değiştirir; bu yüzden görünen restorasyonlar son renk düşünülerek planlanır."
         }
       ],
       "explorer": {
@@ -804,5 +840,293 @@
       "name": "İstanbul",
       "alt": "Akşam saatlerinde Boğaz'ın üzerinde camileriyle İstanbul silueti"
     }
+  },
+  "expansion": {
+    "ask": "Ücretsiz danışmanlıkta bunu sorun",
+    "implants": {
+      "eyebrow": "İleri implantoloji",
+      "title": "Tek bir dişten tüm çeneye",
+      "lead": "Bazen tek bir implant yetmez: Bütün bir çene yeniden yapılacaktır, bir diş çekildiği gün yerine konacaktır ya da kemiğin önce desteklenmesi gerekir. Bu tedavilerin nasıl yapıldığı, neler sağlayabildiği ve sınırlarının nerede olduğu.",
+      "fullArch": {
+        "label": "All-on-4 ve All-on-6",
+        "title": "Dört ya da altı implant üzerinde sabit bir çene",
+        "lead": "Bir çenedeki dişlerin çoğu ya da tamamı eksikse veya korunamıyorsa, her diş için bir implant yerine sabit bir köprü birkaç implanta sabitlenebilir. All-on-4 ve All-on-6 bunun iki yoludur.",
+        "toggle": "İmplant konumlarını göster:",
+        "concepts": [
+          {
+            "key": "four",
+            "label": "All-on-4",
+            "title": "Dört implant",
+            "text": "Öndeki iki implant dik durur, arkadaki ikisi genellikle açılı yerleştirilir. Bu açı, daha uzun bir implantın mevcut kemikten yararlanmasını sağlar ve bazen çenenin arka bölgesinde kemik greftini gereksiz kılabilir."
+          },
+          {
+            "key": "six",
+            "label": "All-on-6",
+            "title": "Altı implant",
+            "text": "Altı implant, köprünün yükünü daha fazla destek arasında paylaştırır. Bunun için çenenin daha geniş bir bölümünde yeterli kemik gerekir; köprünün şekillendirilmesinde biraz daha fazla serbestlik sağlar."
+          }
+        ],
+        "stages": [
+          "Çene ve kemiği",
+          "Kemiğin izin verdiği yerlerde implantlar",
+          "İmplantlar üzerinde sabit köprü"
+        ],
+        "caption": "Bir alt çenenin sadeleştirilmiş çizimi. İmplant konumları her kişi için ayrı planlanır.",
+        "compare": "İki konseptten hiçbiri herkes için daha iyi değildir. Hangisinin uygun olduğu — ya da başka bir planın daha uygun olup olmadığı — kemiğinize, ısırışınıza, diş etlerinize ve genel sağlığınıza bağlıdır.",
+        "whoTitle": "Kimler değerlendirilebilir",
+        "who": [
+          "Bir çenedeki dişlerin çoğu ya da tamamı eksik veya korunamıyor",
+          "Hareketli protez gevşek ya da rahatsız",
+          "Genel sağlık küçük bir ağız cerrahisine izin veriyor — sigara ve kontrolsüz diyabet gibi hastalıklar riski artırır"
+        ],
+        "stepsTitle": "Tam çene tedavisi nasıl planlanır",
+        "steps": [
+          {
+            "title": "Muayene ve görüntüleme",
+            "text": "Herhangi bir karar vermeden önce ağzınızı muayene eder, kemiği röntgen ve gerektiğinde 3D görüntüleme ile değerlendiririz."
+          },
+          {
+            "title": "İmplantlar ve dişler için tek plan",
+            "text": "İmplant konumları ve köprünün şekli birlikte planlanır; böylece implantlar, gelecekteki dişlerin ihtiyaç duyduğu yerde olur."
+          },
+          {
+            "title": "İmplantlar ve geçici köprü",
+            "text": "İmplantlar lokal anestezi altında yerleştirilir. Hepsi yeterince sabitse kısa süre sonra sabit geçici bir köprü takılabilir; değilse başka bir geçici çözüm bu süreyi karşılar."
+          },
+          {
+            "title": "İyileşme ve kalıcı köprü",
+            "text": "İmplantların çevresindeki kemik iyileştiğinde — genellikle birkaç ay içinde — kalıcı köprü yapılır ve yerine oturmuş diş etine uyarlanır."
+          }
+        ],
+        "temporaryTitle": "Geçici ve kalıcı aynı şey değildir",
+        "temporary": "Ameliyattan kısa süre sonra takılan köprü, iyileşme dönemi için yapılmış geçici bir köprüdür. Kalıcı köprü iyileşmeden sonra, daha dayanıklı malzemelerden yapılır. Bu yüzden “bir günde diş” en fazla geçici dişler anlamına gelebilir — o da yalnızca implantlar yeterince sabitse.",
+        "limitsTitle": "Sınırlar ve riskler",
+        "limits": "Her cerrahi işlem gibi implant yerleştirme de şişlik, enfeksiyon, sinir tahrişi ya da kemikle kaynaşmayan bir implant gibi riskler taşır. Tam çene köprüsü, altı da dahil olmak üzere her gün dikkatli temizlik ve düzenli kontroller gerektirir.",
+        "bridgeToggle": "Sabit köprüyü göster"
+      },
+      "single": {
+        "label": "Tekli ve çoklu implantlar",
+        "title": "Bir diş ya da birkaç diş, her biri kendi planıyla",
+        "lead": "Tek bir implant, komşu dişleri kesmeden bir dişin yerini alır. Birkaç diş eksik olduğunda iki ya da daha fazla implant ayrı kronları veya küçük bir köprüyü taşıyabilir.",
+        "points": [
+          {
+            "title": "Üç parça",
+            "text": "İmplant kemiğin içinde durur, abutment bağlantıyı sağlar, kron ise görünen kısımdır."
+          },
+          {
+            "title": "Malzemeler",
+            "text": "İmplant genellikle titanyum ya da titanyum alaşımından, kron genellikle zirkonyum gibi seramikten yapılır. Size hangi malzemelerin uygun olduğu danışmanlıkta açıklanır."
+          },
+          {
+            "title": "Dijital planlama",
+            "text": "Taramalar ve röntgenler, implantın konumunu tedaviden önce ve son kronu düşünerek planlamamızı sağlar."
+          },
+          {
+            "title": "Bakım",
+            "text": "Her gün diş aralarıyla birlikte temizleyin, kontrollerinize gelin ve kanama ya da gevşeklik hissini erkenden bize bildirin."
+          }
+        ],
+        "brandsTitle": "Çalıştığımız implant sistemleri",
+        "brandsLead": "Köklü üreticilerin implant sistemlerini kullanıyoruz. Hangisinin uygun olduğu kemiğinize, planlanan restorasyona ve gereken parçalara bağlıdır — diş hekiminiz seçimi size açıklar.",
+        "brands": [
+          {
+            "name": "Straumann",
+            "origin": "Basel, İsviçre"
+          },
+          {
+            "name": "Nobel Biocare",
+            "origin": "Kloten, İsviçre"
+          },
+          {
+            "name": "Medentika",
+            "origin": "Hügelsheim, Almanya · Straumann Group"
+          },
+          {
+            "name": "Osstem",
+            "origin": "Seul, Güney Kore"
+          }
+        ],
+        "brandsNote": "Şirketlerin merkezleri. İsimler ve markalar sahiplerine aittir; üreticiler tarafından bir onay anlamına gelmez.",
+        "guarantee": "Tedaviniz yazılı garantiyle sunulur. Garantinin koşulları tedaviye ve implant sistemine göre değişir; tedavi başlamadan önce size yazılı olarak verilir."
+      },
+      "immediate": {
+        "label": "Aynı gün implant ve hemen yükleme",
+        "title": "Hızlı, ama asla aceleyle değil",
+        "lead": "Uygun durumlarda implant, dişin çekildiği gün yerleştirilebilir ve kısa süre sonra üzerine geçici bir diş takılabilir. Bunun mümkün olup olmadığına muayene — ve son olarak ameliyatın kendisi — karar verir.",
+        "kinds": [
+          {
+            "title": "Hemen yerleştirme",
+            "text": "İmplant, dişin çekildiği aynı seansta yerleştirilir; diş boşluğunun iyileşmesi beklenmez."
+          },
+          {
+            "title": "Hemen geçici diş",
+            "text": "Yerleştirmeden kısa süre sonra implantlara geçici bir kron veya köprü takılır — yalnızca yeterince sabitlerse. İyileşme sırasında implantları koruyacak şekilde biçimlendirilir."
+          },
+          {
+            "title": "Kalıcı restorasyon",
+            "text": "Kalıcı kron ya da köprü iyileşmeden sonra, genellikle birkaç ay sonra, implant kemikle sıkıca kaynaştığında yapılır."
+          }
+        ],
+        "timelineTitle": "Genellikle böyle ilerler",
+        "conditional": "yalnızca uygunsa",
+        "timeline": [
+          {
+            "title": "Danışmanlık",
+            "text": "İstekleriniz, sağlığınız ve ilgili dişler."
+          },
+          {
+            "title": "Değerlendirme",
+            "text": "Muayene ve kemiğin görüntülenmesi."
+          },
+          {
+            "title": "Tedavi planı",
+            "text": "Hemen yerleştirme ve yüklemenin seçenek olup olmadığı — ve alternatifin ne olduğu."
+          },
+          {
+            "title": "İmplant yerleştirme",
+            "text": "İmplant yerleştirilir ve sabitliği ameliyat sırasında kontrol edilir."
+          },
+          {
+            "title": "Geçici restorasyon",
+            "text": "İyileşmeyi korumak için biçimlendirilmiş geçici bir diş ya da köprü.",
+            "conditional": true
+          },
+          {
+            "title": "İyileşme ve takip",
+            "text": "Kemik iyileşirken kontroller, ardından kalıcı restorasyon."
+          }
+        ],
+        "limits": "Hemen yükleme, yeterli sağlıklı kemik ve ilk andan itibaren sıkıca sabit duran bir implant gerektirir. Bölgedeki enfeksiyon, yetersiz kemik, şiddetli diş gıcırdatma ya da aynı seansta yapılan kemik grefti, beklemeyi daha güvenli seçenek hâline getirebilir."
+      },
+      "support": {
+        "label": "İmplant tedavisine destek işlemleri",
+        "title": "Kemiğin önce desteğe ihtiyacı olduğunda",
+        "lead": "Bir implantın çevresinde yeterli kemik olması gerekir. Diş çekiminden, diş eti hastalığından ya da yıllarca dişsiz kalmaktan sonra kemik kaybedilen yerlerde, kemik çoğu zaman implanttan önce ya da implantla birlikte yeniden oluşturulabilir.",
+        "caption": "Sadeleştirilmiş kesitler, ölçekli değildir.",
+        "items": [
+          {
+            "key": "graft",
+            "title": "Kemik grefti",
+            "lead": "Greft malzemesi, çenenin fazla incelmiş ya da alçalmış olduğu yere yerleştirilir. Vücudun zamanla kendi yeni kemiğiyle doldurduğu bir iskele görevi görür.",
+            "points": [
+              "Kemik implantı güvenle tutamadığında ya da görünen bölgede diş eti konturunu desteklemek için önerilir.",
+              "Malzeme kendi kemiğiniz ya da hazırlanmış bir greft malzemesi olabilir; çoğu zaman koruyucu bir membranla örtülür.",
+              "Küçük greftler bazen implantla birlikte yapılır; büyük greftler genellikle önce birkaç ay iyileşir."
+            ],
+            "stages": [
+              "Genişliğini kaybetmiş bir kemik sırtı",
+              "Membran altında greft malzemesi",
+              "İyileşmeden sonra: implant için yer"
+            ]
+          },
+          {
+            "key": "sinus",
+            "title": "Sinüs lifting",
+            "lead": "Üst arka dişlerin üzerinde, hava dolu bir boşluk olan maksiller sinüs bulunur. Diş kaybından sonra altındaki kemik çoğu zaman bir implantı tutamayacak kadar incelir.",
+            "points": [
+              "Sinüs zarı nazikçe kaldırılır ve altına greft malzemesi yerleştirilir; böylece implant için yükseklik oluşur.",
+              "Kemiğe bağlı olarak bu işlem yandan küçük bir pencereyle ya da alttan, implant yuvasından yapılır.",
+              "3D görüntüleme kemik yüksekliğini ve sinüsün sağlığını gösterir; sinüs sorunları önce tedavi edilir. Olası etkiler şişlik, burun kanaması ya da nadiren zarın yırtılması veya enfeksiyondur."
+            ],
+            "stages": [
+              "Sinüsün altında yetersiz kemik",
+              "Zar kaldırıldı, greft boşluğu dolduruyor",
+              "İyileşmeden sonra: implantı tutacak kemik"
+            ]
+          }
+        ],
+        "limits": "İyileşme süreleri kişiden kişiye değişir. Sigara, diş eti hastalığı ve bazı genel hastalıklar iyileşmeyi yavaşlatır ya da riski artırır; diş hekiminiz bunları sizinle konuşur."
+      }
+    },
+    "smileDesign": {
+      "eyebrow": "Dijital gülüş teknolojisi",
+      "title": "Doğal bir gülüşün ardındaki ayrıntılar",
+      "lead": "Gülüş tasarımı ekranda planlanır, kendi laboratuvarımızda üretilir ve küçük adımlarla inceltilir: diş eti çizgisi, dişlerin rengi, her restorasyonun uyumu. Bunlar arkasındaki teknikler.",
+      "cadcam": {
+        "label": "CAD/CAM ve kendi laboratuvarımız",
+        "title": "Taramadan seramiğe, tek çatı altında",
+        "lead": "Antalya ve İstanbul'daki kliniklerimizde CAD/CAM teknolojisi ve kendi diş laboratuvarımız bulunur. Dişleriniz dijital olarak taranır, restorasyonlar ekranda tasarlanır ve yerinde üretilir.",
+        "steps": [
+          {
+            "title": "Dijital tarama",
+            "text": "Ağız içi tarayıcı dişlerinizi hassas bir 3D görüntü olarak kaydeder — çoğu kişi için ölçü macunundan daha rahattır."
+          },
+          {
+            "title": "3D model",
+            "text": "Tarama, dişlerinizin ve ısırışınızın dijital bir modeline dönüşür."
+          },
+          {
+            "title": "Dijital tasarım",
+            "text": "Restorasyon bu model üzerinde tasarlanır: şekli, komşu dişlerle teması, ısırışınız."
+          },
+          {
+            "title": "Frezeleme",
+            "text": "Bir freze ünitesi restorasyonu tek parça bir seramik bloktan şekillendirir."
+          },
+          {
+            "title": "Bitirme ve prova",
+            "text": "Laboratuvar yüzeyi bitirir; diş hekiminiz yapıştırmadan önce uyumu, ısırışı ve rengi kontrol eder."
+          }
+        ],
+        "timing": "Vaka uygun olduğunda bir kron 24 ila 48 saat içinde üretilebilir. Birçok restorasyon — özellikle daha büyük ya da çok katmanlı çalışmalar — daha uzun sürer; tedavi planınız sizin için gerçekçi süreyi belirtir.",
+        "caption": "Fotoğraflar bir diş laboratuvarını açıklama amacıyla gösterir; JOKAR DENTAL'in laboratuvarı değildir."
+      },
+      "gum": {
+        "label": "Lazerle diş eti şekillendirme",
+        "title": "Gülüşünüzün çerçevesi",
+        "lead": "Diş eti dişlerin çerçevesidir. Dişin fazla bir kısmını örttüğünde ya da düzensiz uzandığında gülüş kısa veya dengesiz görünebilir. Diş eti şekillendirme, diş eti çizgisini küçük ve planlı adımlarla yeniden biçimlendirir.",
+        "guides": [
+          "Dudak çizgisi",
+          "Gülüş kavisi",
+          "Diş oranları"
+        ],
+        "caption": "Oranlar bir modelin fotoğrafı üzerinde işaretlenmiştir — bir çizim, tedavi sonucu değildir.",
+        "points": [
+          {
+            "title": "Diş etli gülüş",
+            "text": "Çok fazla diş eti gösteren bir gülüşün farklı nedenleri vardır: dişler sürdükten sonra tam çekilmemiş diş eti, çenenin konumu ya da çok hareketli bir üst dudak. Bunların yalnızca bir kısmı diş eti şekillendirmeyle tedavi edilebilir."
+          },
+          {
+            "title": "Lazer gingivektomi",
+            "text": "Diş hekimliği lazeriyle az miktarda diş eti dokusu alınır ve kenar yeniden şekillendirilir. Lazer çalışırken küçük damarları kapatır; bu, işlem sırasındaki kanamayı azaltabilir."
+          },
+          {
+            "title": "Önce muayene",
+            "text": "Diş etinizin sağlığını ve altındaki kemiğin nerede olduğunu kontrol ederiz. Kemik kenara çok yakınsa yalnızca diş eti taşınamaz; o zaman başka bir işlem — ya da hiçbir işlem — önerilir."
+          },
+          {
+            "title": "Gülüşünüzle birlikte planlanır",
+            "text": "Şekillendirme çoğu zaman lamine veya kronlarla birlikte planlanır; böylece dişler ve diş eti çizgisi tek bir bütün olarak tasarlanır."
+          }
+        ],
+        "limits": "Diş eti şekillendirme, lokal anestezi altında yapılan cerrahi bir işlemdir. Diş etinin iyileşip yerine oturması zaman alır, sonrasında hafif hassasiyet sık görülür ve doku kısmen geri büyüyebilir — özellikle kemik hesaba katılmadıysa."
+      },
+      "whitening": {
+        "label": "Profesyonel diş beyazlatma",
+        "title": "Daha parlak, yine de doğal",
+        "lead": "Profesyonel beyazlatma, dişlerinizin doğal rengini diş hekimi gözetiminde bir beyazlatma jeliyle açar. Dişlerin ne kadar açılacağı kişiden kişiye değişir.",
+        "scale": "Çizim: Beyazlatma doğal diş renkleri içinde ilerler; ne kadar ilerleyeceği herkeste farklıdır.",
+        "points": [
+          {
+            "title": "Dişler neden koyulaşır",
+            "text": "Kahve, çay, kırmızı şarap ve sigara yüzeyi renklendirir; yaş ve bazı ilaçlar rengi içeriden değiştirir. Yüzeysel lekeler genellikle iyi yanıt verir, bazı iç renklenmeler daha az."
+          },
+          {
+            "title": "Önce değerlendirme",
+            "text": "Çürük, diş eti sorunları ve açığa çıkmış diş boyunlarını kontrol eder, mevcut dolgu, kron ve laminaları not ederiz — bunların rengi beyazlatmayla değişmez."
+          },
+          {
+            "title": "Lazer destekli beyazlatma",
+            "text": "Koltukta diş etleriniz korunur ve bir beyazlatma jeli uygulanır; jeli aktive etmek için diş hekimliği lazeri kullanılır. Beyazlatmayı asıl sağlayan jeldir."
+          },
+          {
+            "title": "Hassasiyet ve bakım",
+            "text": "Geçici hassasiyet sık görülür ve genellikle kısa sürede geçer. İlk günlerde koyu renkli yiyecek ve içeceklerden ve sigaradan kaçının. Etki zamanla yavaş yavaş azalır."
+          }
+        ],
+        "expectation": "Belirli bir renk vaat edilemez. Teninizle, dudaklarınızla ve mevcut restorasyonlarınızla doğal görünen bir parlaklığı hedefliyoruz."
+      }
+    },
+    "stage": "Tedavi aşaması"
   }
 }

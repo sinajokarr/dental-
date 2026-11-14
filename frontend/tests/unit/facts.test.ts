@@ -15,6 +15,10 @@ const FACTS: Record<string, Record<string, RegExp>> = {
   "local anaesthesia": { en: /local anaesthesia/i, fa: /بی‌حسی موضعی/, de: /örtlicher Betäubung/i, tr: /lokal anestezi/i },
   "titanium": { en: /titanium/i, fa: /تیتانیوم/, de: /Titan/, tr: /titanyum/i },
   "cannot be undone": { en: /cannot be undone/i, fa: /برگشت‌پذیر نیست/, de: /nicht rückgängig/i, tr: /geri alınamaz/i },
+  // V7 (D-091), confirmed by the clinic: implant systems, written guarantee (terms pending), crowns in 24 to 48 hours
+  "the implant systems": { en: /Straumann|Nobel Biocare|Medentika|Osstem/, fa: /Straumann|Nobel Biocare|Medentika|Osstem/, de: /Straumann|Nobel Biocare|Medentika|Osstem/, tr: /Straumann|Nobel Biocare|Medentika|Osstem/ },
+  "the written guarantee": { en: /written guarantee/i, fa: /ضمانت کتبی/, de: /schriftliche Garantie/i, tr: /yazılı garanti/i },
+  "crowns in 24 to 48 hours": { en: /24 to 48 hours/, fa: /۲۴ تا ۴۸ ساعت/, de: /24 bis 48 Stunden/, tr: /24 ila 48 saat/ },
 };
 
 for (const [fact, rules] of Object.entries(FACTS)) {

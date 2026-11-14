@@ -149,3 +149,9 @@
 | H06 | زیرساخت Production | D | `infrastructure/*` · Dockerfileها | Compose، Caddy، worker، backup + تمرین بازگردانی، smoke | smoke 18/18 | L | ✅ `67fdf63` (سرور واقعی: Q6) |
 | H07 | Deployment | H06 · دامنه | `LAUNCH_REPORT.md` §۸ | DNS، TLS، secrets، تست واقعی Telegram | smoke | M | 🔒 NOT RUN — دامنه/سرور و بات Telegram با کارفرما |
 | H08 | اعتبارسنجی نهایی | H01–H07 | `LAUNCH_REPORT.md` | گزارش آمادگی و موانع | **Gate G5** | S | 🟡 گزارش آماده — G5 باز تا ۴ کار کارفرما |
+| V7-01 | Audit + Scope lock | — | `V7_TREATMENT_EXPANSION.md` §۱، `tests/e2e/v7-scope.spec.ts` | baseline hash ۲۴ ناحیه قبل از تغییر | v7-scope 24/24 | S | ✅ |
+| V7-02 | متن چهارزبانه | V7-01 | `messages/*.json` (`expansion`، FAQ +۹) | ۱۰ خدمت، ۳ گزینه عنوان برای هر بخش، fact-check | unit 65/65 (claims، facts، parity) | L | ✅ — بازبینی پزشک/بومی باز (Q7) |
+| V7-03 | رندرهای سه‌بعدی | — | `scripts/render-treatments/*-v7.js`، `assets/treatments/{fullarch,graft,sinus,crown,shades}` | ۶ job آفلاین | بازبینی تصویری | M | ✅ |
+| V7-04 | عکس‌های مجوزدار | — | `assets/photos/v7/*`، `ASSET_LICENSES.md` | ۶ عکس Pexels | — | S | ✅ |
+| V7-05 | پیاده‌سازی بخش‌ها | V7-02…04 | `sections/expansion/*`، دو route، `TreatmentPage` (prop) | بدون JS کلاینت | e2e expansion | M | ✅ |
+| V7-06 | QA نهایی | V7-05 | کل مجموعه | scope، ۸ صفحه، RTL، موبایل، a11y | کل e2e | S | ✅ (Lighthouse/دستگاه واقعی: NOT RUN) |

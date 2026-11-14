@@ -33,7 +33,7 @@ const positions = new Float32Array(count * 3);
 for (let v = 0; v < count; v++) for (let a = 0; a < 3; a++) positions[v * 3 + a] = world(v, a);
 const tooth = { positions: Array.from(positions), normals: Array.from(mesh.normals).map((n) => n / 127), indices: Array.from(mesh.indices) };
 
-const wanted = process.argv.slice(2).length ? process.argv.slice(2) : ["implant", "veneers", "smile"];
+const wanted = process.argv.slice(2).length ? process.argv.slice(2) : ["implant", "veneers", "smile"]; // V7: fullarch graft sinus crown shades
 const browser = await chromium.launch({ args: ["--use-gl=angle", "--use-angle=swiftshader", "--enable-unsafe-swiftshader", "--ignore-gpu-blocklist"] });
 const page = await browser.newPage();
 page.on("console", (m) => ["error", "warning"].includes(m.type()) && console.log("  [page]", m.text().slice(0, 200)));
@@ -47,7 +47,7 @@ for (const job of wanted) {
   mkdirSync(dir, { recursive: true });
   for (const [layer, dataUrl] of Object.entries(result.layers)) {
     const png = Buffer.from(dataUrl.split(",")[1], "base64");
-    await sharp(png).resize(1000, 1000, { kernel: "lanczos3" }).png({ compressionLevel: 9 }).toFile(join(dir, `${layer}.png`));
+    await sharp(png).resize(result.out, result.out, { kernel: "lanczos3" }).png({ compressionLevel: 9 }).toFile(join(dir, `${layer}.png`));
   }
   if (Object.keys(result.meta).length) writeFileSync(join(dir, "meta.json"), JSON.stringify(result.meta, null, 1));
   console.log(`${job}: ${Object.keys(result.layers).join(", ")} in ${((Date.now() - started) / 1000).toFixed(1)} s`);

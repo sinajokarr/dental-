@@ -1,0 +1,533 @@
+/* V7 treatment expansion (D-091): implant and smile-design pages only. Prefixed (xp-), logical properties, tokens of
+   the design system; nothing global. Motion: one staged sequence per picture, played once when it scrolls into view
+   (RevealObserver sets data-revealed on data-reveal="draw"), only opacity / translate / clip-path / stroke. Without
+   JavaScript, before html[data-motion] or with reduced motion, every picture shows its final, complete state. */
+
+.xp-h3 {
+  font-size: clamp(1.75rem, 1.25rem + 1.7vw, 2.6rem);
+  line-height: 1.15;
+}
+:lang(fa) .xp-h3 {
+  line-height: 1.5;
+}
+
+.xp-split {
+  display: grid;
+  gap: 3rem;
+  align-items: center;
+}
+@media (width >= 64rem) {
+  .xp-split {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 5rem;
+  }
+  .xp-split-photo {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  }
+}
+
+/* ── pictures ─────────────────────────────────────────── */
+.xp-layer {
+  position: absolute;
+  inset: 0;
+}
+.xp-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  background: var(--color-ice-50);
+  box-shadow: var(--shadow-e3);
+}
+.xp-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--color-sky-400) 55%, transparent);
+  pointer-events: none;
+}
+.xp-portrait {
+  inline-size: 100%;
+  max-inline-size: 30rem;
+  margin-inline: auto;
+  aspect-ratio: 4 / 5;
+}
+.xp-stage-art,
+.xp-shot-render {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 28px;
+  background: radial-gradient(closest-side, var(--color-white), color-mix(in srgb, var(--color-sky-200) 40%, var(--color-ice-50)));
+}
+/* The complete picture (no motion, no JavaScript, after the sequence): earlier steps are hidden. */
+.xp-stage-art :is([data-stage="s1"], [data-stage="s12"], [data-stage="s2"]) {
+  opacity: 0;
+}
+.xp-block .xp-layer {
+  inset: 4%;
+}
+.xp-arch-art {
+  position: absolute;
+  inset: -9% -3% 5%; /* the render leaves room above the jaw for the bridge's descent; fill the frame */
+}
+.xp-implants {
+  position: absolute;
+  inset: 0;
+}
+.xp-bridge-in {
+  position: absolute;
+  inset: 0;
+}
+
+/* Step captions under a staged picture */
+.xp-steps-caption {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  margin-block-start: 1.25rem;
+  font-size: var(--text-small);
+  color: var(--color-slate-600);
+}
+.xp-steps-caption li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.xp-dot {
+  inline-size: 0.5rem;
+  block-size: 0.5rem;
+  border-radius: 50%;
+  background: var(--color-blue-700);
+}
+
+/* ── full arch: concept and bridge controls (native radios / checkbox, CSS :has) ── */
+.xp-controls {
+  margin-block-start: 1.75rem;
+  border: 0;
+  padding: 0;
+  min-inline-size: 0;
+}
+.xp-chip {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: 2.75rem;
+  padding-inline: 1.1rem;
+  border: 1px solid var(--color-slate-500);
+  border-radius: 999px;
+  background: var(--color-white);
+  color: var(--color-navy-900);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+.xp-chip:hover {
+  border-color: var(--color-blue-700);
+}
+.xp-chip:has(input:checked) {
+  background: var(--color-blue-700);
+  border-color: var(--color-blue-700);
+  color: var(--color-white);
+}
+.xp-chip-check:has(input:checked) {
+  background: var(--color-white);
+  color: var(--color-blue-700);
+  border-color: var(--color-blue-700);
+}
+.xp-chip-check::before {
+  content: "";
+  inline-size: 1rem;
+  block-size: 1rem;
+  margin-inline-end: 0.6rem;
+  border: 1.5px solid currentColor;
+  border-radius: 4px;
+}
+.xp-chip-check:has(input:checked)::before {
+  background: currentColor;
+  box-shadow: inset 0 0 0 2.5px var(--color-white);
+}
+.xp-chip:has(input:focus-visible) {
+  outline: 2px solid var(--color-blue-700);
+  outline-offset: 3px;
+}
+.xp-set,
+.xp-bridge {
+  transition: opacity 0.5s var(--ease-out), translate 0.7s var(--ease-out);
+}
+.xp-arch:has(input[value="six"]:checked) .xp-four,
+.xp-arch:has(input[value="four"]:checked) .xp-six {
+  opacity: 0;
+}
+.xp-arch:has(input[name="xp-bridge"]:not(:checked)) .xp-bridge {
+  opacity: 0;
+  translate: 0 -12%;
+}
+/* The concept shown in the picture is marked by its rule, never by fading the text (contrast stays AA). */
+[data-concept] {
+  transition: border-color 0.3s;
+}
+[data-xp="full-arch"]:has(input[value="four"]:checked) [data-concept="four"],
+[data-xp="full-arch"]:has(input[value="six"]:checked) [data-concept="six"] {
+  border-block-start-color: var(--color-blue-700);
+  border-block-start-width: 2px;
+}
+
+/* ── cards, brands, notes ─────────────────────────────── */
+.xp-card {
+  border-radius: 24px;
+  background: var(--color-white);
+  padding: 2rem;
+  box-shadow: var(--shadow-e1);
+}
+.xp-card-media {
+  display: grid;
+  gap: 1.75rem;
+  align-items: center;
+}
+@media (width >= 40rem) {
+  .xp-card-media {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  }
+}
+.xp-card-photo {
+  aspect-ratio: 3 / 2;
+  border-radius: 18px;
+  box-shadow: none;
+}
+.xp-brand-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem 1.5rem;
+}
+@media (width >= 64rem) {
+  .xp-brand-list {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+.xp-brand-list li {
+  display: grid;
+  gap: 0.4rem;
+  border-block-start: 1px solid var(--color-sky-200);
+  padding-block-start: 1.25rem;
+}
+.xp-brand-name {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 1.2rem + 1vw, 2.1rem);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--color-navy-900);
+}
+.xp-brand-origin {
+  font-size: var(--text-small);
+  color: var(--color-slate-600);
+}
+.xp-guarantee {
+  display: flex;
+  gap: 0.9rem;
+  max-inline-size: 44rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--color-sky-200);
+  border-radius: 18px;
+  background: var(--color-white);
+  color: var(--color-navy-900);
+}
+.xp-note {
+  max-inline-size: 48rem;
+  border-inline-start: 2px solid var(--color-blue-700);
+  padding-inline-start: 1.25rem;
+  color: var(--color-navy-900);
+}
+.xp-point {
+  position: relative;
+  padding-inline-start: 1.4rem;
+  color: var(--color-slate-600);
+}
+.xp-point::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: 0.65em;
+  inline-size: 0.45rem;
+  block-size: 0.45rem;
+  border-radius: 50%;
+  background: var(--color-sky-400);
+}
+
+/* ── immediate loading: three kinds, one timeline ─────── */
+.xp-kind {
+  border-block-start: 2px solid var(--color-blue-700);
+  padding-block-start: 1.5rem;
+}
+.xp-kind[data-kind="1"] {
+  border-block-start-style: dashed; /* the temporary step only happens when the implants are stable enough */
+}
+.xp-kind[data-kind="2"] {
+  border-block-start-color: var(--color-navy-900);
+}
+.xp-timeline {
+  position: relative;
+  display: grid;
+  gap: 2rem;
+  padding-inline-start: 2rem;
+}
+.xp-timeline::before {
+  content: "";
+  position: absolute;
+  inset-block: 0.4rem 0.4rem;
+  inset-inline-start: 0.45rem;
+  inline-size: 2px;
+  background: var(--color-sky-400);
+  transform-origin: top;
+}
+.xp-timeline li {
+  position: relative;
+}
+.xp-node {
+  position: absolute;
+  inset-inline-start: -2rem;
+  inset-block-start: 0.3rem;
+  inline-size: 1.1rem;
+  block-size: 1.1rem;
+  border: 2px solid var(--color-blue-700);
+  border-radius: 50%;
+  background: var(--color-ice-50);
+}
+.xp-timeline li[data-conditional] .xp-node {
+  border-style: dashed;
+}
+.xp-tag {
+  display: inline-block;
+  margin-block: 0.35rem 0.15rem;
+  padding: 0.1rem 0.6rem;
+  border: 1px dashed var(--color-blue-700);
+  border-radius: 999px;
+  font-size: var(--text-eyebrow);
+  color: var(--color-blue-700);
+}
+@media (width >= 64rem) {
+  .xp-timeline {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 1.5rem;
+    padding-inline-start: 0;
+    padding-block-start: 2.5rem;
+  }
+  .xp-timeline::before {
+    inset-block: 0.95rem auto;
+    inset-inline: 0.5rem 0.5rem;
+    inline-size: auto;
+    block-size: 2px;
+    transform-origin: left;
+  }
+  .xp-timeline:dir(rtl)::before {
+    transform-origin: right;
+  }
+  .xp-node {
+    inset-inline-start: 0;
+    inset-block-start: -2.5rem;
+  }
+}
+
+/* ── CAD/CAM storyboard ───────────────────────────────── */
+.xp-strip {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(13rem, 72%);
+  gap: 1.25rem;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  padding-block-end: 0.75rem;
+}
+.xp-strip > li {
+  scroll-snap-align: start;
+}
+@media (width >= 48rem) {
+  .xp-strip {
+    grid-auto-columns: minmax(13rem, 40%);
+  }
+}
+@media (width >= 64rem) {
+  .xp-strip {
+    grid-auto-flow: row;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    overflow: visible;
+  }
+}
+.xp-shot {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-e2);
+}
+.xp-shot-render {
+  aspect-ratio: 4 / 5;
+  border-radius: 20px;
+}
+.xp-shot-render .xp-layer {
+  inset: -18%;
+}
+
+/* ── gum contouring: guides over a photograph ─────────── */
+.xp-gum-photo {
+  aspect-ratio: 7 / 4;
+}
+.xp-guides {
+  position: absolute;
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  fill: none;
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+[data-guide="lip"] {
+  --guide: var(--color-blue-700);
+}
+[data-guide="arc"] {
+  --guide: #b08a4a;
+}
+[data-guide="ratio"] {
+  --guide: var(--color-white);
+}
+.xp-guides path {
+  stroke: var(--guide);
+  stroke-dasharray: 1;
+}
+.xp-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  font-size: var(--text-small);
+  color: var(--color-navy-900);
+}
+.xp-legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+.xp-legend li::before {
+  content: "";
+  inline-size: 1.4rem;
+  block-size: 3px;
+  border-radius: 2px;
+  background: var(--guide);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-navy-900) 18%, transparent);
+}
+
+/* ── whitening: shade tabs and a marker ──────────────── */
+.xp-shades {
+  position: relative;
+  aspect-ratio: 2 / 1;
+  overflow: hidden;
+  border-radius: 24px;
+  background: radial-gradient(closest-side, var(--color-white), color-mix(in srgb, var(--color-sky-200) 40%, var(--color-ice-50)));
+  direction: ltr; /* the picture is not mirrored in Persian; the marker follows the picture */
+}
+.xp-shade-track {
+  position: absolute;
+  inset: 0;
+}
+.xp-shade-marker {
+  position: absolute;
+  inset-block-start: 79%;
+  inset-inline-start: 0;
+  inline-size: 100%;
+  translate: calc(var(--to) * 1%) 0;
+}
+.xp-shade-marker::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: -1.4rem;
+  inline-size: 2.8rem;
+  block-size: 3px;
+  border-radius: 2px;
+  background: var(--color-blue-700);
+}
+
+/* ── motion ───────────────────────────────────────────── */
+@keyframes xp-s1 { 0%, 36% { opacity: 1; } 44%, 100% { opacity: 0; } }
+@keyframes xp-s12 { 0%, 76% { opacity: 1; } 84%, 100% { opacity: 0; } }
+@keyframes xp-s2 { 0%, 36% { opacity: 0; } 44%, 76% { opacity: 1; } 84%, 100% { opacity: 0; } }
+@keyframes xp-s23 { 0%, 36% { opacity: 0; } 44%, 100% { opacity: 1; } }
+@keyframes xp-s3 { 0%, 76% { opacity: 0; } 84%, 100% { opacity: 1; } }
+@keyframes xp-in { 0%, 76% { opacity: 0; translate: 0 var(--from-y); } 90%, 100% { opacity: 1; translate: 0 0; } }
+@keyframes xp-cap1 { 0%, 36% { opacity: 1; } 44%, 100% { opacity: 0.45; } }
+@keyframes xp-cap2 { 0%, 36% { opacity: 0.45; } 44%, 76% { opacity: 1; } 84%, 100% { opacity: 0.45; } }
+@keyframes xp-cap3 { 0%, 76% { opacity: 0.45; } 84%, 100% { opacity: 1; } }
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Before the picture is in view: its first step. */
+  [data-motion] .xp-stages:not([data-revealed]) :is([data-stage="s2"], [data-stage="s23"], [data-stage="s3"], .xp-implants, .xp-bridge-in) {
+    opacity: 0;
+  }
+  [data-motion] .xp-stages:not([data-revealed]) :is([data-stage="s1"], [data-stage="s12"]) {
+    opacity: 1;
+  }
+  [data-motion] .xp-stages:not([data-revealed]) .xp-steps-caption li:not([data-stage="s1"]) {
+    opacity: 0.45;
+  }
+  /* In view: the three steps, once (6 s), ending on the complete picture. */
+  [data-motion] .xp-stages[data-revealed] :is([data-stage^="s"], .xp-implants, .xp-bridge-in, .xp-steps-caption li) {
+    animation: 6s var(--ease-out) 0.3s both;
+  }
+  [data-motion] .xp-stages[data-revealed] .xp-layer[data-stage="s1"] { animation-name: xp-s1; }
+  [data-motion] .xp-stages[data-revealed] .xp-layer[data-stage="s12"] { animation-name: xp-s12; }
+  [data-motion] .xp-stages[data-revealed] .xp-layer[data-stage="s2"] { animation-name: xp-s2; }
+  [data-motion] .xp-stages[data-revealed] :is(.xp-layer[data-stage="s23"], .xp-implants) { animation-name: xp-s23; }
+  [data-motion] .xp-stages[data-revealed] .xp-layer[data-stage="s3"] { animation-name: xp-s3; }
+  [data-motion] .xp-stages[data-revealed] :is(.xp-in-down, .xp-in-up, .xp-bridge-in) { animation-name: xp-in; }
+  .xp-in-down { --from-y: -7%; }
+  .xp-in-up { --from-y: 7%; }
+  .xp-bridge-in { --from-y: -16%; }
+  [data-motion] .xp-stages[data-revealed] .xp-steps-caption [data-stage="s1"] { animation-name: xp-cap1; }
+  [data-motion] .xp-stages[data-revealed] .xp-steps-caption [data-stage="s2"] { animation-name: xp-cap2; }
+  [data-motion] .xp-stages[data-revealed] .xp-steps-caption [data-stage="s3"] { animation-name: xp-cap3; }
+
+  /* Timeline: the line draws along the steps. */
+  [data-motion] .xp-timeline::before {
+    transition: scale 2.4s var(--ease-out) 0.2s;
+  }
+  [data-motion] .xp-timeline:not([data-revealed])::before {
+    scale: 1 0;
+  }
+  [data-motion] .xp-node {
+    transition: opacity 0.5s, scale 0.5s var(--ease-out);
+    transition-delay: calc(0.3s + var(--i, 0) * 0.35s);
+  }
+  [data-motion] .xp-timeline:not([data-revealed]) .xp-node {
+    opacity: 0;
+    scale: 0.4;
+  }
+
+  /* CAD/CAM: the designed crown turns to ceramic, from the margin up. */
+  [data-motion] .xp-crown-ceramic {
+    transition: clip-path 1.8s var(--ease-out) 1.2s;
+  }
+  [data-motion] .xp-crown:not([data-revealed]) .xp-crown-ceramic {
+    clip-path: inset(100% 0 0 0);
+  }
+
+  /* Gum guides draw themselves. */
+  [data-motion] .xp-guides path {
+    transition: stroke-dashoffset 1.6s var(--ease-out) 0.6s;
+  }
+  [data-motion] .xp-guides path[data-guide="arc"] { transition-delay: 1.2s; }
+  [data-motion] .xp-guides path[data-guide="ratio"] { transition-delay: 1.8s; }
+  [data-motion] .xp-guides:not([data-revealed]) path {
+    stroke-dashoffset: 1;
+  }
+
+  /* Whitening: the marker moves a few shades lighter, once. */
+  [data-motion] .xp-shade-marker {
+    transition: translate 2.2s var(--ease-out) 0.8s;
+  }
+  [data-motion] .xp-shades:not([data-revealed]) .xp-shade-marker {
+    translate: calc(var(--from) * 1%) 0;
+  }
+}
+@media (width >= 64rem) and (prefers-reduced-motion: no-preference) {
+  [data-motion] .xp-timeline:not([data-revealed])::before {
+    scale: 0 1;
+  }
+}

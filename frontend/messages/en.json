@@ -312,6 +312,26 @@
         {
           "q": "Is an implant suitable for everyone?",
           "a": "No. It depends on your general health, your gums and your jawbone. The dentist assesses this before any treatment is planned."
+        },
+        {
+          "q": "Are All-on-4 and All-on-6 suitable for everyone?",
+          "a": "No. Both need enough bone in the right places and general health that allows surgery. After examination and imaging, your dentist explains whether one of them suits you — or what does."
+        },
+        {
+          "q": "Will I leave with fixed teeth on the day of surgery?",
+          "a": "Only if the implants are stable enough, and then they are temporary teeth. The final bridge follows after healing. If immediate loading is not safe, you receive a different temporary solution."
+        },
+        {
+          "q": "Which implant brand will I receive?",
+          "a": "We work with Straumann, Nobel Biocare, Medentika and Osstem. The choice depends on your case and is explained to you before treatment."
+        },
+        {
+          "q": "Is there a guarantee on implant treatment?",
+          "a": "Yes, in writing. Its terms depend on the treatment and the implant system; you receive them before treatment begins."
+        },
+        {
+          "q": "Do I need a bone graft or a sinus lift?",
+          "a": "Only if the bone is not sufficient for the planned implant. Imaging shows this; sometimes angled or shorter implants are an alternative."
         }
       ],
       "explorer": {
@@ -529,6 +549,22 @@
         {
           "q": "Which treatments can be part of a smile design?",
           "a": "That depends on your plan — for example veneers or implants. The dentist explains what would be involved in your case."
+        },
+        {
+          "q": "How quickly can a crown be made in your laboratory?",
+          "a": "Where the case allows, within 24 to 48 hours. Larger or more complex work takes longer; your treatment plan states the realistic time."
+        },
+        {
+          "q": "Does gum contouring hurt?",
+          "a": "It is done under local anaesthesia. Afterwards the gums may feel tender for a few days; how much differs from person to person."
+        },
+        {
+          "q": "How white will my teeth become?",
+          "a": "That cannot be promised in advance. It depends on your natural shade and the cause of the discolouration; we aim for a result that looks natural."
+        },
+        {
+          "q": "Can crowns or veneers be whitened?",
+          "a": "No. Whitening only changes natural teeth, so visible restorations are planned with the final shade in mind."
         }
       ],
       "explorer": {
@@ -804,5 +840,293 @@
       "name": "Istanbul",
       "alt": "Istanbul's skyline with mosques above the Bosphorus at dusk"
     }
+  },
+  "expansion": {
+    "ask": "Ask about it in your free consultation",
+    "implants": {
+      "eyebrow": "Advanced implantology",
+      "title": "From a single tooth to a full arch",
+      "lead": "Some situations need more than one implant: a whole arch to restore, a tooth to replace on the day it is removed, or bone that first needs support. How these treatments work, what they can do and where their limits are.",
+      "fullArch": {
+        "label": "All-on-4 & All-on-6",
+        "title": "A fixed full arch on four or six implants",
+        "lead": "When most or all teeth in a jaw are missing or cannot be kept, a fixed bridge can be anchored on a few implants instead of one implant per tooth. All-on-4 and All-on-6 are two ways of doing this.",
+        "toggle": "Show the implant positions for",
+        "concepts": [
+          {
+            "key": "four",
+            "label": "All-on-4",
+            "title": "Four implants",
+            "text": "The two front implants stand upright; the two at the back are usually angled. The angle lets a longer implant use the bone that is there and can sometimes avoid a bone graft at the back of the jaw."
+          },
+          {
+            "key": "six",
+            "label": "All-on-6",
+            "title": "Six implants",
+            "text": "Six implants share the load of the bridge between more anchors. This needs enough bone along a larger part of the jaw and gives a little more freedom in shaping the bridge."
+          }
+        ],
+        "stages": [
+          "The jaw and its bone",
+          "Implants where the bone allows",
+          "The fixed bridge on the implants"
+        ],
+        "caption": "Simplified illustration of a lower jaw. Implant positions are planned for each person.",
+        "compare": "Neither concept is better for everyone. Which one fits — or whether a different plan fits better — depends on your bone, your bite, your gums and your general health.",
+        "whoTitle": "Who may be assessed for it",
+        "who": [
+          "Most or all teeth in one jaw are missing, or cannot be kept",
+          "A removable denture feels loose or uncomfortable",
+          "General health allows minor oral surgery — smoking and conditions such as poorly controlled diabetes raise the risk"
+        ],
+        "stepsTitle": "How full-arch treatment is planned",
+        "steps": [
+          {
+            "title": "Examination and imaging",
+            "text": "We examine your mouth and assess the bone with X-rays and, where needed, 3D imaging before anything is decided."
+          },
+          {
+            "title": "One plan for implants and teeth",
+            "text": "Implant positions and the shape of the bridge are planned together, so the implants sit where the future teeth need them."
+          },
+          {
+            "title": "Implants and a temporary bridge",
+            "text": "The implants are placed under local anaesthesia. If every implant is stable enough, a temporary fixed bridge can be attached soon after; if not, a different temporary solution bridges the time."
+          },
+          {
+            "title": "Healing and the final bridge",
+            "text": "Once the bone has healed around the implants — usually over several months — the final bridge is made and fitted to the settled gums."
+          }
+        ],
+        "temporaryTitle": "Temporary and final are not the same",
+        "temporary": "A bridge fitted soon after surgery is a temporary one, made for the healing phase. The final bridge follows after healing, from more durable materials. “Teeth in a day” can therefore only ever mean temporary teeth — and only when the implants are stable enough.",
+        "limitsTitle": "Limits and risks",
+        "limits": "Like any surgery, implant placement carries risks such as swelling, infection, nerve irritation or an implant that does not integrate. A full-arch bridge needs careful daily cleaning, including underneath, and regular check-ups.",
+        "bridgeToggle": "Show the fixed bridge"
+      },
+      "single": {
+        "label": "Single & multiple implants",
+        "title": "One tooth or several, each planned on its own",
+        "lead": "A single implant replaces one tooth without grinding down the teeth beside it. When several teeth are missing, two or more implants can carry individual crowns or a small bridge.",
+        "points": [
+          {
+            "title": "Three parts",
+            "text": "The implant sits in the bone, the abutment connects it, and the crown is the part you see."
+          },
+          {
+            "title": "Materials",
+            "text": "The implant is usually titanium or a titanium alloy; the crown is usually ceramic, such as zirconia. Which materials suit you is explained in your consultation."
+          },
+          {
+            "title": "Digital planning",
+            "text": "Scans and X-rays let us plan the implant's position before treatment, with the final crown already in mind."
+          },
+          {
+            "title": "Aftercare",
+            "text": "Clean daily, including between the teeth, keep your check-ups and tell us early about bleeding or anything that feels loose."
+          }
+        ],
+        "brandsTitle": "Implant systems we work with",
+        "brandsLead": "We use implant systems from established manufacturers. Which one is right depends on your bone, the planned restoration and the components it needs — your dentist explains the choice.",
+        "brands": [
+          {
+            "name": "Straumann",
+            "origin": "Basel, Switzerland"
+          },
+          {
+            "name": "Nobel Biocare",
+            "origin": "Kloten, Switzerland"
+          },
+          {
+            "name": "Medentika",
+            "origin": "Hügelsheim, Germany · Straumann Group"
+          },
+          {
+            "name": "Osstem",
+            "origin": "Seoul, South Korea"
+          }
+        ],
+        "brandsNote": "Company headquarters. Names and trademarks belong to their owners; no endorsement by the manufacturers is implied.",
+        "guarantee": "Your treatment comes with a written guarantee. Its terms depend on the treatment and the implant system, and you receive them in writing before treatment begins."
+      },
+      "immediate": {
+        "label": "Same-day implants & immediate loading",
+        "title": "Immediate, but never rushed",
+        "lead": "In suitable cases an implant can be placed on the day a tooth is removed, and a temporary tooth attached soon after. Whether this is possible is decided by examination — and finally during surgery.",
+        "kinds": [
+          {
+            "title": "Immediate placement",
+            "text": "The implant is placed in the same appointment in which the tooth is removed, instead of after the socket has healed."
+          },
+          {
+            "title": "Immediate temporary",
+            "text": "A temporary crown or bridge is attached to the implants shortly after placement — only if they are stable enough. It is shaped to protect them while they heal."
+          },
+          {
+            "title": "Final restoration",
+            "text": "The final crown or bridge is made after healing, usually several months later, once the implant is firmly joined to the bone."
+          }
+        ],
+        "timelineTitle": "How it usually unfolds",
+        "conditional": "only if suitable",
+        "timeline": [
+          {
+            "title": "Consultation",
+            "text": "Your wishes, your health and the teeth concerned."
+          },
+          {
+            "title": "Assessment",
+            "text": "Examination and imaging of the bone."
+          },
+          {
+            "title": "Treatment plan",
+            "text": "Whether immediate placement and loading are options — and what the alternative is."
+          },
+          {
+            "title": "Implant placement",
+            "text": "The implant is placed and its stability is checked during surgery."
+          },
+          {
+            "title": "Temporary restoration",
+            "text": "A temporary tooth or bridge, shaped to protect healing.",
+            "conditional": true
+          },
+          {
+            "title": "Healing and follow-up",
+            "text": "Check-ups while the bone heals, then the final restoration."
+          }
+        ],
+        "limits": "Immediate loading needs enough healthy bone and an implant that is firmly stable from the start. Infection at the site, too little bone, heavy grinding or a bone graft in the same session can make waiting the safer choice."
+      },
+      "support": {
+        "label": "Supporting procedures for implant treatment",
+        "title": "When the bone needs support first",
+        "lead": "An implant needs enough bone around it. Where bone has been lost — after an extraction, gum disease or years without a tooth — it can often be rebuilt before or during implant placement.",
+        "caption": "Simplified cross-sections, not to scale.",
+        "items": [
+          {
+            "key": "graft",
+            "title": "Bone grafting",
+            "lead": "Graft material is placed where the jaw has become too thin or too low. It serves as a scaffold that the body gradually fills with its own new bone.",
+            "points": [
+              "Recommended when the bone cannot hold an implant securely, or to support the gum contour in a visible area.",
+              "The material can be your own bone or a prepared graft material, often covered by a protective membrane.",
+              "Small grafts are sometimes placed together with the implant; larger ones usually heal for several months first."
+            ],
+            "stages": [
+              "A ridge that has lost width",
+              "Graft material under a membrane",
+              "After healing: room for the implant"
+            ]
+          },
+          {
+            "key": "sinus",
+            "title": "Sinus lift",
+            "lead": "Above the upper back teeth lies the maxillary sinus, an air-filled space. After tooth loss the bone beneath it often becomes too thin to hold an implant.",
+            "points": [
+              "The sinus lining is gently raised and graft material placed beneath it, creating height for the implant.",
+              "Depending on the bone, this is done through a small opening at the side or from below, through the implant site.",
+              "3D imaging shows the bone height and the health of the sinus; sinus problems are treated first. Possible effects include swelling, a nosebleed or, rarely, a tear in the lining or an infection."
+            ],
+            "stages": [
+              "Too little bone below the sinus",
+              "The lining is raised, graft fills the space",
+              "After healing: bone to hold the implant"
+            ]
+          }
+        ],
+        "limits": "Healing times differ from person to person. Smoking, gum disease and some general conditions slow healing or raise the risk; your dentist discusses them with you."
+      }
+    },
+    "smileDesign": {
+      "eyebrow": "Digital smile technology",
+      "title": "The details behind a natural smile",
+      "lead": "A smile design is planned on screen, made in our own laboratory and refined in small steps: the line of the gums, the shade of the teeth, the fit of every restoration. These are the techniques behind it.",
+      "cadcam": {
+        "label": "CAD/CAM & in-house laboratory",
+        "title": "From scan to ceramic, under one roof",
+        "lead": "In Antalya and in Istanbul, our clinics have CAD/CAM technology and their own dental laboratory. Your teeth are scanned digitally, restorations are designed on screen and made on site.",
+        "steps": [
+          {
+            "title": "Digital scan",
+            "text": "An intraoral scanner records your teeth as a precise 3D image — for most people more comfortable than impression paste."
+          },
+          {
+            "title": "3D model",
+            "text": "The scan becomes a digital model of your teeth and your bite."
+          },
+          {
+            "title": "Digital design",
+            "text": "The restoration is designed on that model: its shape, its contact with neighbouring teeth, your bite."
+          },
+          {
+            "title": "Milling",
+            "text": "A milling unit shapes the restoration from a solid ceramic block."
+          },
+          {
+            "title": "Finish and fit",
+            "text": "The laboratory finishes the surface; your dentist checks fit, bite and shade before it is fixed."
+          }
+        ],
+        "timing": "Where the case allows, a crown can be made within 24 to 48 hours. Many restorations — larger or multi-layered work in particular — take longer; your treatment plan states the realistic time for yours.",
+        "caption": "Photographs show a dental laboratory for illustration; they are not JOKAR DENTAL's laboratory."
+      },
+      "gum": {
+        "label": "Laser gum contouring",
+        "title": "The frame of your smile",
+        "lead": "Gums frame the teeth. When they cover too much of a tooth or run unevenly, a smile can look short or out of balance. Gum contouring reshapes the gum line in small, planned steps.",
+        "guides": [
+          "Lip line",
+          "Smile arc",
+          "Tooth proportions"
+        ],
+        "caption": "Proportions marked on a photograph of a model — an illustration, not a treatment result.",
+        "points": [
+          {
+            "title": "A gummy smile",
+            "text": "A smile that shows a lot of gum has different causes: gum that did not recede fully after the teeth erupted, the position of the jaw, or a very mobile upper lip. Only some of them can be treated by contouring the gum."
+          },
+          {
+            "title": "Laser gingivectomy",
+            "text": "With a dental laser, a small amount of gum tissue is removed and the margin reshaped. The laser seals small vessels as it works, which can reduce bleeding during the procedure."
+          },
+          {
+            "title": "Examination first",
+            "text": "We check the health of your gums and where the bone lies beneath them. If the bone sits too close to the margin, the gum alone cannot be moved, and a different procedure — or none — is advised."
+          },
+          {
+            "title": "Planned with your smile",
+            "text": "Contouring is often planned together with veneers or crowns, so that the teeth and the gum line are designed as one."
+          }
+        ],
+        "limits": "Gum contouring is a surgical procedure, carried out under local anaesthesia. The gums need time to heal and settle, mild tenderness afterwards is common, and tissue can partly grow back — especially when the bone was not taken into account."
+      },
+      "whitening": {
+        "label": "Professional teeth whitening",
+        "title": "Brighter, and still natural",
+        "lead": "Professional whitening lightens the natural colour of your teeth with a whitening gel under dental supervision. How much lighter they become differs from person to person.",
+        "scale": "Illustration: whitening moves within natural tooth shades; how far differs for each person.",
+        "points": [
+          {
+            "title": "Why teeth darken",
+            "text": "Coffee, tea, red wine and smoking stain the surface; age and some medicines change the colour from within. Surface stains usually respond well, some inner discolourations less."
+          },
+          {
+            "title": "Assessment first",
+            "text": "We check for decay, gum problems and exposed tooth necks, and note existing fillings, crowns and veneers — they do not change colour with whitening."
+          },
+          {
+            "title": "Laser-assisted whitening",
+            "text": "In the chair, your gums are protected and a whitening gel is applied; a dental laser is used to activate it. The whitening itself comes from the gel."
+          },
+          {
+            "title": "Sensitivity and aftercare",
+            "text": "Temporary sensitivity is common and usually fades after a short time. For the first days, go easy on strongly coloured food, drinks and smoking. The effect fades gradually over time."
+          }
+        ],
+        "expectation": "No exact shade can be promised. We aim for a brightness that still looks natural with your skin, your lips and your existing restorations."
+      }
+    },
+    "stage": "Treatment stage"
   }
 }

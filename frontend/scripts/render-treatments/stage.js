@@ -4,6 +4,7 @@
 import * as THREE from "three";
 import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
 import { JOBS } from "/jobs.js";
+import { V7_JOBS } from "/jobs-v7.js";
 
 const canvas = document.createElement("canvas");
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, preserveDrawingBuffer: true });
@@ -34,7 +35,7 @@ function buildScene(job, assets) {
     if (Array.isArray(def.geometry)) {
       mesh = new THREE.Group();
       for (const g of def.geometry) mesh.add(new THREE.Mesh(g, def.material));
-    } else mesh = new THREE.Mesh(def.geometry, def.material);
+    } else mesh = def.points ? new THREE.Points(def.geometry, def.material) : new THREE.Mesh(def.geometry, def.material);
     def.place?.(mesh);
     const wrap = def.group?.(mesh);
     if (wrap) {
@@ -50,7 +51,7 @@ function buildScene(job, assets) {
 }
 
 window.__run = async (jobName, assets) => {
-  const job = JOBS[jobName];
+  const job = JOBS[jobName] ?? V7_JOBS[jobName];
   const size = job.size ?? 2000;
   renderer.setSize(size, size, false);
   const { scene, parts } = buildScene(job, assets);
@@ -58,7 +59,7 @@ window.__run = async (jobName, assets) => {
   job.camera(camera, THREE);
   camera.updateProjectionMatrix();
   camera.updateMatrixWorld();
-  const out = { layers: {}, meta: {} };
+  const out = { layers: {}, meta: {}, out: job.out ?? 1000 };
   for (const layer of job.layers) {
     for (const [id, mesh] of Object.entries(parts)) {
       const shows = layer.show.includes("*") || layer.show.includes(id);

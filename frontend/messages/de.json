@@ -312,6 +312,26 @@
         {
           "q": "Ist ein Implantat für jeden geeignet?",
           "a": "Nein. Das hängt von Ihrer allgemeinen Gesundheit, Ihrem Zahnfleisch und Ihrem Kieferknochen ab. Der Zahnarzt prüft das, bevor eine Behandlung geplant wird."
+        },
+        {
+          "q": "Sind All-on-4 und All-on-6 für alle geeignet?",
+          "a": "Nein. Beide brauchen ausreichend Knochen an den richtigen Stellen und eine Gesundheit, die einen Eingriff erlaubt. Nach Untersuchung und Bildgebung erklärt Ihr Zahnarzt, ob eines davon zu Ihnen passt – oder was stattdessen."
+        },
+        {
+          "q": "Verlasse ich die Klinik am Tag des Eingriffs mit festen Zähnen?",
+          "a": "Nur wenn die Implantate stabil genug sind, und dann sind es provisorische Zähne. Die endgültige Brücke folgt nach der Einheilung. Ist eine Sofortbelastung nicht sicher, erhalten Sie eine andere provisorische Lösung."
+        },
+        {
+          "q": "Welche Implantatmarke erhalte ich?",
+          "a": "Wir arbeiten mit Straumann, Nobel Biocare, Medentika und Osstem. Die Wahl hängt von Ihrem Fall ab und wird Ihnen vor der Behandlung erklärt."
+        },
+        {
+          "q": "Gibt es eine Garantie auf die Implantatbehandlung?",
+          "a": "Ja, schriftlich. Ihre Bedingungen hängen von der Behandlung und dem Implantatsystem ab; Sie erhalten sie vor Behandlungsbeginn."
+        },
+        {
+          "q": "Brauche ich einen Knochenaufbau oder einen Sinuslift?",
+          "a": "Nur wenn der Knochen für das geplante Implantat nicht ausreicht. Das zeigt die Bildgebung; manchmal sind geneigte oder kürzere Implantate eine Alternative."
         }
       ],
       "explorer": {
@@ -529,6 +549,22 @@
         {
           "q": "Welche Behandlungen können zu einem Smile Design gehören?",
           "a": "Das hängt von Ihrer Planung ab – zum Beispiel Veneers oder Implantate. Der Zahnarzt erklärt, was in Ihrem Fall dazugehören würde."
+        },
+        {
+          "q": "Wie schnell kann Ihr Labor eine Krone fertigen?",
+          "a": "Wenn der Fall es zulässt, innerhalb von 24 bis 48 Stunden. Größere oder komplexere Arbeiten brauchen länger; Ihr Behandlungsplan nennt die realistische Zeit."
+        },
+        {
+          "q": "Ist eine Zahnfleischkorrektur schmerzhaft?",
+          "a": "Sie erfolgt unter örtlicher Betäubung. Danach kann das Zahnfleisch einige Tage empfindlich sein; wie stark, ist von Mensch zu Mensch verschieden."
+        },
+        {
+          "q": "Wie weiß werden meine Zähne?",
+          "a": "Das lässt sich nicht im Voraus versprechen. Es hängt von Ihrer natürlichen Zahnfarbe und der Ursache der Verfärbung ab; wir streben ein natürlich wirkendes Ergebnis an."
+        },
+        {
+          "q": "Lassen sich Kronen oder Veneers aufhellen?",
+          "a": "Nein. Bleaching verändert nur natürliche Zähne; sichtbare Versorgungen werden daher mit Blick auf die endgültige Farbe geplant."
         }
       ],
       "explorer": {
@@ -804,5 +840,293 @@
       "name": "Istanbul",
       "alt": "Istanbuls Skyline mit Moscheen über dem Bosporus in der Abenddämmerung"
     }
+  },
+  "expansion": {
+    "ask": "Fragen Sie im kostenlosen Beratungsgespräch danach",
+    "implants": {
+      "eyebrow": "Fortgeschrittene Implantologie",
+      "title": "Vom einzelnen Zahn bis zum ganzen Kiefer",
+      "lead": "Manchmal reicht ein einzelnes Implantat nicht: Ein ganzer Kiefer soll versorgt, ein Zahn am Tag der Entfernung ersetzt oder der Knochen zuerst gestärkt werden. Wie diese Behandlungen ablaufen, was sie leisten können und wo ihre Grenzen liegen.",
+      "fullArch": {
+        "label": "All-on-4 & All-on-6",
+        "title": "Ein fester Zahnbogen auf vier oder sechs Implantaten",
+        "lead": "Fehlen in einem Kiefer die meisten oder alle Zähne oder lassen sie sich nicht erhalten, kann eine feste Brücke auf wenigen Implantaten verankert werden – statt eines Implantats pro Zahn. All-on-4 und All-on-6 sind zwei Wege dorthin.",
+        "toggle": "Implantatpositionen zeigen für",
+        "concepts": [
+          {
+            "key": "four",
+            "label": "All-on-4",
+            "title": "Vier Implantate",
+            "text": "Die beiden vorderen Implantate stehen gerade, die beiden hinteren meist geneigt. Durch die Neigung kann ein längeres Implantat den vorhandenen Knochen nutzen – manchmal lässt sich so ein Knochenaufbau im hinteren Kiefer vermeiden."
+          },
+          {
+            "key": "six",
+            "label": "All-on-6",
+            "title": "Sechs Implantate",
+            "text": "Sechs Implantate verteilen die Last der Brücke auf mehr Pfeiler. Dafür braucht es ausreichend Knochen auf einem größeren Teil des Kiefers; die Brücke lässt sich etwas freier gestalten."
+          }
+        ],
+        "stages": [
+          "Der Kiefer und sein Knochen",
+          "Implantate dort, wo der Knochen es erlaubt",
+          "Die feste Brücke auf den Implantaten"
+        ],
+        "caption": "Vereinfachte Darstellung eines Unterkiefers. Die Implantatpositionen werden für jeden Menschen einzeln geplant.",
+        "compare": "Keines der beiden Konzepte ist für alle das bessere. Welches passt – oder ob eine andere Planung besser passt –, hängt von Ihrem Knochen, Ihrem Biss, Ihrem Zahnfleisch und Ihrer allgemeinen Gesundheit ab.",
+        "whoTitle": "Für wen eine Abklärung infrage kommt",
+        "who": [
+          "In einem Kiefer fehlen die meisten oder alle Zähne, oder sie lassen sich nicht erhalten",
+          "Eine herausnehmbare Prothese sitzt locker oder ist unangenehm",
+          "Die allgemeine Gesundheit erlaubt einen kleinen oralchirurgischen Eingriff – Rauchen und Erkrankungen wie ein schlecht eingestellter Diabetes erhöhen das Risiko"
+        ],
+        "stepsTitle": "So wird eine Versorgung des ganzen Kiefers geplant",
+        "steps": [
+          {
+            "title": "Untersuchung und Bildgebung",
+            "text": "Bevor etwas entschieden wird, untersuchen wir Ihren Mund und beurteilen den Knochen mit Röntgenbildern und, wenn nötig, mit 3D-Bildgebung."
+          },
+          {
+            "title": "Ein Plan für Implantate und Zähne",
+            "text": "Implantatpositionen und Form der Brücke werden gemeinsam geplant, damit die Implantate dort sitzen, wo die künftigen Zähne sie brauchen."
+          },
+          {
+            "title": "Implantate und provisorische Brücke",
+            "text": "Die Implantate werden unter örtlicher Betäubung gesetzt. Sind alle stabil genug, kann bald danach eine feste provisorische Brücke befestigt werden; sonst überbrückt eine andere provisorische Lösung die Zeit."
+          },
+          {
+            "title": "Einheilung und endgültige Brücke",
+            "text": "Ist der Knochen um die Implantate eingeheilt – meist über mehrere Monate –, wird die endgültige Brücke angefertigt und an das ausgeheilte Zahnfleisch angepasst."
+          }
+        ],
+        "temporaryTitle": "Provisorisch und endgültig sind nicht dasselbe",
+        "temporary": "Eine Brücke, die bald nach dem Eingriff eingesetzt wird, ist ein Provisorium für die Heilungsphase. Die endgültige Brücke folgt nach der Einheilung, aus belastbareren Materialien. „Feste Zähne an einem Tag“ kann daher immer nur provisorische Zähne bedeuten – und nur, wenn die Implantate stabil genug sind.",
+        "limitsTitle": "Grenzen und Risiken",
+        "limits": "Wie jeder Eingriff birgt auch das Setzen von Implantaten Risiken, etwa Schwellungen, Infektionen, Nervenreizungen oder ein Implantat, das nicht einheilt. Eine Brücke über den ganzen Kiefer braucht tägliche sorgfältige Reinigung, auch darunter, und regelmäßige Kontrollen.",
+        "bridgeToggle": "Feste Brücke zeigen"
+      },
+      "single": {
+        "label": "Einzel- und Mehrfachimplantate",
+        "title": "Ein Zahn oder mehrere – jeder einzeln geplant",
+        "lead": "Ein Einzelimplantat ersetzt einen Zahn, ohne die Nachbarzähne zu beschleifen. Fehlen mehrere Zähne, können zwei oder mehr Implantate einzelne Kronen oder eine kleine Brücke tragen.",
+        "points": [
+          {
+            "title": "Drei Teile",
+            "text": "Das Implantat sitzt im Knochen, das Abutment verbindet, und die Krone ist der sichtbare Teil."
+          },
+          {
+            "title": "Materialien",
+            "text": "Das Implantat besteht meist aus Titan oder einer Titanlegierung, die Krone meist aus Keramik, etwa Zirkonoxid. Welche Materialien zu Ihnen passen, erklären wir im Beratungsgespräch."
+          },
+          {
+            "title": "Digitale Planung",
+            "text": "Scans und Röntgenbilder erlauben es, die Position des Implantats vor der Behandlung zu planen – mit Blick auf die spätere Krone."
+          },
+          {
+            "title": "Nachsorge",
+            "text": "Täglich gründlich reinigen, auch zwischen den Zähnen, Kontrolltermine wahrnehmen und Blutungen oder Lockerungen früh melden."
+          }
+        ],
+        "brandsTitle": "Implantatsysteme, mit denen wir arbeiten",
+        "brandsLead": "Wir verwenden Implantatsysteme etablierter Hersteller. Welches passt, hängt von Ihrem Knochen, der geplanten Versorgung und den benötigten Komponenten ab – Ihr Zahnarzt erklärt Ihnen die Wahl.",
+        "brands": [
+          {
+            "name": "Straumann",
+            "origin": "Basel, Schweiz"
+          },
+          {
+            "name": "Nobel Biocare",
+            "origin": "Kloten, Schweiz"
+          },
+          {
+            "name": "Medentika",
+            "origin": "Hügelsheim, Deutschland · Straumann Group"
+          },
+          {
+            "name": "Osstem",
+            "origin": "Seoul, Südkorea"
+          }
+        ],
+        "brandsNote": "Firmensitz der Hersteller. Namen und Marken gehören ihren Inhabern; eine Empfehlung durch die Hersteller ist damit nicht verbunden.",
+        "guarantee": "Ihre Behandlung umfasst eine schriftliche Garantie. Ihre Bedingungen hängen von der Behandlung und dem Implantatsystem ab; Sie erhalten sie vor Behandlungsbeginn schriftlich."
+      },
+      "immediate": {
+        "label": "Sofortimplantate & Sofortbelastung",
+        "title": "Sofort, aber nie überstürzt",
+        "lead": "In geeigneten Fällen kann ein Implantat am Tag der Zahnentfernung gesetzt und bald danach ein provisorischer Zahn befestigt werden. Ob das möglich ist, entscheidet die Untersuchung – und endgültig der Eingriff selbst.",
+        "kinds": [
+          {
+            "title": "Sofortimplantation",
+            "text": "Das Implantat wird im selben Termin gesetzt, in dem der Zahn entfernt wird – statt erst nach Ausheilung der Alveole."
+          },
+          {
+            "title": "Sofortiges Provisorium",
+            "text": "Kurz nach dem Setzen wird eine provisorische Krone oder Brücke befestigt – nur wenn die Implantate stabil genug sind. Sie ist so geformt, dass sie die Implantate während der Einheilung schützt."
+          },
+          {
+            "title": "Endgültige Versorgung",
+            "text": "Die endgültige Krone oder Brücke wird nach der Einheilung angefertigt, meist einige Monate später, wenn das Implantat fest mit dem Knochen verbunden ist."
+          }
+        ],
+        "timelineTitle": "So läuft es meist ab",
+        "conditional": "nur wenn geeignet",
+        "timeline": [
+          {
+            "title": "Beratung",
+            "text": "Ihre Wünsche, Ihre Gesundheit und die betroffenen Zähne."
+          },
+          {
+            "title": "Befund",
+            "text": "Untersuchung und Bildgebung des Knochens."
+          },
+          {
+            "title": "Behandlungsplan",
+            "text": "Ob Sofortimplantation und Sofortbelastung infrage kommen – und was die Alternative ist."
+          },
+          {
+            "title": "Implantation",
+            "text": "Das Implantat wird gesetzt und seine Stabilität während des Eingriffs geprüft."
+          },
+          {
+            "title": "Provisorische Versorgung",
+            "text": "Ein provisorischer Zahn oder eine Brücke, geformt zum Schutz der Heilung.",
+            "conditional": true
+          },
+          {
+            "title": "Einheilung und Nachsorge",
+            "text": "Kontrollen während der Einheilung, dann die endgültige Versorgung."
+          }
+        ],
+        "limits": "Sofortbelastung braucht ausreichend gesunden Knochen und ein Implantat, das von Anfang an fest sitzt. Eine Entzündung an der Stelle, zu wenig Knochen, starkes Zähneknirschen oder ein gleichzeitiger Knochenaufbau können Abwarten zur sichereren Wahl machen."
+      },
+      "support": {
+        "label": "Begleitende Eingriffe bei Implantatbehandlungen",
+        "title": "Wenn der Knochen zuerst Unterstützung braucht",
+        "lead": "Ein Implantat braucht genügend Knochen um sich herum. Wo Knochen verloren ging – nach einer Zahnentfernung, durch Parodontitis oder nach Jahren ohne Zahn –, lässt er sich oft vor oder beim Setzen des Implantats wieder aufbauen.",
+        "caption": "Vereinfachte Querschnitte, nicht maßstabsgetreu.",
+        "items": [
+          {
+            "key": "graft",
+            "title": "Knochenaufbau",
+            "lead": "Aufbaumaterial wird dort eingebracht, wo der Kiefer zu schmal oder zu niedrig geworden ist. Es dient als Gerüst, das der Körper nach und nach mit eigenem neuem Knochen füllt.",
+            "points": [
+              "Empfohlen, wenn der Knochen ein Implantat nicht sicher halten kann, oder um im sichtbaren Bereich die Kontur des Zahnfleischs zu stützen.",
+              "Das Material kann eigener Knochen oder aufbereitetes Ersatzmaterial sein und wird oft mit einer schützenden Membran abgedeckt.",
+              "Kleine Aufbauten erfolgen manchmal zusammen mit dem Implantat; größere heilen meist zuerst einige Monate ein."
+            ],
+            "stages": [
+              "Ein Kieferkamm, der an Breite verloren hat",
+              "Aufbaumaterial unter einer Membran",
+              "Nach der Einheilung: Platz für das Implantat"
+            ]
+          },
+          {
+            "key": "sinus",
+            "title": "Sinuslift",
+            "lead": "Über den oberen Seitenzähnen liegt die Kieferhöhle, ein luftgefüllter Raum. Nach Zahnverlust wird der Knochen darunter oft zu dünn, um ein Implantat zu halten.",
+            "points": [
+              "Die Schleimhaut der Kieferhöhle wird behutsam angehoben und darunter Aufbaumaterial eingebracht – so entsteht Höhe für das Implantat.",
+              "Je nach Knochen geschieht das über ein kleines seitliches Fenster oder von unten durch das Implantatbett.",
+              "3D-Bildgebung zeigt Knochenhöhe und Zustand der Kieferhöhle; Probleme der Kieferhöhle werden zuerst behandelt. Mögliche Folgen sind Schwellungen, Nasenbluten oder selten ein Einriss der Schleimhaut oder eine Infektion."
+            ],
+            "stages": [
+              "Zu wenig Knochen unter der Kieferhöhle",
+              "Die Schleimhaut ist angehoben, Aufbaumaterial füllt den Raum",
+              "Nach der Einheilung: Knochen, der das Implantat hält"
+            ]
+          }
+        ],
+        "limits": "Die Heilungszeit ist von Mensch zu Mensch verschieden. Rauchen, Parodontitis und manche Allgemeinerkrankungen verlangsamen die Heilung oder erhöhen das Risiko; Ihr Zahnarzt bespricht das mit Ihnen."
+      }
+    },
+    "smileDesign": {
+      "eyebrow": "Digitale Lächeltechnik",
+      "title": "Die Details hinter einem natürlichen Lächeln",
+      "lead": "Ein Smile Design wird am Bildschirm geplant, in unserem eigenen Labor gefertigt und in kleinen Schritten verfeinert: der Verlauf des Zahnfleischs, die Farbe der Zähne, die Passung jeder Versorgung. Das sind die Techniken dahinter.",
+      "cadcam": {
+        "label": "CAD/CAM & eigenes Dentallabor",
+        "title": "Vom Scan zur Keramik, unter einem Dach",
+        "lead": "In Antalya und in Istanbul verfügen unsere Kliniken über CAD/CAM-Technik und ein eigenes Dentallabor. Ihre Zähne werden digital gescannt, Versorgungen am Bildschirm konstruiert und vor Ort gefertigt.",
+        "steps": [
+          {
+            "title": "Digitaler Scan",
+            "text": "Ein Intraoralscanner erfasst Ihre Zähne als präzises 3D-Bild – für die meisten angenehmer als Abdruckmasse."
+          },
+          {
+            "title": "3D-Modell",
+            "text": "Aus dem Scan entsteht ein digitales Modell Ihrer Zähne und Ihres Bisses."
+          },
+          {
+            "title": "Digitale Konstruktion",
+            "text": "Auf diesem Modell wird die Versorgung konstruiert: ihre Form, der Kontakt zu den Nachbarzähnen, Ihr Biss."
+          },
+          {
+            "title": "Fräsen",
+            "text": "Eine Fräseinheit formt die Versorgung aus einem massiven Keramikblock."
+          },
+          {
+            "title": "Ausarbeitung und Einprobe",
+            "text": "Das Labor arbeitet die Oberfläche aus; Ihr Zahnarzt prüft Passung, Biss und Farbe, bevor sie befestigt wird."
+          }
+        ],
+        "timing": "Wenn der Fall es zulässt, kann eine Krone innerhalb von 24 bis 48 Stunden gefertigt werden. Viele Versorgungen – vor allem größere oder mehrschichtige Arbeiten – brauchen länger; Ihr Behandlungsplan nennt die realistische Zeit für Ihre.",
+        "caption": "Die Fotos zeigen zur Veranschaulichung ein Dentallabor; es ist nicht das Labor von JOKAR DENTAL."
+      },
+      "gum": {
+        "label": "Zahnfleischkorrektur mit Laser",
+        "title": "Der Rahmen Ihres Lächelns",
+        "lead": "Das Zahnfleisch rahmt die Zähne. Bedeckt es zu viel vom Zahn oder verläuft es ungleichmäßig, kann ein Lächeln kurz oder unausgewogen wirken. Eine Zahnfleischkorrektur formt den Zahnfleischrand in kleinen, geplanten Schritten.",
+        "guides": [
+          "Lippenlinie",
+          "Lächelbogen",
+          "Zahnproportionen"
+        ],
+        "caption": "Proportionen auf dem Foto eines Models markiert – eine Illustration, kein Behandlungsergebnis.",
+        "points": [
+          {
+            "title": "Ein „Gummy Smile“",
+            "text": "Ein Lächeln mit viel sichtbarem Zahnfleisch hat verschiedene Ursachen: Zahnfleisch, das sich nach dem Zahndurchbruch nicht vollständig zurückgebildet hat, die Lage des Kiefers oder eine sehr bewegliche Oberlippe. Nur ein Teil davon lässt sich durch eine Zahnfleischkorrektur behandeln."
+          },
+          {
+            "title": "Laser-Gingivektomie",
+            "text": "Mit einem Dentallaser wird etwas Zahnfleischgewebe entfernt und der Rand neu geformt. Der Laser verschließt dabei kleine Gefäße, was die Blutung während des Eingriffs verringern kann."
+          },
+          {
+            "title": "Zuerst die Untersuchung",
+            "text": "Wir prüfen die Gesundheit Ihres Zahnfleischs und wo der Knochen darunter liegt. Sitzt der Knochen zu nah am Rand, lässt sich das Zahnfleisch allein nicht verlegen – dann wird ein anderer Eingriff oder keiner empfohlen."
+          },
+          {
+            "title": "Mit Ihrem Lächeln geplant",
+            "text": "Die Korrektur wird oft zusammen mit Veneers oder Kronen geplant, damit Zähne und Zahnfleischlinie als Einheit gestaltet werden."
+          }
+        ],
+        "limits": "Eine Zahnfleischkorrektur ist ein chirurgischer Eingriff unter örtlicher Betäubung. Das Zahnfleisch braucht Zeit zum Heilen und Festigen, leichte Empfindlichkeit danach ist häufig, und Gewebe kann teilweise nachwachsen – besonders, wenn der Knochen nicht berücksichtigt wurde."
+      },
+      "whitening": {
+        "label": "Professionelles Bleaching",
+        "title": "Heller – und weiterhin natürlich",
+        "lead": "Professionelles Bleaching hellt die natürliche Farbe Ihrer Zähne mit einem Aufhellungsgel unter zahnärztlicher Aufsicht auf. Wie viel heller sie werden, ist von Mensch zu Mensch verschieden.",
+        "scale": "Illustration: Bleaching bewegt sich innerhalb natürlicher Zahnfarben; wie weit, ist bei jedem anders.",
+        "points": [
+          {
+            "title": "Warum Zähne nachdunkeln",
+            "text": "Kaffee, Tee, Rotwein und Rauchen verfärben die Oberfläche; das Alter und manche Medikamente verändern die Farbe von innen. Oberflächliche Verfärbungen sprechen meist gut an, manche inneren weniger."
+          },
+          {
+            "title": "Zuerst die Abklärung",
+            "text": "Wir prüfen auf Karies, Zahnfleischprobleme und freiliegende Zahnhälse und berücksichtigen vorhandene Füllungen, Kronen und Veneers – sie ändern ihre Farbe durch Bleaching nicht."
+          },
+          {
+            "title": "Laserunterstütztes Bleaching",
+            "text": "Im Behandlungsstuhl wird Ihr Zahnfleisch geschützt und ein Aufhellungsgel aufgetragen; ein Dentallaser dient dazu, es zu aktivieren. Die Aufhellung selbst bewirkt das Gel."
+          },
+          {
+            "title": "Empfindlichkeit und Nachsorge",
+            "text": "Vorübergehende Empfindlichkeit ist häufig und klingt meist nach kurzer Zeit ab. In den ersten Tagen stark färbende Speisen, Getränke und Rauchen meiden. Die Wirkung lässt mit der Zeit allmählich nach."
+          }
+        ],
+        "expectation": "Ein bestimmter Farbton lässt sich nicht versprechen. Wir streben eine Helligkeit an, die zu Ihrer Haut, Ihren Lippen und Ihren vorhandenen Versorgungen natürlich wirkt."
+      }
+    },
+    "stage": "Behandlungsschritt"
   }
 }

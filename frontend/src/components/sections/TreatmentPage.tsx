@@ -1,7 +1,7 @@
 import { ViewTransition } from "react";
 import type { Metadata } from "next";
 import { getLocale, getTranslations } from "next-intl/server";
-import type { CSSProperties } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { LeadForm } from "@/components/forms/LeadForm";
 import { buttonClass } from "@/components/ui/button";
 import { Section, SectionHeader } from "@/components/ui/Section";
@@ -31,7 +31,9 @@ export async function treatmentMetadata(treatment: Treatment): Promise<Metadata>
   return pageMetadata(await getLocale(), HREF[treatment], t(`${treatment}.title`), t(`${treatment}.lead`));
 }
 
-export async function TreatmentPage({ treatment }: { treatment: Treatment }) {
+// `expansion` (V7, D-091): extra sections a page adds after its own content; the veneers page passes none, so its output
+// stays exactly as before (guarded by tests/e2e/v7-scope.spec.ts).
+export async function TreatmentPage({ treatment, expansion }: { treatment: Treatment; expansion?: ReactNode }) {
   const t = await getTranslations("treatments");
   const page = await getTranslations("treatmentPage");
   const home = await getTranslations("home");
@@ -171,6 +173,8 @@ export async function TreatmentPage({ treatment }: { treatment: Treatment }) {
         </div>
         <p className="mt-12 text-small text-slate-600">{page("medicalNote")}</p>
       </Section>
+
+      {expansion}
 
       <Section tone="mist" labelledBy="intl-title" className="panel-open overflow-clip">
         <div aria-hidden="true" className="absolute -top-40 end-0 size-[30rem] rounded-full bg-white/60 blur-3xl" />
