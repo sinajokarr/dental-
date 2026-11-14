@@ -327,7 +327,7 @@
         },
         {
           "q": "Gibt es eine Garantie auf die Implantatbehandlung?",
-          "a": "Ja, schriftlich. Ihre Bedingungen hängen von der Behandlung und dem Implantatsystem ab; Sie erhalten sie vor Behandlungsbeginn."
+          "a": "Ja – auf das Implantat selbst gibt es eine schriftliche Garantie. Ihre Bedingungen hängen vom Implantatsystem ab; Sie erhalten sie vor Behandlungsbeginn."
         },
         {
           "q": "Brauche ich einen Knochenaufbau oder einen Sinuslift?",
@@ -846,7 +846,7 @@
     "implants": {
       "eyebrow": "Fortgeschrittene Implantologie",
       "title": "Vom einzelnen Zahn bis zum ganzen Kiefer",
-      "lead": "Manchmal reicht ein einzelnes Implantat nicht: Ein ganzer Kiefer soll versorgt, ein Zahn am Tag der Entfernung ersetzt oder der Knochen zuerst gestärkt werden. Wie diese Behandlungen ablaufen, was sie leisten können und wo ihre Grenzen liegen.",
+      "lead": "Manchmal reicht ein einzelnes Implantat nicht: Ein ganzer Kiefer soll versorgt, ein Zahn am Tag der Entfernung ersetzt oder der Knochen zuerst gestärkt werden. Wie diese Behandlungen ablaufen, was sie leisten können und wo ihre Grenzen liegen. Alle diese Behandlungen bieten wir in beiden Kliniken an, in Antalya und in Istanbul.",
       "fullArch": {
         "label": "All-on-4 & All-on-6",
         "title": "Ein fester Zahnbogen auf vier oder sechs Implantaten",
@@ -901,8 +901,7 @@
         "temporaryTitle": "Provisorisch und endgültig sind nicht dasselbe",
         "temporary": "Eine Brücke, die bald nach dem Eingriff eingesetzt wird, ist ein Provisorium für die Heilungsphase. Die endgültige Brücke folgt nach der Einheilung, aus belastbareren Materialien. „Feste Zähne an einem Tag“ kann daher immer nur provisorische Zähne bedeuten – und nur, wenn die Implantate stabil genug sind.",
         "limitsTitle": "Grenzen und Risiken",
-        "limits": "Wie jeder Eingriff birgt auch das Setzen von Implantaten Risiken, etwa Schwellungen, Infektionen, Nervenreizungen oder ein Implantat, das nicht einheilt. Eine Brücke über den ganzen Kiefer braucht tägliche sorgfältige Reinigung, auch darunter, und regelmäßige Kontrollen.",
-        "bridgeToggle": "Feste Brücke zeigen"
+        "limits": "Wie jeder Eingriff birgt auch das Setzen von Implantaten Risiken, etwa Schwellungen, Infektionen, Nervenreizungen oder ein Implantat, das nicht einheilt. Eine Brücke über den ganzen Kiefer braucht tägliche sorgfältige Reinigung, auch darunter, und regelmäßige Kontrollen."
       },
       "single": {
         "label": "Einzel- und Mehrfachimplantate",
@@ -947,7 +946,7 @@
           }
         ],
         "brandsNote": "Firmensitz der Hersteller. Namen und Marken gehören ihren Inhabern; eine Empfehlung durch die Hersteller ist damit nicht verbunden.",
-        "guarantee": "Ihre Behandlung umfasst eine schriftliche Garantie. Ihre Bedingungen hängen von der Behandlung und dem Implantatsystem ab; Sie erhalten sie vor Behandlungsbeginn schriftlich."
+        "guarantee": "Auf das Implantat selbst gibt es eine schriftliche Garantie. Ihre Bedingungen hängen vom Implantatsystem ab; Sie erhalten sie vor Behandlungsbeginn schriftlich."
       },
       "immediate": {
         "label": "Sofortimplantate & Sofortbelastung",

@@ -1,5 +1,6 @@
 import Image, { type StaticImageData } from "next/image";
 import type { CSSProperties, ReactNode } from "react";
+import { FilmOnView } from "../service-film/FilmOnView";
 import "./expansion.css";
 
 // Shared pieces of the V7 treatment expansion (D-091). Used only by ImplantsExpansion and SmileExpansion, so the rest
@@ -14,26 +15,37 @@ export function Layer({ src, stage, className = "", sizes = "(min-width: 64rem) 
   );
 }
 
-/** A staged render: three steps play once when scrolled into view (RevealObserver, data-reveal="draw"); without motion
- *  or JavaScript the final step is shown. The captions name the steps; the current one is emphasised in sync. */
-export function Stages({ label, steps, className = "", children }: { label: string; steps: string[]; className?: string; children: ReactNode }) {
+/** A short rendered teaching film (D-092), square, silent, played once when it scrolls into view (FilmOnView, D-086);
+ *  the markup is its last frame, so no-JS, reduced motion and print see the finished picture. Decorative. */
+// Phones get the smaller of the two encodings first (H.264 at 480 px, WebM at 720 px).
+export function Film({ name, className = "" }: { name: string; className?: string }) {
+  const base = `/images/treatments/${name}`;
+  const video = `<video muted playsinline disableremoteplayback preload="none" tabindex="-1" width="720" height="720">
+<source data-src="${base}-480.mp4" type="video/mp4" media="${MOTION} and (max-width: 767px)">
+<source data-src="${base}-480.webm" type="video/webm" media="${MOTION} and (max-width: 767px)">
+<source data-src="${base}-720.webm" type="video/webm" media="${MOTION}">
+<source data-src="${base}-720.mp4" type="video/mp4" media="${MOTION}">
+</video>`;
   return (
-    <figure className={`xp-stages ${className}`} data-reveal="draw">
-      <div aria-hidden="true" className="xp-stage-art">
-        {children}
-      </div>
-      <figcaption>
-        <span className="sr-only">{label}: </span>
-        <ol className="xp-steps-caption">
-          {steps.map((step, i) => (
-            <li key={step} data-stage={`s${i + 1}`}>
-              <span aria-hidden="true" className="xp-dot" />
-              {step}
-            </li>
-          ))}
-        </ol>
-      </figcaption>
-    </figure>
+    <div aria-hidden="true" data-film={name} className={`xp-film ${className}`} style={{ backgroundImage: `url(${base}-last.webp)` }}>
+      <div className="xp-film-video" dangerouslySetInnerHTML={{ __html: video }} />
+      <FilmOnView />
+    </div>
+  );
+}
+const MOTION = "(prefers-reduced-motion: no-preference)";
+
+/** The steps a film shows, named under it. */
+export function Steps({ label, steps }: { label: string; steps: string[] }) {
+  return (
+    <ol aria-label={label} className="xp-steps-caption">
+      {steps.map((step) => (
+        <li key={step}>
+          <span aria-hidden="true" className="xp-dot" />
+          {step}
+        </li>
+      ))}
+    </ol>
   );
 }
 

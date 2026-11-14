@@ -327,7 +327,7 @@
         },
         {
           "q": "İmplant tedavisinin garantisi var mı?",
-          "a": "Evet, yazılı olarak. Koşulları tedaviye ve implant sistemine göre değişir; tedavi başlamadan önce size verilir."
+          "a": "Evet — implantın kendisi yazılı garantiyle sunulur. Koşulları implant sistemine göre değişir; tedavi başlamadan önce size verilir."
         },
         {
           "q": "Kemik greftine ya da sinüs liftingine ihtiyacım var mı?",
@@ -846,7 +846,7 @@
     "implants": {
       "eyebrow": "İleri implantoloji",
       "title": "Tek bir dişten tüm çeneye",
-      "lead": "Bazen tek bir implant yetmez: Bütün bir çene yeniden yapılacaktır, bir diş çekildiği gün yerine konacaktır ya da kemiğin önce desteklenmesi gerekir. Bu tedavilerin nasıl yapıldığı, neler sağlayabildiği ve sınırlarının nerede olduğu.",
+      "lead": "Bazen tek bir implant yetmez: Bütün bir çene yeniden yapılacaktır, bir diş çekildiği gün yerine konacaktır ya da kemiğin önce desteklenmesi gerekir. Bu tedavilerin nasıl yapıldığı, neler sağlayabildiği ve sınırlarının nerede olduğu. Bu tedavilerin tümü Antalya ve İstanbul'daki iki kliniğimizde de sunulur.",
       "fullArch": {
         "label": "All-on-4 ve All-on-6",
         "title": "Dört ya da altı implant üzerinde sabit bir çene",
@@ -901,8 +901,7 @@
         "temporaryTitle": "Geçici ve kalıcı aynı şey değildir",
         "temporary": "Ameliyattan kısa süre sonra takılan köprü, iyileşme dönemi için yapılmış geçici bir köprüdür. Kalıcı köprü iyileşmeden sonra, daha dayanıklı malzemelerden yapılır. Bu yüzden “bir günde diş” en fazla geçici dişler anlamına gelebilir — o da yalnızca implantlar yeterince sabitse.",
         "limitsTitle": "Sınırlar ve riskler",
-        "limits": "Her cerrahi işlem gibi implant yerleştirme de şişlik, enfeksiyon, sinir tahrişi ya da kemikle kaynaşmayan bir implant gibi riskler taşır. Tam çene köprüsü, altı da dahil olmak üzere her gün dikkatli temizlik ve düzenli kontroller gerektirir.",
-        "bridgeToggle": "Sabit köprüyü göster"
+        "limits": "Her cerrahi işlem gibi implant yerleştirme de şişlik, enfeksiyon, sinir tahrişi ya da kemikle kaynaşmayan bir implant gibi riskler taşır. Tam çene köprüsü, altı da dahil olmak üzere her gün dikkatli temizlik ve düzenli kontroller gerektirir."
       },
       "single": {
         "label": "Tekli ve çoklu implantlar",
@@ -947,7 +946,7 @@
           }
         ],
         "brandsNote": "Şirketlerin merkezleri. İsimler ve markalar sahiplerine aittir; üreticiler tarafından bir onay anlamına gelmez.",
-        "guarantee": "Tedaviniz yazılı garantiyle sunulur. Garantinin koşulları tedaviye ve implant sistemine göre değişir; tedavi başlamadan önce size yazılı olarak verilir."
+        "guarantee": "İmplantın kendisi yazılı garantiyle sunulur. Garantinin koşulları implant sistemine göre değişir; tedavi başlamadan önce size yazılı olarak verilir."
       },
       "immediate": {
         "label": "Aynı gün implant ve hemen yükleme",

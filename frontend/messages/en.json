@@ -327,7 +327,7 @@
         },
         {
           "q": "Is there a guarantee on implant treatment?",
-          "a": "Yes, in writing. Its terms depend on the treatment and the implant system; you receive them before treatment begins."
+          "a": "Yes — a written guarantee covers the implant itself. Its terms depend on the implant system; you receive them before treatment begins."
         },
         {
           "q": "Do I need a bone graft or a sinus lift?",
@@ -846,7 +846,7 @@
     "implants": {
       "eyebrow": "Advanced implantology",
       "title": "From a single tooth to a full arch",
-      "lead": "Some situations need more than one implant: a whole arch to restore, a tooth to replace on the day it is removed, or bone that first needs support. How these treatments work, what they can do and where their limits are.",
+      "lead": "Some situations need more than one implant: a whole arch to restore, a tooth to replace on the day it is removed, or bone that first needs support. How these treatments work, what they can do and where their limits are. All of these treatments are offered at both of our clinics, in Antalya and in Istanbul.",
       "fullArch": {
         "label": "All-on-4 & All-on-6",
         "title": "A fixed full arch on four or six implants",
@@ -901,8 +901,7 @@
         "temporaryTitle": "Temporary and final are not the same",
         "temporary": "A bridge fitted soon after surgery is a temporary one, made for the healing phase. The final bridge follows after healing, from more durable materials. “Teeth in a day” can therefore only ever mean temporary teeth — and only when the implants are stable enough.",
         "limitsTitle": "Limits and risks",
-        "limits": "Like any surgery, implant placement carries risks such as swelling, infection, nerve irritation or an implant that does not integrate. A full-arch bridge needs careful daily cleaning, including underneath, and regular check-ups.",
-        "bridgeToggle": "Show the fixed bridge"
+        "limits": "Like any surgery, implant placement carries risks such as swelling, infection, nerve irritation or an implant that does not integrate. A full-arch bridge needs careful daily cleaning, including underneath, and regular check-ups."
       },
       "single": {
         "label": "Single & multiple implants",
@@ -947,7 +946,7 @@
           }
         ],
         "brandsNote": "Company headquarters. Names and trademarks belong to their owners; no endorsement by the manufacturers is implied.",
-        "guarantee": "Your treatment comes with a written guarantee. Its terms depend on the treatment and the implant system, and you receive them in writing before treatment begins."
+        "guarantee": "The implant itself is covered by a written guarantee. Its terms depend on the implant system, and you receive them in writing before treatment begins."
       },
       "immediate": {
         "label": "Same-day implants & immediate loading",

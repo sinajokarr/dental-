@@ -1,6 +1,6 @@
 // V7 renders (D-091): full arch (All-on-4 / All-on-6), bone grafting, sinus lift, CAD/CAM crown, shade tabs.
 // Same studio as D-081 (stage.js): physically based materials, one camera per job, layers that stack exactly.
-import { abutment, crownFromModel, fixture, tooth } from "/geometry.js";
+import { abutment, crownFromModel, fixture, gum, tooth } from "/geometry.js";
 import { archLine, band, block, bridgeBaseProfile, edgeFadeMap, granules, gumProfile, jawProfile, poreMap, smoothShape, sweep, tint } from "/geometry-v7.js";
 
 const titanium = (T) => new T.MeshStandardMaterial({ color: 0xc3c7cc, metalness: 1, roughness: 0.3 });
@@ -54,14 +54,11 @@ function fullArch(assets, T) {
         geometry: fix,
         material: titanium(T),
         group: (m) => {
+          // The wrap sits at the implant platform: facing the arch, then tilted (top distally, apex mesially) about it.
           const wrap = new T.Group();
           wrap.position.set(f.p.x, 0.2, f.p.z);
-          wrap.rotation.y = f.rotY;
-          const pivot = new T.Group();
-          pivot.rotation.z = -side * site.tilt; // top leans distally, apex mesially
+          wrap.rotation.set(0, f.rotY, -side * site.tilt, "YZX");
           m.position.y = -site.len;
-          pivot.add(m);
-          wrap.add(pivot);
           return wrap;
         },
       };
@@ -282,5 +279,175 @@ export const V7_JOBS = {
       return { tabs: SHADES.map((_, i) => px((i - 3.5) * 9.4, 4.5, 3)) };
     },
     layers: [{ name: "tabs", show: ["*"] }],
+  },
+};
+
+// ───────────────────────── films (D-092) ─────────────────────────
+// A crystal (clear acrylic) jaw, as in the teaching models dentists use, so the implants stay visible inside the bone;
+// titanium, porcelain and gingiva as in the stills. Soft studio light, a real contact shadow, a slow camera move.
+const crystal = (T) => new T.MeshPhysicalMaterial({ color: 0xfbfdff, transmission: 1, thickness: 2.2, roughness: 0.035, ior: 1.42, clearcoat: 1, clearcoatRoughness: 0.03, specularIntensity: 1, envMapIntensity: 1.4 });
+const gumGlass = (T) => new T.MeshPhysicalMaterial({ color: 0xe8a09b, transmission: 0.45, thickness: 2.5, roughness: 0.3, clearcoat: 0.6, clearcoatRoughness: 0.2, sheen: 0.5, sheenColor: new T.Color(0xffc4bd), side: T.DoubleSide, transparent: true, alphaMap: edgeFadeMap(T, 0.16) });
+const ease = (a, b, t) => { const x = Math.min(Math.max((t - a) / (b - a), 0), 1); return x * x * (3 - 2 * x); };
+const orbitAt = (cam, T, target, distance, yaw, pitch) => {
+  cam.position.set(target[0] + distance * Math.sin(yaw) * Math.cos(pitch), target[1] + distance * Math.sin(pitch), target[2] + distance * Math.cos(yaw) * Math.cos(pitch));
+  cam.lookAt(new T.Vector3(...target));
+};
+function studio(scene, T, floorY) {
+  scene.background = new T.Color(0xf1ece5);
+  const key = scene.children.filter((c) => c.isDirectionalLight).sort((a, b) => b.intensity - a.intensity)[0];
+  key.castShadow = true;
+  key.shadow.mapSize.set(2048, 2048);
+  Object.assign(key.shadow.camera, { left: -70, right: 70, top: 70, bottom: -70, near: 1, far: 400 });
+  key.shadow.radius = 6;
+  key.position.multiplyScalar(6);
+  const floor = new T.Mesh(new T.PlaneGeometry(600, 600), new T.ShadowMaterial({ opacity: 0.14 }));
+  floor.rotation.x = -Math.PI / 2;
+  floor.position.y = floorY;
+  floor.receiveShadow = true;
+  scene.add(floor);
+  scene.traverse((o) => { if (o.isMesh && o !== floor) o.castShadow = true; });
+}
+
+// All-on-4 / All-on-6: the crystal jaw turns into view, the implants are screwed in (All-on-4: the back two angled),
+// multi-unit abutments follow, the fixed bridge is lowered onto them. 8 s, ends on the complete restoration.
+function fullArchFilm(set) {
+  const other = set === "four" ? "six" : "four";
+  const n = SITES[set].length;
+  return {
+    size: 1080, fov: 21, envIntensity: 0.75, key: 2.6, fill: 0.6, rim: 1.2,
+    parts(assets, T) {
+      const p = fullArch(assets, T);
+      for (const id of Object.keys(p)) if (id.startsWith(other)) delete p[id];
+      p.bone.material = crystal(T);
+      p.gum.material = gumGlass(T);
+      return p;
+    },
+    setup(scene, parts, T) {
+      studio(scene, T, -23);
+      this.base = {};
+      for (const [id, o] of Object.entries(parts)) this.base[id] = o.position.clone();
+    },
+    animate(t, parts, camera, T) {
+      orbitAt(camera, T, [0, -2, -14], 166 - 10 * ease(0, 1, t), -0.62 + 0.7 * ease(0, 1, t), 0.66 - 0.06 * ease(0, 1, t));
+      const step = 0.34 / n;
+      for (let k = 0; k < n; k++) {
+        const f = parts[`${set}Fixture${k}`], a = parts[`${set}Abutment${k}`];
+        const start = 0.12 + step * k, e = ease(start, start + 0.16, t);
+        f.visible = t >= start;
+        const mesh = f.children[0];
+        mesh.position.y = -SITES[set][k].len + 13 * (1 - e);
+        mesh.rotation.y = (1 - e) * Math.PI * 5; // screwed in, as a real implant is placed
+        const as = 0.52 + (0.08 / n) * k, ea = ease(as, as + 0.08, t);
+        a.visible = t >= as;
+        a.position.y = this.base[`${set}Abutment${k}`].y + 5 * (1 - ea);
+      }
+      const eb = ease(0.64, 0.86, t);
+      for (const [id, o] of Object.entries(parts))
+        if (id === "bridgeBase" || id.startsWith("tooth")) {
+          o.visible = t >= 0.64;
+          o.position.y = this.base[id].y + 20 * (1 - eb);
+        }
+    },
+  };
+}
+
+/** Fade a part (all its materials); invisible at 0. */
+function fade(part, o) {
+  part.visible = o > 0.002;
+  part.traverse((n) => {
+    if (!n.material) return;
+    for (const m of Array.isArray(n.material) ? n.material : [n.material]) { m.transparent = true; m.opacity = o; }
+  });
+}
+const sectionStudio = {
+  envIntensity: 0.7, key: 2.5, fill: 0.6, rim: 1.1, size: 1080, fov: 20,
+};
+
+export const V7_FILMS = {
+  // Bone grafting, as a short film: the thin ridge, granules filling the defect, the membrane and a thicker gum, healing
+  // into new bone, then the implant. The camera turns slowly around the section.
+  graft: {
+    ...sectionStudio,
+    parts: graft,
+    setup(scene, parts, T) { studio(scene, T, -25.2); this.base = parts.implant.position.clone(); },
+    animate(t, parts, camera, T) {
+      orbitAt(camera, T, [0.8, -10.5, 0], 104 - 8 * ease(0, 1, t), -0.62 + 0.42 * ease(0, 1, t), 0.08 + 0.06 * ease(0, 1, t));
+      const heal = ease(0.56, 0.7, t);
+      fade(parts.ridge, 1 - heal);
+      fade(parts.newBone, heal);
+      fade(parts.granules, ease(0.14, 0.34, t) * (1 - heal));
+      fade(parts.membrane, ease(0.34, 0.44, t) * (1 - heal));
+      fade(parts.gumNarrow, 1 - ease(0.42, 0.5, t));
+      fade(parts.gumWide, ease(0.44, 0.52, t));
+      const ei = ease(0.72, 0.9, t);
+      parts.implant.visible = t >= 0.72;
+      parts.implant.position.y = this.base.y + 13 * (1 - ei);
+      parts.implant.rotation.y = (1 - ei) * Math.PI * 5;
+    },
+  },
+  // Sinus lift: too little bone under the sinus; the lining is raised, graft fills the space, heals into bone; the
+  // implant is placed from below.
+  sinus: {
+    ...sectionStudio,
+    parts: sinus,
+    setup(scene, parts, T) { studio(scene, T, -2.6); this.base = parts.implant.position.clone(); },
+    animate(t, parts, camera, T) {
+      orbitAt(camera, T, [0, 11.5, 0], 132 - 8 * ease(0, 1, t), -0.55 + 0.4 * ease(0, 1, t), 0.16 - 0.06 * ease(0, 1, t));
+      const lift = ease(0.14, 0.3, t), heal = ease(0.56, 0.7, t);
+      fade(parts.liningLow, 1 - lift);
+      fade(parts.liningHigh, lift);
+      fade(parts.granules, ease(0.3, 0.46, t) * (1 - heal));
+      fade(parts.newBone, heal);
+      const ei = ease(0.72, 0.9, t);
+      parts.implant.visible = t >= 0.72;
+      parts.implant.position.y = this.base.y - 12 * (1 - ei);
+      parts.implant.rotation.y = (1 - ei) * Math.PI * 5;
+    },
+  },
+  fullarch: fullArchFilm("four"),
+  fullarch6: fullArchFilm("six"),
+  // A single implant: a crystal section of the jaw, the implant screwed in, the abutment, the gum and the crown.
+  implant: {
+    size: 1080,
+    fov: 20,
+    envIntensity: 0.75,
+    key: 2.6,
+    fill: 0.6,
+    rim: 1.2,
+    parts(assets, T) {
+      const FIX = 10.5, cutY = FIX + 1.35;
+      const crownMaterial = porcelain(T);
+      crownMaterial.clippingPlanes = [new T.Plane(new T.Vector3(0, 1, 0), -cutY)];
+      crownMaterial.side = T.DoubleSide;
+      const section = block(smoothShape(WIDE.map(([x, y]) => [x * 1.25, y * 0.62 + FIX - 0.2])), { depth: 16, bevel: 0.6 });
+      const crest = WIDE.filter(([, y]) => y > -6).map(([x, y]) => [x * 1.25, y * 0.62 + FIX - 0.2]);
+      const gumBand = band([[-6.6, FIX - 4.5], ...crest.filter(([x]) => x > -5 && x < 6).sort((a, b) => a[0] - b[0]).map(([x, y]) => [x, y + 0.9]), [7.4, FIX - 4.8]], { thickness: 1.8, depth: 16.4 });
+      return {
+        jaw: { geometry: section, material: crystal(T) },
+        fixture: { geometry: fixture({ length: FIX }), material: titanium(T) },
+        abutment: { geometry: abutment(), material: anodized(T), place: (m) => m.position.set(0, FIX, 0) },
+        gum: { geometry: gumBand, material: gingiva(T) },
+        crown: { geometry: crownFromModel(assets.tooth, { scale: 4.7 }), material: crownMaterial, place: (m) => m.position.set(0, cutY - 0.1 * 4.7, 0) },
+      };
+    },
+    setup(scene, parts, T) {
+      studio(scene, T, -6.5);
+      this.base = {};
+      for (const [id, o] of Object.entries(parts)) this.base[id] = o.position.clone();
+    },
+    animate(t, parts, camera, T) {
+      orbitAt(camera, T, [0, 6.5, 0], 104 - 8 * ease(0, 1, t), -0.7 + 0.9 * ease(0, 1, t), 0.28 - 0.08 * ease(0, 1, t));
+      const ef = ease(0.1, 0.38, t);
+      parts.fixture.visible = t >= 0.1;
+      parts.fixture.position.y = this.base.fixture.y + 12 * (1 - ef);
+      parts.fixture.rotation.y = (1 - ef) * Math.PI * 6;
+      const ea = ease(0.42, 0.52, t);
+      parts.abutment.visible = t >= 0.42;
+      parts.abutment.position.y = this.base.abutment.y + 6 * (1 - ea);
+      const ec = ease(0.62, 0.84, t);
+      parts.crown.visible = t >= 0.62;
+      parts.crown.position.y = this.base.crown.y + 12 * (1 - ec);
+      parts.crown.material.clippingPlanes[0].constant = -(10.5 + 1.35 + 12 * (1 - ec)); // the margin travels with the crown
+    },
   },
 };

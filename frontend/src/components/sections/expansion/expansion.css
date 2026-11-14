@@ -52,34 +52,56 @@
   margin-inline: auto;
   aspect-ratio: 4 / 5;
 }
-.xp-stage-art,
 .xp-shot-render {
   position: relative;
   aspect-ratio: 1;
   border-radius: 28px;
   background: radial-gradient(closest-side, var(--color-white), color-mix(in srgb, var(--color-sky-200) 40%, var(--color-ice-50)));
 }
-/* The complete picture (no motion, no JavaScript, after the sequence): earlier steps are hidden. */
-.xp-stage-art :is([data-stage="s1"], [data-stage="s12"], [data-stage="s2"]) {
+/* Films (D-092): the base rule is the finished picture (the last frame); the video shows only while playing or ended. */
+.xp-film {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 28px;
+  background: #f1ece5 center / cover no-repeat;
+  box-shadow: var(--shadow-e2);
+}
+.xp-film-video,
+.xp-film video {
+  position: absolute;
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+}
+.xp-film video {
+  object-fit: cover;
   opacity: 0;
+  transition: opacity 0.4s ease-out;
 }
-.xp-block .xp-layer {
-  inset: 4%;
+.xp-film:is([data-state="play"], [data-state="ended"]) video {
+  opacity: 1;
 }
-.xp-arch-art {
-  position: absolute;
-  inset: -9% -3% 5%; /* the render leaves room above the jaw for the bridge's descent; fill the frame */
+@media (prefers-reduced-motion: reduce) {
+  .xp-film video {
+    display: none;
+  }
 }
-.xp-implants {
-  position: absolute;
-  inset: 0;
+.xp-film-single {
+  inline-size: 100%;
+  max-inline-size: 32rem;
+  margin-inline: auto;
 }
-.xp-bridge-in {
-  position: absolute;
-  inset: 0;
+/* All-on-4 / All-on-6: one film each; the hidden one is display:none, so it loads only once chosen. */
+.xp-film-pair .xp-six,
+.xp-arch:has(input[value="six"]:checked) .xp-four {
+  display: none;
+}
+.xp-arch:has(input[value="six"]:checked) .xp-six {
+  display: block;
 }
 
-/* Step captions under a staged picture */
+/* Step captions under a film */
 .xp-steps-caption {
   display: flex;
   flex-wrap: wrap;
@@ -128,38 +150,9 @@
   border-color: var(--color-blue-700);
   color: var(--color-white);
 }
-.xp-chip-check:has(input:checked) {
-  background: var(--color-white);
-  color: var(--color-blue-700);
-  border-color: var(--color-blue-700);
-}
-.xp-chip-check::before {
-  content: "";
-  inline-size: 1rem;
-  block-size: 1rem;
-  margin-inline-end: 0.6rem;
-  border: 1.5px solid currentColor;
-  border-radius: 4px;
-}
-.xp-chip-check:has(input:checked)::before {
-  background: currentColor;
-  box-shadow: inset 0 0 0 2.5px var(--color-white);
-}
 .xp-chip:has(input:focus-visible) {
   outline: 2px solid var(--color-blue-700);
   outline-offset: 3px;
-}
-.xp-set,
-.xp-bridge {
-  transition: opacity 0.5s var(--ease-out), translate 0.7s var(--ease-out);
-}
-.xp-arch:has(input[value="six"]:checked) .xp-four,
-.xp-arch:has(input[value="four"]:checked) .xp-six {
-  opacity: 0;
-}
-.xp-arch:has(input[name="xp-bridge"]:not(:checked)) .xp-bridge {
-  opacity: 0;
-  translate: 0 -12%;
 }
 /* The concept shown in the picture is marked by its rule, never by fading the text (contrast stays AA). */
 [data-concept] {
@@ -446,44 +439,7 @@
 }
 
 /* ── motion ───────────────────────────────────────────── */
-@keyframes xp-s1 { 0%, 36% { opacity: 1; } 44%, 100% { opacity: 0; } }
-@keyframes xp-s12 { 0%, 76% { opacity: 1; } 84%, 100% { opacity: 0; } }
-@keyframes xp-s2 { 0%, 36% { opacity: 0; } 44%, 76% { opacity: 1; } 84%, 100% { opacity: 0; } }
-@keyframes xp-s23 { 0%, 36% { opacity: 0; } 44%, 100% { opacity: 1; } }
-@keyframes xp-s3 { 0%, 76% { opacity: 0; } 84%, 100% { opacity: 1; } }
-@keyframes xp-in { 0%, 76% { opacity: 0; translate: 0 var(--from-y); } 90%, 100% { opacity: 1; translate: 0 0; } }
-@keyframes xp-cap1 { 0%, 36% { opacity: 1; } 44%, 100% { opacity: 0.45; } }
-@keyframes xp-cap2 { 0%, 36% { opacity: 0.45; } 44%, 76% { opacity: 1; } 84%, 100% { opacity: 0.45; } }
-@keyframes xp-cap3 { 0%, 76% { opacity: 0.45; } 84%, 100% { opacity: 1; } }
-
 @media (prefers-reduced-motion: no-preference) {
-  /* Before the picture is in view: its first step. */
-  [data-motion] .xp-stages:not([data-revealed]) :is([data-stage="s2"], [data-stage="s23"], [data-stage="s3"], .xp-implants, .xp-bridge-in) {
-    opacity: 0;
-  }
-  [data-motion] .xp-stages:not([data-revealed]) :is([data-stage="s1"], [data-stage="s12"]) {
-    opacity: 1;
-  }
-  [data-motion] .xp-stages:not([data-revealed]) .xp-steps-caption li:not([data-stage="s1"]) {
-    opacity: 0.45;
-  }
-  /* In view: the three steps, once (6 s), ending on the complete picture. */
-  [data-motion] .xp-stages[data-revealed] :is([data-stage^="s"], .xp-implants, .xp-bridge-in, .xp-steps-caption li) {
-    animation: 6s var(--ease-out) 0.3s both;
-  }
-  [data-motion] .xp-stages[data-revealed] .xp-layer[data-stage="s1"] { animation-name: xp-s1; }
-  [data-motion] .xp-stages[data-revealed] .xp-layer[data-stage="s12"] { animation-name: xp-s12; }
-  [data-motion] .xp-stages[data-revealed] .xp-layer[data-stage="s2"] { animation-name: xp-s2; }
-  [data-motion] .xp-stages[data-revealed] :is(.xp-layer[data-stage="s23"], .xp-implants) { animation-name: xp-s23; }
-  [data-motion] .xp-stages[data-revealed] .xp-layer[data-stage="s3"] { animation-name: xp-s3; }
-  [data-motion] .xp-stages[data-revealed] :is(.xp-in-down, .xp-in-up, .xp-bridge-in) { animation-name: xp-in; }
-  .xp-in-down { --from-y: -7%; }
-  .xp-in-up { --from-y: 7%; }
-  .xp-bridge-in { --from-y: -16%; }
-  [data-motion] .xp-stages[data-revealed] .xp-steps-caption [data-stage="s1"] { animation-name: xp-cap1; }
-  [data-motion] .xp-stages[data-revealed] .xp-steps-caption [data-stage="s2"] { animation-name: xp-cap2; }
-  [data-motion] .xp-stages[data-revealed] .xp-steps-caption [data-stage="s3"] { animation-name: xp-cap3; }
-
   /* Timeline: the line draws along the steps. */
   [data-motion] .xp-timeline::before {
     transition: scale 2.4s var(--ease-out) 0.2s;

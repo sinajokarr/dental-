@@ -42,41 +42,37 @@ test("fa: no stray English in the new sections (names of products and techniques
   }
 });
 
-test("full arch: All-on-4 / All-on-6 and the bridge are native controls that change the picture", async ({ page }) => {
+test("full arch: the native All-on-4 / All-on-6 choice switches between the two films", async ({ page }) => {
   await page.goto("/en/dental-implants");
-  const four = page.locator(".xp-four").first(), six = page.locator(".xp-six").first(), bridge = page.locator(".xp-bridge");
-  const opacity = (l: typeof four) => l.evaluate((el) => Number(getComputedStyle(el).opacity));
-  await expect.poll(() => opacity(six)).toBe(0);
-  expect(await opacity(four)).toBe(1);
+  const four = page.locator('[data-film="fullarch"]'), six = page.locator('[data-film="fullarch6"]');
+  await expect(four).toBeVisible();
+  await expect(six).toBeHidden();
   await page.getByText("All-on-6", { exact: true }).click();
-  await expect.poll(() => opacity(four)).toBe(0);
-  await expect.poll(() => opacity(six)).toBe(1);
-  await page.getByText("Show the fixed bridge").click();
-  await expect.poll(() => opacity(bridge)).toBe(0);
-  await page.keyboard.press("Space"); // the checkbox keeps focus: the keyboard toggles it back
-  await expect.poll(() => opacity(bridge)).toBe(1);
+  await expect(six).toBeVisible();
+  await expect(four).toBeHidden();
 });
 
-test("reduced motion and no animation: staged pictures show their final step", async ({ page }) => {
+test("reduced motion: every film is its finished last frame and no video is downloaded", async ({ page }) => {
+  const videos: string[] = [];
+  page.on("request", (r) => /\.(webm|mp4)/.test(r.url()) && videos.push(r.url()));
   await page.goto("/en/dental-implants");
-  const art = page.locator(".xp-block-graft");
-  await art.scrollIntoViewIfNeeded();
-  const op = (sel: string) => art.locator(sel).first().evaluate((el) => Number(getComputedStyle(el).opacity));
-  expect(await op('[data-stage="s1"]')).toBe(0);
-  expect(await op('[data-stage="s2"]')).toBe(0);
-  expect(await op('[data-stage="s3"]')).toBe(1);
+  for (const name of ["fullarch", "implant", "graft", "sinus"]) {
+    const film = page.locator(`[data-film="${name}"]`);
+    await film.scrollIntoViewIfNeeded();
+    expect(await film.evaluate((el) => getComputedStyle(el).backgroundImage)).toContain(`${name}-last.webp`);
+  }
+  expect(videos.filter((u) => /fullarch|implant-|graft|sinus/.test(u))).toEqual([]);
 });
 
 test.describe("with motion", () => {
   test.use({ reducedMotion: "no-preference" });
-  test("a staged picture plays once when scrolled into view and ends complete", async ({ page }) => {
+  test("a film loads only when it scrolls into view, then plays once", async ({ page }) => {
     await page.goto("/en/dental-implants");
-    await page.waitForFunction(() => document.documentElement.hasAttribute("data-motion"));
-    const stages = page.locator(".xp-block-sinus");
-    await stages.scrollIntoViewIfNeeded();
-    await expect(stages).toHaveAttribute("data-revealed", "");
-    const implant = stages.locator('[data-stage="s3"]').last();
-    await expect.poll(() => implant.evaluate((el) => Number(getComputedStyle(el).opacity)), { timeout: 12_000 }).toBe(1);
+    const film = page.locator('[data-film="sinus"]');
+    expect(await film.locator("source[src]").count()).toBe(0);
+    await film.scrollIntoViewIfNeeded();
+    await expect(film).toHaveAttribute("data-state", /play|ended|still/, { timeout: 15_000 });
+    expect(await film.locator("source[src]").count()).toBeGreaterThan(0);
   });
 });
 
@@ -90,7 +86,7 @@ test("phone: the new sections never widen the page", async ({ page }) => {
 
 test("pictures load lazily: no expansion render is requested before it is near the viewport", async ({ page }) => {
   const requested: string[] = [];
-  page.on("request", (r) => /fullarch|graft|sinus|crown|shades|photos%2Fv7|photos\/v7/.test(r.url()) && requested.push(r.url()));
+  page.on("request", (r) => /crown|shades|photos%2Fv7|photos\/v7|\.webm|\.mp4/.test(r.url()) && requested.push(r.url()));
   await page.goto("/en/smile-design");
   await page.waitForLoadState("networkidle");
   expect(requested).toEqual([]);

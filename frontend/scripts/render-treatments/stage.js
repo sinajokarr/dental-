@@ -4,7 +4,7 @@
 import * as THREE from "three";
 import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
 import { JOBS } from "/jobs.js";
-import { V7_JOBS } from "/jobs-v7.js";
+import { V7_FILMS, V7_JOBS } from "/jobs-v7.js";
 
 const canvas = document.createElement("canvas");
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, preserveDrawingBuffer: true });
@@ -75,5 +75,61 @@ window.__run = async (jobName, assets) => {
   }
   if (job.meta) out.meta = job.meta(parts, camera, THREE, size);
   return out;
+};
+// Films (D-092): a job animated over t ∈ [0, 1] is rendered frame by frame and recorded at a steady frame rate. Rendering
+// is slower than real time, so the recorders are paused while a frame renders and resumed only to take it.
+window.__film = async (name, assets, { fps = 30, seconds = 8, sizes = [720, 480], kbps = [1000, 420] }) => {
+  const job = V7_FILMS[name];
+  const size = job.size ?? 1080;
+  renderer.setSize(size, size, false);
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  const { scene, parts } = buildScene(job, assets);
+  const camera = new THREE.PerspectiveCamera(job.fov ?? 20, 1, 1, 600);
+  job.setup?.(scene, parts, THREE, camera);
+  const outs = sizes.map((s, i) => {
+    const c = document.createElement("canvas");
+    c.width = c.height = s;
+    const ctx = c.getContext("2d");
+    ctx.imageSmoothingQuality = "high";
+    const stream = c.captureStream(0);
+    const track = stream.getVideoTracks()[0];
+    const recs = ["video/webm;codecs=vp9", "video/mp4;codecs=avc1.42E01F"].filter((m) => MediaRecorder.isTypeSupported(m)).map((mime) => {
+      const r = new MediaRecorder(stream, { mimeType: mime, videoBitsPerSecond: kbps[i] * 1000 });
+      const chunks = [];
+      r.ondataavailable = (e) => e.data.size && chunks.push(e.data);
+      r.start();
+      r.pause();
+      return { mime, r, chunks };
+    });
+    return { s, c, ctx, track, recs };
+  });
+  const frames = Math.round(fps * seconds);
+  let last = "";
+  for (let i = 0; i < frames; i++) {
+    job.animate(i / (frames - 1), parts, camera, THREE);
+    camera.updateProjectionMatrix();
+    renderer.render(scene, camera);
+    for (const o of outs) {
+      o.ctx.drawImage(canvas, 0, 0, o.s, o.s);
+      for (const { r } of o.recs) r.resume();
+      o.track.requestFrame();
+    }
+    await new Promise((ok) => setTimeout(ok, 1000 / fps));
+    for (const o of outs) for (const { r } of o.recs) r.pause();
+    if (i === frames - 1) last = canvas.toDataURL("image/png");
+  }
+  const result = { last, videos: {} };
+  for (const o of outs)
+    for (const { mime, r, chunks } of o.recs) {
+      r.resume();
+      await new Promise((ok) => { r.onstop = ok; r.stop(); });
+      const blob = new Blob(chunks, { type: mime });
+      const bytes = new Uint8Array(await blob.arrayBuffer());
+      let bin = "";
+      for (let k = 0; k < bytes.length; k += 0x8000) bin += String.fromCharCode(...bytes.subarray(k, k + 0x8000));
+      result.videos[`${o.s}.${mime.includes("mp4") ? "mp4" : "webm"}`] = btoa(bin);
+    }
+  return result;
 };
 window.__ready = true;

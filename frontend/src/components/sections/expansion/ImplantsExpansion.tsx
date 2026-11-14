@@ -2,35 +2,13 @@ import { getMessages } from "next-intl/server";
 import type { CSSProperties } from "react";
 import { Section, SectionHeader } from "@/components/ui/Section";
 import bridgePhoto from "../../../assets/photos/v7/full-arch-bridge.jpg";
-import implantModel from "../../../assets/photos/v7/implant-model.jpg";
-import bone from "../../../assets/treatments/fullarch/bone.png";
-import bridge from "../../../assets/treatments/fullarch/bridge.png";
-import fourAbutments from "../../../assets/treatments/fullarch/four-abutments.png";
-import fourFixtures from "../../../assets/treatments/fullarch/four-fixtures.png";
-import gum from "../../../assets/treatments/fullarch/gum.png";
-import sixAbutments from "../../../assets/treatments/fullarch/six-abutments.png";
-import sixFixtures from "../../../assets/treatments/fullarch/six-fixtures.png";
-import graftGranules from "../../../assets/treatments/graft/granules.png";
-import graftGumNarrow from "../../../assets/treatments/graft/gum-narrow.png";
-import graftGumWide from "../../../assets/treatments/graft/gum-wide.png";
-import graftImplant from "../../../assets/treatments/graft/implant.png";
-import graftMembrane from "../../../assets/treatments/graft/membrane.png";
-import graftNewBone from "../../../assets/treatments/graft/new-bone.png";
-import graftRidge from "../../../assets/treatments/graft/ridge.png";
-import sinusGranules from "../../../assets/treatments/sinus/granules.png";
-import sinusGum from "../../../assets/treatments/sinus/gum.png";
-import sinusImplant from "../../../assets/treatments/sinus/implant.png";
-import sinusLiningHigh from "../../../assets/treatments/sinus/lining-high.png";
-import sinusLiningLow from "../../../assets/treatments/sinus/lining-low.png";
-import sinusMaxilla from "../../../assets/treatments/sinus/maxilla.png";
-import sinusNewBone from "../../../assets/treatments/sinus/new-bone.png";
-import { Ask, Frame, Layer, Stages, SubHeading } from "./parts";
+import { Ask, Film, Frame, Steps, SubHeading } from "./parts";
 
 type Support = { key: "graft" | "sinus"; title: string; lead: string; points: string[]; stages: string[] };
 
 // V7 expansion of the implant page (D-091): advanced implantology after the page's own content, before the international
 // band. Full arch (All-on-4 / All-on-6), single and multiple implants with the confirmed implant systems, immediate
-// loading, and the supporting procedures (bone grafting, sinus lift). Teaching renders and licensed photographs only.
+// loading, and the supporting procedures (bone grafting, sinus lift). Short teaching films rendered for the site (D-092) and licensed photographs.
 export async function ImplantsExpansion() {
   const { expansion } = await getMessages();
   const { implants } = expansion;
@@ -47,23 +25,11 @@ export async function ImplantsExpansion() {
 
         <div className="xp-split mt-16 lg:mt-24" data-xp="full-arch">
           <div className="xp-arch">
-            <Stages label={expansion.stage} steps={fa.stages}>
-              <div className="xp-arch-art">
-                <div className="xp-implants">
-                  <Layer src={fourFixtures} className="xp-set xp-four" />
-                  <Layer src={sixFixtures} className="xp-set xp-six" />
-                </div>
-                <Layer src={bone} className="xp-arch-bone" />
-                <Layer src={gum} className="xp-arch-gum" />
-                <div className="xp-implants">
-                  <Layer src={fourAbutments} className="xp-set xp-four" />
-                  <Layer src={sixAbutments} className="xp-set xp-six" />
-                </div>
-                <div className="xp-bridge-in">
-                  <Layer src={bridge} className="xp-bridge" />
-                </div>
-              </div>
-            </Stages>
+            <div className="xp-film-pair">
+              <Film name="fullarch" className="xp-four" />
+              <Film name="fullarch6" className="xp-six" />
+            </div>
+            <Steps label={expansion.stage} steps={fa.stages} />
             <fieldset className="xp-controls">
               <legend className="text-small font-semibold text-navy-900">{fa.toggle}</legend>
               <div className="mt-3 flex flex-wrap gap-2">
@@ -73,10 +39,6 @@ export async function ImplantsExpansion() {
                     {concept.label}
                   </label>
                 ))}
-                <label className="xp-chip xp-chip-check">
-                  <input type="checkbox" name="xp-bridge" defaultChecked className="sr-only" />
-                  {fa.bridgeToggle}
-                </label>
               </div>
             </fieldset>
             <p className="mt-4 text-small text-slate-600">{fa.caption}</p>
@@ -138,7 +100,7 @@ export async function ImplantsExpansion() {
 
       <Section labelledBy="xp-single">
         <div className="xp-split xp-split-photo">
-          <Frame src={implantModel} sizes="(min-width: 64rem) 30rem, 92vw" className="xp-portrait" position="50% 55%" />
+          <Film name="implant" className="xp-film-single" />
           <div>
             <SubHeading id="xp-single" label={single.label} title={single.title} lead={single.lead} />
             <dl className="mt-10 grid gap-x-8 gap-y-7 sm:grid-cols-2">
@@ -209,29 +171,8 @@ export async function ImplantsExpansion() {
         <div className="mt-14 grid gap-14 lg:grid-cols-2 lg:gap-12">
           {support.items.map((item) => (
             <article key={item.key} aria-labelledby={`xp-${item.key}`} className="xp-support">
-              <Stages label={expansion.stage} steps={item.stages} className={`xp-block xp-block-${item.key}`}>
-                {item.key === "graft" ? (
-                  <>
-                    <Layer src={graftRidge} stage="s12" />
-                    <Layer src={graftNewBone} stage="s3" />
-                    <Layer src={graftGranules} stage="s2" />
-                    <Layer src={graftMembrane} stage="s2" />
-                    <Layer src={graftGumNarrow} stage="s1" />
-                    <Layer src={graftGumWide} stage="s23" />
-                    <Layer src={graftImplant} stage="s3" className="xp-in-down" />
-                  </>
-                ) : (
-                  <>
-                    <Layer src={sinusMaxilla} />
-                    <Layer src={sinusLiningLow} stage="s1" />
-                    <Layer src={sinusGranules} stage="s2" />
-                    <Layer src={sinusNewBone} stage="s3" />
-                    <Layer src={sinusLiningHigh} stage="s23" />
-                    <Layer src={sinusGum} />
-                    <Layer src={sinusImplant} stage="s3" className="xp-in-up" />
-                  </>
-                )}
-              </Stages>
+              <Film name={item.key} />
+              <Steps label={expansion.stage} steps={item.stages} />
               <h4 id={`xp-${item.key}`} className="xp-h3 mt-8 font-display font-light">
                 {item.title}
               </h4>

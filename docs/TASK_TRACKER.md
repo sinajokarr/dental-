@@ -155,3 +155,4 @@
 | V7-04 | عکس‌های مجوزدار | — | `assets/photos/v7/*`، `ASSET_LICENSES.md` | ۶ عکس Pexels | — | S | ✅ |
 | V7-05 | پیاده‌سازی بخش‌ها | V7-02…04 | `sections/expansion/*`، دو route، `TreatmentPage` (prop) | بدون JS کلاینت | e2e expansion | M | ✅ |
 | V7-06 | QA نهایی | V7-05 | کل مجموعه | scope، ۸ صفحه، RTL، موبایل، a11y | کل e2e | S | ✅ (Lighthouse/دستگاه واقعی: NOT RUN) |
+| V7-07 | فیلم‌های سینمایی ایمپلنت + پاسخ‌های کارفرما | V7-06 | `film.mjs`، `jobs-v7.js`، `public/images/treatments/{fullarch,fullarch6,implant,graft,sinus}-*`، `expansion/*`، `messages/*` | ۵ فیلم، ضمانت ایمپلنت، هر دو شعبه | unit 65/65، e2e 104 passed | M | ✅ (Firefox/Safari/گوشی واقعی: NOT RUN) |
